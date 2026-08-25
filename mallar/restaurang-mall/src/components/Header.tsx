@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 
 /** Sidhuvudets länkar. Lägg till eller ta bort rader här vid behov. */
@@ -31,8 +31,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", vidRullning);
   }, []);
 
-  // Stäng mobilmenyn vid sidbyte och lås bakgrundens rullning när den är öppen.
-  useEffect(() => setOppenMeny(false), [sokvag]);
+  // Stäng mobilmenyn vid sidbyte (justering under rendering enligt Reacts
+  // rekommenderade mönster, istället för setState i en effekt).
+  const [senasteSokvag, setSenasteSokvag] = useState(sokvag);
+  if (sokvag !== senasteSokvag) {
+    setSenasteSokvag(sokvag);
+    setOppenMeny(false);
+  }
+
+  // Lås bakgrundens rullning när mobilmenyn är öppen.
   useEffect(() => {
     document.body.style.overflow = oppenMeny ? "hidden" : "";
     return () => {
