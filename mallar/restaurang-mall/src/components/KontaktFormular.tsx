@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState } from "react";
 
+import { skickaKontakt, type KontaktResultat } from "@/app/kontakt/actions";
 import { restaurang } from "@/lib/kund";
-
-type Status = "vilande" | "skickar" | "klart" | "fel";
 
 const ARENDEN = [
   "Bordsbokning",
@@ -17,46 +16,17 @@ const faltKlass =
   "w-full rounded-mall border border-ram bg-yta px-4 py-3 text-base " +
   "outline-none transition-colors placeholder:text-dampad/60 focus:border-accent";
 
+const START: KontaktResultat = { status: "vilande" };
+
 /**
- * Kontaktformulär som skickar till /api/kontakt.
- *
- * Fungerar utan JavaScript-beroenden, validerar i webbläsaren och har
- * en dold honungsfälla ("webbplats") som fångar upp skräppost-robotar.
+ * Kontaktformulär som skickar via en server action (se kontakt/actions.ts).
+ * Fungerar utan JavaScript tack vare <form action> - med JavaScript får
+ * besökaren statusuppdateringar utan sidladdning.
  */
 export default function KontaktFormular() {
-  const [status, setStatus] = useState<Status>("vilande");
-  const [felmeddelande, setFelmeddelande] = useState("");
+  const [resultat, skicka, skickar] = useActionState(skickaKontakt, START);
 
-  async function skicka(handelse: FormEvent<HTMLFormElement>) {
-    handelse.preventDefault();
-    const formular = handelse.currentTarget;
-    setStatus("skickar");
-    setFelmeddelande("");
-
-    try {
-      const svar = await fetch("/api/kontakt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(formular))),
-      });
-
-      const data = (await svar.json()) as { fel?: string };
-
-      if (!svar.ok) {
-        setFelmeddelande(data.fel ?? "Något gick fel. Försök igen om en stund.");
-        setStatus("fel");
-        return;
-      }
-
-      formular.reset();
-      setStatus("klart");
-    } catch {
-      setFelmeddelande("Vi kunde inte nå servern. Kontrollera din uppkoppling.");
-      setStatus("fel");
-    }
-  }
-
-  if (status === "klart") {
+  if (resultat.status === "klart") {
     return (
       <div
         role="status"
@@ -67,19 +37,12 @@ export default function KontaktFormular() {
           Vi återkommer så snart vi kan, oftast inom ett dygn. Vill du ha svar
           direkt är du välkommen att ringa {restaurang.kontakt.telefon}.
         </p>
-        <button
-          type="button"
-          onClick={() => setStatus("vilande")}
-          className="mt-6 text-sm text-accent underline underline-offset-4"
-        >
-          Skicka ett till meddelande
-        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={skicka} className="space-y-5" noValidate={false}>
+    <form action={skicka} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="namn" className="mb-2 block text-sm font-medium">
@@ -163,22 +126,27 @@ export default function KontaktFormular() {
         <input id="webbplats" name="webbplats" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      {status === "fel" && (
+      {resultat.status === "fel" && (
         <p role="alert" className="rounded-mall border border-red-300 bg-red-50 p-4 text-sm text-red-800">
-          {felmeddelande}
+          {resultat.fel}
         </p>
       )}
 
       <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
         <button
           type="submit"
-          disabled={status === "skickar"}
+          disabled={skickar}
           className="inline-flex items-center justify-center rounded-mall bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-accent-text transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "skickar" ? "Skickar ..." : "Skicka meddelande"}
+          {skickar ? "Skickar ..." : "Skicka meddelande"}
         </button>
         <p className="text-xs text-dampad">
-          Vi använder bara dina uppgifter för att svara på ditt meddelande.
+          Vi använder bara dina uppgifter för att svara på ditt meddelande. Läs
+          mer i vår{" "}
+          <a href="/integritetspolicy" className="underline underline-offset-2">
+            integritetspolicy
+          </a>
+          .
         </p>
       </div>
     </form>

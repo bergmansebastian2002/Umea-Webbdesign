@@ -22,7 +22,7 @@ export default function BokaBordKnapp({
 
   if (!bokning.aktiv) {
     return (
-      <Knapp href={`tel:${kontakt.telefonLank}`} variant={variant} className={className}>
+      <Knapp href={`tel:${kontakt.telefonLank}`} variant={variant} className={className} spar="ring">
         Ring och boka {kontakt.telefon}
       </Knapp>
     );
@@ -34,6 +34,7 @@ export default function BokaBordKnapp({
         href={bokning.lank}
         variant={variant}
         className={className}
+        spar="boka"
         ariaLabel={`${bokning.knapptext} hos ${restaurang.namn} - öppnas i nytt fönster`}
       >
         {bokning.knapptext}

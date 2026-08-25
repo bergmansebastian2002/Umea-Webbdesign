@@ -26,6 +26,8 @@ type Props = {
   extern?: boolean;
   className?: string;
   ariaLabel?: string;
+  /** Spårningsetikett för analys: "boka" eller "ring". */
+  spar?: "boka" | "ring";
 };
 
 /** Knapp som renderas som länk. Använd `variant` för att byta utseende. */
@@ -36,6 +38,7 @@ export default function Knapp({
   extern,
   className = "",
   ariaLabel,
+  spar,
 }: Props) {
   const klasser = `${bas} ${varianter[variant]} ${className}`;
   const arExtern = extern ?? /^https?:\/\//.test(href);
@@ -48,6 +51,7 @@ export default function Knapp({
         rel="noopener noreferrer"
         className={klasser}
         aria-label={ariaLabel}
+        data-spar={spar}
       >
         {children}
       </a>
@@ -55,7 +59,7 @@ export default function Knapp({
   }
 
   return (
-    <Link href={href} className={klasser} aria-label={ariaLabel}>
+    <Link href={href} className={klasser} aria-label={ariaLabel} data-spar={spar}>
       {children}
     </Link>
   );
