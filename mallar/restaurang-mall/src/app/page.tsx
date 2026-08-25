@@ -3,11 +3,14 @@ import type { ReactNode } from "react";
 
 import { meny, restaurang } from "@/lib/kund";
 import type { Startsidesektion } from "@/lib/typer";
+import Betyg from "@/components/Betyg";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
+import Evenemang from "@/components/Evenemang";
 import Galleri from "@/components/Galleri";
 import Hero from "@/components/Hero";
 import Karta from "@/components/Karta";
 import Knapp from "@/components/Knapp";
+import MenyHojdpunkter from "@/components/MenyHojdpunkter";
 import MenyLista from "@/components/MenyLista";
 import Oppettider from "@/components/Oppettider";
 import Sektion from "@/components/Sektion";
@@ -142,18 +145,14 @@ function HittaHit() {
   );
 }
 
-/**
- * Register: sektionsnamn i config -> komponent.
- * "menyHojdpunkter", "betyg" och "evenemang" byggs i kommande steg -
- * tills dess renderas de inte, men får redan väljas i konfigen.
- */
+/** Register: sektionsnamn i config -> komponent. */
 const SEKTIONER: Record<Startsidesektion, () => ReactNode> = {
   omOss: OmOss,
   menySmakprov: MenySmakprov,
-  menyHojdpunkter: () => null,
+  menyHojdpunkter: MenyHojdpunkter,
   galleri: GalleriSektion,
-  betyg: () => null,
-  evenemang: () => null,
+  betyg: Betyg,
+  evenemang: Evenemang,
   bokaCta: BokaCta,
   hittaHit: HittaHit,
 };

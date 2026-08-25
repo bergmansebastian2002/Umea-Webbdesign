@@ -49,6 +49,8 @@ export type Menyratt = {
   prisText?: string;
   /** Märkningar som visas som små etiketter, t.ex. ["Vegetariskt", "Glutenfri"]. */
   markningar?: string[];
+  /** Allergener som visas diskret under rätten, t.ex. ["Nötter", "Laktos"]. */
+  allergener?: string[];
   /** Lyfter fram rätten med en ram och etikett. */
   populär?: boolean;
   /** Bild för menyhöjdpunkter på startsidan, t.ex. "/kunder/bjorken/ratt-1.png". */

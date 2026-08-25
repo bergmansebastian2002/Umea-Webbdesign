@@ -45,6 +45,12 @@ function Sektion({ sektion }: { sektion: Menysektion }) {
               </p>
             )}
 
+            {ratt.allergener && ratt.allergener.length > 0 && (
+              <p className="mt-1.5 text-xs text-dampad/80">
+                Innehåller: {ratt.allergener.join(", ").toLowerCase()}
+              </p>
+            )}
+
             {(ratt.markningar?.length || ratt.populär) && (
               <ul className="mt-2.5 flex flex-wrap gap-2">
                 {ratt.populär && (

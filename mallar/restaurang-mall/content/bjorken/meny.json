@@ -11,12 +11,18 @@
           "namn": "Rimmad röding",
           "beskrivning": "Pepparrot, inlagd gurka, dillolja och knäckebröd",
           "pris": 165,
-          "populär": true
+          "populär": true,
+          "bild": "/kunder/bjorken/om-oss.webp"
         },
         {
           "namn": "Toast Skagen",
           "beskrivning": "Handskalade räkor, dill, citron och löjrom på brioche",
-          "pris": 185
+          "pris": 185,
+          "allergener": [
+            "Skaldjur",
+            "Gluten",
+            "Ägg"
+          ]
         },
         {
           "namn": "Rostad rotselleri",
@@ -24,6 +30,9 @@
           "pris": 145,
           "markningar": [
             "Vegetariskt"
+          ],
+          "allergener": [
+            "Nötter"
           ]
         },
         {
@@ -78,7 +87,10 @@
           "beskrivning": "Vit choklad, rostad havre och citronmeliss",
           "pris": 135,
           "bild": "/kunder/bjorken/galleri/ratt-2.webp",
-          "populär": true
+          "populär": true,
+          "allergener": [
+            "Laktos"
+          ]
         },
         {
           "namn": "Chokladtryffel",
@@ -86,6 +98,9 @@
           "pris": 125,
           "markningar": [
             "Glutenfri"
+          ],
+          "allergener": [
+            "Laktos"
           ]
         },
         {
