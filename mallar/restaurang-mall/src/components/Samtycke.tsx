@@ -72,9 +72,9 @@ export default function Samtycke() {
         >
           <p className="text-sm leading-relaxed">
             Vi vill använda anonym besöksstatistik för att förstå hur sidan
-            används. Inga uppgifter säljs eller delas.{" "}
+            används. Inga uppgifter säljs eller delas. Läs mer i vår{" "}
             <a href="/integritetspolicy" className="underline underline-offset-2">
-              Läs mer
+              integritetspolicy
             </a>
             .
           </p>
