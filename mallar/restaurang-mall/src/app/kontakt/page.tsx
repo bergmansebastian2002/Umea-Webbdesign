@@ -11,7 +11,7 @@ const { kontakt, seo, sektioner } = restaurang;
 
 export const metadata = byggMetadata({
   titel: "Kontakt",
-  beskrivning: `Kontakta ${restaurang.namn} i ${seo.stad}. Ring ${kontakt.telefon}, mejla ${kontakt.epost} eller skicka ett meddelande via formuläret.`,
+  beskrivning: `Kontakta ${restaurang.namn} i ${seo.stad}. Ring ${kontakt.telefon}${kontakt.epost ? `, mejla ${kontakt.epost}` : ""} eller besök oss på ${kontakt.gata}.`,
   sokvag: "/kontakt",
 });
 
@@ -37,11 +37,18 @@ export default function Kontaktsida() {
                   Ring oss på{" "}
                   <a href={`tel:${kontakt.telefonLank}`} className="text-accent">
                     {kontakt.telefon}
-                  </a>{" "}
-                  eller mejla{" "}
-                  <a href={`mailto:${kontakt.epost}`} className="text-accent">
-                    {kontakt.epost}
                   </a>
+                  {kontakt.epost ? (
+                    <>
+                      {" "}
+                      eller mejla{" "}
+                      <a href={`mailto:${kontakt.epost}`} className="text-accent">
+                        {kontakt.epost}
+                      </a>
+                    </>
+                  ) : (
+                    <> så hjälper vi dig direkt</>
+                  )}
                   .
                 </p>
               </div>
@@ -55,9 +62,11 @@ export default function Kontaktsida() {
                 <a href={`tel:${kontakt.telefonLank}`} className="block hover:text-accent">
                   {kontakt.telefon}
                 </a>
-                <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
-                  {kontakt.epost}
-                </a>
+                {kontakt.epost && (
+                  <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
+                    {kontakt.epost}
+                  </a>
+                )}
               </div>
               <address className="mt-4 space-y-1 text-sm not-italic text-dampad">
                 <span className="block">{kontakt.gata}</span>

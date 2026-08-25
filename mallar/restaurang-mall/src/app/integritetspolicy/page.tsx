@@ -32,10 +32,17 @@ export default function Integritetspolicy() {
               {restaurang.namn}
               {restaurang.orgNr ? ` (org.nr ${restaurang.orgNr})` : ""}, {kontakt.gata},{" "}
               {kontakt.postnummer} {kontakt.ort}. Kontakta oss på{" "}
-              <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-2">
-                {kontakt.epost}
-              </a>{" "}
-              eller {kontakt.telefon} vid frågor om personuppgifter.
+              {kontakt.epost ? (
+                <>
+                  <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-2">
+                    {kontakt.epost}
+                  </a>{" "}
+                  eller {kontakt.telefon}
+                </>
+              ) : (
+                <>{kontakt.telefon}</>
+              )}{" "}
+              vid frågor om personuppgifter.
             </p>
           </div>
 
