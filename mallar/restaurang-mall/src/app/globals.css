@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Färger och typsnitt sätts från config/restaurang.ts och skickas in som
+   CSS-variabler på <html> i layout.tsx. Värdena här nedanför är bara
+   reservvärden om något skulle saknas.
+--------------------------------------------------------------------------- */
+:root {
+  --farg-bakgrund: #faf8f5;
+  --farg-yta: #ffffff;
+  --farg-text: #1c1a17;
+  --farg-text-dampad: #6b645b;
+  --farg-primar: #1f2b26;
+  --farg-accent: #a8763e;
+  --farg-accent-text: #ffffff;
+  --farg-ram: #e6e0d7;
+  --rundning: 4px;
+}
+
+/* Kopplar CSS-variablerna till Tailwind-klasser: bg-bakgrund, text-accent osv. */
+@theme inline {
+  --color-bakgrund: var(--farg-bakgrund);
+  --color-yta: var(--farg-yta);
+  --color-text: var(--farg-text);
+  --color-dampad: var(--farg-text-dampad);
+  --color-primar: var(--farg-primar);
+  --color-accent: var(--farg-accent);
+  --color-accent-text: var(--farg-accent-text);
+  --color-ram: var(--farg-ram);
+
+  --font-rubrik: var(--typsnitt-rubrik), Georgia, "Times New Roman", serif;
+  --font-brod: var(--typsnitt-brod), system-ui, -apple-system, sans-serif;
+
+  --radius-mall: var(--rundning);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Kompenserar för den fasta menyn vid hopp till ankarlänkar. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--farg-bakgrund);
+    color: var(--farg-text);
+    font-family: var(--font-brod);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-rubrik);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Tydlig men diskret fokusmarkering - viktigt för tangentbordsnavigering. */
+  :focus-visible {
+    outline: 2px solid var(--farg-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--farg-accent);
+    color: var(--farg-accent-text);
+  }
+
+  /* Respekterar besökare som valt bort animationer i sitt operativsystem. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Standardbredd för allt innehåll. */
+  .omslag {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .omslag { padding-inline: 2rem; }
+  }
+
+  /* Liten versal etikett ovanför rubriker. */
+  .etikett {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--farg-accent);
+    font-weight: 600;
+  }
+
+  /* Mjuk inglidning när sektioner rullas in i bild. */
+  .glid-in {
+    animation: glidIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes glidIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
