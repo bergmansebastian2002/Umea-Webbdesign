@@ -97,6 +97,18 @@ for (const kalla of original) {
 
   const kb = (resultat.size / 1024).toFixed(0);
   console.log(`  ${publikSokvag.padEnd(48)} ${resultat.width}x${resultat.height}  ${kb} kB`);
+
+  // Delningsbilden behövs även som JPEG i 1200x630 - den genererade
+  // Open Graph-bilden (next/og) kan inte läsa WebP.
+  if (utanAndelse === "delning") {
+    const ogMal = join(MALMAPP, "delning-og.jpg");
+    await sharp(kalla)
+      .rotate()
+      .resize(1200, 630, { fit: "cover" })
+      .jpeg({ quality: 80 })
+      .toFile(ogMal);
+    console.log(`  /kunder/${slug}/delning-og.jpg`.padEnd(50) + " 1200x630  (delningsbild)");
+  }
 }
 
 writeFileSync(DATAFIL, JSON.stringify(bilddata, null, 2) + "\n");

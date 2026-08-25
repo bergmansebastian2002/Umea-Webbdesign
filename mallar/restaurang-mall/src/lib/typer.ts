@@ -223,8 +223,12 @@ export type Restaurangkonfig = {
     omOss: string;
     /** Beskrivning av om oss-bilden för skärmläsare och Google. */
     omOssAlt?: string;
-    /** Delningsbild för Facebook, Instagram och Google. Exakt 1200 x 630 px. */
-    delning: string;
+    /**
+     * Valfri egen delningsbild (1200 x 630 px). Utelämnas den genereras en
+     * grafisk delningsbild automatiskt i kundens färger (next/og) - har
+     * kunden en bild används den som bakgrund med namnet ovanpå.
+     */
+    delning?: string;
     galleri: Galleribild[];
   };
 

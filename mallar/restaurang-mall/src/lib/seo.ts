@@ -21,23 +21,17 @@ type SidMetadata = {
   beskrivning: string;
   /** Sökväg, t.ex. "/meny". */
   sokvag: string;
-  /** Egen delningsbild. Standard är bilden i config. */
-  bild?: string;
 };
 
 /**
  * Skapar metadata för en enskild sida. Lägger automatiskt på
  * restaurangnamn, ort, canonical-länk och Open Graph-taggar.
  */
-export function byggMetadata({
-  titel,
-  beskrivning,
-  sokvag,
-  bild,
-}: SidMetadata): Metadata {
+export function byggMetadata({ titel, beskrivning, sokvag }: SidMetadata): Metadata {
   const fullTitel = `${titel} | ${restaurang.namn} - ${restaurang.seo.stad}`;
-  const delningsbild = absolutUrl(bild ?? restaurang.bilder.delning);
 
+  // Delningsbilden sätts inte här: den genereras automatiskt av
+  // src/app/opengraph-image.tsx och gäller alla sidor.
   return {
     title: titel,
     description: beskrivning,
@@ -49,13 +43,11 @@ export function byggMetadata({
       url: absolutUrl(sokvag),
       title: fullTitel,
       description: beskrivning,
-      images: [{ url: delningsbild, width: 1200, height: 630, alt: restaurang.namn }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitel,
       description: beskrivning,
-      images: [delningsbild],
     },
   };
 }

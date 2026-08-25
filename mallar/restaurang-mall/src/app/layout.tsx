@@ -49,20 +49,11 @@ export const metadata: Metadata = {
     url: sajtUrl,
     title: `${restaurang.namn} - ${restaurang.slogan}`,
     description: restaurang.kortBeskrivning,
-    images: [
-      {
-        url: absolutUrl(restaurang.bilder.delning),
-        width: 1200,
-        height: 630,
-        alt: `${restaurang.namn} i ${restaurang.seo.stad}`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${restaurang.namn} - ${restaurang.slogan}`,
     description: restaurang.kortBeskrivning,
-    images: [absolutUrl(restaurang.bilder.delning)],
   },
   robots: {
     index: true,
@@ -90,7 +81,7 @@ export const viewport: Viewport = {
 export default function RotLayout({ children }: { children: ReactNode }) {
   return (
     <html
-      lang="sv"
+      lang="sv-SE"
       data-art={restaurang.design.artDirection}
       className={typsnittsklasser}
       style={fargvariabler}
