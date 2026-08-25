@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 
 type Status = "vilande" | "skickar" | "klart" | "fel";
 

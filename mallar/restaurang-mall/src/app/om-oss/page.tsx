@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Brodsmulor from "@/components/Brodsmulor";
 import Galleri from "@/components/Galleri";
@@ -50,7 +50,7 @@ export default function OmOssSida() {
         </div>
       </Sektion>
 
-      {restaurang.sektioner.galleri && bilder.galleri.length > 0 && (
+      {restaurang.startsidaSektioner.includes("galleri") && bilder.galleri.length > 0 && (
         <Sektion
           etikett="Galleri"
           rubrik="Bilder från restaurangen"

@@ -51,6 +51,8 @@ export type Menyratt = {
   markningar?: string[];
   /** Lyfter fram rätten med en ram och etikett. */
   populär?: boolean;
+  /** Bild för menyhöjdpunkter på startsidan, t.ex. "/kunder/bjorken/ratt-1.png". */
+  bild?: string;
 };
 
 export type Menysektion = {
@@ -79,6 +81,56 @@ export type Galleribild = {
   staende?: boolean;
 };
 
+/**
+ * Art direction - sajtens grundkaraktär. Väljer standardfärger och typsnitt.
+ *  "klassisk"  varm, mörk, serifrubriker, guldaccent - fine dining, husmanskost
+ *  "nordisk"   ljus, luftig, sans-serif - bistro, brunch, bageri
+ *  "livlig"    hög kontrast, kraftiga färger - pizzeria, burgare, streetfood
+ */
+export type ArtDirection = "klassisk" | "nordisk" | "livlig";
+
+/** Ett recensionscitat, t.ex. från Google. */
+export type Recension = {
+  text: string;
+  /** Förnamn räcker, t.ex. "Anna L.". */
+  namn: string;
+  /** Var omdömet kommer ifrån, t.ex. "Google". */
+  kalla?: string;
+};
+
+/** Restaurangens betyg - visas i social proof-sektionen och i strukturerad data. */
+export type Betyg = {
+  /** Snittbetyg 1-5, t.ex. 4.6. */
+  snitt: number;
+  /** Antal omdömen betyget bygger på. */
+  antal: number;
+  recensioner: Recension[];
+};
+
+/** Ett evenemang eller erbjudande, t.ex. julbord eller afterwork. */
+export type Evenemang = {
+  rubrik: string;
+  beskrivning: string;
+  /** Fritext, t.ex. "Fredagar 16-18" eller "1-23 december". */
+  datumText?: string;
+  /** Valfri länk, t.ex. till bokningen. */
+  lank?: string;
+};
+
+/**
+ * Sektioner som kan visas på startsidan, i valfri ordning.
+ * Utelämna en sektion ur listan för att dölja den.
+ */
+export type Startsidesektion =
+  | "omOss"
+  | "menySmakprov"
+  | "menyHojdpunkter"
+  | "galleri"
+  | "betyg"
+  | "evenemang"
+  | "bokaCta"
+  | "hittaHit";
+
 export type Fardschema = {
   /** Bakgrund på sajten. Ljus, dämpad ton fungerar bäst. */
   bakgrund: string;
@@ -99,6 +151,8 @@ export type Fardschema = {
 };
 
 export type Restaurangkonfig = {
+  /** Kort id för kunden: små bokstäver utan åäö, t.ex. "bjorken". */
+  slug: string;
   /** Restaurangens namn, exakt som det ska visas. */
   namn: string;
   /** Kort slogan under logotypen, t.ex. "Nordisk bistro i Umeå". */
@@ -110,6 +164,10 @@ export type Restaurangkonfig = {
 
   /** Publik adress inklusive https, utan avslutande snedstreck. */
   sajtUrl: string;
+  /** Organisationsnummer, t.ex. "556677-8899". Utelämna tills det finns. */
+  orgNr?: string;
+  /** Sökväg till logotyp i /public, t.ex. "/kunder/bjorken/logotyp.svg". Utelämnas visas namnet i text. */
+  logotyp?: string;
 
   kontakt: {
     telefon: string;
@@ -144,6 +202,11 @@ export type Restaurangkonfig = {
     hjalptext?: string;
   };
 
+  /** Google-betyg och recensionscitat. Utelämna tills kunden har omdömen. */
+  betyg?: Betyg;
+  /** Evenemang och erbjudanden. Tom lista eller utelämnad döljer sektionen. */
+  evenemang?: Evenemang[];
+
   oppettider: Oppettider;
   specialdagar: Specialdag[];
   /** Text som visas under öppettiderna, t.ex. "Köket stänger 30 min före stängning." */
@@ -160,9 +223,12 @@ export type Restaurangkonfig = {
   };
 
   design: {
-    farger: Fardschema;
-    /** Rundade hörn i px. 0 = skarpa kanter, 4-8 = modernt, 16+ = mjukt. */
-    rundning: number;
+    /** Grundkaraktär - sätter standardfärger. Se ArtDirection ovan. */
+    artDirection: ArtDirection;
+    /** Överstyr enskilda färger från art direction. Utelämna för standard. */
+    farger?: Partial<Fardschema>;
+    /** Rundade hörn i px. 0 = skarpa kanter, 4-8 = modernt, 16+ = mjukt. Utelämna för art directionens standard. */
+    rundning?: number;
   };
 
   seo: {
@@ -181,11 +247,14 @@ export type Restaurangkonfig = {
     prisniva: "$" | "$$" | "$$$" | "$$$$";
   };
 
-  /** Slår av/på hela sektioner utan att röra koden. */
+  /** Startsidans sektioner, i den ordning de ska visas. Hero visas alltid först. */
+  startsidaSektioner: Startsidesektion[];
+
+  /** Slår av/på funktioner på undersidorna. */
   sektioner: {
-    galleri: boolean;
-    omOss: boolean;
     karta: boolean;
     kontaktformular: boolean;
   };
+
+  meny: Meny;
 };

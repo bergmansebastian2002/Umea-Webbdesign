@@ -1,4 +1,4 @@
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import Brodsmulor from "@/components/Brodsmulor";
 import Karta from "@/components/Karta";
 import Oppettider from "@/components/Oppettider";

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { CSSProperties, ReactNode } from "react";
 
-import { restaurang } from "@config/restaurang";
+import { farger, restaurang, rundning } from "@/lib/kund";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { absolutUrl, sajtUrl } from "@/lib/seo";
@@ -15,15 +15,15 @@ import "./globals.css";
  * Det gör att hela sajtens färgschema byts genom att ändra en enda fil.
  */
 const fargvariabler = {
-  "--farg-bakgrund": restaurang.design.farger.bakgrund,
-  "--farg-yta": restaurang.design.farger.yta,
-  "--farg-text": restaurang.design.farger.text,
-  "--farg-text-dampad": restaurang.design.farger.textDampad,
-  "--farg-primar": restaurang.design.farger.primar,
-  "--farg-accent": restaurang.design.farger.accent,
-  "--farg-accent-text": restaurang.design.farger.accentText,
-  "--farg-ram": restaurang.design.farger.ram,
-  "--rundning": `${restaurang.design.rundning}px`,
+  "--farg-bakgrund": farger.bakgrund,
+  "--farg-yta": farger.yta,
+  "--farg-text": farger.text,
+  "--farg-text-dampad": farger.textDampad,
+  "--farg-primar": farger.primar,
+  "--farg-accent": farger.accent,
+  "--farg-accent-text": farger.accentText,
+  "--farg-ram": farger.ram,
+  "--rundning": `${rundning}px`,
 } as CSSProperties;
 
 export const metadata: Metadata = {
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: restaurang.design.farger.primar,
+  themeColor: farger.primar,
   width: "device-width",
   initialScale: 1,
 };

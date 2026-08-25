@@ -14,7 +14,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HAR = dirname(fileURLToPath(import.meta.url));
-const BILDMAPP = join(HAR, "..", "public", "bilder");
+const BILDMAPP = join(HAR, "..", "public", "kunder", "bjorken");
 
 /* --- Minimal PNG-skrivare (inga externa beroenden) ----------------------- */
 

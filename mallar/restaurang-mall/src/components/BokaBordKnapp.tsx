@@ -1,4 +1,4 @@
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import Knapp from "@/components/Knapp";
 
 type Props = {

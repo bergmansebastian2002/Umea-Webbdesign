@@ -1,4 +1,4 @@
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import { VECKODAGAR, type Oppettid, type Veckodag } from "@/lib/typer";
 
 /** Svenska namn på veckodagarna, i samma ordning som VECKODAGAR. */
