@@ -8,3 +8,6 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 .vercel
+
+# Personliga Claude Code-inställningar (delas inte)
+.claude/settings.local.json
