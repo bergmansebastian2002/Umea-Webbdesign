@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "platshallare": "node scripts/generera-platshallare.mjs"
+    "bilder": "node scripts/optimera-bilder.mjs"
   },
   "dependencies": {
     "next": "^16.3.3",
@@ -23,6 +23,7 @@
     "@types/react-dom": "^19.2.5",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.3",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   }

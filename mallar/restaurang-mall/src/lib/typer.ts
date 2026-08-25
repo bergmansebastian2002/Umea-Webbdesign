@@ -219,6 +219,8 @@ export type Restaurangkonfig = {
     heroVideo?: string;
     /** Bild i "Om oss"-sektionen. */
     omOss: string;
+    /** Beskrivning av om oss-bilden för skärmläsare och Google. */
+    omOssAlt?: string;
     /** Delningsbild för Facebook, Instagram och Google. Exakt 1200 x 630 px. */
     delning: string;
     galleri: Galleribild[];
@@ -248,6 +250,12 @@ export type Restaurangkonfig = {
     /** Prisnivå enligt Google: "$", "$$", "$$$" eller "$$$$". */
     prisniva: "$" | "$$" | "$$$" | "$$$$";
   };
+
+  /**
+   * Genererad bilddata från `npm run bilder -- <slug>`: mått och suddiga
+   * platshållare per bild. Importera bilddata.json i kundens config.
+   */
+  bilddata?: Record<string, { bredd: number; hojd: number; blur: string }>;
 
   /** Startsidans sektioner, i den ordning de ska visas. Hero visas alltid först. */
   startsidaSektioner: Startsidesektion[];

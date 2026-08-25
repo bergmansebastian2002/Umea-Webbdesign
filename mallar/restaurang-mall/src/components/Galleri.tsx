@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
+import { bildProps } from "@/lib/bilder";
 import type { Galleribild } from "@/lib/typer";
 
 /**
@@ -62,6 +63,7 @@ export default function Galleri({ bilder }: { bilder: Galleribild[] }) {
                 loading="lazy"
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                {...bildProps(bild.kalla)}
               />
               <span
                 aria-hidden="true"

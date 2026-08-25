@@ -5,6 +5,7 @@ import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Brodsmulor from "@/components/Brodsmulor";
 import Galleri from "@/components/Galleri";
 import Sektion from "@/components/Sektion";
+import { bildProps } from "@/lib/bilder";
 import { byggMetadata } from "@/lib/seo";
 
 export const metadata = byggMetadata({
@@ -40,11 +41,12 @@ export default function OmOssSida() {
           <div className="relative aspect-4/5 overflow-hidden rounded-mall">
             <Image
               src={bilder.omOss}
-              alt={`Matsalen på ${restaurang.namn} i ${seo.stad}`}
+              alt={bilder.omOssAlt ?? `Matsalen på ${restaurang.namn} i ${seo.stad}`}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 26rem"
               className="object-cover"
+              {...bildProps(bilder.omOss)}
             />
           </div>
         </div>
