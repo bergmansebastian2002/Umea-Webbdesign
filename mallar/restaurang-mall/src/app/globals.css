@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Färger och typsnitt sätts från config/restaurang.ts och skickas in som
-   CSS-variabler på <html> i layout.tsx. Värdena här nedanför är bara
-   reservvärden om något skulle saknas.
+   DESIGNSYSTEM
+
+   Alla värden styrs från ett ställe:
+   - Färger och rundning sätts per kund via CSS-variabler på <html>
+     (från kundens config + art direction, se src/app/layout.tsx).
+   - Typografisk skala, skuggor och rörelse definieras här.
+   - Art direction-karaktär (t.ex. versalrubriker för "livlig") styrs via
+     data-art-attributet på <html>.
+
+   Värdena under :root är reservvärden om något skulle saknas.
 --------------------------------------------------------------------------- */
 :root {
   --farg-bakgrund: #faf8f5;
@@ -15,9 +22,42 @@
   --farg-accent-text: #ffffff;
   --farg-ram: #e6e0d7;
   --rundning: 4px;
+
+  /* Typografisk skala (flytande - växer med skärmen utan brytpunktshopp) */
+  --text-hero: clamp(2.5rem, 1.4rem + 5.2vw, 4.75rem);
+  --text-rubrik: clamp(1.9rem, 1.3rem + 2.4vw, 2.75rem);
+  --text-underrubrik: clamp(1.35rem, 1.15rem + 0.8vw, 1.75rem);
+  --text-kort: 1.125rem;
+
+  /* Skuggskala */
+  --skugga-kort: 0 1px 2px rgb(0 0 0 / 0.05), 0 4px 16px -6px rgb(0 0 0 / 0.08);
+  --skugga-svav: 0 2px 4px rgb(0 0 0 / 0.06), 0 12px 32px -8px rgb(0 0 0 / 0.16);
+  --skugga-knapp: 0 2px 12px -4px rgb(0 0 0 / 0.35);
+
+  /* Rörelse */
+  --rorelse-kurva: cubic-bezier(0.22, 1, 0.36, 1);
+  --rorelse-tid: 0.6s;
+
+  /* Rubrikkaraktär - justeras per art direction nedan */
+  --rubrik-vikt: 500;
+  --rubrik-mellanrum: -0.01em;
+  --rubrik-versaler: none;
 }
 
-/* Kopplar CSS-variablerna till Tailwind-klasser: bg-bakgrund, text-accent osv. */
+/* Art direction-karaktär utöver färger och typsnitt */
+html[data-art="nordisk"] {
+  --rubrik-vikt: 600;
+  --rubrik-mellanrum: -0.02em;
+}
+
+html[data-art="livlig"] {
+  --rubrik-vikt: 400; /* Anton har bara en vikt */
+  --rubrik-mellanrum: 0.01em;
+  --rubrik-versaler: uppercase;
+  --skugga-knapp: 0 3px 0 0 rgb(0 0 0 / 0.2);
+}
+
+/* Kopplar variablerna till Tailwind-klasser: bg-bakgrund, shadow-kort osv. */
 @theme inline {
   --color-bakgrund: var(--farg-bakgrund);
   --color-yta: var(--farg-yta);
@@ -32,6 +72,14 @@
   --font-brod: var(--typsnitt-brod), system-ui, -apple-system, sans-serif;
 
   --radius-mall: var(--rundning);
+
+  --shadow-kort: var(--skugga-kort);
+  --shadow-svav: var(--skugga-svav);
+  --shadow-knapp: var(--skugga-knapp);
+
+  --text-hero: var(--text-hero);
+  --text-rubrik: var(--text-rubrik);
+  --text-underrubrik: var(--text-underrubrik);
 }
 
 @layer base {
@@ -53,8 +101,9 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-rubrik);
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: var(--rubrik-vikt);
+    letter-spacing: var(--rubrik-mellanrum);
+    text-transform: var(--rubrik-versaler);
     text-wrap: balance;
   }
 
@@ -106,9 +155,32 @@
     font-weight: 600;
   }
 
-  /* Mjuk inglidning när sektioner rullas in i bild. */
+  /* Mjuk inglidning för heron (visas direkt vid sidladdning). */
   .glid-in {
-    animation: glidIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: glidIn 0.7s var(--rorelse-kurva) both;
+  }
+
+  /* -------------------------------------------------------------------------
+     Avslöjning vid scroll: element med .avsloja glider in när de rullas
+     in i bild (styrs av ScrollAvslojning-komponenten).
+
+     Startläget appliceras bara när JavaScript är aktivt - utan JS visas
+     allt direkt. prefers-reduced-motion stänger av rörelsen helt via
+     transition-regeln ovan.
+  ------------------------------------------------------------------------- */
+  @media (scripting: enabled) {
+    .avsloja {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity var(--rorelse-tid) var(--rorelse-kurva),
+        transform var(--rorelse-tid) var(--rorelse-kurva);
+    }
+  }
+
+  .avsloja-syns {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

@@ -4,6 +4,8 @@ import type { CSSProperties, ReactNode } from "react";
 import { farger, restaurang, rundning } from "@/lib/kund";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MobilBokningsRad from "@/components/MobilBokningsRad";
+import ScrollAvslojning from "@/components/ScrollAvslojning";
 import { absolutUrl, sajtUrl } from "@/lib/seo";
 import { jsonLd, restaurangSchema } from "@/lib/strukturerad-data";
 import { typsnittsklasser } from "@/lib/typsnitt";
@@ -87,7 +89,12 @@ export const viewport: Viewport = {
 
 export default function RotLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="sv" className={typsnittsklasser} style={fargvariabler}>
+    <html
+      lang="sv"
+      data-art={restaurang.design.artDirection}
+      className={typsnittsklasser}
+      style={fargvariabler}
+    >
       <head>
         {/* Strukturerad data om restaurangen - läses av Google och Google Maps. */}
         <script
@@ -99,6 +106,8 @@ export default function RotLayout({ children }: { children: ReactNode }) {
         <Header />
         <main id="innehall">{children}</main>
         <Footer />
+        <MobilBokningsRad />
+        <ScrollAvslojning />
       </body>
     </html>
   );

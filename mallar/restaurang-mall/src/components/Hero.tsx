@@ -14,14 +14,29 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[88svh] items-end overflow-hidden md:min-h-screen">
-      <Image
-        src={bilder.hero}
-        alt={`${namn} - ${slogan}`}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      {bilder.heroVideo ? (
+        // Kort, tyst videoloop. Bilden är reserv för webbläsare utan videostöd.
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={bilder.hero}
+          aria-hidden="true"
+        >
+          <source src={bilder.heroVideo} />
+        </video>
+      ) : (
+        <Image
+          src={bilder.hero}
+          alt={`${namn} - ${slogan}`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      )}
 
       {/* Mörk toning så texten alltid är läsbar, oavsett bild. */}
       <div
@@ -35,7 +50,7 @@ export default function Hero() {
             {restaurang.seo.kokstyper.join(" · ")} i {kontakt.ort}
           </p>
 
-          <h1 className="mt-5 font-rubrik text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mt-5 font-rubrik text-[length:var(--text-hero)] leading-[1.08]">
             {namn}
           </h1>
 

@@ -215,6 +215,8 @@ export type Restaurangkonfig = {
   bilder: {
     /** Stor bild överst på startsidan. Liggande, minst 1920 px bred. */
     hero: string;
+    /** Valfri kort, tyst videoloop (mp4/webm, max ~5 MB). Bilden blir reserv. */
+    heroVideo?: string;
     /** Bild i "Om oss"-sektionen. */
     omOss: string;
     /** Delningsbild för Facebook, Instagram och Google. Exakt 1200 x 630 px. */
