@@ -11,8 +11,7 @@
           "namn": "Rimmad röding",
           "beskrivning": "Pepparrot, inlagd gurka, dillolja och knäckebröd",
           "pris": 165,
-          "populär": true,
-          "bild": "/kunder/bjorken/galleri/ratt-1.png"
+          "populär": true
         },
         {
           "namn": "Toast Skagen",
@@ -42,8 +41,7 @@
           "namn": "Halstrad fjällröding",
           "beskrivning": "Potatispuré, brynt smör, ärtor och sotad citron",
           "pris": 335,
-          "populär": true,
-          "bild": "/kunder/bjorken/galleri/ratt-2.png"
+          "populär": true
         },
         {
           "namn": "Ryggbiff från Västerbotten",
@@ -54,8 +52,7 @@
           "namn": "Renskav",
           "beskrivning": "Kantarell, lingon, pressgurka och potatis",
           "pris": 315,
-          "populär": true,
-          "bild": "/kunder/bjorken/galleri/matsal.png"
+          "populär": true
         },
         {
           "namn": "Svartrot och pärlkorn",
@@ -79,7 +76,9 @@
         {
           "namn": "Hjortronparfait",
           "beskrivning": "Vit choklad, rostad havre och citronmeliss",
-          "pris": 135
+          "pris": 135,
+          "bild": "/kunder/bjorken/galleri/ratt-2.webp",
+          "populär": true
         },
         {
           "namn": "Chokladtryffel",
@@ -119,7 +118,9 @@
           "pris": 155,
           "markningar": [
             "Vegansk"
-          ]
+          ],
+          "bild": "/kunder/bjorken/galleri/ratt-1.webp",
+          "populär": true
         }
       ]
     },

@@ -1,0 +1,47 @@
+{
+  "/kunder/bjorken/delning.webp": {
+    "bredd": 1920,
+    "hojd": 1440,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAwABABoJZQC/OCiyFH4AAD+7MiXyZJdkB+mTthAaZiLukcryLCEdGVzI39p0Y1CgcqeO5tiWLz7HdF0h1ZdUtC/fzC/3qQ0vToSnFOcAA=="
+  },
+  "/kunder/bjorken/galleri/baren.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAsABABoJbACdH8AF9FQPi0JRAAA/vFlmD42T34mTuX3MiTcZMamKp5NbYFuqHeqesWtRH+kq9gIk80o+Yj2OoTSfwwMq/Ez7TTIrjjQFH4gAAA="
+  },
+  "/kunder/bjorken/galleri/entre.webp": {
+    "bredd": 1920,
+    "hojd": 2560,
+    "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoQABUAPxFysFAsJqSisAgBgCIJZAC7ABmB2+1DxD2hQpPEAAD+u2GAcAtSctjEPM+eUyNYzwEbIqk3BUA8udIAX/JRoiC62J65uU47MNqVlUVIPzihwsYbLkAeccHS1DZDBy+d3kK8PCkIx2i8w+nHhPgibOcHxq6r1dKmik+nQCo/AAA="
+  },
+  "/kunder/bjorken/galleri/koket.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsABABoJQBdgMYYoxV1yuAQAPhjyuN5Fpnv217ZLHWJGjS/N70o6qNlnC7fKk5g+e8xq76XuHbCfnICedCVTVDLveqcTiqHKyyg4fWxdAAA"
+  },
+  "/kunder/bjorken/galleri/matsal.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsABABoJZgCdIExGBGRNc0gAP2p9nOQKUjl39fY3xTEZacJUHzinIQ4O3ZLZosF8aG1YxWKMh3UNzTSafT8gO8uJJopVS9+gy0AAAA="
+  },
+  "/kunder/bjorken/galleri/ratt-1.webp": {
+    "bredd": 1920,
+    "hojd": 1920,
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwAgCdASoQABAABABoJbACdH8Agnixd9p9JNAAAP7x4Fcw56J4MyO+4KaBl33sfQMp+j8y0u1euRIVVv+kgBL4ZOH7k71FoGqz0/D11HfWCB32GoswYZlVI9bOWq8C6WQUngz6MXgAAA=="
+  },
+  "/kunder/bjorken/galleri/ratt-2.webp": {
+    "bredd": 1920,
+    "hojd": 2400,
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoQABQAPxFysFAsJqSisAgBgCIJQBjeg3RvzUJpa84RjrdLgAD+7qGc60Xim8uMDwEjnWGPIJWbPK5n5V8k651QgIlaIXRcVVwo8esqUGTDCXGKry5f1U0H6zAssZ3oYRYznU/lyFGd+u02R58ZWnCeAAA="
+  },
+  "/kunder/bjorken/hero.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAsABABoJZQC7AELjqa1IAAA/vavTSHv5qEe7MJ9X1oVzLWJ74VZ1aqb95SI+LaYTZVPyDB0vxUxEVdPheRgCFkYyH08Vj4wF6AA"
+  },
+  "/kunder/bjorken/om-oss.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQAgCdASoQAAsABABoJQAB8e2PlswvFk2gAPzdckQh186dzfVaH770QZy3Hg3qkHn78gvkVhjpgcZH8+eloCT8c/JX54fQQZuT59yFtaOSQ4bpRbaXrV2aqn+vb5XDhYQ8RPvGrM5h+5TfmgAAAA=="
+  }
+}

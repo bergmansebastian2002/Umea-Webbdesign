@@ -11,6 +11,7 @@ import Knapp from "@/components/Knapp";
 import MenyLista from "@/components/MenyLista";
 import Oppettider from "@/components/Oppettider";
 import Sektion from "@/components/Sektion";
+import { bildProps } from "@/lib/bilder";
 import { byggMetadata } from "@/lib/seo";
 
 export const metadata = byggMetadata({
@@ -45,11 +46,12 @@ function OmOss() {
         <div className="relative aspect-4/5 overflow-hidden rounded-mall lg:aspect-square">
           <Image
             src={bilder.omOss}
-            alt={`Interiör och stämning på ${restaurang.namn} i ${seo.stad}`}
+            alt={bilder.omOssAlt ?? `Interiör och stämning på ${restaurang.namn} i ${seo.stad}`}
             fill
             loading="lazy"
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
+            {...bildProps(bilder.omOss)}
           />
         </div>
       </div>

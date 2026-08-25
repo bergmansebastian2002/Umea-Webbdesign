@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { restaurang } from "@/lib/kund";
+import { bildProps } from "@/lib/bilder";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Knapp from "@/components/Knapp";
 import OppetNu from "@/components/OppetNu";
@@ -35,6 +36,7 @@ export default function Hero() {
           priority
           sizes="100vw"
           className="object-cover"
+          {...bildProps(bilder.hero)}
         />
       )}
 

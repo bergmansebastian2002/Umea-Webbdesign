@@ -1,5 +1,6 @@
 import type { Meny, Restaurangkonfig } from "@/lib/typer";
 
+import bilddata from "./bilddata.json";
 import menyData from "./meny.json";
 
 /**
@@ -116,16 +117,17 @@ const bjorken: Restaurangkonfig = {
 
   // --- Bilder --------------------------------------------------------------
   bilder: {
-    hero: "/kunder/bjorken/hero.png",
-    omOss: "/kunder/bjorken/om-oss.png",
-    delning: "/kunder/bjorken/delning.png",
+    hero: "/kunder/bjorken/hero.webp",
+    omOss: "/kunder/bjorken/om-oss.webp",
+    omOssAlt: "Serverad förrätt med vin i matsalens kvällsljus",
+    delning: "/kunder/bjorken/delning.webp",
     galleri: [
-      { kalla: "/kunder/bjorken/galleri/matsal.png", alt: "Matsalen med dukade bord och levande ljus" },
-      { kalla: "/kunder/bjorken/galleri/ratt-1.png", alt: "Halstrad röding med brynt smör och dill", staende: true },
-      { kalla: "/kunder/bjorken/galleri/baren.png", alt: "Baren med utvalda viner och cocktails" },
-      { kalla: "/kunder/bjorken/galleri/koket.png", alt: "Köket i arbete under kvällsservicen" },
-      { kalla: "/kunder/bjorken/galleri/ratt-2.png", alt: "Dessert med hjortron och gräddglass" },
-      { kalla: "/kunder/bjorken/galleri/entre.png", alt: "Entrén till Restaurang Björken på Storgatan" },
+      { kalla: "/kunder/bjorken/galleri/matsal.webp", alt: "Matsalen med dukade bord i varmt kvällsljus" },
+      { kalla: "/kunder/bjorken/galleri/ratt-1.webp", alt: "Färgstark bowl med tofu, majs och säsongens grönsaker", staende: true },
+      { kalla: "/kunder/bjorken/galleri/baren.webp", alt: "Bartendern silar upp en cocktail i baren" },
+      { kalla: "/kunder/bjorken/galleri/koket.webp", alt: "Matlagning vid köksbänken" },
+      { kalla: "/kunder/bjorken/galleri/ratt-2.webp", alt: "Dessert med glass, brownie och kolasås", staende: true },
+      { kalla: "/kunder/bjorken/galleri/entre.webp", alt: "Ljus matplats omgiven av gröna växter", staende: true },
     ],
   },
 
@@ -171,6 +173,7 @@ const bjorken: Restaurangkonfig = {
     kontaktformular: true,
   },
 
+  bilddata,
   meny,
 };
 
