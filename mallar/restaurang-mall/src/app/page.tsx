@@ -70,7 +70,10 @@ function MenySmakprov() {
       ingress={meny.ingress}
       className="border-y border-ram bg-yta"
     >
-      <MenyLista meny={meny} begransaTill={["forratter", "varmratter"]} />
+      <MenyLista
+        meny={meny}
+        begransaTill={meny.smakprov ?? meny.sektioner.slice(0, 2).map((s) => s.id)}
+      />
       <div className="mt-14 flex flex-col gap-3 sm:flex-row">
         <Knapp href="/meny">Se hela menyn</Knapp>
         <BokaBordKnapp variant="kontur" />
@@ -98,10 +101,21 @@ function BokaCta() {
       <div className="flex flex-col items-center gap-4">
         <BokaBordKnapp />
         <p className="text-sm text-white/60">
-          Större sällskap? Mejla oss på{" "}
-          <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-4">
-            {kontakt.epost}
-          </a>
+          {kontakt.epost ? (
+            <>
+              Större sällskap? Mejla oss på{" "}
+              <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-4">
+                {kontakt.epost}
+              </a>
+            </>
+          ) : (
+            <>
+              Större sällskap? Ring oss på{" "}
+              <a href={`tel:${kontakt.telefonLank}`} className="underline underline-offset-4">
+                {kontakt.telefon}
+              </a>
+            </>
+          )}
         </p>
       </div>
     </Sektion>
@@ -132,9 +146,11 @@ function HittaHit() {
               >
                 {kontakt.telefon}
               </a>
-              <a href={`mailto:${kontakt.epost}`} className="block text-text hover:text-accent">
-                {kontakt.epost}
-              </a>
+              {kontakt.epost && (
+                <a href={`mailto:${kontakt.epost}`} className="block text-text hover:text-accent">
+                  {kontakt.epost}
+                </a>
+              )}
             </address>
           </div>
         </div>

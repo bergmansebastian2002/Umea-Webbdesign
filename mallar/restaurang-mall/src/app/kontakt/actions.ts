@@ -107,7 +107,7 @@ export async function skickaKontakt(
   const avsandare = process.env.KONTAKT_AVSANDARE;
   const mottagare = process.env.KONTAKT_MOTTAGARE ?? restaurang.kontakt.epost;
 
-  if (!apiNyckel || !avsandare) {
+  if (!apiNyckel || !avsandare || !mottagare) {
     if (process.env.NODE_ENV !== "production") {
       console.info("[kontakt] E-post ej konfigurerad. Meddelande:\n" + rader.join("\n"));
       return { status: "klart" };

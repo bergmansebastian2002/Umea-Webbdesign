@@ -56,12 +56,14 @@ export default function Footer() {
               >
                 {kontakt.telefon}
               </a>
-              <a
-                href={`mailto:${kontakt.epost}`}
-                className="block underline-offset-4 hover:text-white hover:underline"
-              >
-                {kontakt.epost}
-              </a>
+              {kontakt.epost && (
+                <a
+                  href={`mailto:${kontakt.epost}`}
+                  className="block underline-offset-4 hover:text-white hover:underline"
+                >
+                  {kontakt.epost}
+                </a>
+              )}
             </address>
           </div>
 

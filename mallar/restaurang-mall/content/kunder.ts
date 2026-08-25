@@ -1,4 +1,5 @@
 import bjorken from "./bjorken/config";
+import ronyas from "./ronyas/config";
 
 /**
  * ============================================================================
@@ -12,6 +13,7 @@ import bjorken from "./bjorken/config";
  */
 export const KUNDER = {
   bjorken,
+  ronyas,
 } as const;
 
 /** Kunden som byggs när NEXT_PUBLIC_KUND inte är satt (lokal utveckling och demo). */

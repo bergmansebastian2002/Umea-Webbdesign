@@ -1,0 +1,121 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Pizza, grill, husets rätter, sallader och pasta. Vi erbjuder även sallads- och pizzabuffé, samt varm buffé lördag och söndag. Alla rätter går bra att ta med.",
+  "fotnot": "Ring oss på 090-12 99 12 för avhämtning eller frågor om innehåll och allergener.",
+  "smakprov": ["husets", "sallader"],
+  "sektioner": [
+    {
+      "id": "grill",
+      "rubrik": "Grill",
+      "ratter": [
+        { "namn": "Entrecôte", "beskrivning": "Stekt potatis, bearnaisesås", "pris": 309 },
+        { "namn": "Grillbiff", "beskrivning": "Pommes, persiljesmör", "pris": 173 },
+        { "namn": "Lövbit", "beskrivning": "Pommes, persiljesmör", "pris": 173 },
+        { "namn": "Rödspätta", "beskrivning": "Koktpotatis, remouladsås", "pris": 175 },
+        { "namn": "Schnitzel", "beskrivning": "Pommes, persiljesmör", "pris": 173 },
+        { "namn": "Urfa special", "beskrivning": "Kebab med grillad tomat", "pris": 230 },
+        { "namn": "Adana kebab", "beskrivning": "Lammfärsspett", "pris": 230, "populär": true },
+        { "namn": "Shish kebab", "beskrivning": "Köttspett med ris", "pris": 230 },
+        { "namn": "Grillmix", "beskrivning": "Ris och pommes", "pris": 330 },
+        { "namn": "Lammracks", "beskrivning": "Kotlett med ris och tzatsiki", "pris": 330 },
+        { "namn": "Kycklingspett", "beskrivning": "Med ris eller pommes", "pris": 209 },
+        { "namn": "Big Cheese", "beskrivning": "90 gr", "pris": 99 },
+        { "namn": "Super Star", "beskrivning": "150 gr", "pris": 104 },
+        { "namn": "Kycklingnuggets", "beskrivning": "Pommes eller ris", "pris": 99 },
+        { "namn": "Skrovmål", "beskrivning": "Hamburgare, strips, läsk", "pris": 140 },
+        { "namn": "Parisare", "beskrivning": "110 gr", "pris": 100 },
+        { "namn": "Parisarmål", "beskrivning": "Parisare 110 gr, strips, läsk", "pris": 140 }
+      ]
+    },
+    {
+      "id": "husets",
+      "rubrik": "Husets",
+      "ratter": [
+        { "namn": "Kebab med pitabröd", "beskrivning": "Kebab inbakad med bröd", "pris": 119 },
+        { "namn": "Kycklingtallrik", "beskrivning": "Kyckling, ris eller pommes", "pris": 139 },
+        { "namn": "Kebabtallrik", "beskrivning": "Kyckling, ris eller pommes", "pris": 139 },
+        { "namn": "Rhodostallrik", "beskrivning": "Kebab, strips, tzatsiki", "pris": 139 },
+        { "namn": "Falafeltallrik", "beskrivning": "Falafel, strips, tzatsiki", "pris": 139, "markningar": ["Vegetariskt"] },
+        { "namn": "Kebabrulle", "beskrivning": "Kebab, isbergssallad, tomat, gurka, orientsås", "pris": 126, "populär": true },
+        { "namn": "Rhodosrulle", "beskrivning": "Kebab, isbergssallad, tomat, gurka, tzatsiki", "pris": 126 },
+        { "namn": "Mini kebabrulle", "beskrivning": "Kebab, isbergssallad, tomat, gurka, orientsås", "pris": 100 },
+        { "namn": "Kycklingrulle", "beskrivning": "Kyckling, isbergssallad, tomat, gurka, vitlökssås", "pris": 126 },
+        { "namn": "Falafelrulle", "beskrivning": "Falafel, isbergssallad, tomat, gurka, vitlökssås", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Dönerkyckling", "beskrivning": "Ris, vitlökssås", "pris": 139 }
+      ]
+    },
+    {
+      "id": "sallader",
+      "rubrik": "Sallader",
+      "ratter": [
+        { "namn": "Kebabsallad", "pris": 140 },
+        { "namn": "Kycklingsallad", "pris": 140 },
+        { "namn": "Tonfisksallad", "pris": 140 },
+        { "namn": "Grekisk sallad", "pris": 140, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "pasta",
+      "rubrik": "Pasta",
+      "ratter": [
+        { "namn": "Laxpasta", "pris": 199 },
+        { "namn": "Bolognese", "pris": 160 },
+        { "namn": "Tagliatelle Oxfilé", "pris": 199 },
+        { "namn": "Hemlagad lasagne", "pris": 175, "populär": true }
+      ]
+    },
+    {
+      "id": "pizzor",
+      "rubrik": "Pizzor",
+      "beskrivning": "Tomat och ost ingår i alla pizzor.",
+      "ratter": [
+        { "namn": "Margerita", "beskrivning": "Endast tomat och ost", "pris": 119, "markningar": ["Vegetariskt"] },
+        { "namn": "Vesuvio", "beskrivning": "Skinka", "pris": 126 },
+        { "namn": "Capricciosa", "beskrivning": "Skinka, champinjoner", "pris": 126 },
+        { "namn": "Afos", "beskrivning": "Tonfisk, lök", "pris": 126 },
+        { "namn": "Frutti Di Mare", "beskrivning": "Räkor, musslor", "pris": 129 },
+        { "namn": "Hassos", "beskrivning": "Köttfärs, lök, paprika", "pris": 129 },
+        { "namn": "Hawaii", "beskrivning": "Skinka, ananas", "pris": 129 },
+        { "namn": "Peppos", "beskrivning": "Salami, lök, pepperoni", "pris": 129 },
+        { "namn": "Bussola", "beskrivning": "Skinka, räkor", "pris": 130 },
+        { "namn": "Quatro Stagioni", "beskrivning": "Skinka, räkor, champinjoner, kronhjärta, oliver", "pris": 140 },
+        { "namn": "Romana", "beskrivning": "Skinka, räkor, champinjoner", "pris": 140 },
+        { "namn": "Hawanna", "beskrivning": "Skinka, räkor, ananas", "pris": 140 },
+        { "namn": "Mamma Mia", "beskrivning": "Skinka, räkor, champinjoner, lök, paprika", "pris": 140 },
+        { "namn": "Tropicana", "beskrivning": "Skinka, ananas, banan, curry", "pris": 140 },
+        { "namn": "Alanya", "beskrivning": "Oxfilé, lök, pepperoni, tomater, ädelost, bearnaisesås", "pris": 159 },
+        { "namn": "Galloway", "beskrivning": "Bacon, lök, ägg", "pris": 140 },
+        { "namn": "Mexicana", "beskrivning": "Köttfärs, tacokryddmix, lök, tacosås, jalapeno", "pris": 140 },
+        { "namn": "Hot Peppar", "beskrivning": "Skinka, salami, lök, pepperoni, stark sås", "pris": 140 },
+        { "namn": "Ciao Ciao", "beskrivning": "Halvinbakad. Oxfilé, champinjoner, bearnaisesås", "pris": 159 },
+        { "namn": "Acapulko", "beskrivning": "Oxfilé, lök, champinjoner, jalapeno, tacomix, bearnaisesås", "pris": 159 },
+        { "namn": "Kebabpizza", "beskrivning": "Kebab, lök, tomater, pepperoni, orientsås", "pris": 140 },
+        { "namn": "Ronyas", "beskrivning": "Halvinbakad. Oxfilé, tomater, lök, champinjoner, bearnaisesås", "pris": 159, "populär": true },
+        { "namn": "Kycklingpizza", "beskrivning": "Kyckling, tomater, ananas, curry", "pris": 140 }
+      ]
+    },
+    {
+      "id": "inbakade-pizzor",
+      "rubrik": "Inbakade pizzor",
+      "ratter": [
+        { "namn": "Calzone", "beskrivning": "Skinka, ost", "pris": 129 },
+        { "namn": "Calzonchino", "beskrivning": "Skinka, champinjoner", "pris": 134 },
+        { "namn": "Calzone Hawaii", "beskrivning": "Skinka, ananas", "pris": 134 },
+        { "namn": "Calzone Kebab", "beskrivning": "Kebab, lök, pepperoni, orientsås", "pris": 150 },
+        { "namn": "Calzone Special", "beskrivning": "Skinka, räkor, champinjoner", "pris": 150 }
+      ]
+    },
+    {
+      "id": "vegetariska-pizzor",
+      "rubrik": "Vegetariska pizzor",
+      "ratter": [
+        { "namn": "Tumbas", "beskrivning": "Tomat, ost, champinjoner", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Greko special", "beskrivning": "Fetaost, lök, paprika, oliver, tomater", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Africana", "beskrivning": "Ananas, banan, curry", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Vegetariana", "beskrivning": "Champinjoner, paprika, oliver, kronärtskocka", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Dianas", "beskrivning": "Tomat, champinjoner, lök, ananas", "pris": 126, "markningar": ["Vegetariskt"] },
+        { "namn": "Amidas", "beskrivning": "Falafel, lök, tomater, pepperoni", "pris": 126, "markningar": ["Vegetariskt"] }
+      ]
+    }
+  ]
+}
