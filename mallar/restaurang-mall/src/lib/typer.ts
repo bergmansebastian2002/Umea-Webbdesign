@@ -144,8 +144,10 @@ export type Fardschema = {
   textDampad: string;
   /** Profilfärg - rubriker, footer, mörka sektioner. */
   primar: string;
-  /** Accentfärg - knappar, länkar, detaljer. Ska synas mot både bakgrund och primär. */
+  /** Accentfärg - knappar, länkar, detaljer. Minst 4.5:1 mot vitt och bakgrund. */
   accent: string;
+  /** Ljus accentvariant för text på mörka sektioner. Minst 4.5:1 mot primär. */
+  accentPaMork: string;
   /** Textfärg ovanpå accentfärgen. */
   accentText: string;
   /** Linjer och avgränsare. */

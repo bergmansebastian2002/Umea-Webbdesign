@@ -24,6 +24,7 @@ const fargvariabler = {
   "--farg-text-dampad": farger.textDampad,
   "--farg-primar": farger.primar,
   "--farg-accent": farger.accent,
+  "--farg-accent-pa-mork": farger.accentPaMork,
   "--farg-accent-text": farger.accentText,
   "--farg-ram": farger.ram,
   "--rundning": `${rundning}px`,

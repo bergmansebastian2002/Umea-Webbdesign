@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     // Lägg till externa domäner här om kunden hostar bilder någon annanstans.
     remotePatterns: [],
     formats: ["image/avif", "image/webp"],
+    // Kvaliteter som får användas med <Image quality={...}>.
+    qualities: [65, 75],
   },
   async headers() {
     return [

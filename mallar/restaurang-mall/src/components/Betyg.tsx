@@ -13,7 +13,7 @@ function Stjarnor({ snitt }: { snitt: number }) {
       <span aria-hidden="true" className="text-white/25">★★★★★</span>
       <span
         aria-hidden="true"
-        className="absolute inset-0 overflow-hidden whitespace-nowrap text-accent"
+        className="absolute inset-0 overflow-hidden whitespace-nowrap text-[color:var(--farg-accent-pa-mork)]"
         style={{ width: `${andel}%` }}
       >
         ★★★★★

@@ -28,11 +28,11 @@ export default function Oppettider({
             <div key={dag} className="flex items-baseline justify-between gap-6 py-3">
               <dt className="text-sm">{DAGNAMN[dag]}</dt>
               <dd className="text-right text-sm tabular-nums">
-                <span className={tid.stangt ? "opacity-55" : ""}>
+                <span className={tid.stangt ? "opacity-75" : ""}>
                   {formateraOppettid(tid)}
                 </span>
                 {tid.notering && (
-                  <span className="block text-xs opacity-60">{tid.notering}</span>
+                  <span className="block text-xs opacity-75">{tid.notering}</span>
                 )}
               </dd>
             </div>
@@ -41,13 +41,13 @@ export default function Oppettider({
       </dl>
 
       {restaurang.oppettiderNotering && (
-        <p className="mt-5 text-xs opacity-70">{restaurang.oppettiderNotering}</p>
+        <p className="mt-5 text-xs opacity-80">{restaurang.oppettiderNotering}</p>
       )}
 
       {visaSpecialdagar && restaurang.specialdagar.length > 0 && (
         <div className="mt-7 border-t border-ram/70 pt-5">
           <p className="etikett">Avvikande dagar</p>
-          <ul className="mt-3 space-y-1.5 text-sm opacity-80">
+          <ul className="mt-3 space-y-1.5 text-sm">
             {restaurang.specialdagar.map((dag) => (
               <li key={dag.datum} className="flex justify-between gap-6">
                 <span>{dag.namn}</span>

@@ -18,7 +18,8 @@
   --farg-text: #1c1a17;
   --farg-text-dampad: #6b645b;
   --farg-primar: #1f2b26;
-  --farg-accent: #a8763e;
+  --farg-accent: #966636;
+  --farg-accent-pa-mork: #cfa268;
   --farg-accent-text: #ffffff;
   --farg-ram: #e6e0d7;
   --rundning: 4px;
@@ -153,6 +154,11 @@ html[data-art="livlig"] {
     text-transform: uppercase;
     color: var(--farg-accent);
     font-weight: 600;
+  }
+
+  /* På mörka sektioner behövs en ljusare accent för att klara WCAG AA. */
+  .bg-primar .etikett {
+    color: var(--farg-accent-pa-mork);
   }
 
   /* Mjuk inglidning för heron (visas direkt vid sidladdning). */

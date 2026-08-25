@@ -34,6 +34,8 @@ export default function Hero() {
           alt={`${namn} - ${slogan}`}
           fill
           priority
+          fetchPriority="high"
+          quality={65}
           sizes="100vw"
           className="object-cover"
           {...bildProps(bilder.hero)}
