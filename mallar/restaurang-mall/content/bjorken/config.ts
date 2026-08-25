@@ -160,7 +160,7 @@ const bjorken: Restaurangkonfig = {
   // --- Startsidans sektioner, i visningsordning ----------------------------
   startsidaSektioner: [
     "omOss",
-    "menySmakprov",
+    "menyHojdpunkter",
     "galleri",
     "betyg",
     "evenemang",

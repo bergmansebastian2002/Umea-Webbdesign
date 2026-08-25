@@ -1,7 +1,7 @@
 import { meny, restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Brodsmulor from "@/components/Brodsmulor";
-import MenyLista from "@/components/MenyLista";
+import MenyFilter from "@/components/MenyFilter";
 import Sektion from "@/components/Sektion";
 import { byggMetadata } from "@/lib/seo";
 import { jsonLd, menySchema } from "@/lib/strukturerad-data";
@@ -29,7 +29,7 @@ export default function Menysida() {
         ingress={meny.ingress}
         className="pt-10 md:pt-12"
       >
-        <MenyLista meny={meny} visaSnabblankar />
+        <MenyFilter meny={meny} />
 
         <div className="mt-16 rounded-mall border border-ram bg-yta p-8 md:p-10">
           <h2 className="font-rubrik text-2xl">Hungrig?</h2>
