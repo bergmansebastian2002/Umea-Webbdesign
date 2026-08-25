@@ -47,7 +47,7 @@ export function restaurangSchema() {
     telephone: restaurang.kontakt.telefonLank,
     email: restaurang.kontakt.epost,
     image: absolutUrl(restaurang.bilder.hero),
-    logo: absolutUrl(restaurang.bilder.delning),
+    logo: absolutUrl(restaurang.logotyp ?? restaurang.bilder.delning ?? restaurang.bilder.hero),
     priceRange: restaurang.seo.prisniva,
     servesCuisine: restaurang.seo.kokstyper,
     currenciesAccepted: "SEK",
