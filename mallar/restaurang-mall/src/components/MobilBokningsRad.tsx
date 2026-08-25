@@ -36,6 +36,7 @@ export default function MobilBokningsRad() {
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={synlig ? 0 : -1}
+            data-spar="boka"
             className="flex flex-1 items-center justify-center rounded-mall bg-accent px-4 py-3 text-sm font-medium tracking-wide text-accent-text"
           >
             {bokning.knapptext}
@@ -44,6 +45,7 @@ export default function MobilBokningsRad() {
           <a
             href={`tel:${kontakt.telefonLank}`}
             tabIndex={synlig ? 0 : -1}
+            data-spar="ring"
             className="flex flex-1 items-center justify-center rounded-mall bg-accent px-4 py-3 text-sm font-medium tracking-wide text-accent-text"
           >
             Ring och boka
@@ -52,6 +54,7 @@ export default function MobilBokningsRad() {
         <a
           href={`tel:${kontakt.telefonLank}`}
           tabIndex={synlig ? 0 : -1}
+          data-spar="ring"
           className="flex flex-1 items-center justify-center rounded-mall border border-ram px-4 py-3 text-sm font-medium tracking-wide"
         >
           Ring oss

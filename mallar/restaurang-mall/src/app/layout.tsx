@@ -5,8 +5,9 @@ import { farger, restaurang, rundning } from "@/lib/kund";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MobilBokningsRad from "@/components/MobilBokningsRad";
+import Samtycke from "@/components/Samtycke";
 import ScrollAvslojning from "@/components/ScrollAvslojning";
-import { absolutUrl, sajtUrl } from "@/lib/seo";
+import { sajtUrl } from "@/lib/seo";
 import { jsonLd, restaurangSchema } from "@/lib/strukturerad-data";
 import { typsnittsklasser } from "@/lib/typsnitt";
 
@@ -99,6 +100,7 @@ export default function RotLayout({ children }: { children: ReactNode }) {
         <Footer />
         <MobilBokningsRad />
         <ScrollAvslojning />
+        <Samtycke />
       </body>
     </html>
   );
