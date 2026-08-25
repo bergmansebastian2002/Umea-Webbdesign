@@ -1,5 +1,4 @@
-import { restaurang } from "@config/restaurang";
-import { meny } from "@content/meny";
+import { meny, restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Brodsmulor from "@/components/Brodsmulor";
 import MenyLista from "@/components/MenyLista";

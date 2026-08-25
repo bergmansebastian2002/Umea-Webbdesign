@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 
 /**
  * Tar emot kontaktformuläret och skickar det vidare som e-post via Resend.

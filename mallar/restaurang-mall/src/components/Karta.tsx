@@ -1,4 +1,4 @@
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 
 /**
  * Karta över restaurangens plats.

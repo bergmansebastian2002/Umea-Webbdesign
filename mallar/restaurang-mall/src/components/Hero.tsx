@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Knapp from "@/components/Knapp";
 import OppetNu from "@/components/OppetNu";

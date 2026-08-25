@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 
 /**
  * Sajtens publika adress. Tas i första hand från miljövariabeln

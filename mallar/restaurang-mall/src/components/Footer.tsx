@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import { grupperadeOppettider } from "@/lib/oppettider";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 

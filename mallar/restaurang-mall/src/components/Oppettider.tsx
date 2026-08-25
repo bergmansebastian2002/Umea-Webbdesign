@@ -1,4 +1,4 @@
-import { restaurang } from "@config/restaurang";
+import { restaurang } from "@/lib/kund";
 import { DAGNAMN, formateraOppettid } from "@/lib/oppettider";
 import { VECKODAGAR } from "@/lib/typer";
 import OppetNu from "@/components/OppetNu";

@@ -1,5 +1,4 @@
-import { restaurang } from "@config/restaurang";
-import { meny } from "@content/meny";
+import { meny, restaurang } from "@/lib/kund";
 import { absolutUrl, sajtUrl } from "@/lib/seo";
 import { SCHEMA_DAGNAMN } from "@/lib/oppettider";
 import { VECKODAGAR } from "@/lib/typer";
@@ -71,6 +70,17 @@ export function restaurangSchema() {
     acceptsReservations: restaurang.bokning.aktiv,
     hasMenu: absolutUrl("/meny"),
     ...(sociala.length > 0 ? { sameAs: sociala } : {}),
+    ...(restaurang.betyg
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: restaurang.betyg.snitt,
+            reviewCount: restaurang.betyg.antal,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
     ...(restaurang.bokning.aktiv
       ? {
           potentialAction: {
