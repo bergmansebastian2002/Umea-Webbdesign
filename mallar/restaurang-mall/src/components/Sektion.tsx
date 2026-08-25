@@ -36,16 +36,16 @@ export default function Sektion({
       <div className="omslag">
         {(etikett || rubrik || ingress) && (
           <header
-            className={`mb-12 md:mb-16 max-w-2xl ${centrerad ? "mx-auto text-center" : ""}`}
+            className={`avsloja mb-12 md:mb-16 max-w-2xl ${centrerad ? "mx-auto text-center" : ""}`}
           >
             {etikett && <p className="etikett">{etikett}</p>}
             {rubrik &&
               (somH1 ? (
-                <h1 className="mt-4 text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15]">
+                <h1 className="mt-4 text-[length:var(--text-rubrik)] leading-[1.15]">
                   {rubrik}
                 </h1>
               ) : (
-                <h2 className="mt-4 text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15]">
+                <h2 className="mt-4 text-[length:var(--text-rubrik)] leading-[1.15]">
                   {rubrik}
                 </h2>
               ))}

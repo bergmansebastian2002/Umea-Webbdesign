@@ -11,7 +11,7 @@ const bas =
 const varianter: Record<Variant, string> = {
   fylld:
     "bg-accent text-accent-text hover:brightness-110 hover:-translate-y-0.5 " +
-    "shadow-[0_2px_12px_-4px_rgba(0,0,0,0.35)]",
+    "shadow-knapp",
   kontur:
     "border border-ram text-text hover:border-accent hover:text-accent",
   ljus:
