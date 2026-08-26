@@ -116,7 +116,9 @@ startsidaSektioner: [
 
 Ta bort en rad för att dölja sektionen; byt ordning genom att flytta
 rader. `menySmakprov` (textutdrag ur menyn) finns som alternativ till
-`menyHojdpunkter` (bildkort).
+`menyHojdpunkter` (bildkort). `bildspel` (rullande bildspel med
+övertoning) finns som alternativ till `galleri` (klickbart rutnät) -
+båda visar bilderna i `bilder.galleri`.
 
 ### SEO
 

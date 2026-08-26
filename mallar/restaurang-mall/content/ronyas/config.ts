@@ -145,11 +145,11 @@ const ronyas: Restaurangkonfig = {
     prisniva: "$$",
   },
 
-  // --- Startsidan: hero -> meny/buffé -> galleri -> hitta hit --------------
+  // --- Startsidan: hero -> meny/buffé -> bildspel -> hitta hit -------------
   startsidaSektioner: [
     "menySmakprov",
     "evenemang",
-    "galleri",
+    "bildspel",
     "omOss",
     "bokaCta",
     "hittaHit",

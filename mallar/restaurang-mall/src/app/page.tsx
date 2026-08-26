@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { meny, restaurang } from "@/lib/kund";
 import type { Startsidesektion } from "@/lib/typer";
 import Betyg from "@/components/Betyg";
+import Bildspel from "@/components/Bildspel";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Evenemang from "@/components/Evenemang";
 import Galleri from "@/components/Galleri";
@@ -95,6 +96,19 @@ function GalleriSektion() {
   );
 }
 
+function BildspelSektion() {
+  if (bilder.galleri.length === 0) return null;
+  return (
+    <Sektion
+      etikett="Hos oss"
+      rubrik="Mat, miljö och stämning"
+      ingress="Bläddra med pilarna eller svep - bildspelet rullar annars vidare av sig självt."
+    >
+      <Bildspel bilder={bilder.galleri} />
+    </Sektion>
+  );
+}
+
 function BokaCta() {
   return (
     <Sektion mork centrerad rubrik="Boka ditt bord" ingress={restaurang.bokning.hjalptext}>
@@ -167,6 +181,7 @@ const SEKTIONER: Record<Startsidesektion, () => ReactNode> = {
   menySmakprov: MenySmakprov,
   menyHojdpunkter: MenyHojdpunkter,
   galleri: GalleriSektion,
+  bildspel: BildspelSektion,
   betyg: Betyg,
   evenemang: Evenemang,
   bokaCta: BokaCta,
