@@ -67,7 +67,9 @@ export function restaurangSchema() {
     },
     hasMap: `https://www.google.com/maps/search/?api=1&query=${restaurang.kontakt.latitud},${restaurang.kontakt.longitud}`,
     openingHoursSpecification: [...oppettider, ...specialdagar],
-    acceptsReservations: restaurang.bokning.aktiv,
+    // Bokning via telefon räknas också - bokning.aktiv styr bara om det
+    // finns ett onlinesystem (ReserveAction nedan), inte om bord kan bokas.
+    acceptsReservations: true,
     hasMenu: absolutUrl("/meny"),
     ...(sociala.length > 0 ? { sameAs: sociala } : {}),
     ...(restaurang.betyg

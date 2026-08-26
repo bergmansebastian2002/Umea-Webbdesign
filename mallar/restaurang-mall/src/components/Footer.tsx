@@ -106,8 +106,23 @@ export default function Footer() {
             <Link href="/hitta-hit" className="hover:text-white">
               {`Restaurang i ${seo.stad}`}
             </Link>
+            <Link href="/integritetspolicy" className="hover:text-white">
+              Integritetspolicy
+            </Link>
           </nav>
         </div>
+
+        {/* Signatur på alla kundsajter. PLATSHÅLLARE: byt mailto-länken mot
+            byråns webbplats när den finns. */}
+        <p className="mt-4 text-xs text-white/50">
+          Hemsida av{" "}
+          <a
+            href="mailto:UmeaWebbdesign@gmail.com"
+            className="underline-offset-4 hover:text-white hover:underline"
+          >
+            Umeå Webbdesign
+          </a>
+        </p>
       </div>
     </footer>
   );
