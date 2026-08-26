@@ -189,6 +189,16 @@ export const trustPoints: TrustPoint[] = [
   },
 ];
 
+/**
+ * Photo of Väven by the Umeälven river. CC BY-SA 3.0 - the visible credit
+ * line below is required by the license. Source documented in BILDKALLOR.md.
+ */
+export const vavenPhoto = {
+  src: "/images/vaven-umea.webp",
+  alt: "Kulturhuset Väven vid Umeälven i Umeå en solig sensommardag",
+  credit: "Foto: Mikael Lindmark (CC BY-SA 3.0, Wikimedia Commons)",
+} as const;
+
 export const aboutText = [
   "Umeå Webbdesign drivs lokalt i Umeå. När du hör av dig pratar du direkt " +
     "med den som faktiskt designar och bygger din sida - inga mellanhänder, " +
