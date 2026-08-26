@@ -5,12 +5,18 @@ import { ArrowRight } from "lucide-react";
 import { aboutText, trustPoints, vavenPhoto } from "@/data/site";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-/** Two-column trust section with the Väven photo. */
+/**
+ * Two-column trust section with the Väven photo.
+ * On mobile the photo shrinks and floats to the RIGHT of the text
+ * (magazine style) instead of stacking below it; on lg+ it is the
+ * full left column, exactly as before.
+ */
 export default function About() {
   return (
     <section aria-labelledby="om-oss" className="border-t border-line py-16 md:py-24">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <figure className="reveal relative order-2 lg:order-1">
+        {/* Desktop/tablet-landscape image - hidden on mobile. */}
+        <figure className="reveal relative order-2 hidden lg:order-1 lg:block">
           {/* inset-0, not negative: the blur spreads the glow visually
               without making the box overflow the viewport on mobile. */}
           <div
@@ -36,13 +42,30 @@ export default function About() {
             title="Din lokala webbdesigner"
             id="om-oss"
           />
-          <div className="-mt-6 space-y-4 text-base leading-relaxed text-mist md:text-lg">
+
+          {/* Mobile image - floats right so the text wraps around it. */}
+          <figure className="float-right -mt-4 mb-2 ml-4 w-2/5 max-w-44 lg:hidden">
+            <Image
+              src={vavenPhoto.src}
+              alt={vavenPhoto.alt}
+              width={800}
+              height={1000}
+              loading="lazy"
+              sizes="40vw"
+              className="aspect-4/5 w-full rounded-xl border border-line object-cover"
+            />
+            <figcaption className="mt-1 text-right text-[0.6rem] leading-tight text-mist/70">
+              {vavenPhoto.credit}
+            </figcaption>
+          </figure>
+
+          <div className="-mt-6 space-y-4 text-base leading-relaxed text-mist md:text-lg lg:-mt-6">
             {aboutText.map((paragraph) => (
               <p key={paragraph.slice(0, 32)}>{paragraph}</p>
             ))}
           </div>
 
-          <ul className="mt-9 space-y-5">
+          <ul className="mt-9 clear-both space-y-5">
             {trustPoints.map((point) => (
               <li key={point.title} className="reveal flex gap-4">
                 <point.icon aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-gold-2" />
