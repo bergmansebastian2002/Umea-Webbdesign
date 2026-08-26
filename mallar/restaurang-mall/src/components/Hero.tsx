@@ -71,8 +71,13 @@ export default function Hero() {
             </Knapp>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-white/75">
+          {/* Öppet-statusen får en egen rad: dess bredd ändras när den
+              beräknats i webbläsaren, och i samma rad som telefon/adress
+              skulle det bryta om raden och knuffa hela heron (CLS). */}
+          <div className="mt-8 text-white/75">
             <OppetNu />
+          </div>
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-white/75">
             <a
               href={`tel:${kontakt.telefonLank}`}
               className="text-sm underline-offset-4 hover:text-white hover:underline"

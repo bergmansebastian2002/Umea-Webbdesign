@@ -71,6 +71,8 @@ export type Meny = {
   ingress?: string;
   /** Liten notis under menyn, t.ex. allergiinformation. */
   fotnot?: string;
+  /** Sektions-id:n som visas i startsidans smakprov. Utelämnad = de två första. */
+  smakprov?: string[];
   sektioner: Menysektion[];
 };
 
@@ -177,7 +179,8 @@ export type Restaurangkonfig = {
     telefon: string;
     /** Telefonnummer i internationellt format för klickbara länkar, t.ex. "+4690123456". */
     telefonLank: string;
-    epost: string;
+    /** Publik e-postadress. Utelämna om restaurangen inte har någon - mejlraderna döljs då. */
+    epost?: string;
     gata: string;
     postnummer: string;
     ort: string;
@@ -204,6 +207,17 @@ export type Restaurangkonfig = {
     knapptext: string;
     /** Kort rad under knappen, t.ex. "Eller ring oss på 090-123 45 67". */
     hjalptext?: string;
+  };
+
+  /**
+   * Demo av "beställ och hämta"-flödet med Swish-knapp på /bestall.
+   * Endast utseende: ingen riktig betalning eller orderhantering sker.
+   * Utelämna fältet (eller sätt aktiv: false) så finns sidan inte.
+   */
+  bestallningDemo?: {
+    aktiv: boolean;
+    /** Kort text som visas överst på beställningssidan. */
+    notis?: string;
   };
 
   /** Google-betyg och recensionscitat. Utelämna tills kunden har omdömen. */

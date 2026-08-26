@@ -42,9 +42,11 @@ export default function HittaHitSida() {
               <a href={`tel:${kontakt.telefonLank}`} className="block hover:text-accent">
                 {kontakt.telefon}
               </a>
-              <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
-                {kontakt.epost}
-              </a>
+              {kontakt.epost && (
+                <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
+                  {kontakt.epost}
+                </a>
+              )}
             </div>
 
             <div className="mt-10 border-t border-ram pt-8">

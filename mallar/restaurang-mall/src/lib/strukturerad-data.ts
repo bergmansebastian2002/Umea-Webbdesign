@@ -45,7 +45,7 @@ export function restaurangSchema() {
     description: restaurang.kortBeskrivning,
     url: sajtUrl,
     telephone: restaurang.kontakt.telefonLank,
-    email: restaurang.kontakt.epost,
+    ...(restaurang.kontakt.epost ? { email: restaurang.kontakt.epost } : {}),
     image: absolutUrl(restaurang.bilder.hero),
     logo: absolutUrl(restaurang.logotyp ?? restaurang.bilder.delning ?? restaurang.bilder.hero),
     priceRange: restaurang.seo.prisniva,

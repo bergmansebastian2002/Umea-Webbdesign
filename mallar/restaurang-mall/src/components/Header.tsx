@@ -11,6 +11,7 @@ import BokaBordKnapp from "@/components/BokaBordKnapp";
 const LANKAR = [
   { href: "/", text: "Start" },
   { href: "/meny", text: "Meny" },
+  ...(restaurang.bestallningDemo?.aktiv ? [{ href: "/bestall", text: "Beställ" }] : []),
   { href: "/om-oss", text: "Om oss" },
   { href: "/hitta-hit", text: "Hitta hit" },
   { href: "/kontakt", text: "Kontakt" },
