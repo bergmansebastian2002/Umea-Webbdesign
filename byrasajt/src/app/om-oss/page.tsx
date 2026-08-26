@@ -25,6 +25,23 @@ export default function AboutPage() {
               asH1
               id="om-oss-rubrik"
             />
+
+            {/* Mobile image - floats right so the text wraps around it. */}
+            <figure className="float-right -mt-4 mb-2 ml-4 w-2/5 max-w-44 lg:hidden">
+              <Image
+                src={vavenPhoto.src}
+                alt={vavenPhoto.alt}
+                width={800}
+                height={1000}
+                priority
+                sizes="40vw"
+                className="aspect-4/5 w-full rounded-xl border border-line object-cover"
+              />
+              <figcaption className="mt-1 text-right text-[0.6rem] leading-tight text-mist/70">
+                {vavenPhoto.credit}
+              </figcaption>
+            </figure>
+
             <div className="-mt-6 space-y-4 text-base leading-relaxed text-mist md:text-lg">
               {aboutText.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
@@ -37,7 +54,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <ul className="mt-9 space-y-5">
+            <ul className="mt-9 clear-both space-y-5">
               {trustPoints.map((point) => (
                 <li key={point.title} className="flex gap-4">
                   <point.icon aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-gold-2" />
@@ -50,7 +67,8 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <figure className="relative">
+          {/* Desktop image - the mobile version floats inside the text column instead. */}
+          <figure className="relative hidden lg:block">
             <div aria-hidden="true" className="absolute inset-0 rounded-3xl bg-gold/15 blur-2xl" />
             <Image
               src={vavenPhoto.src}
