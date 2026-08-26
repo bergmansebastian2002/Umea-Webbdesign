@@ -145,7 +145,8 @@ export type Example = {
 
 /**
  * Live example sites built on our restaurant template.
- * Preview images are the sites' own hero images.
+ * Preview images are real screenshots of the sites - regenerate with the
+ * screenshot script if the sites change (see docs in the repo).
  */
 export const examples: Example[] = [
   {
@@ -153,14 +154,14 @@ export const examples: Example[] = [
     type: "Norrländsk restaurang, Umeå - demosajt",
     url: "https://restaurang-bjorken-coral.vercel.app",
     image: "/images/exempel/bjorken.webp",
-    imageAlt: "Startsidan för Restaurang Björken med mörk, elegant design",
+    imageAlt: "Skärmbild av startsidan för Restaurang Björken med mörk, elegant design",
   },
   {
     name: "Ronyas Restaurang",
     type: "Pizza, grill och buffé på Vasaplan, Umeå",
     url: "https://restaurang-ronyas.vercel.app",
     image: "/images/exempel/ronyas.webp",
-    imageAlt: "Startsidan för Ronyas Restaurang med varm, livlig design",
+    imageAlt: "Skärmbild av menysidan för Ronyas Restaurang med varm, livlig design",
   },
 ];
 
