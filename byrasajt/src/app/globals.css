@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   DESIGN TOKENS - dark premium studio look.
+   All colors are defined here; components only use the Tailwind classes
+   these tokens generate (bg-base, text-gold, border-line ...).
+--------------------------------------------------------------------------- */
+@theme {
+  --color-night: #0b0c0e;     /* page background, near-black with warm tone */
+  --color-night-2: #111317;   /* gradient partner for the background */
+  --color-panel: #16181d;     /* cards and panels */
+  --color-ink: #f5f3ef;       /* primary text */
+  --color-mist: #9ca3af;      /* secondary text */
+  --color-gold: #c9a227;      /* accent */
+  --color-gold-2: #e8c86a;    /* light end of the gold gradient */
+  --color-line: rgb(255 255 255 / 0.08);
+
+  --font-heading: var(--font-heading-src), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-src), system-ui, -apple-system, sans-serif;
+
+  --text-hero: clamp(2.6rem, 1.5rem + 5vw, 4.8rem);
+  --text-title: clamp(1.9rem, 1.35rem + 2.2vw, 2.9rem);
+
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 16px 40px -12px rgb(0 0 0 / 0.6);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* clip (not hidden): stops decorative glows from causing sideways
+       scroll without creating a new scroll container. */
+    overflow-x: clip;
+    background:
+      linear-gradient(180deg, var(--color-night) 0%, var(--color-night-2) 100%)
+      fixed var(--color-night);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* Visible focus ring on every interactive element (WCAG). */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-2);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-night);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Standard content width. */
+  .wrap {
+    width: 100%;
+    max-width: 74rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding-inline: 2rem; }
+  }
+
+  /* Small uppercase label above headings. */
+  .kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold-2);
+    font-weight: 600;
+  }
+
+  /* Gold gradient text for numbers and highlights. */
+  .gold-text {
+    background: linear-gradient(120deg, var(--color-gold), var(--color-gold-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Subtle film grain over the whole page - adds depth without noise. */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Soft radial glow behind the hero. */
+  .hero-glow {
+    background: radial-gradient(
+      55rem 32rem at 70% 8%,
+      rgb(201 162 39 / 0.13),
+      transparent 65%
+    );
+  }
+
+  /* Scroll reveal: elements with .reveal fade in when scrolled into view
+     (driven by the Reveal component). Without JS everything shows at once. */
+  @media (scripting: enabled) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.6s var(--ease-out-soft),
+        transform 0.6s var(--ease-out-soft);
+    }
+  }
+  .reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Slow pulse for the scroll indicator in the hero. */
+  .pulse-soft {
+    animation: pulseSoft 2.2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  50%      { opacity: 0.9;  transform: translateY(6px); }
+}
