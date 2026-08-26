@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { meny, restaurang } from "@/lib/kund";
 
@@ -13,8 +13,27 @@ import { meny, restaurang } from "@/lib/kund";
 export default function BestallDemo() {
   const [antal, setAntal] = useState<Record<string, number>>({});
   const [visaSwishRuta, setVisaSwishRuta] = useState(false);
+  const swishRutaRef = useRef<HTMLDivElement>(null);
 
   const { kontakt } = restaurang;
+
+  // Rutan ska gå att stänga med Escape och fånga fokus när den öppnas,
+  // precis som ljuslådan i galleriet.
+  useEffect(() => {
+    if (!visaSwishRuta) return;
+
+    swishRutaRef.current?.focus();
+    const vidTangent = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setVisaSwishRuta(false);
+    };
+
+    document.addEventListener("keydown", vidTangent);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", vidTangent);
+      document.body.style.overflow = "";
+    };
+  }, [visaSwishRuta]);
 
   const andra = (namn: string, steg: number) =>
     setAntal((nu) => {
@@ -54,7 +73,7 @@ export default function BestallDemo() {
 
   return (
     <div className="pb-32">
-      <div className="grid gap-14 md:grid-cols-2 md:gap-x-14">
+      <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-x-14">
         {sektioner.map((sektion) => (
           <section key={sektion.id}>
             <h2 className="border-b border-ram pb-3 font-rubrik text-2xl">
@@ -80,7 +99,7 @@ export default function BestallDemo() {
                         onClick={() => andra(ratt.namn, -1)}
                         disabled={n === 0}
                         aria-label={`Ta bort en ${ratt.namn}`}
-                        className="flex h-9 w-9 items-center justify-center rounded-mall border border-ram text-lg disabled:opacity-30"
+                        className="flex h-11 w-11 items-center justify-center rounded-mall border border-ram text-lg disabled:opacity-30"
                       >
                         &minus;
                       </button>
@@ -91,7 +110,7 @@ export default function BestallDemo() {
                         type="button"
                         onClick={() => andra(ratt.namn, 1)}
                         aria-label={`Lägg till en ${ratt.namn}`}
-                        className="flex h-9 w-9 items-center justify-center rounded-mall bg-accent text-lg text-accent-text"
+                        className="flex h-11 w-11 items-center justify-center rounded-mall bg-accent text-lg text-accent-text"
                       >
                         +
                       </button>
@@ -133,9 +152,11 @@ export default function BestallDemo() {
       {/* Demoruta istället för riktig betalning */}
       {visaSwishRuta && (
         <div
+          ref={swishRutaRef}
           role="dialog"
           aria-modal="true"
           aria-label="Demo av Swish-betalning"
+          tabIndex={-1}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4"
           onClick={() => setVisaSwishRuta(false)}
         >
