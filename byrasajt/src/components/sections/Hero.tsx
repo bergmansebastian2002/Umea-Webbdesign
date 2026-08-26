@@ -51,7 +51,7 @@ export default function Hero() {
               <span className="h-2 w-2 rounded-full bg-line" />
               <span className="h-2 w-2 rounded-full bg-line" />
             </div>
-            <div className="relative aspect-16/10 overflow-hidden rounded-xl">
+            <div className="relative aspect-16/9 overflow-hidden rounded-xl">
               <Image
                 src="/images/exempel/bjorken.webp"
                 alt=""
@@ -66,11 +66,11 @@ export default function Hero() {
           <div className="absolute -bottom-8 -right-2 w-28 rounded-3xl border border-line bg-panel p-1.5 shadow-lift sm:w-32">
             <div className="relative aspect-9/19 overflow-hidden rounded-[1.15rem]">
               <Image
-                src="/images/exempel/ronyas.webp"
+                src="/images/exempel/ronyas-mobil.webp"
                 alt=""
                 fill
                 sizes="130px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>
