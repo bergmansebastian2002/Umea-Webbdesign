@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { aboutText, company, contactMailto, processSteps, trustPoints } from "@/data/site";
+import { aboutText, company, contactMailto, processSteps, trustPoints, vavenPhoto } from "@/data/site";
 import { buildMetadata } from "@/lib/seo";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -50,17 +50,20 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="relative">
+          <figure className="relative">
             <div aria-hidden="true" className="absolute inset-0 rounded-3xl bg-gold/15 blur-2xl" />
             <Image
-              src="/images/vaven-umea-platshallare.svg"
-              alt="Väven i Umeå med Umeälven i höstfärger"
+              src={vavenPhoto.src}
+              alt={vavenPhoto.alt}
               width={800}
               height={1000}
               priority
               className="relative aspect-4/5 w-full rounded-2xl border border-line object-cover"
             />
-          </div>
+            <figcaption className="relative mt-2 text-right text-xs text-mist/70">
+              {vavenPhoto.credit}
+            </figcaption>
+          </figure>
         </div>
       </section>
 

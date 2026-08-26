@@ -2,20 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { aboutText, trustPoints } from "@/data/site";
+import { aboutText, trustPoints, vavenPhoto } from "@/data/site";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-/**
- * Two-column trust section.
- * PLACEHOLDER IMAGE: replace /images/vaven-umea-platshallare.svg with a real
- * photo saved as /images/vaven-umea.jpg (alt text is already correct) once
- * a photo with usage rights exists.
- */
+/** Two-column trust section with the Väven photo. */
 export default function About() {
   return (
     <section aria-labelledby="om-oss" className="border-t border-line py-16 md:py-24">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <div className="reveal relative order-2 lg:order-1">
+        <figure className="reveal relative order-2 lg:order-1">
           {/* inset-0, not negative: the blur spreads the glow visually
               without making the box overflow the viewport on mobile. */}
           <div
@@ -23,14 +18,17 @@ export default function About() {
             className="absolute inset-0 rounded-3xl bg-gold/15 blur-2xl"
           />
           <Image
-            src="/images/vaven-umea-platshallare.svg"
-            alt="Väven i Umeå med Umeälven i höstfärger"
+            src={vavenPhoto.src}
+            alt={vavenPhoto.alt}
             width={800}
             height={1000}
             loading="lazy"
             className="relative aspect-4/5 w-full rounded-2xl border border-line object-cover"
           />
-        </div>
+          <figcaption className="relative mt-2 text-right text-xs text-mist/70">
+            {vavenPhoto.credit}
+          </figcaption>
+        </figure>
 
         <div className="order-1 lg:order-2">
           <SectionHeading
