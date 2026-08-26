@@ -130,6 +130,7 @@ export type Startsidesektion =
   | "menySmakprov"
   | "menyHojdpunkter"
   | "galleri"
+  | "bildspel"
   | "betyg"
   | "evenemang"
   | "bokaCta"
