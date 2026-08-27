@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: { path: string; priority: number }[] = [
     { path: "/", priority: 1 },
     { path: "/om-oss", priority: 0.8 },
-    { path: "/ai-och-data", priority: 0.6 },
+    { path: "/din-data", priority: 0.6 },
   ];
 
   return pages.map((page) => ({

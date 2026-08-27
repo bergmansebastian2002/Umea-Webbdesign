@@ -21,12 +21,15 @@ import {
 export const company = {
   name: "Umeå Webbdesign",
   city: "Umeå",
+  /** Used in schema.org address data. */
   region: "Västerbotten",
-  email: "UmeaWebbdesign@gmail.com",
+  /** Shown next to the city on the site: "Umeå, Sverige". */
+  country: "Sverige",
+  email: "umeawebdesign@gmail.com",
   phone: "070-360 05 64",
   phoneHref: "+46703600564",
   siteUrl: "https://umea-webbdesign.vercel.app",
-  responseTime: "Svarstid: oftast inom 24 timmar",
+  responseTime: "Inom 24 timmar",
   /** PLACEHOLDER: replace with real registration details before invoicing. */
   orgDetails: "Organisationsuppgifter: [kompletteras]",
 } as const;
@@ -45,10 +48,10 @@ export type NavLink = { href: string; label: string };
 export const navLinks: NavLink[] = [
   { href: "/", label: "Hem" },
   { href: "/#tjanster", label: "Vad vi erbjuder" },
-  { href: "/#process", label: "Så här jobbar vi" },
-  { href: "/#exempel", label: "Exempel" },
+  { href: "/#process", label: "Hur vi jobbar" },
+  { href: "/#hemsidor", label: "Hemsidor" },
   { href: "/om-oss", label: "Om oss" },
-  { href: "/ai-och-data", label: "AI & Datahantering" },
+  { href: "/din-data", label: "Din data" },
   { href: "/#kontakt", label: "Kontakt" },
 ];
 
@@ -58,7 +61,7 @@ export type Promise_ = { title: string; detail: string };
 export const promises: Promise_[] = [
   { title: "Snabb leverans", detail: "Din nya sida live på 1-2 veckor" },
   { title: "Bättre resultat", detail: "Snabb, sökbar och byggd för Google" },
-  { title: "Ökad försäljning", detail: "Design som leder till samtal och bokningar" },
+  { title: "Ökad försäljning", detail: "Design som lockar. Kunder som ökar." },
 ];
 
 export type Service = { icon: LucideIcon; title: string; body: string };
@@ -135,37 +138,64 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+export type ExampleSlide = {
+  image: string;
+  alt: string;
+  /** Small chip shown on the slide: "Maten", "Menyn" ... */
+  label: string;
+};
+
 export type Example = {
   name: string;
   type: string;
   url: string;
-  image: string;
-  imageAlt: string;
+  slides: ExampleSlide[];
 };
 
 /**
- * Live example sites built on our restaurant template.
- * Preview images are real screenshots of the sites - regenerate with the
- * screenshot script if the sites change (see docs in the repo).
+ * Demo sites built on our restaurant template. All three restaurants are
+ * fictional demo customers - no real businesses. Photos are Unsplash
+ * (documented in BILDKALLOR.md); menu slides are real screenshots of the
+ * demo sites - regenerate with `npm run exempelbilder`.
  */
 export const examples: Example[] = [
   {
     name: "Restaurang Björken",
-    type: "Norrländsk restaurang, Umeå - demosajt",
+    type: "Norrländsk restaurang - demosajt",
     url: "https://restaurang-bjorken-coral.vercel.app",
-    image: "/images/exempel/bjorken.webp",
-    imageAlt: "Skärmbild av startsidan för Restaurang Björken med mörk, elegant design",
+    slides: [
+      { image: "/images/exempel/bjorken-mat.webp", alt: "Färgstark bowl med säsongens grönsaker", label: "Maten" },
+      { image: "/images/exempel/bjorken-restaurang.webp", alt: "Matsalen med dukade bord i varmt kvällsljus", label: "Restaurangen" },
+      { image: "/images/exempel/bjorken-miljo.webp", alt: "Bartendern silar upp en cocktail i baren", label: "Miljön" },
+      { image: "/images/exempel/bjorken-meny.webp", alt: "Menysidan på Restaurang Björkens hemsida", label: "Menyn" },
+    ],
   },
   {
-    name: "Ronyas Restaurang",
-    type: "Pizza, grill och buffé på Vasaplan, Umeå",
-    url: "https://restaurang-ronyas.vercel.app",
-    image: "/images/exempel/ronyas.webp",
-    imageAlt: "Skärmbild av menysidan för Ronyas Restaurang med varm, livlig design",
+    name: "Restaurang Norrsken",
+    type: "Modern finkrog - demosajt",
+    url: "https://restaurang-norrsken.vercel.app",
+    slides: [
+      { image: "/images/exempel/norrsken-mat.webp", alt: "Elegant uppläggning på tallrik", label: "Maten" },
+      { image: "/images/exempel/norrsken-restaurang.webp", alt: "Restaurangens matsal", label: "Restaurangen" },
+      { image: "/images/exempel/norrsken-miljo.webp", alt: "Stämningsfull miljö i restaurangen", label: "Miljön" },
+      { image: "/images/exempel/norrsken-meny.webp", alt: "Menysidan på Restaurang Norrskens hemsida", label: "Menyn" },
+    ],
+  },
+  {
+    name: "Pizzeria Vedugnen",
+    type: "Kvarterspizzeria - demosajt",
+    url: "https://pizzeria-vedugnen.vercel.app",
+    slides: [
+      { image: "/images/exempel/vedugnen-mat.webp", alt: "Nygräddad pizza", label: "Maten" },
+      { image: "/images/exempel/vedugnen-restaurang.webp", alt: "Pizzerians lokal", label: "Restaurangen" },
+      { image: "/images/exempel/vedugnen-miljo.webp", alt: "Pizza gräddas i ugnen", label: "Miljön" },
+      { image: "/images/exempel/vedugnen-meny.webp", alt: "Menysidan på Pizzeria Vedugnens hemsida", label: "Menyn" },
+    ],
   },
 ];
 
 export const examplesOutro =
+  "Alla tre är fiktiva demorestauranger som visar vad mallen klarar. " +
   "Restaurang är bara ett exempel - vi bygger även sidor för frisörer, " +
   "hantverkare, kliniker och butiker. Samma noggrannhet, anpassat efter din bransch.";
 

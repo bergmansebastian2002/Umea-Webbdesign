@@ -8,7 +8,7 @@ import Process from "@/components/sections/Process";
 import Services from "@/components/sections/Services";
 
 export const metadata = buildMetadata({
-  title: "Umeå Webbdesign - Hemsidor som hjälper företag att växa",
+  title: "Umeå Webbdesign - Din nya hemsida, klar på två veckor",
   description:
     "Webbyrå i Umeå. Vi designar och bygger snabba, moderna hemsidor för " +
     "företag i Umeå och resten av Sverige. Kostnadsfritt första möte.",

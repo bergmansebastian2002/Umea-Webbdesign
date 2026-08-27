@@ -21,9 +21,10 @@ const OUT = path.join(
 );
 
 const SHOTS = [
-  { url: "https://restaurang-bjorken-coral.vercel.app/", file: "bjorken.webp", width: 1600, height: 900 },
-  { url: "https://restaurang-ronyas.vercel.app/meny", file: "ronyas.webp", width: 1600, height: 900 },
-  { url: "https://restaurang-ronyas.vercel.app/meny", file: "ronyas-mobil.webp", width: 390, height: 844, mobile: true },
+  { url: "https://restaurang-bjorken-coral.vercel.app/meny", file: "bjorken-meny.webp", width: 1600, height: 900 },
+  { url: "https://restaurang-bjorken-coral.vercel.app/meny", file: "bjorken-meny-mobil.webp", width: 390, height: 844, mobile: true },
+  { url: "https://restaurang-norrsken.vercel.app/meny", file: "norrsken-meny.webp", width: 1600, height: 900 },
+  { url: "https://pizzeria-vedugnen.vercel.app/meny", file: "vedugnen-meny.webp", width: 1600, height: 900 },
 ];
 
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: "new" });

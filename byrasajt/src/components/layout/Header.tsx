@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { company, contactMailto, navLinks } from "@/data/site";
+import { company, navLinks } from "@/data/site";
 import Logo from "@/components/layout/Logo";
 
 /**
@@ -64,13 +64,6 @@ export default function Header() {
           </ul>
         </nav>
 
-        <a
-          href={contactMailto}
-          className="hidden min-h-11 items-center rounded-2xl bg-gradient-to-r from-gold to-gold-2 px-5 py-2.5 text-sm font-semibold text-night transition-all hover:brightness-110 xl:inline-flex"
-        >
-          Kontakta oss
-        </a>
-
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -87,11 +80,14 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Full-screen mobile overlay */}
+      {/* Full-screen mobile overlay. Positioned with absolute + explicit
+          height instead of fixed: the header's backdrop-filter makes it the
+          containing block for fixed descendants, which collapsed the old
+          fixed overlay to zero height. */}
       <div
         id="mobilmeny"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-20 overflow-y-auto bg-night/95 backdrop-blur-md xl:hidden"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-5rem)] overflow-y-auto bg-night/95 backdrop-blur-md xl:hidden"
       >
         <nav aria-label="Mobilmeny" className="wrap flex min-h-full flex-col py-10">
           <ul className="flex flex-col gap-1">

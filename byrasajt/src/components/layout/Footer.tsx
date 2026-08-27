@@ -41,7 +41,7 @@ export default function Footer() {
                 {company.phone}
               </a>
               <span className="block text-mist">
-                {company.city}, {company.region}
+                {company.city}, {company.country}
               </span>
               <span className="block text-mist">{company.responseTime}</span>
             </address>
@@ -56,8 +56,8 @@ export default function Footer() {
             <Link href="/integritetspolicy" className="hover:text-ink">
               Integritetspolicy
             </Link>
-            <Link href="/ai-och-data" className="hover:text-ink">
-              AI & Datahantering
+            <Link href="/din-data" className="hover:text-ink">
+              Datahantering och GDPR
             </Link>
           </nav>
         </div>

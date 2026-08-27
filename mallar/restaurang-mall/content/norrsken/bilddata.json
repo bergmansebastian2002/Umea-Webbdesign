@@ -1,0 +1,42 @@
+{
+  "/kunder/norrsken/delning.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAsABABoJZwAAfkyD/2HgAD+qcP4dyvK5AW3nHyMn82mhS8s2WzeQgYlXYGvZ9vXL9bHX6eRjsSk0l0OXR48pjx28rEJegAAAA=="
+  },
+  "/kunder/norrsken/galleri/baren.webp": {
+    "bredd": 1920,
+    "hojd": 1440,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAQCdASoQAAwABABoJYwCdAClL/AAAP7u3wpUXQ/XehMz0X9ntaujoUf3IwzjHqADJNLYNsOT0z/KVu3ukB5EXUd85aLFTb9/kt5Li9eeAAAA"
+  },
+  "/kunder/norrsken/galleri/koket.webp": {
+    "bredd": 1920,
+    "hojd": 2880,
+    "blur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABQBACdASoQABgAPxFysFAsJqSisAgBgCIJQBOgZYMMAYWnusBiDjdGgSPYAPKfgKBLoL3K/V4Vrr6vAnaiF9lDow7Y85EedLV9GmTItHEshx8KuzLBVnfPdhd6sdJb7vu2ZM57faIaxJQ/5TF7IKsfbOL5Up5wPWVrH9jeLLxw2JL1q2SBHIZADBtp/toj1XJUGl8v+Ka6wAAA"
+  },
+  "/kunder/norrsken/galleri/ratt-1.webp": {
+    "bredd": 1920,
+    "hojd": 2880,
+    "blur": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACwBACdASoQABgAPxFysFAsJqSisAgBgCIJbACdAdwLgTZKaYsTM9i2I0hhPD1oAP68YWIkpf4mZxK6nUDJQf4muUf26TxYEI2n/Sb4z3H2+xRZrYUvxEBrI1yoFJaGHsr0P+tNyFHVVxs+bKAcb43BZJNQrxPCvt/kE6OiP32aWbWhPfPjETXNImCf9WVPT/vYO4Gz8ZIYyAs7v/vYejjI55qOm4KbdO10JRjtkTGFnjklXAdAAA=="
+  },
+  "/kunder/norrsken/galleri/ratt-2.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAAsABABoJbACdAYrnEBwZINQAP7Ch46v2uvIQn70sC0LyshBuBBpML75NNgBm9s0eOMQwubkO6F01j7LYngI81bqqTzU026Sl3/DAWLg2PmXwgjqtWWGWtg48e8O8Df2bnstoAA="
+  },
+  "/kunder/norrsken/galleri/uteservering.webp": {
+    "bredd": 1920,
+    "hojd": 1440,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAwABABoJQBOgCMDwBnktJTwAP7nrePDjCIWyCVrddV7XV/gz0zE3hY73epmwfJr5+drhZIJ2oybWlBJxxgXOVrAl+66HtyvuUp1DpMmXfQA"
+  },
+  "/kunder/norrsken/hero.webp": {
+    "bredd": 1920,
+    "hojd": 1281,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAsABABoJYwCdAEQPAxSfF9KoAD7HyJ5zanD8FfCFxs5LXk5kFE0uakKxFS1koRISMo9gFt/4Nul8O/hogQPfMsjP9Cb//fsUQhSDgbsAA=="
+  },
+  "/kunder/norrsken/om-oss.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAQCdASoQAAsABABoJQAB8e1CacEc8AD83XJEIdfOnc4Lmy4tEv7K6Kp5DNnMZzk9EoJhMDvJ3o7l/pKgHWnqsRj9yJPnsIUBqAJ19ygjK/SHow8c+gQwvUec0CemKw3gy/T0GQlicrvq3AAAAA=="
+  }
+}

@@ -12,7 +12,7 @@ export default function Contact() {
         <SectionHeading
           kicker="Kontakt"
           title="Kontakta oss"
-          intro="Första samtalet är alltid kostnadsfritt - berätta vad du behöver så återkommer vi med ett konkret förslag."
+          intro="Tveka inte på att kontakta oss. Berätta vad du behöver så återkommer vi med ett konkret förslag."
           id="kontakt"
         />
 
@@ -43,7 +43,7 @@ export default function Contact() {
               </li>
               <li className="flex min-h-11 items-center gap-3 text-mist">
                 <MapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-gold-2" />
-                {company.city}, {company.region}
+                {company.city}, {company.country}
               </li>
               <li className="flex min-h-11 items-center gap-3 text-mist">
                 <Clock aria-hidden="true" className="h-5 w-5 shrink-0 text-gold-2" />
