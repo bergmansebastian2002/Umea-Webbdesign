@@ -19,13 +19,16 @@ export default function AppleIcon() {
         }}
       >
         <svg width="132" height="132" viewBox="0 0 48 48">
-          <rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="#e8c86a" strokeWidth="2.5" />
-          <rect x="15" y="11" width="6" height="6" rx="1.5" fill="#e8c86a" />
-          <rect x="27" y="11" width="6" height="6" rx="1.5" fill="#e8c86a" />
+          <rect x="2" y="2" width="44" height="44" rx="10" fill="none" stroke="#e8c86a" strokeWidth="2.5" />
           <path
-            d="M15 37 L15 29 Q15 23 20 23 L28 23 Q33 23 33 28 L33 37 L27 37 L27 30 Q27 29 26 29 L22 29 Q21 29 21 30 L21 37 Z"
-            fill="#e8c86a"
+            d="M14.8 14.8 C24 12.7 35.3 24 33.2 33.2 C24 35.3 12.7 24 14.8 14.8 Z"
+            fill="none" stroke="#e8c86a" strokeWidth="2" strokeLinecap="round"
           />
+          <path d="M15.5 15.5 L33.2 33.2" fill="none" stroke="#e8c86a" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M21.2 21.2 L21.5 15.2" fill="none" stroke="#e8c86a" strokeWidth="1" strokeLinecap="round" />
+          <path d="M21.2 21.2 L15.2 21.5" fill="none" stroke="#e8c86a" strokeWidth="1" strokeLinecap="round" />
+          <path d="M24.7 24.7 L25.4 18.3" fill="none" stroke="#e8c86a" strokeWidth="1" strokeLinecap="round" />
+          <path d="M24.7 24.7 L18.3 25.4" fill="none" stroke="#e8c86a" strokeWidth="1" strokeLinecap="round" />
         </svg>
       </div>
     ),
