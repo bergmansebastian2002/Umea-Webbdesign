@@ -11,8 +11,8 @@ export default function Process() {
       <div className="wrap">
         <SectionHeading
           kicker="Arbetssätt"
-          title="Så här jobbar vi"
-          intro="Från första mötet till en publicerad sida - och vidare. Tydligt, utan överraskningar."
+          title="Hur vi jobbar"
+          intro="Första mötet är kostnadsfritt. Efter det vet du priset, tidsplanen och vem du ringer när något ska ändras - det är samma person som ritar, bygger och svarar i telefon, från första skiss till publicerad sida och vidare."
           id="process"
         />
 

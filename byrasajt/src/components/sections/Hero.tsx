@@ -18,18 +18,20 @@ export default function Hero() {
             id="hero-rubrik"
             className="mt-5 max-w-xl text-[length:var(--text-hero)] leading-[1.06]"
           >
-            Hemsidor som hjälper företag att <span className="gold-text">växa</span>.
+            Din nya hemsida.
+            <br />
+            Klar på <span className="gold-text">två veckor</span>.
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-mist">
-            Vi designar och bygger snabba, moderna hemsidor för företag i Umeå
-            och resten av Sverige - sidor som syns på Google och gör besökare
-            till kunder.
+            Smidiga lösningar för företag i Umeå som behöver en sida som
+            faktiskt fungerar - snabb, sökbar och gjord för mobilen där dina
+            kunder redan är.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button href={contactMailto}>Kontakta oss</Button>
-            <Button href="/#exempel" variant="outline">
-              Se våra exempel
+            <Button href="/#hemsidor" variant="outline">
+              Se våra hemsidor
             </Button>
           </div>
 
@@ -43,30 +45,25 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* Device mockup collage - pure CSS frames around real screenshots. */}
+        {/* Photo of demo restaurant Björken with a phone mockup in front
+            showing the menu page of its site. */}
         <div aria-hidden="true" className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="rounded-2xl border border-line bg-panel p-2 shadow-lift">
-            <div className="flex gap-1.5 px-2 py-2">
-              <span className="h-2 w-2 rounded-full bg-line" />
-              <span className="h-2 w-2 rounded-full bg-line" />
-              <span className="h-2 w-2 rounded-full bg-line" />
-            </div>
-            <div className="relative aspect-16/9 overflow-hidden rounded-xl">
-              <Image
-                src="/images/exempel/bjorken.webp"
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 45vw"
-                className="object-cover"
-              />
-            </div>
+          <div className="relative aspect-16/10 overflow-hidden rounded-2xl border border-line shadow-lift">
+            <Image
+              src="/images/exempel/bjorken-restaurang.webp"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-night/50 via-transparent to-transparent" />
           </div>
 
           <div className="absolute -bottom-8 -right-2 w-28 rounded-3xl border border-line bg-panel p-1.5 shadow-lift sm:w-32">
             <div className="relative aspect-9/19 overflow-hidden rounded-[1.15rem]">
               <Image
-                src="/images/exempel/ronyas-mobil.webp"
+                src="/images/exempel/bjorken-meny-mobil.webp"
                 alt=""
                 fill
                 sizes="130px"

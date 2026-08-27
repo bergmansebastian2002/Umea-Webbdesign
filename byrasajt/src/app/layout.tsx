@@ -12,7 +12,7 @@ import Reveal from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   metadataBase: new URL(company.siteUrl),
   title: {
-    default: `${company.name} - Hemsidor som hjälper företag att växa`,
+    default: `${company.name} - Din nya hemsida, klar på två veckor`,
     template: `%s | ${company.name}`,
   },
   description:

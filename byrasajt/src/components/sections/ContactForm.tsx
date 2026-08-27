@@ -125,7 +125,7 @@ export default function ContactForm() {
         type="submit"
         className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-gold to-gold-2 px-7 py-3.5 text-sm font-semibold text-night transition-all hover:brightness-110 sm:w-auto"
       >
-        Öppna e-postutkast
+        Öppna i e-post
       </button>
 
       <p className="text-xs text-mist" role="status">
