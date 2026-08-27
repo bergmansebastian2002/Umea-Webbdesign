@@ -16,16 +16,19 @@ const INTERVAL_MS = 4500;
 export default function Bildspel({
   slides,
   name,
+  eager = false,
 }: {
   slides: ExampleSlide[];
   name: string;
+  /** Load the first slide eagerly - use above the fold (hero). */
+  eager?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [inView, setInView] = useState(false);
+  // Playing from the start - the observer below only pauses the slideshow
+  // while the card is provably scrolled out of view.
+  const [inView, setInView] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
-
-  // Only animate while the card is actually visible.
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
@@ -37,9 +40,10 @@ export default function Bildspel({
     return () => observer.disconnect();
   }, []);
 
+  // Auto-advance as soon as the card is visible. Under prefers-reduced-motion
+  // the global CSS strips the crossfade/zoom, so slides change with calm cuts.
   useEffect(() => {
     if (paused || !inView) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = window.setInterval(() => {
       if (!document.hidden) setIndex((i) => (i + 1) % slides.length);
@@ -71,7 +75,8 @@ export default function Bildspel({
             src={slide.image}
             alt={i === index ? slide.alt : ""}
             fill
-            loading="lazy"
+            priority={eager && i === 0}
+            loading={eager && i === 0 ? undefined : "lazy"}
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className={`object-cover ${i === index ? "kenburns" : ""}`}
           />
@@ -83,14 +88,6 @@ export default function Bildspel({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/45 via-transparent to-night/25"
       />
-
-      {/* Slide label - re-keyed so it fades in with every slide change. */}
-      <span
-        key={slides[index].label}
-        className="chip-in absolute left-3 top-3 rounded-full border border-line bg-night/70 px-3 py-1 text-xs font-semibold tracking-wide text-gold-2 backdrop-blur-sm"
-      >
-        {slides[index].label}
-      </span>
 
       <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
         {slides.map((slide, i) => (

@@ -44,8 +44,14 @@ export default function Header() {
         Hoppa till innehållet
       </a>
 
-      <div className="wrap flex h-20 items-center justify-between gap-6">
-        <Link href="/" aria-label="Umeå Webbdesign - till startsidan">
+      {/* Three-column grid keeps the nav visually centered now that the
+          right side has no CTA button - the empty 1fr column balances the logo. */}
+      <div className="wrap grid h-20 grid-cols-[1fr_auto_1fr] items-center gap-6">
+        <Link
+          href="/"
+          aria-label="Umeå Webbdesign - till startsidan"
+          className="justify-self-start"
+        >
           <Logo />
         </Link>
 
@@ -69,7 +75,7 @@ export default function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobilmeny"
-          className="-mr-2 flex h-11 w-11 items-center justify-center xl:hidden"
+          className="col-start-3 -mr-2 flex h-11 w-11 items-center justify-center justify-self-end xl:hidden"
         >
           <span className="sr-only">{open ? "Stäng meny" : "Öppna meny"}</span>
           <span aria-hidden="true" className="relative block h-4 w-6">
