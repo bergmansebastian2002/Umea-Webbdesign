@@ -21,6 +21,7 @@ const OUT = path.join(
 );
 
 const SHOTS = [
+  { url: "https://restaurang-bjorken-coral.vercel.app/", file: "bjorken-hem.webp", width: 1600, height: 900 },
   { url: "https://restaurang-bjorken-coral.vercel.app/meny", file: "bjorken-meny.webp", width: 1600, height: 900 },
   { url: "https://restaurang-bjorken-coral.vercel.app/meny", file: "bjorken-meny-mobil.webp", width: 390, height: 844, mobile: true },
   { url: "https://restaurang-norrsken.vercel.app/meny", file: "norrsken-meny.webp", width: 1600, height: 900 },

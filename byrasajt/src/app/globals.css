@@ -18,7 +18,9 @@
   --font-heading: var(--font-heading-src), Georgia, "Times New Roman", serif;
   --font-body: var(--font-body-src), system-ui, -apple-system, sans-serif;
 
-  --text-hero: clamp(2.6rem, 1.5rem + 5vw, 4.8rem);
+  /* Sized so "Klar på två veckor." always fits on ONE line (nowrap in Hero):
+     tracks the viewport on small screens, capped by the column on large. */
+  --text-hero: clamp(1.8rem, 0.4rem + 7.2vw, 3.8rem);
   --text-title: clamp(1.9rem, 1.35rem + 2.2vw, 2.9rem);
 
   --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.4), 0 16px 40px -12px rgb(0 0 0 / 0.6);
@@ -150,11 +152,6 @@
   .kenburns {
     animation: kenburns 8s var(--ease-out-soft) forwards;
   }
-
-  /* Slide label chip: small rise + fade on every slide change. */
-  .chip-in {
-    animation: chipIn 0.5s var(--ease-out-soft) both;
-  }
 }
 
 @keyframes pulseSoft {
@@ -165,9 +162,4 @@
 @keyframes kenburns {
   from { transform: scale(1.02); }
   to   { transform: scale(1.12); }
-}
-
-@keyframes chipIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
 }

@@ -2,7 +2,16 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 import { contactMailto, promises } from "@/data/site";
+import Bildspel from "@/components/ui/Bildspel";
 import Button from "@/components/ui/Button";
+
+/** Auto-playing hero slideshow: the Björken demo site and what it shows off. */
+const HERO_SLIDES = [
+  { image: "/images/exempel/bjorken-hem.webp", alt: "Startsidan på Restaurang Björkens hemsida", label: "Hemsidan" },
+  { image: "/images/exempel/bjorken-restaurang.webp", alt: "Matsalen på restaurangen", label: "Restaurangen" },
+  { image: "/images/exempel/bjorken-mat.webp", alt: "Färgstark rätt från menyn", label: "Maten" },
+  { image: "/images/exempel/bjorken-meny.webp", alt: "Menysidan på Restaurang Björkens hemsida", label: "Menyn" },
+];
 
 /**
  * Start page hero: headline, promises and a CSS-built laptop + phone
@@ -16,11 +25,12 @@ export default function Hero() {
           <p className="kicker">Webbyrå i Umeå</p>
           <h1
             id="hero-rubrik"
-            className="mt-5 max-w-xl text-[length:var(--text-hero)] leading-[1.06]"
+            className="mt-5 text-[length:var(--text-hero)] leading-[1.1]"
           >
-            Din nya hemsida.
-            <br />
-            Klar på <span className="gold-text">två veckor</span>.
+            <span className="block whitespace-nowrap">Din nya hemsida.</span>
+            <span className="block whitespace-nowrap">
+              Klar på <span className="gold-text">två veckor</span>.
+            </span>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-mist">
             Smidiga lösningar för företag i Umeå som behöver en sida som
@@ -45,22 +55,17 @@ export default function Hero() {
           </dl>
         </div>
 
-        {/* Photo of demo restaurant Björken with a phone mockup in front
-            showing the menu page of its site. */}
-        <div aria-hidden="true" className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-16/10 overflow-hidden rounded-2xl border border-line shadow-lift">
-            <Image
-              src="/images/exempel/bjorken-restaurang.webp"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-night/50 via-transparent to-transparent" />
+        {/* Auto-playing slideshow of the Björken demo (site, restaurant,
+            food, menu) with a phone mockup in front showing the menu page. */}
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="overflow-hidden rounded-2xl border border-line shadow-lift">
+            <Bildspel slides={HERO_SLIDES} name="Restaurang Björken" eager />
           </div>
 
-          <div className="absolute -bottom-8 -right-2 w-28 rounded-3xl border border-line bg-panel p-1.5 shadow-lift sm:w-32">
+          <div
+            aria-hidden="true"
+            className="absolute -bottom-8 -right-2 w-28 rounded-3xl border border-line bg-panel p-1.5 shadow-lift sm:w-32"
+          >
             <div className="relative aspect-9/19 overflow-hidden rounded-[1.15rem]">
               <Image
                 src="/images/exempel/bjorken-meny-mobil.webp"
