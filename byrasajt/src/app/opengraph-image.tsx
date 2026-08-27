@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Umeå Webbdesign - Hemsidor som hjälper företag att växa";
+export const alt = "Umeå Webbdesign - Din nya hemsida, klar på två veckor";
 
 /** Social share image generated at build time - no design tool needed. */
 export default function OgImage() {
@@ -37,7 +37,7 @@ export default function OgImage() {
         </div>
 
         <div style={{ marginTop: 70, fontSize: 68, lineHeight: 1.1, maxWidth: 900 }}>
-          Hemsidor som hjälper företag att växa.
+          Din nya hemsida. Klar på två veckor.
         </div>
         <div style={{ marginTop: 30, fontSize: 30, color: "#e8c86a" }}>
           Webbyrå i Umeå · umea-webbdesign.vercel.app
