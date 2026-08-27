@@ -1,0 +1,42 @@
+{
+  "/kunder/vedugnen/delning.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAsABABoJbACdLoAAyBlfDmlUQAA/nMlfh/GvP/TJ6b8V2ZlShlw7osn4xWbqiTuskVYi6LW9XBpO1dnkXdxht8h5y/FdfkAuKYeL+7NEYj1zhwAAA=="
+  },
+  "/kunder/vedugnen/galleri/mat-bbq.webp": {
+    "bredd": 1920,
+    "hojd": 2320,
+    "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoQABMAPxFysFAsJqSisAgBgCIJbACdMoFWAAVSL2efA/nw4kcAAP6jS0Wnd0GIFb9IMI2tv0At/u2DjgczYaUaox52Nr2B5etYPAVgwJcn4oXCivtSNhjrIEHVJjqezy9suXTgfmM+UDOqOK2UYA+abT1x6EbjuYJ/g30EG16k/wAIm9kYRCy2IwgAAA=="
+  },
+  "/kunder/vedugnen/galleri/mat-burrata.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAsABABoJZACdH8AE5kNaGZpAAD+9tXzPrMgI4Nbq9qYT/4Dk24xBy+eiTOKXo0bP6kLZVApvQpssn/ba9R1AHRiN5Bn0MqDO6t9sOAAAA=="
+  },
+  "/kunder/vedugnen/galleri/mat-margherita.webp": {
+    "bredd": 1920,
+    "hojd": 2560,
+    "blur": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBACdASoQABUAPxFysFAsJqSisAgBgCIJZgC7AYvM7Sd3jUYNfpTGZAb3KVAAAP7ZZC9xC1ouP49Q3DOp4wMHRwdYMP94GgcuQznOvM4FXHyet1Fif6h6JyAJGuUJaynABVxQAN29z9nIarNcj4pmrNPzgWCMIUhZgDUHt5HKTEk/kAQxslEkXkIlXm6eVmYneg+sDhgGzG4D/cWjWbxEd9xV3HcAkAA="
+  },
+  "/kunder/vedugnen/galleri/mat-ost.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAgCdASoQAAsABABoJbACdAdwB86YxSRp8gAA/s3/xLzYY6ssbTMwyijugxINM04wa1dO5pdnULt1MYm8NM2sH54A44/05Zzfkb3Cd0sHU01gAAA="
+  },
+  "/kunder/vedugnen/galleri/ugnen.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAQCdASoQAAsABABoJbACdAB8ZU/9wAD+ZjQq+4QerNtsx9mp8G3dpsI+GWSLKesHiQA24tg/abIEYlqIb4zUri/nQ+sebbk6nDDEs2AfK3NCu5PuESAg1toQ7nEH9rAAAA=="
+  },
+  "/kunder/vedugnen/hero.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAQCdASoQAAsABABoJbACdAB8ZU/9wAD+ZjQq+4QerNtsx9mp8G3dpsI+GWSLKesHiQA24tg/abIEYlqIb4zUri/nQ+sebbk6nDDEs2AfK3NCu5PuESAg1toQ7nEH9rAAAA=="
+  },
+  "/kunder/vedugnen/om-oss.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAsABABoJYwAApI5K36eXQAA/Xh15WVbrR0GVFqW4QfAy5Jx7sGNP7Xze6pCk4zhjH3yTe9YSQ2WMUMiLvAzMcxLhQyvnUn9vIqvaAA="
+  }
+}
