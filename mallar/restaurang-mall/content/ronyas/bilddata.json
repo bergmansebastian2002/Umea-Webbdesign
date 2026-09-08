@@ -1,52 +1,52 @@
 {
-  "/kunder/ronyas/galleri/kok.webp": {
-    "bredd": 1600,
-    "hojd": 1067,
-    "blur": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAABQAQCdASoQAAsABABoJZwABDOAAP7tr93qkOAA"
+  "/kunder/ronyas/galleri/disken.webp": {
+    "bredd": 1920,
+    "hojd": 1206,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAoABABoJYgCdADb7wo4AAD+2soGmld5jfUaiAuOca4LAvcTuJBUJYFj+pjqCXyz7+o78fvwfCeE1naICLfmhhsgAA=="
   },
-  "/kunder/ronyas/galleri/mat-buffe.webp": {
-    "bredd": 1200,
-    "hojd": 1600,
-    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAgCdASoQABUAPxFysFAsJqSisAgBgCIJZwCzgC0kAAD+6i/yztvVvrrAAA=="
+  "/kunder/ronyas/galleri/fasad.webp": {
+    "bredd": 1920,
+    "hojd": 989,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAgABABoJZQCdAEPglZWYADiT/YaU2DGThJNrTRNkOGH5sUDjJi9Mf08TxoKZexMGiUTSVoDc46Y6WaAAAAA"
+  },
+  "/kunder/ronyas/galleri/kok.webp": {
+    "bredd": 1920,
+    "hojd": 1116,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAkABABoJaACdH8AF7IS7J4AAP7OBJH59ecPb3ShCZ1xxkEyw6RQqIRfWThdd4RbPjL2uWBU5YFU36iF2bm716lAAA=="
   },
   "/kunder/ronyas/galleri/mat-grill.webp": {
-    "bredd": 1600,
-    "hojd": 1067,
-    "blur": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAABQAQCdASoQAAsABABoJZwABDOAAP7tr93qkOAA"
+    "bredd": 960,
+    "hojd": 640,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAsABABoJbACdAC3yMZbpkAA/uuL8+lmkq32dS2EzzLsRa8CKfTtp74aKK27B8RWIRdanx1gEnACu0In4szHvOiclzoY8NrOE0Eqk5xT8IBXubKs18eAAAA="
   },
   "/kunder/ronyas/galleri/mat-pizza.webp": {
-    "bredd": 1600,
-    "hojd": 1067,
-    "blur": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAABQAQCdASoQAAsABABoJZwABDOAAP7tr93qkOAA"
+    "bredd": 1920,
+    "hojd": 1335,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAsABABoJQBOgBQ/ZWZsAAD+0E1xm6w3k5kX0OvOJ0FXxmBmlzFNOpzGKb0Dy3gxj+MwpO8OflZ62n02R9ybuvL6myiQNjajYoZwAAA="
   },
-  "/kunder/ronyas/galleri/matsal-1.webp": {
-    "bredd": 1600,
-    "hojd": 1067,
-    "blur": "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAABQAQCdASoQAAsABABoJZwABDOAAP7tseV7vVIcAAA="
+  "/kunder/ronyas/galleri/matsal.webp": {
+    "bredd": 1920,
+    "hojd": 1068,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkABABoJQBOgBSuYBkUAPQNJ24o82NVrWN/iTZwFVO46b+PSzbvVXeCpVEgUltmBPDYl1F3b6QlcKkEAA=="
   },
-  "/kunder/ronyas/galleri/matsal-2.webp": {
-    "bredd": 1200,
-    "hojd": 1600,
-    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAgCdASoQABUAPxFysFAsJqSisAgBgCIJZwCzgC0kAAD+6jhSI+HqIcsWEaAA"
+  "/kunder/ronyas/galleri/salladsbuffe.webp": {
+    "bredd": 1920,
+    "hojd": 1404,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAwABABoJbACdADJwxUZ+klAAPwFCk/MKFDMyENAg5PVtpMpRD1G4GTJCfLUUdMq1YYIBuWfQPop+GCLe9l8ivOzaKOAAAA="
   },
-  "/kunder/ronyas/galleri/uteservering-1.webp": {
-    "bredd": 1600,
-    "hojd": 1067,
-    "blur": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACwAQCdASoQAAsABABoJZwAAudZf3cAAP7eWBaKu9UhwAAA"
-  },
-  "/kunder/ronyas/galleri/uteservering-2.webp": {
-    "bredd": 1200,
-    "hojd": 1600,
-    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAgCdASoQABUAPxFwsFAsJiSisAgBgCIJZwCzgC0kAAD+6jmZEd8PUP/y+gAA"
+  "/kunder/ronyas/galleri/varmbuffe.webp": {
+    "bredd": 1920,
+    "hojd": 1303,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoQAAsABABoJbACdAYuRGLhkDx1gAD+24XVdK+GEK6aUu+Yf38+xq3EdErhVHyxnfBRJql5Pkqi6t3QJktTxoAICkHcJWuAcAEHBgmETjPljgAA"
   },
   "/kunder/ronyas/hero.webp": {
     "bredd": 1920,
-    "hojd": 1200,
-    "blur": "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAABQAQCdASoQAAoABABoJZQABDOAAP7tsS1XeqQ4AAA="
+    "hojd": 1440,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAwABABoJYgCdADcCJ4FTAAA/uxNaLVzQwdjVQ+VAcZb4ZhXz+mm64tcko1HUw3NjOGZHNXMphZBLJIAzLJXKTEAAA=="
   },
   "/kunder/ronyas/om-oss.webp": {
-    "bredd": 1600,
-    "hojd": 2000,
-    "blur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAgCdASoQABQAPxFysFAsJqSisAgBgCIJZwCzgC0kAAD+6jmZEQE0VjHW0AAA"
+    "bredd": 1920,
+    "hojd": 1066,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkABABoJYwCdAEWZ9usS0AA/Z0HuXjZ9KquCcxkm0Jjw+rAAzMXABKgsVR+uvTiBy1nURXl1Ddy283hj4Kg/bSOQAAA"
   }
 }

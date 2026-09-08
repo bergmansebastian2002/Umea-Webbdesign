@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { restaurang } from "@/lib/kund";
 import { grupperadeOppettider } from "@/lib/oppettider";
@@ -9,6 +10,15 @@ const SOCIALA_NAMN: Record<string, string> = {
   instagram: "Instagram",
   tripadvisor: "Tripadvisor",
   google: "Google",
+};
+
+/** Ikoner för sociala medier. Kanaler utan ikon visas som textlänk. */
+const SOCIALA_IKONER: Record<string, ReactNode> = {
+  facebook: (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
+      <path d="M13.5 21v-7.5h2.52l.38-2.93H13.5V8.7c0-.85.24-1.43 1.45-1.43h1.55V4.65c-.27-.04-1.19-.12-2.26-.12-2.23 0-3.76 1.36-3.76 3.87v2.16H7.96v2.93h2.52V21h3.02Z" />
+    </svg>
+  ),
 };
 
 export default function Footer() {
@@ -25,19 +35,27 @@ export default function Footer() {
             <p className="font-rubrik text-2xl text-white">{restaurang.namn}</p>
             <p className="mt-3 text-sm leading-relaxed">{restaurang.slogan}</p>
             {socialaLankar.length > 0 && (
-              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                {socialaLankar.map(([namn, url]) => (
-                  <li key={namn}>
-                    <a
-                      href={url as string}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline-offset-4 hover:text-white hover:underline"
-                    >
-                      {SOCIALA_NAMN[namn] ?? namn}
-                    </a>
-                  </li>
-                ))}
+              <ul className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                {socialaLankar.map(([namn, url]) => {
+                  const ikon = SOCIALA_IKONER[namn];
+                  return (
+                    <li key={namn}>
+                      <a
+                        href={url as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${restaurang.namn} på ${SOCIALA_NAMN[namn] ?? namn} - öppnas i nytt fönster`}
+                        className={
+                          ikon
+                            ? "flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white/80 transition-colors hover:border-white hover:bg-white/10 hover:text-white"
+                            : "text-sm underline-offset-4 hover:text-white hover:underline"
+                        }
+                      >
+                        {ikon ?? (SOCIALA_NAMN[namn] ?? namn)}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>

@@ -1,16 +1,19 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { restaurang } from "@/lib/kund";
 
 /**
- * Fast bokningsfält i botten på mobil. Visas när besökaren rullat förbi
- * heron, så det aldrig ligger ovanpå startvyn. "Boka bord" + "Ring oss"
+ * Fast beställningsfält i botten på mobil. Visas när besökaren rullat förbi
+ * heron, så det aldrig ligger ovanpå startvyn. Beställ/boka + "Ring oss"
  * är de två handlingar en hungrig mobilbesökare faktiskt vill göra.
  */
 export default function MobilBokningsRad() {
   const [synlig, setSynlig] = useState(false);
+  const sokvag = usePathname();
 
   useEffect(() => {
     const vidRullning = () => setSynlig(window.scrollY > window.innerHeight * 0.7);
@@ -19,7 +22,10 @@ export default function MobilBokningsRad() {
     return () => window.removeEventListener("scroll", vidRullning);
   }, []);
 
-  const { bokning, kontakt } = restaurang;
+  const { bokning, bestallningDemo, kontakt } = restaurang;
+
+  // Beställningssidan har en egen fast betalrad i botten - visa inte två.
+  if (sokvag === "/bestall") return null;
 
   return (
     <div
@@ -41,6 +47,15 @@ export default function MobilBokningsRad() {
           >
             {bokning.knapptext}
           </a>
+        ) : bestallningDemo?.aktiv ? (
+          <Link
+            href="/bestall"
+            tabIndex={synlig ? 0 : -1}
+            data-spar="boka"
+            className="flex flex-1 items-center justify-center rounded-mall bg-accent px-4 py-3 text-sm font-medium tracking-wide text-accent-text"
+          >
+            Beställ &amp; hämta
+          </Link>
         ) : (
           <a
             href={`tel:${kontakt.telefonLank}`}
@@ -48,7 +63,7 @@ export default function MobilBokningsRad() {
             data-spar="ring"
             className="flex flex-1 items-center justify-center rounded-mall bg-accent px-4 py-3 text-sm font-medium tracking-wide text-accent-text"
           >
-            Ring och boka
+            Ring och beställ
           </a>
         )}
         <a

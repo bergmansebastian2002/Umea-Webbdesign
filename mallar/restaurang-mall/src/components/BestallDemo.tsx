@@ -4,27 +4,33 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { meny, restaurang } from "@/lib/kund";
 
+type Betalsatt = "swish" | "kort";
+
 /**
- * Demo av "beställ och hämta": besökaren klickar ihop en beställning ur
- * menyn och ser en Swish-knapp för betalning på distans. Hela flödet är
- * endast utseende - ingen betalning eller order skickas någonstans, och
- * knappen leder till en ruta som förklarar det och hänvisar till telefon.
+ * Beställ och hämta: besökaren klickar ihop en beställning ur menyn,
+ * skriver eventuella önskemål (t.ex. allergier) och väljer Swish eller
+ * kort i den fasta betalraden längst ner. Finns `bestallningDemo.swishNummer`
+ * i kundens config öppnar Swish-knappen appen med belopp och meddelande
+ * förifyllt - annars visas en ruta som förklarar att betalningen kopplas
+ * in inom kort och hänvisar till telefon.
  */
 export default function BestallDemo() {
   const [antal, setAntal] = useState<Record<string, number>>({});
-  const [visaSwishRuta, setVisaSwishRuta] = useState(false);
-  const swishRutaRef = useRef<HTMLDivElement>(null);
+  const [ovrigt, setOvrigt] = useState("");
+  const [betalsatt, setBetalsatt] = useState<Betalsatt | null>(null);
+  const betalRutaRef = useRef<HTMLDivElement>(null);
 
   const { kontakt } = restaurang;
+  const swishNummer = restaurang.bestallningDemo?.swishNummer?.replace(/\s/g, "");
 
   // Rutan ska gå att stänga med Escape och fånga fokus när den öppnas,
   // precis som ljuslådan i galleriet.
   useEffect(() => {
-    if (!visaSwishRuta) return;
+    if (!betalsatt) return;
 
-    swishRutaRef.current?.focus();
+    betalRutaRef.current?.focus();
     const vidTangent = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setVisaSwishRuta(false);
+      if (e.key === "Escape") setBetalsatt(null);
     };
 
     document.addEventListener("keydown", vidTangent);
@@ -33,7 +39,7 @@ export default function BestallDemo() {
       document.removeEventListener("keydown", vidTangent);
       document.body.style.overflow = "";
     };
-  }, [visaSwishRuta]);
+  }, [betalsatt]);
 
   const andra = (namn: string, steg: number) =>
     setAntal((nu) => {
@@ -45,7 +51,7 @@ export default function BestallDemo() {
     });
 
   // Alla rätter med fast pris, per sektion. Rätter utan pris kan inte
-  // beställas i demon och filtreras bort.
+  // beställas online och filtreras bort.
   const sektioner = useMemo(
     () =>
       meny.sektioner
@@ -71,8 +77,25 @@ export default function BestallDemo() {
   const totalsumma = valda.reduce((summa, rad) => summa + rad.summa, 0);
   const antalVaror = valda.reduce((n, rad) => n + rad.antal, 0);
 
+  // Swishs meddelandefält rymmer ca 50 tecken - beställningen komprimeras
+  // och kapas så att den alltid går att skicka med.
+  const swishLank = useMemo(() => {
+    if (!swishNummer) return null;
+    const meddelande = valda
+      .map((rad) => `${rad.antal}x ${rad.namn}`)
+      .join(", ")
+      .slice(0, 50);
+    const parametrar = new URLSearchParams({
+      sw: swishNummer,
+      amt: String(totalsumma),
+      cur: "SEK",
+      msg: meddelande,
+    });
+    return `https://app.swish.nu/1/p/sw/?${parametrar.toString()}`;
+  }, [swishNummer, valda, totalsumma]);
+
   return (
-    <div className="pb-32">
+    <div className="pb-36">
       <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-x-14">
         {sektioner.map((sektion) => (
           <section key={sektion.id}>
@@ -123,13 +146,32 @@ export default function BestallDemo() {
         ))}
       </div>
 
-      {/* Fast summeringsrad med Swish-knapp */}
+      {/* Fritt fält för allergier och andra önskemål - följer med beställningen. */}
+      <div className="mt-14 max-w-xl">
+        <label htmlFor="bestallning-ovrigt" className="font-rubrik text-2xl">
+          Övrigt, t.ex. allergier
+        </label>
+        <p className="mt-1 text-sm text-dampad">
+          Skriv fritt - texten skickas med din beställning.
+        </p>
+        <textarea
+          id="bestallning-ovrigt"
+          value={ovrigt}
+          onChange={(e) => setOvrigt(e.target.value)}
+          rows={3}
+          maxLength={500}
+          placeholder="T.ex. glutenfri pizzabotten, ingen lök ..."
+          className="mt-3 w-full rounded-mall border border-ram bg-yta p-4 text-sm leading-relaxed placeholder:text-dampad/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        />
+      </div>
+
+      {/* Fast betalrad som följer med när besökaren rullar i menyn */}
       <div
         className="fixed inset-x-0 bottom-0 z-40 border-t border-ram bg-yta/95 backdrop-blur-md"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <div className="omslag flex items-center justify-between gap-4 py-3">
-          <div className="min-w-0">
+        <div className="omslag flex items-center justify-between gap-3 py-3">
+          <div className="min-w-0 shrink-0">
             <p className="text-sm text-dampad">
               {antalVaror === 0
                 ? "Inget valt ännu"
@@ -137,49 +179,100 @@ export default function BestallDemo() {
             </p>
             <p className="font-rubrik text-xl tabular-nums">{totalsumma} kr</p>
           </div>
-          <button
-            type="button"
-            onClick={() => setVisaSwishRuta(true)}
-            disabled={antalVaror === 0}
-            className="flex items-center gap-2 rounded-mall bg-accent px-6 py-3.5 text-sm font-medium tracking-wide text-accent-text transition-all hover:brightness-110 disabled:opacity-40"
-          >
-            Betala med Swish
-            <span aria-hidden="true">&rarr;</span>
-          </button>
+          <div className="flex min-w-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setBetalsatt("kort")}
+              disabled={antalVaror === 0}
+              className="rounded-mall border border-ram px-4 py-3.5 text-sm font-medium tracking-wide transition-all hover:border-accent hover:text-accent disabled:opacity-40"
+            >
+              <span className="hidden sm:inline">Betala med kort</span>
+              <span className="sm:hidden">Kort</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setBetalsatt("swish")}
+              disabled={antalVaror === 0}
+              className="flex items-center gap-2 rounded-mall bg-accent px-5 py-3.5 text-sm font-medium tracking-wide text-accent-text transition-all hover:brightness-110 disabled:opacity-40"
+            >
+              Betala med Swish
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Demoruta istället för riktig betalning */}
-      {visaSwishRuta && (
+      {/* Sammanställning av beställningen + betalning */}
+      {betalsatt && (
         <div
-          ref={swishRutaRef}
+          ref={betalRutaRef}
           role="dialog"
           aria-modal="true"
-          aria-label="Demo av Swish-betalning"
+          aria-label="Din beställning"
           tabIndex={-1}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4"
-          onClick={() => setVisaSwishRuta(false)}
+          onClick={() => setBetalsatt(null)}
         >
           <div
-            className="w-full max-w-md rounded-mall bg-yta p-8 text-center"
+            className="max-h-[90svh] w-full max-w-md overflow-y-auto rounded-mall bg-yta p-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="etikett">Demo</p>
-            <h2 className="mt-3 font-rubrik text-2xl">Här skulle Swish öppnas</h2>
-            <p className="mt-4 text-sm leading-relaxed text-dampad">
-              I en färdig lösning betalar du {totalsumma} kr med Swish här och
-              hämtar sedan maten i restaurangen. Betalningen är inte inkopplad
-              ännu - ring oss så tar vi din beställning direkt.
+            <p className="etikett">Din beställning</p>
+
+            <ul className="mt-4 space-y-2 border-b border-ram pb-4 text-sm">
+              {valda.map((rad) => (
+                <li key={rad.namn} className="flex justify-between gap-4">
+                  <span className="min-w-0 truncate">
+                    {rad.antal} &times; {rad.namn}
+                  </span>
+                  <span className="shrink-0 tabular-nums">{rad.summa} kr</span>
+                </li>
+              ))}
+              {ovrigt.trim() && (
+                <li className="pt-1 text-dampad">
+                  <span className="font-medium text-text">Övrigt:</span> {ovrigt.trim()}
+                </li>
+              )}
+            </ul>
+
+            <p className="mt-4 flex justify-between font-rubrik text-xl">
+              <span>Att betala</span>
+              <span className="tabular-nums">{totalsumma} kr</span>
             </p>
-            <a
-              href={`tel:${kontakt.telefonLank}`}
-              className="mt-6 inline-flex w-full items-center justify-center rounded-mall bg-accent px-6 py-3.5 text-sm font-medium tracking-wide text-accent-text"
-            >
-              Ring och beställ {kontakt.telefon}
-            </a>
+
+            {betalsatt === "swish" && swishLank ? (
+              <>
+                <p className="mt-4 text-sm leading-relaxed text-dampad">
+                  Knappen öppnar Swish med belopp och beställning förifyllda.
+                  Visa kvittot när du hämtar maten hos oss.
+                </p>
+                <a
+                  href={swishLank}
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-mall bg-accent px-6 py-3.5 text-sm font-medium tracking-wide text-accent-text"
+                >
+                  Öppna Swish och betala {totalsumma} kr
+                </a>
+              </>
+            ) : (
+              <>
+                <p className="mt-4 text-sm leading-relaxed text-dampad">
+                  {betalsatt === "swish"
+                    ? "Swish-betalningen kopplas in inom kort. Tills dess - ring in din beställning så står maten redo när du kommer."
+                    : "Kortbetalning online kopplas in inom kort. Tills dess - ring in din beställning och betala med kort när du hämtar."}
+                </p>
+                <a
+                  href={`tel:${kontakt.telefonLank}`}
+                  data-spar="ring"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-mall bg-accent px-6 py-3.5 text-sm font-medium tracking-wide text-accent-text"
+                >
+                  Ring och beställ {kontakt.telefon}
+                </a>
+              </>
+            )}
+
             <button
               type="button"
-              onClick={() => setVisaSwishRuta(false)}
+              onClick={() => setBetalsatt(null)}
               className="mt-3 w-full rounded-mall border border-ram px-6 py-3 text-sm"
             >
               Stäng

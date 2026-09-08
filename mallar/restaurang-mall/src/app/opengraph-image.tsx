@@ -131,7 +131,7 @@ export default async function OgBild() {
                 fontWeight: 600,
               }}
             >
-              {restaurang.bokning.aktiv ? restaurang.bokning.knapptext : "Ring och boka"}
+              {restaurang.bokning.aktiv ? restaurang.bokning.knapptext : "Ring och beställ"}
             </div>
             <div style={{ display: "flex", color: "rgba(255,255,255,0.75)", fontSize: 26 }}>
               {restaurang.sajtUrl.replace("https://", "").replace("http://", "")}

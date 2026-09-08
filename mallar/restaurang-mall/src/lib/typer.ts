@@ -134,6 +134,7 @@ export type Startsidesektion =
   | "betyg"
   | "evenemang"
   | "bokaCta"
+  | "bestallCta"
   | "hittaHit";
 
 export type Fardschema = {
@@ -211,14 +212,21 @@ export type Restaurangkonfig = {
   };
 
   /**
-   * Demo av "beställ och hämta"-flödet med Swish-knapp på /bestall.
-   * Endast utseende: ingen riktig betalning eller orderhantering sker.
+   * "Beställ och hämta"-flödet med Swish-/kortknapp på /bestall.
+   * Utan `swishNummer` visas en ruta som förklarar att betalningen kopplas
+   * in snart och hänvisar till telefon. Med `swishNummer` öppnar knappen
+   * Swish med belopp och meddelande förifyllt.
    * Utelämna fältet (eller sätt aktiv: false) så finns sidan inte.
    */
   bestallningDemo?: {
     aktiv: boolean;
     /** Kort text som visas överst på beställningssidan. */
     notis?: string;
+    /**
+     * Restaurangens Swish-nummer för företag, t.ex. "1231234567" (siffror
+     * utan mellanslag). Utelämna tills kunden lämnat sitt nummer.
+     */
+    swishNummer?: string;
   };
 
   /** Google-betyg och recensionscitat. Utelämna tills kunden har omdömen. */

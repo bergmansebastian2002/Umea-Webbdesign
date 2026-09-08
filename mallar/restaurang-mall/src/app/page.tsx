@@ -136,6 +136,35 @@ function BokaCta() {
   );
 }
 
+function BestallCta() {
+  const demo = restaurang.bestallningDemo;
+  if (!demo?.aktiv) return null;
+  return (
+    <Sektion
+      mork
+      centrerad
+      etikett="Swisha och hämta maten"
+      rubrik="Beställ direkt i menyn"
+      ingress="Klicka ihop din beställning i menyn, skriv eventuella önskemål som allergier och betala med Swish eller kort med knappen längst ner. Sedan är det bara att hämta maten hos oss på Vasaplan."
+    >
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Knapp href="/bestall">Beställ och hämta</Knapp>
+          <Knapp href="/meny" variant="ljus">
+            Se hela menyn
+          </Knapp>
+        </div>
+        <p className="text-sm text-white/60">
+          Hellre per telefon? Ring oss på{" "}
+          <a href={`tel:${kontakt.telefonLank}`} className="underline underline-offset-4" data-spar="ring">
+            {kontakt.telefon}
+          </a>
+        </p>
+      </div>
+    </Sektion>
+  );
+}
+
 function HittaHit() {
   return (
     <Sektion
@@ -185,6 +214,7 @@ const SEKTIONER: Record<Startsidesektion, () => ReactNode> = {
   betyg: Betyg,
   evenemang: Evenemang,
   bokaCta: BokaCta,
+  bestallCta: BestallCta,
   hittaHit: HittaHit,
 };
 
