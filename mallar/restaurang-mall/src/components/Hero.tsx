@@ -42,10 +42,17 @@ export default function Hero() {
         />
       )}
 
-      {/* Mörk toning så texten alltid är läsbar, oavsett bild. */}
+      {/* Mörk toning så texten alltid är läsbar, oavsett bild. Kundernas
+          heron är ofta ljusa och röriga (menyskärmar, vitt porslin), så
+          botten bär brödtexten och det övre lagret räddar sidhuvudets
+          meny - utan det drunknar navigeringen i bildens ljusa partier. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/35"
+        className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/72 to-black/58 md:via-black/60 md:to-black/45"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/75 to-transparent"
       />
 
       <div className="omslag relative z-10 pb-16 pt-32 text-white md:pb-24">
@@ -60,7 +67,7 @@ export default function Hero() {
 
           <p className="mt-5 text-lg text-white/90 md:text-xl">{slogan}</p>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">
             {kortBeskrivning}
           </p>
 
