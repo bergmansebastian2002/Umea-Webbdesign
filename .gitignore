@@ -8,3 +8,10 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 .vercel
+
+# Personliga Claude Code-inställningar (delas inte)
+.claude/settings.local.json
+.env*
+
+# Lokala sessionsloggar från designverktyg (maskinspecifika sökvägar)
+.impeccable/

@@ -21,7 +21,7 @@ export default function Fel({
       <p className="etikett">Något gick fel</p>
       <h1 className="mt-4 font-rubrik text-4xl">Sidan kunde inte visas</h1>
       <p className="mt-4 max-w-md text-dampad">
-        Försök igen om en stund. Vill du boka bord eller nå oss direkt går det
+        Försök igen om en stund. Vill du beställa eller nå oss direkt går det
         alltid bra att ringa{" "}
         <a href={`tel:${restaurang.kontakt.telefonLank}`} className="text-accent" data-spar="ring">
           {restaurang.kontakt.telefon}

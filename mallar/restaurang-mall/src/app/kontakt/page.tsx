@@ -8,10 +8,11 @@ import BokaBordKnapp from "@/components/BokaBordKnapp";
 import { byggMetadata } from "@/lib/seo";
 
 const { kontakt, seo, sektioner } = restaurang;
+const bestallAktiv = restaurang.bestallningDemo?.aktiv ?? false;
 
 export const metadata = byggMetadata({
   titel: "Kontakt",
-  beskrivning: `Kontakta ${restaurang.namn} i ${seo.stad}. Ring ${kontakt.telefon}, mejla ${kontakt.epost} eller skicka ett meddelande via formuläret.`,
+  beskrivning: `Kontakta ${restaurang.namn} i ${seo.stad}. Ring ${kontakt.telefon}${kontakt.epost ? `, mejla ${kontakt.epost}` : ""} eller besök oss på ${kontakt.gata}.`,
   sokvag: "/kontakt",
 });
 
@@ -24,7 +25,11 @@ export default function Kontaktsida() {
         etikett="Kontakt"
         rubrik="Hör av dig"
         somH1
-        ingress={`Ska du boka bord går det snabbast via vårt bokningssystem. Har du en fråga om allergier, större sällskap eller något annat - hör av dig här.`}
+        ingress={
+          bestallAktiv
+            ? `Vill du beställa mat går det snabbast direkt i menyn här på hemsidan, eller på telefon. Har du en fråga om allergier, större sällskap eller något annat - hör av dig här.`
+            : `Ska du boka bord går det snabbast via vårt bokningssystem. Har du en fråga om allergier, större sällskap eller något annat - hör av dig här.`
+        }
         className="pt-10 md:pt-12"
       >
         <div className="grid gap-14 lg:grid-cols-[1fr_minmax(0,22rem)] lg:gap-16">
@@ -37,11 +42,18 @@ export default function Kontaktsida() {
                   Ring oss på{" "}
                   <a href={`tel:${kontakt.telefonLank}`} className="text-accent">
                     {kontakt.telefon}
-                  </a>{" "}
-                  eller mejla{" "}
-                  <a href={`mailto:${kontakt.epost}`} className="text-accent">
-                    {kontakt.epost}
                   </a>
+                  {kontakt.epost ? (
+                    <>
+                      {" "}
+                      eller mejla{" "}
+                      <a href={`mailto:${kontakt.epost}`} className="text-accent">
+                        {kontakt.epost}
+                      </a>
+                    </>
+                  ) : (
+                    <> så hjälper vi dig direkt</>
+                  )}
                   .
                 </p>
               </div>
@@ -55,9 +67,11 @@ export default function Kontaktsida() {
                 <a href={`tel:${kontakt.telefonLank}`} className="block hover:text-accent">
                   {kontakt.telefon}
                 </a>
-                <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
-                  {kontakt.epost}
-                </a>
+                {kontakt.epost && (
+                  <a href={`mailto:${kontakt.epost}`} className="block hover:text-accent">
+                    {kontakt.epost}
+                  </a>
+                )}
               </div>
               <address className="mt-4 space-y-1 text-sm not-italic text-dampad">
                 <span className="block">{kontakt.gata}</span>
@@ -73,7 +87,7 @@ export default function Kontaktsida() {
             </div>
 
             <div className="border-t border-ram pt-8">
-              <p className="etikett">Boka bord</p>
+              <p className="etikett">{bestallAktiv ? "Beställ och hämta" : "Boka bord"}</p>
               <div className="mt-4">
                 <BokaBordKnapp className="w-full" visaHjalptext />
               </div>

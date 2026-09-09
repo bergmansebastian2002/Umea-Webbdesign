@@ -6,7 +6,8 @@ kundsajter.
 ## Struktur
 
 ```
-mallar/restaurang-mall/     Appen (Next.js 16 + React 19 + Tailwind 4)
+byrasajt/                   Byråns egen sajt - umea-webbdesign.vercel.app
+mallar/restaurang-mall/     Kundmallen (Next.js 16 + React 19 + Tailwind 4)
   content/<kund>/           EN MAPP PER KUND: config.ts, meny.json, bilder
   src/                      Komponenter och sidor (ändras aldrig per kund)
 docs/                       All dokumentation

@@ -38,14 +38,22 @@ export default function Hero() {
           quality={65}
           sizes="100vw"
           className="object-cover"
+          style={bilder.heroFokus ? { objectPosition: bilder.heroFokus } : undefined}
           {...bildProps(bilder.hero)}
         />
       )}
 
-      {/* Mörk toning så texten alltid är läsbar, oavsett bild. */}
+      {/* Mörk toning så texten alltid är läsbar, oavsett bild. Kundernas
+          heron är ofta ljusa och röriga (menyskärmar, vitt porslin), så
+          botten bär brödtexten och det övre lagret räddar sidhuvudets
+          meny - utan det drunknar navigeringen i bildens ljusa partier. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/35"
+        className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/72 to-black/58 md:via-black/60 md:to-black/45"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/75 to-transparent"
       />
 
       <div className="omslag relative z-10 pb-16 pt-32 text-white md:pb-24">
@@ -60,7 +68,7 @@ export default function Hero() {
 
           <p className="mt-5 text-lg text-white/90 md:text-xl">{slogan}</p>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">
             {kortBeskrivning}
           </p>
 
@@ -71,8 +79,13 @@ export default function Hero() {
             </Knapp>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-white/75">
+          {/* Öppet-statusen får en egen rad: dess bredd ändras när den
+              beräknats i webbläsaren, och i samma rad som telefon/adress
+              skulle det bryta om raden och knuffa hela heron (CLS). */}
+          <div className="mt-8 text-white/75">
             <OppetNu />
+          </div>
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-white/75">
             <a
               href={`tel:${kontakt.telefonLank}`}
               className="text-sm underline-offset-4 hover:text-white hover:underline"

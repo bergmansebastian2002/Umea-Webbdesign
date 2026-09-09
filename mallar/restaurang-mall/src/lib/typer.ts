@@ -71,6 +71,8 @@ export type Meny = {
   ingress?: string;
   /** Liten notis under menyn, t.ex. allergiinformation. */
   fotnot?: string;
+  /** Sektions-id:n som visas i startsidans smakprov. Utelämnad = de två första. */
+  smakprov?: string[];
   sektioner: Menysektion[];
 };
 
@@ -128,9 +130,11 @@ export type Startsidesektion =
   | "menySmakprov"
   | "menyHojdpunkter"
   | "galleri"
+  | "bildspel"
   | "betyg"
   | "evenemang"
   | "bokaCta"
+  | "bestallCta"
   | "hittaHit";
 
 export type Fardschema = {
@@ -177,7 +181,8 @@ export type Restaurangkonfig = {
     telefon: string;
     /** Telefonnummer i internationellt format för klickbara länkar, t.ex. "+4690123456". */
     telefonLank: string;
-    epost: string;
+    /** Publik e-postadress. Utelämna om restaurangen inte har någon - mejlraderna döljs då. */
+    epost?: string;
     gata: string;
     postnummer: string;
     ort: string;
@@ -206,6 +211,24 @@ export type Restaurangkonfig = {
     hjalptext?: string;
   };
 
+  /**
+   * "Beställ och hämta"-flödet med Swish-/kortknapp på /bestall.
+   * Utan `swishNummer` visas en ruta som förklarar att betalningen kopplas
+   * in snart och hänvisar till telefon. Med `swishNummer` öppnar knappen
+   * Swish med belopp och meddelande förifyllt.
+   * Utelämna fältet (eller sätt aktiv: false) så finns sidan inte.
+   */
+  bestallningDemo?: {
+    aktiv: boolean;
+    /** Kort text som visas överst på beställningssidan. */
+    notis?: string;
+    /**
+     * Restaurangens Swish-nummer för företag, t.ex. "1231234567" (siffror
+     * utan mellanslag). Utelämna tills kunden lämnat sitt nummer.
+     */
+    swishNummer?: string;
+  };
+
   /** Google-betyg och recensionscitat. Utelämna tills kunden har omdömen. */
   betyg?: Betyg;
   /** Evenemang och erbjudanden. Tom lista eller utelämnad döljer sektionen. */
@@ -219,6 +242,12 @@ export type Restaurangkonfig = {
   bilder: {
     /** Stor bild överst på startsidan. Liggande, minst 1920 px bred. */
     hero: string;
+    /**
+     * Var i hero-bilden som ska vara i fokus när den beskärs, som CSS
+     * object-position, t.ex. "70% center" eller "center top". Utelämnad
+     * centreras bilden. Använd för att flytta bort ointressanta kanter.
+     */
+    heroFokus?: string;
     /** Valfri kort, tyst videoloop (mp4/webm, max ~5 MB). Bilden blir reserv. */
     heroVideo?: string;
     /** Bild i "Om oss"-sektionen. */

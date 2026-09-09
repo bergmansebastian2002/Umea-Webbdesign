@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "./mallar/restaurang-mall", "run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "byrasajt",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "./byrasajt", "run", "dev"],
+      "port": 3001
     }
   ]
 }

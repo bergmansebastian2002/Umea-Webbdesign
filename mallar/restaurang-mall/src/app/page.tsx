@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { meny, restaurang } from "@/lib/kund";
 import type { Startsidesektion } from "@/lib/typer";
 import Betyg from "@/components/Betyg";
+import Bildspel from "@/components/Bildspel";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Evenemang from "@/components/Evenemang";
 import Galleri from "@/components/Galleri";
@@ -70,7 +71,10 @@ function MenySmakprov() {
       ingress={meny.ingress}
       className="border-y border-ram bg-yta"
     >
-      <MenyLista meny={meny} begransaTill={["forratter", "varmratter"]} />
+      <MenyLista
+        meny={meny}
+        begransaTill={meny.smakprov ?? meny.sektioner.slice(0, 2).map((s) => s.id)}
+      />
       <div className="mt-14 flex flex-col gap-3 sm:flex-row">
         <Knapp href="/meny">Se hela menyn</Knapp>
         <BokaBordKnapp variant="kontur" />
@@ -92,15 +96,68 @@ function GalleriSektion() {
   );
 }
 
+function BildspelSektion() {
+  if (bilder.galleri.length === 0) return null;
+  return (
+    <Sektion
+      etikett="Hos oss"
+      rubrik="Mat, miljö och stämning"
+      ingress="Bläddra med pilarna eller svep - bildspelet rullar annars vidare av sig självt."
+    >
+      <Bildspel bilder={bilder.galleri} />
+    </Sektion>
+  );
+}
+
 function BokaCta() {
   return (
     <Sektion mork centrerad rubrik="Boka ditt bord" ingress={restaurang.bokning.hjalptext}>
       <div className="flex flex-col items-center gap-4">
         <BokaBordKnapp />
         <p className="text-sm text-white/60">
-          Större sällskap? Mejla oss på{" "}
-          <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-4">
-            {kontakt.epost}
+          {kontakt.epost ? (
+            <>
+              Större sällskap? Mejla oss på{" "}
+              <a href={`mailto:${kontakt.epost}`} className="underline underline-offset-4">
+                {kontakt.epost}
+              </a>
+            </>
+          ) : (
+            <>
+              Större sällskap? Ring oss på{" "}
+              <a href={`tel:${kontakt.telefonLank}`} className="underline underline-offset-4">
+                {kontakt.telefon}
+              </a>
+            </>
+          )}
+        </p>
+      </div>
+    </Sektion>
+  );
+}
+
+function BestallCta() {
+  const demo = restaurang.bestallningDemo;
+  if (!demo?.aktiv) return null;
+  return (
+    <Sektion
+      mork
+      centrerad
+      etikett="Swisha och hämta maten"
+      rubrik="Beställ direkt i menyn"
+      ingress="Klicka ihop din beställning i menyn, skriv eventuella önskemål som allergier och betala med Swish eller kort med knappen längst ner. Sedan är det bara att hämta maten hos oss på Vasaplan."
+    >
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Knapp href="/bestall">Beställ och hämta</Knapp>
+          <Knapp href="/meny" variant="ljus">
+            Se hela menyn
+          </Knapp>
+        </div>
+        <p className="text-sm text-white/60">
+          Hellre per telefon? Ring oss på{" "}
+          <a href={`tel:${kontakt.telefonLank}`} className="underline underline-offset-4" data-spar="ring">
+            {kontakt.telefon}
           </a>
         </p>
       </div>
@@ -132,9 +189,11 @@ function HittaHit() {
               >
                 {kontakt.telefon}
               </a>
-              <a href={`mailto:${kontakt.epost}`} className="block text-text hover:text-accent">
-                {kontakt.epost}
-              </a>
+              {kontakt.epost && (
+                <a href={`mailto:${kontakt.epost}`} className="block text-text hover:text-accent">
+                  {kontakt.epost}
+                </a>
+              )}
             </address>
           </div>
         </div>
@@ -151,9 +210,11 @@ const SEKTIONER: Record<Startsidesektion, () => ReactNode> = {
   menySmakprov: MenySmakprov,
   menyHojdpunkter: MenyHojdpunkter,
   galleri: GalleriSektion,
+  bildspel: BildspelSektion,
   betyg: Betyg,
   evenemang: Evenemang,
   bokaCta: BokaCta,
+  bestallCta: BestallCta,
   hittaHit: HittaHit,
 };
 

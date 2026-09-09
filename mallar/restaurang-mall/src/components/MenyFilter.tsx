@@ -62,7 +62,7 @@ export default function MenyFilter({ meny }: { meny: Meny }) {
               type="button"
               onClick={() => setAktivt(filter.id)}
               aria-pressed={vald}
-              className={`rounded-mall border px-4 py-2 text-sm transition-colors ${
+              className={`min-h-11 rounded-mall border px-4 py-2 text-sm transition-colors ${
                 vald
                   ? "border-accent bg-accent text-accent-text"
                   : "border-ram hover:border-accent hover:text-accent"

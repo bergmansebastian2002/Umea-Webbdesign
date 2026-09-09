@@ -24,6 +24,11 @@
   --farg-ram: #e6e0d7;
   --rundning: 4px;
 
+  /* Höjden på en fast rad i skärmens botten (mobilens beställningsrad,
+     betalraden på /bestall). Sätts av respektive komponent när den syns,
+     så att cookie-bannern kan lägga sig ovanför i stället för över den. */
+  --fast-rad-hojd: 0px;
+
   /* Typografisk skala (flytande - växer med skärmen utan brytpunktshopp) */
   --text-hero: clamp(2.5rem, 1.4rem + 5.2vw, 4.75rem);
   --text-rubrik: clamp(1.9rem, 1.3rem + 2.4vw, 2.75rem);
@@ -135,6 +140,19 @@ html[data-art="livlig"] {
 }
 
 @layer components {
+  /* Cookie-bannerns placering: alltid ovanför en eventuell fast rad i
+     botten (mobilens beställningsrad, betalraden på /bestall). Utan det
+     lägger sig bannern rakt över betalknapparna. */
+  .ovanfor-fast-rad {
+    bottom: calc(var(--fast-rad-hojd) + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 768px) {
+    .ovanfor-fast-rad {
+      bottom: calc(var(--fast-rad-hojd) + 1.5rem);
+    }
+  }
+
   /* Standardbredd för allt innehåll. */
   .omslag {
     width: 100%;

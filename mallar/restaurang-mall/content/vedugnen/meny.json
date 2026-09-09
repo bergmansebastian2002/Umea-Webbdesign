@@ -1,0 +1,50 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Surdegsbottnar, San Marzano-tomater och en vedugn på 450 grader. Alla pizzor går att få som avhämtning - ring så står de klara.",
+  "fotnot": "Ring oss på 090-765 43 21 för avhämtning eller frågor om innehåll och allergener. Demosajt: rätter och priser är exempel.",
+  "smakprov": ["klassiker", "special"],
+  "sektioner": [
+    {
+      "id": "klassiker",
+      "rubrik": "Klassiker",
+      "beskrivning": "Tomatsås och mozzarella ingår i alla pizzor.",
+      "ratter": [
+        { "namn": "Margherita", "beskrivning": "Buffelmozzarella, basilika, olivolja", "pris": 129, "populär": true, "markningar": ["Vegetariskt"] },
+        { "namn": "Vesuvio", "beskrivning": "Kokt skinka, oregano", "pris": 135 },
+        { "namn": "Capricciosa", "beskrivning": "Skinka, champinjoner", "pris": 139 },
+        { "namn": "Salami", "beskrivning": "Salami, rödlök, svartpeppar", "pris": 139 },
+        { "namn": "Hawaii", "beskrivning": "Skinka, ananas - vi dömer ingen", "pris": 139 },
+        { "namn": "Funghi", "beskrivning": "Champinjoner, timjan, tryffelolja", "pris": 139, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "special",
+      "rubrik": "Specialpizzor",
+      "ratter": [
+        { "namn": "Vedugnen", "beskrivning": "Salsiccia, fänkål, rödlök, chilihonung", "pris": 165, "populär": true },
+        { "namn": "Burrata", "beskrivning": "Hel burrata, ruccola, pesto, citron", "pris": 169, "markningar": ["Vegetariskt"] },
+        { "namn": "BBQ-kyckling", "beskrivning": "Kyckling, rödlök, koriander, barbecuesås", "pris": 159 },
+        { "namn": "Quattro Formaggi", "beskrivning": "Fyra ostar, honung, valnötter", "pris": 159, "markningar": ["Vegetariskt"] },
+        { "namn": "Diavola", "beskrivning": "Stark salami, nduja, jalapeño", "pris": 165 }
+      ]
+    },
+    {
+      "id": "inbakade",
+      "rubrik": "Inbakat",
+      "ratter": [
+        { "namn": "Calzone", "beskrivning": "Skinka, mozzarella, tomatsås", "pris": 139 },
+        { "namn": "Calzone Special", "beskrivning": "Skinka, champinjoner, extra ost", "pris": 155 }
+      ]
+    },
+    {
+      "id": "sallader-dryck",
+      "rubrik": "Sallader & dryck",
+      "ratter": [
+        { "namn": "Burratasallad", "beskrivning": "Tomat, basilika, surdegskrutonger", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "Kycklingsallad", "beskrivning": "Grillad kyckling, parmesan, caesardressing", "pris": 135 },
+        { "namn": "Barnpizza", "beskrivning": "Halv storlek, valfri klassiker", "pris": 85 },
+        { "namn": "Läsk och vatten", "beskrivning": "Se kylen - lokal must finns alltid", "prisText": "från 25 kr" }
+      ]
+    }
+  ]
+}

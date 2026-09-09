@@ -1,0 +1,47 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Vår meny följer säsongen i norr och skrivs om när råvarorna byts. Välj mellan avsmakningsmenyn i sju serveringar eller kvällens à la carte.",
+  "fotnot": "Berätta gärna om allergier och önskemål när du bokar - köket anpassar alla menyer. Demosajt: rätter och priser är exempel.",
+  "smakprov": ["avsmakning", "varmratter"],
+  "sektioner": [
+    {
+      "id": "avsmakning",
+      "rubrik": "Avsmakningsmenyer",
+      "beskrivning": "Hela bordet väljer samma meny.",
+      "ratter": [
+        { "namn": "Norrskensmenyn, sju serveringar", "beskrivning": "Säsongens stora meny från fjäll, skog och kust", "pris": 1195, "populär": true },
+        { "namn": "Dryckespaket till Norrskensmenyn", "beskrivning": "Sju glas valda av vår sommelier", "pris": 895 },
+        { "namn": "Liten avsmakning, fyra serveringar", "beskrivning": "Kortare version av kvällens meny", "pris": 795 },
+        { "namn": "Alkoholfritt dryckespaket", "beskrivning": "Must, te och fermenterade drycker i fyra glas", "pris": 495, "markningar": ["Alkoholfritt"] }
+      ]
+    },
+    {
+      "id": "forratter",
+      "rubrik": "Förrätter",
+      "ratter": [
+        { "namn": "Löjrom från Kalix", "beskrivning": "Rågchips, gräddfil, picklad rödlök", "pris": 245, "populär": true },
+        { "namn": "Rimmad röding", "beskrivning": "Gurka, dill, brynt smörvinägrett", "pris": 195 },
+        { "namn": "Svamptoast", "beskrivning": "Karljohan, Västerbottensost, syrad grädde", "pris": 165, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "varmratter",
+      "rubrik": "Varmrätter",
+      "ratter": [
+        { "namn": "Halstrad fjällröding", "beskrivning": "Blomkål, forellrom, skummig fisksky", "pris": 345, "populär": true },
+        { "namn": "Renytterfilé", "beskrivning": "Rotselleri, svartvinbär, enbärssky", "pris": 395 },
+        { "namn": "Biff med friterad potatis", "beskrivning": "Persilja, bearnaise på brynt smör", "pris": 355 },
+        { "namn": "Sotad jordärtskocka", "beskrivning": "Korn, kantareller, örtolja", "pris": 265, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "efterratter",
+      "rubrik": "Efterrätter",
+      "ratter": [
+        { "namn": "Hjortron och mjölk", "beskrivning": "Lättrostad mjölkglass, kolasås, havrekrisp", "pris": 145, "populär": true },
+        { "namn": "Blåbär och granskott", "beskrivning": "Sorbet, syrad grädde, sockerkaka", "pris": 135 },
+        { "namn": "Ostbricka från norr", "beskrivning": "Tre ostar, knäcke, marmelad på lingon", "pris": 165 }
+      ]
+    }
+  ]
+}
