@@ -6,6 +6,14 @@ import { meny, restaurang } from "@/lib/kund";
 
 type Betalsatt = "swish" | "kort";
 
+/** Tak per rätt. Hindrar orimliga summor från en fastnad plusknapp. */
+const MAX_PER_RATT = 99;
+/** Swishs meddelandefält rymmer ca 50 tecken. */
+const SWISH_MEDDELANDE_MAX = 50;
+const OVRIGT_MAX = 500;
+
+const kronor = (belopp: number) => belopp.toLocaleString("sv-SE");
+
 /**
  * Beställ och hämta: besökaren klickar ihop en beställning ur menyn,
  * skriver eventuella önskemål (t.ex. allergier) och väljer Swish eller
@@ -61,7 +69,7 @@ export default function BestallDemo() {
 
   const andra = (namn: string, steg: number) =>
     setAntal((nu) => {
-      const nytt = Math.max(0, (nu[namn] ?? 0) + steg);
+      const nytt = Math.min(MAX_PER_RATT, Math.max(0, (nu[namn] ?? 0) + steg));
       const kopia = { ...nu };
       if (nytt === 0) delete kopia[namn];
       else kopia[namn] = nytt;
@@ -99,10 +107,21 @@ export default function BestallDemo() {
   // och kapas så att den alltid går att skicka med.
   const swishLank = useMemo(() => {
     if (!swishNummer) return null;
-    const meddelande = valda
-      .map((rad) => `${rad.antal}x ${rad.namn}`)
-      .join(", ")
-      .slice(0, 50);
+    // Kapa på hela rätter i stället för mitt i ett ord, så meddelandet
+    // alltid går att läsa i restaurangens Swish-app.
+    const rader: string[] = [];
+    let langd = 0;
+    for (const rad of valda) {
+      const text = `${rad.antal}x ${rad.namn}`;
+      const tillagg = rader.length === 0 ? text.length : text.length + 2;
+      if (langd + tillagg > SWISH_MEDDELANDE_MAX) break;
+      rader.push(text);
+      langd += tillagg;
+    }
+    const meddelande =
+      rader.length === valda.length
+        ? rader.join(", ")
+        : `${rader.join(", ")} m.fl.`.slice(0, SWISH_MEDDELANDE_MAX);
     const parametrar = new URLSearchParams({
       sw: swishNummer,
       amt: String(totalsumma),
@@ -125,10 +144,13 @@ export default function BestallDemo() {
                 const n = antal[ratt.namn] ?? 0;
                 return (
                   <li key={ratt.namn} className="flex items-center gap-3">
+                    {/* Rättens namn och beskrivning får radbrytas. Kapad text
+                        döljer just det gästen behöver läsa, t.ex. innehållet
+                        i en rätt de är allergisk mot. */}
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-medium">{ratt.namn}</p>
+                      <p className="font-medium">{ratt.namn}</p>
                       {ratt.beskrivning && (
-                        <p className="truncate text-xs text-dampad">{ratt.beskrivning}</p>
+                        <p className="text-xs text-dampad">{ratt.beskrivning}</p>
                       )}
                     </div>
                     <span className="shrink-0 tabular-nums text-sm text-dampad">
@@ -150,8 +172,9 @@ export default function BestallDemo() {
                       <button
                         type="button"
                         onClick={() => andra(ratt.namn, 1)}
+                        disabled={n >= MAX_PER_RATT}
                         aria-label={`Lägg till en ${ratt.namn}`}
-                        className="flex h-11 w-11 items-center justify-center rounded-mall bg-accent text-lg text-accent-text"
+                        className="flex h-11 w-11 items-center justify-center rounded-mall bg-accent text-lg text-accent-text disabled:opacity-30"
                       >
                         +
                       </button>
@@ -169,18 +192,30 @@ export default function BestallDemo() {
         <label htmlFor="bestallning-ovrigt" className="font-rubrik text-2xl">
           Övrigt, t.ex. allergier
         </label>
-        <p className="mt-1 text-sm text-dampad">
-          Skriv fritt - texten skickas med din beställning.
+        <p id="ovrigt-hjalp" className="mt-1 text-sm text-dampad">
+          Skriv fritt - texten följer med din beställning.
         </p>
         <textarea
           id="bestallning-ovrigt"
           value={ovrigt}
-          onChange={(e) => setOvrigt(e.target.value)}
+          onChange={(e) => setOvrigt(e.target.value.slice(0, OVRIGT_MAX))}
           rows={3}
-          maxLength={500}
+          maxLength={OVRIGT_MAX}
+          aria-describedby="ovrigt-hjalp ovrigt-antal"
           placeholder="T.ex. glutenfri pizzabotten, ingen lök ..."
-          className="mt-3 w-full rounded-mall border border-ram bg-yta p-4 text-sm leading-relaxed placeholder:text-dampad/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="mt-3 w-full rounded-mall border border-ram bg-yta p-4 text-base leading-relaxed placeholder:text-dampad/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         />
+        {/* Räknaren visas först när gästen närmar sig taket, så fältet inte
+            känns bevakat från första tecknet. */}
+        <p
+          id="ovrigt-antal"
+          aria-live="polite"
+          className={`mt-1 text-right text-xs ${
+            ovrigt.length >= OVRIGT_MAX - 50 ? "text-dampad" : "sr-only"
+          }`}
+        >
+          {ovrigt.length} av {OVRIGT_MAX} tecken
+        </p>
       </div>
 
       {/* Fast betalrad som följer med när besökaren rullar i menyn */}
@@ -196,7 +231,7 @@ export default function BestallDemo() {
                 ? "Inget valt ännu"
                 : `${antalVaror} ${antalVaror === 1 ? "vara" : "varor"}`}
             </p>
-            <p className="font-rubrik text-xl tabular-nums">{totalsumma} kr</p>
+            <p className="font-rubrik text-xl tabular-nums">{kronor(totalsumma)} kr</p>
           </div>
           <div className="flex min-w-0 items-center gap-2">
             <button
@@ -241,10 +276,10 @@ export default function BestallDemo() {
             <ul className="mt-4 space-y-2 border-b border-ram pb-4 text-sm">
               {valda.map((rad) => (
                 <li key={rad.namn} className="flex justify-between gap-4">
-                  <span className="min-w-0 truncate">
+                  <span className="min-w-0">
                     {rad.antal} &times; {rad.namn}
                   </span>
-                  <span className="shrink-0 tabular-nums">{rad.summa} kr</span>
+                  <span className="shrink-0 tabular-nums">{kronor(rad.summa)} kr</span>
                 </li>
               ))}
               {ovrigt.trim() && (
@@ -256,8 +291,27 @@ export default function BestallDemo() {
 
             <p className="mt-4 flex justify-between font-rubrik text-xl">
               <span>Att betala</span>
-              <span className="tabular-nums">{totalsumma} kr</span>
+              <span className="tabular-nums">{kronor(totalsumma)} kr</span>
             </p>
+
+            {/* Swish-meddelandet rymmer bara en kort rad, så önskemål om
+                allergier når inte köket den vägen. Det måste stå här -
+                en gäst som skrivit "nötallergi" ska inte tro att den
+                informationen kommit fram. */}
+            {ovrigt.trim() && (
+              <p className="mt-4 rounded-mall border border-accent/40 bg-accent/5 p-4 text-sm leading-relaxed">
+                <strong className="font-medium">Viktigt om dina önskemål:</strong>{" "}
+                de följer inte med betalningen. Ring oss på{" "}
+                <a
+                  href={`tel:${kontakt.telefonLank}`}
+                  className="text-accent underline underline-offset-2"
+                  data-spar="ring"
+                >
+                  {kontakt.telefon}
+                </a>{" "}
+                och bekräfta dem, särskilt om det gäller en allergi.
+              </p>
+            )}
 
             {betalsatt === "swish" && swishLank ? (
               <>
@@ -269,7 +323,7 @@ export default function BestallDemo() {
                   href={swishLank}
                   className="mt-6 inline-flex w-full items-center justify-center rounded-mall bg-accent px-6 py-3.5 text-sm font-medium tracking-wide text-accent-text"
                 >
-                  Öppna Swish och betala {totalsumma} kr
+                  Öppna Swish och betala {kronor(totalsumma)} kr
                 </a>
               </>
             ) : (
