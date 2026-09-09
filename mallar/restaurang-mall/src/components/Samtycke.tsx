@@ -68,7 +68,7 @@ export default function Samtycke() {
         <div
           role="region"
           aria-label="Samtycke till analys"
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-ram bg-yta p-4 shadow-svav md:inset-x-auto md:bottom-6 md:right-6 md:max-w-sm md:rounded-mall md:border"
+          className="ovanfor-fast-rad fixed inset-x-0 z-50 border-t border-ram bg-yta p-4 shadow-svav md:inset-x-auto md:right-6 md:max-w-sm md:rounded-mall md:border"
         >
           <p className="text-sm leading-relaxed">
             Vi vill använda anonym besöksstatistik för att förstå hur sidan

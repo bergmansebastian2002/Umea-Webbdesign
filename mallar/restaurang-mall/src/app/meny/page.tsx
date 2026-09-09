@@ -1,16 +1,19 @@
 import { meny, restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
 import Brodsmulor from "@/components/Brodsmulor";
+import Knapp from "@/components/Knapp";
 import MenyFilter from "@/components/MenyFilter";
 import Sektion from "@/components/Sektion";
 import { byggMetadata } from "@/lib/seo";
 import { jsonLd, menySchema } from "@/lib/strukturerad-data";
 
+const bestallAktiv = restaurang.bestallningDemo?.aktiv ?? false;
+
 export const metadata = byggMetadata({
   titel: meny.rubrik,
   beskrivning: `Se hela menyn hos ${restaurang.namn} i ${restaurang.seo.stad}. ${
     meny.ingress ?? ""
-  } Boka bord direkt online.`.trim(),
+  } ${bestallAktiv ? "Beställ för avhämtning direkt online." : "Boka bord direkt online."}`.trim(),
   sokvag: "/meny",
 });
 
@@ -33,14 +36,30 @@ export default function Menysida() {
 
         <div className="mt-16 rounded-mall border border-ram bg-yta p-8 md:p-10">
           <h2 className="font-rubrik text-2xl">Hungrig?</h2>
-          <p className="mt-2 max-w-xl text-dampad">
-            Boka ditt bord online - det tar under en minut. Har du frågor om
-            allergier eller vill boka ett större sällskap hjälper vi dig gärna
-            på telefon.
-          </p>
-          <div className="mt-6">
-            <BokaBordKnapp visaHjalptext />
-          </div>
+          {bestallAktiv ? (
+            <>
+              <p className="mt-2 max-w-xl text-dampad">
+                Beställ direkt här på hemsidan och betala med Swish eller kort
+                - sedan hämtar du maten hos oss. Har du frågor om allergier
+                eller större sällskap hjälper vi dig gärna på telefon.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Knapp href="/bestall">Beställ och hämta</Knapp>
+                <BokaBordKnapp variant="kontur" />
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="mt-2 max-w-xl text-dampad">
+                Boka ditt bord online - det tar under en minut. Har du frågor om
+                allergier eller vill boka ett större sällskap hjälper vi dig
+                gärna på telefon.
+              </p>
+              <div className="mt-6">
+                <BokaBordKnapp visaHjalptext />
+              </div>
+            </>
+          )}
         </div>
       </Sektion>
     </>

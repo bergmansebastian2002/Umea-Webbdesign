@@ -1,8 +1,11 @@
 # Fotolista - Ronyas Restaurang
 
-Alla bilder på sajten är just nu **tydligt märkta platshållare**. Ingen
-AI-genererad eller lånad bild ska föreställa restaurangen eller maten -
-riktiga foton läggs in så snart de är tagna.
+Sajten använder nu kundens egna foton från ronyas.se (se
+`BILDRATTIGHETER.md`). Listan nedan är önskelistan för NYTAGNA foton som
+höjer kvaliteten ytterligare - särskilt uteserveringen (saknas helt) och
+stående matbilder. Filnamnen i tabellen motsvarar de ursprungliga
+platshållarslottarna; dagens filer heter delvis annorlunda
+(`salladsbuffe`, `varmbuffe`, `fasad`, `matsal`, `disken`, `kok`).
 
 ## Så byts en platshållare ut
 

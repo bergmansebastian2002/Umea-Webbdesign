@@ -12,8 +12,8 @@ import menyData from "./meny.json";
  *  menyinnehåll är avlästa från den befintliga sajten och får inte ändras
  *  utan avstämning med kunden.
  *
- *  OBS: Alla bilder är tydligt märkta platshållare tills riktiga foton finns.
- *  Se FOTOLISTA.md i den här mappen för exakt vilka foton som ska beställas.
+ *  Bilderna kommer från kundens egna ronyas.se (se BILDRATTIGHETER.md).
+ *  FOTOLISTA.md listar vilka motiv som kan ersättas med nytagna foton.
  */
 const meny = menyData as Meny;
 
@@ -23,13 +23,13 @@ const ronyas: Restaurangkonfig = {
   namn: "Ronyas Restaurang",
   slogan: "Pizza, grill och buffé på Vasaplan",
   kortBeskrivning:
-    "Ronyas Restaurang på Vasaplan i Umeå serverar pizza, grill, svensk husmanskost samt sallads- och pizzabuffé. Fullständiga rättigheter. Ring och boka på 090-12 99 12.",
-  // Texterna nedan är återanvända från nuvarande ronyas.se.
+    "Ronyas Restaurang på Vasaplan i Umeå serverar pizza, grill, svensk husmanskost samt sallads- och pizzabuffé. Fullständiga rättigheter. Ring och beställ på 090-12 99 12.",
+  // Texterna nedan bygger på nuvarande ronyas.se, justerade i samråd med användaren.
   omOssStycken: [
-    "Ronyas Restaurang på Vasaplan som drivs av kändiskrögarna Steve Galloway och El Patrone erbjuder bästa service, kvalitet, svensk husmanskost, grill, sallads- och pizzabuffé, öl, vin, cider, i en trevlig och gästvänlig miljö. Vi har även varm buffé lördag och söndagar.",
+    "Ronyas Restaurang på Vasaplan som drivs av kändiskrögarna Steve Galloway och El Patrone erbjuder bästa service, kvalitet, grill, sallads- och pizzabuffé i en trevlig och gästvänlig miljö. Vi serverar även öl, vin och cider. Vi har även varm buffé lördag och söndagar.",
     "När du än besöker Ronyas Restaurang möts du av fräscha lokaler, vänlig personal och god serviceanda. Att maten skall lagas på utsökta råvaror och av kunnig personal är självklart för oss.",
     "Vi har som målsättning att alla våra rätter skall lämpa sig både för att avnjutas direkt i våra lokaler eller tas med. Dessutom strävar vi efter att vår mat skall passa alla; från barn till pensionärer, från vardag till fest. Men självklart är vi flexibla i vår matlagning, har ni speciella önskemål vid ert beställningstillfälle så gör vi allt för att hjälpa er.",
-    "Ring och boka för avhämtning på tel: 090 12 99 12 eller avnjut den fantastiska smakupplevelsen på plats i vår restaurang på Vasaplan, sommartid serverar vi även på vår uteservering. Välkomna!",
+    "Ring och beställ för avhämtning på tel: 090 12 99 12, eller beställ och betala direkt i menyn här på hemsidan. Du kan förstås också avnjuta den fantastiska smakupplevelsen på plats i vår restaurang på Vasaplan - sommartid serverar vi även på vår uteservering. Välkomna!",
   ],
 
   sajtUrl: "https://www.ronyas.se",
@@ -59,11 +59,13 @@ const ronyas: Restaurangkonfig = {
     knapptext: "Boka bord",
   },
 
-  // --- Beställningsdemo: "beställ och hämta" med Swish (endast utseende) ---
+  // --- Beställ och hämta: Swish/kort i menyn -------------------------------
+  // OBS: swishNummer saknas ännu - fyll i kundens Swish företag-nummer när
+  // det finns, så öppnar "Betala med Swish" appen med belopp förifyllt.
   bestallningDemo: {
     aktiv: true,
     notis:
-      "Demo: så här skulle beställning för avhämtning kunna se ut. Betalning är inte aktiv - ring 090-12 99 12 för att beställa.",
+      "Välj dina rätter, skriv eventuella önskemål och betala med Swish eller kort - sedan hämtar du maten hos oss på Vasaplan. Du kan alltid ringa in din beställning på 090-12 99 12.",
   },
 
   // --- Buffé och erbjudanden (från nuvarande sajt, inga priser påhittade) --
@@ -93,23 +95,24 @@ const ronyas: Restaurangkonfig = {
   },
   specialdagar: [],
 
-  // --- Bilder: TYDLIGT MÄRKTA PLATSHÅLLARE tills riktiga foton finns -------
-  // Ordning i galleriet: mat först, sedan uteservering, matsal och sist kök.
-  // Byt en bild genom att lägga riktiga fotot i content/ronyas/bilder/ (samma
+  // --- Bilder: från kundens egna ronyas.se (se BILDRATTIGHETER.md) ---------
+  // Ordning i galleriet: mat och buffé först, sedan fasad, matsal och kök.
+  // Byt en bild genom att lägga nytt foto i content/ronyas/bilder/ (samma
   // filnamn), köra `npm run bilder -- ronyas` och uppdatera alt-texten här.
   bilder: {
     hero: "/kunder/ronyas/hero.webp",
+    // Skjuter beskärningen åt höger så den hela pizzan hamnar i bild och
+    // smulorna på hällens vänsterkant faller utanför.
+    heroFokus: "72% center",
     omOss: "/kunder/ronyas/om-oss.webp",
-    omOssAlt: "Platshållare: bild på restaurangen saknas ännu",
+    omOssAlt: "Matsalen på Ronyas Restaurang med bås, pendellampor och grön växtvägg",
     galleri: [
-      { kalla: "/kunder/ronyas/galleri/mat-pizza.webp", alt: "Platshållare: foto på nygräddad pizza saknas ännu" },
-      { kalla: "/kunder/ronyas/galleri/mat-grill.webp", alt: "Platshållare: foto på grillrätt saknas ännu" },
-      { kalla: "/kunder/ronyas/galleri/mat-buffe.webp", alt: "Platshållare: foto på salladsbuffén saknas ännu", staende: true },
-      { kalla: "/kunder/ronyas/galleri/uteservering-1.webp", alt: "Platshållare: sommarfoto från uteserveringen saknas ännu" },
-      { kalla: "/kunder/ronyas/galleri/uteservering-2.webp", alt: "Platshållare: foto på gäster på uteserveringen saknas ännu", staende: true },
-      { kalla: "/kunder/ronyas/galleri/matsal-1.webp", alt: "Platshållare: foto på matsalen saknas ännu" },
-      { kalla: "/kunder/ronyas/galleri/matsal-2.webp", alt: "Platshållare: detaljfoto från matsalen saknas ännu", staende: true },
-      { kalla: "/kunder/ronyas/galleri/kok.webp", alt: "Platshållare: foto från köket saknas ännu" },
+      { kalla: "/kunder/ronyas/galleri/mat-pizza.webp", alt: "Nygräddad pizza på serveringsdisken" },
+      { kalla: "/kunder/ronyas/galleri/salladsbuffe.webp", alt: "Salladsbuffén med färska grönsaker och tillbehör" },
+      { kalla: "/kunder/ronyas/galleri/varmbuffe.webp", alt: "Varma buffén med pizza under värmelamporna" },
+      { kalla: "/kunder/ronyas/galleri/fasad.webp", alt: "Ronyas Restaurangs entré på Vasaplan i Umeå" },
+      { kalla: "/kunder/ronyas/galleri/disken.webp", alt: "Disken med pizzabuffé och menyskärmar" },
+      { kalla: "/kunder/ronyas/galleri/kok.webp", alt: "Pizzaugnen i det öppna köket" },
     ],
   },
 
@@ -141,17 +144,17 @@ const ronyas: Restaurangkonfig = {
       "kebab Umeå",
       "avhämtning Umeå centrum",
     ],
-    kokstyper: ["Pizza", "Grill", "Husmanskost"],
+    kokstyper: ["Pizza", "Grill", "Pizzabuffé"],
     prisniva: "$$",
   },
 
-  // --- Startsidan: hero -> meny/buffé -> bildspel -> hitta hit -------------
+  // --- Startsidan: hero -> meny -> beställ/swisha -> buffé -> bildspel -----
   startsidaSektioner: [
     "menySmakprov",
+    "bestallCta",
     "evenemang",
     "bildspel",
     "omOss",
-    "bokaCta",
     "hittaHit",
   ],
 

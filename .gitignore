@@ -12,3 +12,6 @@ next-env.d.ts
 # Personliga Claude Code-inställningar (delas inte)
 .claude/settings.local.json
 .env*
+
+# Lokala sessionsloggar från designverktyg (maskinspecifika sökvägar)
+.impeccable/
