@@ -8,20 +8,25 @@ de äger fotona).
 
 | Fil | Källa på ronyas.se | Motiv |
 |-----|--------------------|-------|
-| `hero.webp` | `20250206_100526.webp` | Nygräddad pizza på serveringshällen |
-| `om-oss.webp` | `20250117_135118.webp` | Matsalen med gäster |
-| `galleri/mat-pizza.webp` | `20250206_100650.webp` | Pizzabitar på pizzabuffén |
-| `galleri/mat-grill.jpg` | `92328997_...n.jpg` | Entrecote-tallrik (OBS: ser ut som stockfoto - dubbelkolla med kunden) |
-| `galleri/salladsbuffe.webp` | `20250206_100712.webp` | Salladsbuffén |
+| `hero.webp` | `20250206_100650.webp` | Nygräddad pizza under värmelamporna |
+| `om-oss.webp` | `20250117_130907.webp` | Matsalen, tom |
+| `galleri/mat-pizza.webp` | `20250206_100526.webp` | Pizza på serveringsdisken |
+| `galleri/salladsbuffe.webp` | `20250117_135130-Aterstalld.webp` | Salladsbuffén |
 | `galleri/varmbuffe.webp` | `20250117_135440.webp` | Varma buffén under värmelampor |
 | `galleri/fasad.webp` | `20250117_130446.webp` | Fasaden på Vasaplan |
-| `galleri/matsal.webp` | `20250117_130907.webp` | Matsalen |
 | `galleri/disken.webp` | `20250117_135134.webp` | Disken med pizzabuffé |
 | `galleri/kok.webp` | `20250117_135433.webp` | Pizzaugnen med personal |
 
-OBS: `om-oss.webp` och `kok.webp` visar identifierbara personer (gäster
-respektive personal). Be kunden bekräfta att personerna godkänt publicering
-innan lansering.
+Medvetet BORTVALDA bilder från ronyas.se:
+- Entrecote-, bolognese- och kebabtallriksbilderna (`92328997...`,
+  `92354149...`, `93244120...`) - ser ut som inköpta stockfoton och är bara
+  960 px breda, alltså för låg upplösning för galleriet. Rättighetsrisk.
+- Menyskärmarnas grafik (`utan-text-*.webp`, `TV*.webp`) - skärmdumpar, inte foton.
+- Bilder på gäster - samtyckesfrågan.
+
+OBS: `galleri/kok.webp` visar en identifierbar medarbetare. Be kunden
+bekräfta att personen godkänt publicering innan lansering. Bilder på
+gäster valdes medvetet bort ur urvalet för att slippa samtyckesfrågan.
 
 Nytagna foton kan ersätta bilderna enligt `FOTOLISTA.md` - byt fil, kör
 `npm run bilder -- ronyas` och uppdatera alt-text + denna tabell.

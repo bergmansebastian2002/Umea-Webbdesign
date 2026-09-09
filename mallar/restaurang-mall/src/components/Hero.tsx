@@ -38,6 +38,7 @@ export default function Hero() {
           quality={65}
           sizes="100vw"
           className="object-cover"
+          style={bilder.heroFokus ? { objectPosition: bilder.heroFokus } : undefined}
           {...bildProps(bilder.hero)}
         />
       )}

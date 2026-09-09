@@ -242,6 +242,12 @@ export type Restaurangkonfig = {
   bilder: {
     /** Stor bild överst på startsidan. Liggande, minst 1920 px bred. */
     hero: string;
+    /**
+     * Var i hero-bilden som ska vara i fokus när den beskärs, som CSS
+     * object-position, t.ex. "70% center" eller "center top". Utelämnad
+     * centreras bilden. Använd för att flytta bort ointressanta kanter.
+     */
+    heroFokus?: string;
     /** Valfri kort, tyst videoloop (mp4/webm, max ~5 MB). Bilden blir reserv. */
     heroVideo?: string;
     /** Bild i "Om oss"-sektionen. */

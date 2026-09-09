@@ -19,6 +19,7 @@ export default function BestallDemo() {
   const [ovrigt, setOvrigt] = useState("");
   const [betalsatt, setBetalsatt] = useState<Betalsatt | null>(null);
   const betalRutaRef = useRef<HTMLDivElement>(null);
+  const betalRadRef = useRef<HTMLDivElement>(null);
 
   const { kontakt } = restaurang;
   const swishNummer = restaurang.bestallningDemo?.swishNummer?.replace(/\s/g, "");
@@ -40,6 +41,23 @@ export default function BestallDemo() {
       document.body.style.overflow = "";
     };
   }, [betalsatt]);
+
+  // Talar om för cookie-bannern hur högt den ska lägga sig, så den inte
+  // hamnar över betalknapparna.
+  useEffect(() => {
+    const rot = document.documentElement;
+    const matUt = () => {
+      const hojd = betalRadRef.current?.offsetHeight ?? 0;
+      rot.style.setProperty("--fast-rad-hojd", `${hojd}px`);
+    };
+
+    matUt();
+    window.addEventListener("resize", matUt);
+    return () => {
+      window.removeEventListener("resize", matUt);
+      rot.style.removeProperty("--fast-rad-hojd");
+    };
+  }, []);
 
   const andra = (namn: string, steg: number) =>
     setAntal((nu) => {
@@ -167,6 +185,7 @@ export default function BestallDemo() {
 
       {/* Fast betalrad som följer med när besökaren rullar i menyn */}
       <div
+        ref={betalRadRef}
         className="fixed inset-x-0 bottom-0 z-40 border-t border-ram bg-yta/95 backdrop-blur-md"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >

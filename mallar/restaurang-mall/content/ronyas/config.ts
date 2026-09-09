@@ -101,15 +101,16 @@ const ronyas: Restaurangkonfig = {
   // filnamn), köra `npm run bilder -- ronyas` och uppdatera alt-texten här.
   bilder: {
     hero: "/kunder/ronyas/hero.webp",
+    // Skjuter beskärningen åt höger så den hela pizzan hamnar i bild och
+    // smulorna på hällens vänsterkant faller utanför.
+    heroFokus: "72% center",
     omOss: "/kunder/ronyas/om-oss.webp",
-    omOssAlt: "Matsalen på Ronyas Restaurang med gäster vid borden",
+    omOssAlt: "Matsalen på Ronyas Restaurang med bås, pendellampor och grön växtvägg",
     galleri: [
-      { kalla: "/kunder/ronyas/galleri/mat-pizza.webp", alt: "Nygräddade pizzabitar på pizzabuffén" },
-      { kalla: "/kunder/ronyas/galleri/mat-grill.webp", alt: "Entrecote med stekt potatis och svampfräs" },
+      { kalla: "/kunder/ronyas/galleri/mat-pizza.webp", alt: "Nygräddad pizza på serveringsdisken" },
       { kalla: "/kunder/ronyas/galleri/salladsbuffe.webp", alt: "Salladsbuffén med färska grönsaker och tillbehör" },
       { kalla: "/kunder/ronyas/galleri/varmbuffe.webp", alt: "Varma buffén med pizza under värmelamporna" },
       { kalla: "/kunder/ronyas/galleri/fasad.webp", alt: "Ronyas Restaurangs entré på Vasaplan i Umeå" },
-      { kalla: "/kunder/ronyas/galleri/matsal.webp", alt: "Matsalen med bås, fåtöljer och stämningsbelysning" },
       { kalla: "/kunder/ronyas/galleri/disken.webp", alt: "Disken med pizzabuffé och menyskärmar" },
       { kalla: "/kunder/ronyas/galleri/kok.webp", alt: "Pizzaugnen i det öppna köket" },
     ],

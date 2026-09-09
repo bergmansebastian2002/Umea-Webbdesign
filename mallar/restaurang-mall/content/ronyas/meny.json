@@ -33,7 +33,7 @@
       "ratter": [
         { "namn": "Kebab med pitabröd", "beskrivning": "Kebab inbakad med bröd", "pris": 119 },
         { "namn": "Kycklingtallrik", "beskrivning": "Kyckling, ris eller pommes", "pris": 139 },
-        { "namn": "Kebabtallrik", "beskrivning": "Kyckling, ris eller pommes", "pris": 139 },
+        { "namn": "Kebabtallrik", "beskrivning": "Kebab, strips, orientdressing", "pris": 139 },
         { "namn": "Rhodostallrik", "beskrivning": "Kebab, strips, tzatsiki", "pris": 139 },
         { "namn": "Falafeltallrik", "beskrivning": "Falafel, strips, tzatsiki", "pris": 139, "markningar": ["Vegetariskt"] },
         { "namn": "Kebabrulle", "beskrivning": "Kebab, isbergssallad, tomat, gurka, orientsås", "pris": 126, "populär": true },
