@@ -87,6 +87,9 @@ export default function Header() {
                 width={logotypData?.bredd ?? 480}
                 height={logotypData?.hojd ?? 132}
                 priority
+                // Visas 36 px hög (44 px från md) - berätta det för srcset-valet
+                // så att inte originalbredden styr vilken variant som hämtas.
+                sizes={`(min-width: 768px) ${Math.round(44 * ((logotypData?.bredd ?? 480) / (logotypData?.hojd ?? 132)))}px, ${Math.round(36 * ((logotypData?.bredd ?? 480) / (logotypData?.hojd ?? 132)))}px`}
                 className="h-9 w-auto md:h-11"
               />
             </span>
