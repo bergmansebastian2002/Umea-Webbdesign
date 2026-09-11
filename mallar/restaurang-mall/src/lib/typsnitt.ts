@@ -2,8 +2,8 @@ import {
   Anton,
   Inter,
   Karla,
-  Knewave,
   Manrope,
+  Permanent_Marker,
   Playfair_Display,
   Shojumaru,
   Source_Sans_3,
@@ -73,8 +73,13 @@ const rubrikAsiatisk = Shojumaru({
   preload: false,
   variable: "--typsnitt-rubrik",
 });
-const rubrikPensel = Knewave({
-  subsets: ["latin", "latin-ext"],
+// Tjocka, handmålade versaler. Valt framför smalare penselfonter (Sedgwick
+// Ave Display, Rock Salt) som liknar en målad logotyp ännu mer men blir
+// rispiga i menyns rättnamn - de sätts också i rubriktypsnittet, i 18-20 px.
+const rubrikPensel = Permanent_Marker({
+  // Endast "latin" - typsnittet saknar latin-ext. Svenska å/ä/ö ryms ändå,
+  // de ligger i Latin-1 som Googles latin-subset täcker.
+  subsets: ["latin"],
   weight: "400",
   display: "swap",
   preload: false,

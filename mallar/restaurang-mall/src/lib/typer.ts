@@ -274,7 +274,8 @@ export type Restaurangkonfig = {
      * Byter rubriktypsnitt från art directionens standard, för kunder med en
      * tydlig egen karaktär. Utelämna för standard.
      *  "asiatisk"  ornamental display med österländsk känsla (Shojumaru)
-     *  "pensel"    målad penseltext (Knewave) - passar handmålade logotyper
+     *  "pensel"    målade versaler (Permanent Marker) - matchar handmålade
+     *              logotyper och håller ihop ner i menyns rättnamn
      */
     rubrikTypsnitt?: "asiatisk" | "pensel";
     /**
