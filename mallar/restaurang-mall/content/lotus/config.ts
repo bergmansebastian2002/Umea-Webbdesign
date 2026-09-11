@@ -136,6 +136,10 @@ const lotus: Restaurangkonfig = {
   // röd serifordbild på rosa/gräddvit gradient. Rosa menykort med röda ramar.
   design: {
     artDirection: "livlig",
+    // Rubrikerna sätts i Shojumaru - ornamental display med österländsk
+    // känsla som knyter an till lotus-kalligrafin på kundens Facebook-grafik
+    // (och skiljer sajten från Ronyas, som delar art direction).
+    rubrikTypsnitt: "asiatisk",
     farger: {
       bakgrund: "#fdf4f1",
       yta: "#fffaf7",

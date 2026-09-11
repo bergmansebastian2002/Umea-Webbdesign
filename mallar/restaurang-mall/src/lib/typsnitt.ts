@@ -2,8 +2,10 @@ import {
   Anton,
   Inter,
   Karla,
+  Knewave,
   Manrope,
   Playfair_Display,
+  Shojumaru,
   Source_Sans_3,
 } from "next/font/google";
 
@@ -62,13 +64,41 @@ const brodLivlig = Karla({
   variable: "--typsnitt-brod",
 });
 
+// Karaktärsrubriker som kunder kan välja med `design.rubrikTypsnitt`,
+// oavsett art direction. Brödtexten följer alltid art directionen.
+const rubrikAsiatisk = Shojumaru({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  variable: "--typsnitt-rubrik",
+});
+const rubrikPensel = Knewave({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  variable: "--typsnitt-rubrik",
+});
+
 const PAR: Record<ArtDirection, { rubrik: string; brod: string }> = {
   klassisk: { rubrik: rubrikKlassisk.variable, brod: brodKlassisk.variable },
   nordisk: { rubrik: rubrikNordisk.variable, brod: brodNordisk.variable },
   livlig: { rubrik: rubrikLivlig.variable, brod: brodLivlig.variable },
 };
 
+const KARAKTARSRUBRIKER: Record<
+  NonNullable<typeof restaurang.design.rubrikTypsnitt>,
+  string
+> = {
+  asiatisk: rubrikAsiatisk.variable,
+  pensel: rubrikPensel.variable,
+};
+
 const valt = PAR[restaurang.design.artDirection];
+const rubrik = restaurang.design.rubrikTypsnitt
+  ? KARAKTARSRUBRIKER[restaurang.design.rubrikTypsnitt]
+  : valt.rubrik;
 
 /** CSS-klasser som sätts på <html> och kopplar in det aktiva parets variabler. */
-export const typsnittsklasser = `${valt.rubrik} ${valt.brod}`;
+export const typsnittsklasser = `${rubrik} ${valt.brod}`;
