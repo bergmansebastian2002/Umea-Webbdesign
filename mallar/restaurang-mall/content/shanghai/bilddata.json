@@ -1,0 +1,47 @@
+{
+  "/kunder/shanghai/galleri/cashew.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAsABABoJZgCdADp5o6lY0MAAMo++sIl42wsQ7nGGbKrb7BDA3XscPofTriAUFfeJcelcNOqi1/fYu6CB1bH+Z9/Q8n76v1poaVnuqAAAA=="
+  },
+  "/kunder/shanghai/galleri/curry.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoQAAsABABoJbACdAYrnzSdqhuMAP7sL3k14qJmBCtpBJVLgziD+/WH6At6uAREltwfjBz7Xs7hoLWTmP03E/FOtoJDGfV9hmQox47Ql3vVsX6/NN5dosAxcbGAOgAA"
+  },
+  "/kunder/shanghai/galleri/dumplings.webp": {
+    "bredd": 1920,
+    "hojd": 1159,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAoABABoJQBOgBwtIHhrntAQAP7vaClQrcwfk9lIBWOhXWjOVC0KDIVOZSo1tbTOesFTVnm09EXPDGd4RkizWqe1jWL0p0GXbXT9sinsP4QAGgA="
+  },
+  "/kunder/shanghai/galleri/nudlar.webp": {
+    "bredd": 1920,
+    "hojd": 1611,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQAA0ABABoJbACdGaAAqSXk1PTjAAA/vK0jaIpeyurDuSjFEXH5x4cy513G6032UoHOqG/kVOq1cQbzGGc3YSs8wgGcSQ+TQx68/lzNJR2ouc4t1QaW/oOfgAAAA=="
+  },
+  "/kunder/shanghai/galleri/rakwok.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQAAsABABoJbACdAEfSP/2E2lQAAD+qrlHu1x02L+jD8WdUkzkq6HfvWzlhTZ5LmzgvWHD+d7QtTLM0lX+BFqpZELx1t4DdeV0jA4SzBDkrCT913GzG/kAAAA="
+  },
+  "/kunder/shanghai/galleri/te.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsABABoJZACdAEDx66LTS6AAP7zNHkJo+Vv6eh/6v/+NTQGL6NJRH6on6tbhLzqy6LGjevWBobWKI5Bn0q2lkzmOwSKc7BLY89i/OBzMq5qGC3tqQAA"
+  },
+  "/kunder/shanghai/hero.webp": {
+    "bredd": 1400,
+    "hojd": 1000,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAsABABoJbACdAYuvwOa9l7xF/AA/uRiGhW7eLABLVHA7NPOx9TWu6+ByP6ldHV4doRFMUdksUuKqAsRPSs7SRzabvT0QdPbHwGls0t66taKgRigAA=="
+  },
+  "/kunder/shanghai/logotyp.webp": {
+    "bredd": 480,
+    "hojd": 132,
+    "blur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAAAwAAQUxQSEEAAAAALa9fGwMGBgYDBQYDG2OrKmji7FsdHBsgJSEmGVvt32R/t8dCfXJ4jpVmenZAyrZ3f9SyKFt7YGZaZWFWJrDSegBWUDggPgAAAPABAJ0BKhAABAAEAGgliAJ0R/+BqpmGgAD92XQimmvHH73Ns370+zrRhRilVFgQepRPtAFGw2Hnyzu4AAAA"
+  },
+  "/kunder/shanghai/om-oss.webp": {
+    "bredd": 1920,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAsABABoJZQC7AELjqqGSGsAAP72r00h7+ahHuzCfV9aFcy1ie+FWdg2lN+Xm3MEoyRuJCdTKmM7pZID5o0OTgIWRHx1nJy4MAAA"
+  }
+}
