@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { restaurang } from "@/lib/kund";
 import BokaBordKnapp from "@/components/BokaBordKnapp";
+
+// Kundens logotyp i sidhuvudet, när en finns. Mått från bilddata.json så
+// att next/image slipper layouthopp; 480x132 är ett rimligt reservvärde.
+const logotypData = restaurang.logotyp
+  ? restaurang.bilddata?.[restaurang.logotyp]
+  : undefined;
 
 /** Sidhuvudets länkar. Lägg till eller ta bort rader här vid behov. */
 const LANKAR = [
@@ -64,18 +71,43 @@ export default function Header() {
       </a>
 
       <div className="omslag flex h-20 items-center justify-between gap-6 md:h-24">
-        <Link href="/" className="group flex flex-col leading-none">
-          <span className="font-rubrik text-xl md:text-2xl tracking-tight">
-            {restaurang.namn}
-          </span>
-          <span
-            className={`mt-1 text-[0.65rem] uppercase tracking-[0.2em] ${
-              overHero ? "text-white/70" : "text-dampad"
-            }`}
-          >
-            {restaurang.seo.stad}
-          </span>
-        </Link>
+        {restaurang.logotyp ? (
+          <Link href="/" className="group shrink-0">
+            <span className="sr-only">{restaurang.namn} - till startsidan</span>
+            <span
+              className={
+                restaurang.design.logotypMorkBotten
+                  ? "inline-flex items-center rounded-mall bg-primar px-3 py-1.5"
+                  : "inline-flex items-center"
+              }
+            >
+              <Image
+                src={restaurang.logotyp}
+                alt={`${restaurang.namn} logotyp`}
+                width={logotypData?.bredd ?? 480}
+                height={logotypData?.hojd ?? 132}
+                priority
+                // Visas 36 px hög (44 px från md) - berätta det för srcset-valet
+                // så att inte originalbredden styr vilken variant som hämtas.
+                sizes={`(min-width: 768px) ${Math.round(44 * ((logotypData?.bredd ?? 480) / (logotypData?.hojd ?? 132)))}px, ${Math.round(36 * ((logotypData?.bredd ?? 480) / (logotypData?.hojd ?? 132)))}px`}
+                className="h-9 w-auto md:h-11"
+              />
+            </span>
+          </Link>
+        ) : (
+          <Link href="/" className="group flex flex-col leading-none">
+            <span className="font-rubrik text-xl md:text-2xl tracking-tight">
+              {restaurang.namn}
+            </span>
+            <span
+              className={`mt-1 text-[0.65rem] uppercase tracking-[0.2em] ${
+                overHero ? "text-white/70" : "text-dampad"
+              }`}
+            >
+              {restaurang.seo.stad}
+            </span>
+          </Link>
+        )}
 
         {/* Meny för surfplatta och dator */}
         <nav aria-label="Huvudmeny" className="hidden lg:block">

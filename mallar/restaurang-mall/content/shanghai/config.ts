@@ -127,6 +127,12 @@ const shanghai: Restaurangkonfig = {
   // lacksvart primär, mässingsguld på mörka ytor, sidenröd accent.
   design: {
     artDirection: "klassisk",
+    // Rubrikerna sätts i penselstil (Permanent Marker) som ekar den målade
+    // SHANGHAI-texten i kundens gulddrake-logotyp. Logotypen visas i
+    // sidhuvudet på en svart platta - den är ritad för mörk botten
+    // (vit penseltext + gulddrakar med genomskinlig bakgrund).
+    rubrikTypsnitt: "pensel",
+    logotypMorkBotten: true,
     farger: {
       bakgrund: "#faf5ec",
       yta: "#fffcf5",

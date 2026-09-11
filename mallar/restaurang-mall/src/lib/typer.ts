@@ -270,6 +270,20 @@ export type Restaurangkonfig = {
     farger?: Partial<Fardschema>;
     /** Rundade hörn i px. 0 = skarpa kanter, 4-8 = modernt, 16+ = mjukt. Utelämna för art directionens standard. */
     rundning?: number;
+    /**
+     * Byter rubriktypsnitt från art directionens standard, för kunder med en
+     * tydlig egen karaktär. Utelämna för standard.
+     *  "asiatisk"  ornamental display med österländsk känsla (Shojumaru)
+     *  "pensel"    målade versaler (Permanent Marker) - matchar handmålade
+     *              logotyper och håller ihop ner i menyns rättnamn
+     */
+    rubrikTypsnitt?: "asiatisk" | "pensel";
+    /**
+     * Sätt true om logotypen är ritad för mörk botten (t.ex. vit/guld text
+     * med genomskinlig bakgrund) - sidhuvudet lägger den då på en platta i
+     * primärfärgen så den syns även mot ljus bakgrund.
+     */
+    logotypMorkBotten?: boolean;
   };
 
   seo: {
