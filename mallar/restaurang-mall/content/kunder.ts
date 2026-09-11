@@ -1,6 +1,7 @@
 import bjorken from "./bjorken/config";
 import norrsken from "./norrsken/config";
 import ronyas from "./ronyas/config";
+import shanghai from "./shanghai/config";
 import vedugnen from "./vedugnen/config";
 
 /**
@@ -17,6 +18,7 @@ export const KUNDER = {
   bjorken,
   norrsken,
   ronyas,
+  shanghai,
   vedugnen,
 } as const;
 
