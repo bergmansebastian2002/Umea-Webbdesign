@@ -1,0 +1,217 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Hela vår à la carte-meny med rättnummer - över 130 asiatiska och kontinentala rätter och pizzor. Ring 090-13 97 00 och beställ med numret för avhämtning, eller ät på plats hos oss på Renmarksesplanaden. Vardagar och lördagar serverar vi även lunchbuffé, och varje kväll kvällsbuffé.",
+  "fotnot": "Priser enligt à la carte-menyn 2025 - med reservation för ändringar. Ris ingår i alla kinesiska rätter, valfri sås: jordnöt, stark, sötsur eller vitlök (extra sås 20:-). Pommes frites ingår i alla kontinentala rätter utom spaghetti. Fullständig dryckeslista med öl, vin, cocktails och alkoholfritt finns i restaurangen. Fråga oss gärna om innehåll och allergener när du beställer.",
+  "smakprov": ["rekommenderar", "middagar"],
+  "sektioner": [
+    {
+      "id": "rekommenderar",
+      "rubrik": "Köksmästaren rekommenderar",
+      "beskrivning": "Husets stoltheter - beställ med rättnumret.",
+      "ratter": [
+        { "namn": "01. Eurasia special", "beskrivning": "8 olika sorter i starksås: anka, biff, bläckfisk, fläsk, köttbullar, kyckling, räkor, skinka och cashewnötter", "pris": 175, "markningar": ["Stark"], "allergener": ["Nötter"], "populär": true },
+        { "namn": "02. Räkor i stark vitlöksås", "pris": 195, "markningar": ["Stark"] },
+        { "namn": "03. Szechuen anka", "pris": 185, "markningar": ["Stark"] },
+        { "namn": "04. Havsfrukter", "beskrivning": "Bläckfisk, surimi och räkor", "pris": 175 },
+        { "namn": "06. Räkor med broccoli i ostronsås", "pris": 195 },
+        { "namn": "07. Kung-pao oxfilé", "pris": 259, "markningar": ["Stark"], "populär": true },
+        { "namn": "08. Revbensspjäll med paprika och svarta bönor", "pris": 155 },
+        { "namn": "09. Revbensspjäll med sötsursås", "pris": 155 },
+        { "namn": "010. Kyckling och räkor i sötsursås", "pris": 175 },
+        { "namn": "011. Kyckling och räkor i starksås", "pris": 175, "markningar": ["Stark"] },
+        { "namn": "012. Mandarin fiskfilé", "beskrivning": "Pangasiusfilé", "pris": 159 }
+      ]
+    },
+    {
+      "id": "forratter",
+      "rubrik": "Förrätter",
+      "ratter": [
+        { "namn": "013. Friterade lökringar", "beskrivning": "Med sötsursås", "pris": 65 },
+        { "namn": "015. Friterade räkchips", "pris": 49 },
+        { "namn": "016. Friterade bläckfiskringar", "beskrivning": "Med sötsursås", "pris": 65 },
+        { "namn": "017. Pizzabröd med vitlök eller ost", "beskrivning": "Enbart pizzabröd 30:-", "pris": 49 },
+        { "namn": "018. Krispiga räkrullar", "beskrivning": "Serveras med sweet chilisås", "pris": 89 },
+        { "namn": "019. Kycklingspett", "beskrivning": "Serveras med jordnötssås", "pris": 75, "allergener": ["Jordnötter"] },
+        { "namn": "40. Vårrulle", "beskrivning": "Fläsk", "pris": 65 },
+        { "namn": "41. Vegetariska vårrullar", "pris": 65, "markningar": ["Vegetariskt"] },
+        { "namn": "43. Räkcocktail", "pris": 89 },
+        { "namn": "44. Kycklingsoppa med champinjoner", "pris": 65 },
+        { "namn": "47. Pekingsoppa", "pris": 69 },
+        { "namn": "49. Majssoppa med kyckling", "pris": 65 }
+      ]
+    },
+    {
+      "id": "middagar",
+      "rubrik": "Middagar och kombinationer",
+      "ratter": [
+        { "namn": "Middag för två", "beskrivning": "Förrätt: vårrulle eller pekingsoppa. Varmrätt: kung-pao kyckling med jordnötter, friterade räkor med sötsursås och oxfilé med paprika och svarta bönor. Dessert: vaniljglass med friterad banan eller ananas, samt kaffe eller te", "pris": 549, "populär": true },
+        { "namn": "38. Middag för en", "beskrivning": "Förrätt: vårrulle eller pekingsoppa. Varmrätt - välj en: biff med bambuskott och champinjoner, friterad fläsk (valfri sås), kyckling i currysås, räkor med blandade grönsaker eller friterad fisk/kyckling (valfri sås). Dessert: vaniljglass med friterad banan eller ananas, samt kaffe eller te", "pris": 269 },
+        { "namn": "39. Fyra små rätter", "beskrivning": "Biff med bambuskott, kyckling i currysås, friterade räkor samt friterad fläsk eller kyckling", "pris": 169 }
+      ]
+    },
+    {
+      "id": "kycklingratter",
+      "rubrik": "Kycklingrätter",
+      "ratter": [
+        { "namn": "53. Kyckling med cashewnötter", "pris": 139, "allergener": ["Nötter"] },
+        { "namn": "54. Kyckling med ananas", "pris": 139 },
+        { "namn": "55. Kyckling i currysås", "pris": 139 },
+        { "namn": "56. Kyckling med bambuskott och champinjoner", "pris": 139 },
+        { "namn": "57. Friterad kyckling eller kycklingspett", "beskrivning": "6 stycken, valfri sås", "pris": 139 },
+        { "namn": "58. Kyckling med blandade grönsaker", "pris": 139 },
+        { "namn": "59. Kyckling i starksås", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "60. Friterad kycklingfilé med BBQ-sås", "pris": 139 },
+        { "namn": "61. Friterad kycklingfilé med Manchuriansås", "beskrivning": "Söt-sur-stark sås", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "62. Kung-pao kyckling", "beskrivning": "Kyckling med grönsaker, torkad chili och jordnötter i stark sås", "pris": 149, "markningar": ["Stark"], "allergener": ["Jordnötter"], "populär": true },
+        { "namn": "62b. Chili kyckling", "pris": 149, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "biffratter",
+      "rubrik": "Biffrätter",
+      "ratter": [
+        { "namn": "63. Biff med ananas", "pris": 149 },
+        { "namn": "64. Biff med bambuskott", "pris": 149 },
+        { "namn": "65. Biff med bambuskott och champinjoner", "pris": 149 },
+        { "namn": "67. Biff i currysås", "pris": 149 },
+        { "namn": "68. Biff med lök", "pris": 149 },
+        { "namn": "69. Biff med purjolök", "pris": 149 },
+        { "namn": "70. Chili biff", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "71. Biff med paprika och svarta bönor", "pris": 149 },
+        { "namn": "72. Biff med blandade grönsaker", "pris": 149 },
+        { "namn": "73. Biff med starksås", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "74. Biff med broccoli i ostronsås", "pris": 149 }
+      ]
+    },
+    {
+      "id": "ankratter",
+      "rubrik": "Ankrätter",
+      "ratter": [
+        { "namn": "76. Anka med svamp", "pris": 185 },
+        { "namn": "77. Friterad anka", "beskrivning": "Valfri sås", "pris": 185 },
+        { "namn": "78. Anka med blandade grönsaker", "pris": 185 },
+        { "namn": "79. Eurasia special anka", "beskrivning": "Friterad anka med vitvinssås, cashewnötter, räkor och skinka", "pris": 195, "allergener": ["Nötter"], "populär": true }
+      ]
+    },
+    {
+      "id": "rakratter",
+      "rubrik": "Räkrätter",
+      "ratter": [
+        { "namn": "80. Friterade räkor", "beskrivning": "Valfri sås", "pris": 195 },
+        { "namn": "81. Räkor med blandade grönsaker", "pris": 195 },
+        { "namn": "82. Räkor med paprika och svarta bönor", "pris": 195 },
+        { "namn": "83. Räkor i chilisås", "pris": 195, "markningar": ["Stark"] },
+        { "namn": "84. Fu-yun räkor", "beskrivning": "Ägg, purjolök och räkor", "pris": 195 }
+      ]
+    },
+    {
+      "id": "fiskratter",
+      "rubrik": "Fiskrätter",
+      "ratter": [
+        { "namn": "85. Friterad fisk", "beskrivning": "Valfri sås", "pris": 149 },
+        { "namn": "86. Friterad fisk med blandade grönsaker", "pris": 149 },
+        { "namn": "88. Friterad bläckfisk", "beskrivning": "Valfri sås", "pris": 159 },
+        { "namn": "89. Bläckfisk med blandade grönsaker", "pris": 159 }
+      ]
+    },
+    {
+      "id": "vegetariskt",
+      "rubrik": "Vegetariska rätter",
+      "ratter": [
+        { "namn": "90. Friterade blandade grönsaker", "beskrivning": "Valfri sås", "pris": 145, "markningar": ["Vegetariskt"] },
+        { "namn": "90a. Stekt ris eller äggnudlar med grönsaker", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "90b. Tofu med grönsaker", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "91. Wokade blandade grönsaker", "pris": 135, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "flaskratter",
+      "rubrik": "Fläskrätter",
+      "ratter": [
+        { "namn": "92. Ma-po tofu med fläsk i starksås", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "93. Fläsk i starksås", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "94. Fläsk i currysås", "pris": 139 },
+        { "namn": "96. Friterad fläsk", "beskrivning": "Valfri sås", "pris": 139 },
+        { "namn": "97. Fläsk med bambuskott och champinjoner", "pris": 139 }
+      ]
+    },
+    {
+      "id": "ris-och-aggnudlar",
+      "rubrik": "Ris och äggnudlar",
+      "ratter": [
+        { "namn": "98. Stekt ris med kyckling", "beskrivning": "Ägg och kyckling", "pris": 135 },
+        { "namn": "100. Stekt ris special", "beskrivning": "Ägg, kyckling, räkor och skinka", "pris": 139 },
+        { "namn": "101. Stekt ris med blandade grönsaker", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "102a. Nasigoreng", "beskrivning": "Stekt ris med ägg, curry, kyckling, räkor och skinka", "pris": 139 },
+        { "namn": "102b. Bamigoreng", "beskrivning": "Stekta äggnudlar med ägg, curry, kyckling, räkor och skinka", "pris": 139 },
+        { "namn": "103. Stekta äggnudlar med biff", "pris": 135 },
+        { "namn": "104. Stekta äggnudlar med kyckling", "pris": 135 },
+        { "namn": "105. Stekta äggnudlar med blandat kött", "beskrivning": "Kyckling, räkor och skinka", "pris": 139 }
+      ]
+    },
+    {
+      "id": "kontinentala",
+      "rubrik": "Kontinentala rätter",
+      "beskrivning": "Pommes frites ingår i alla kontinentala rätter utom spaghetti. Extra pommes frites 15:-, extra steksås 15:-.",
+      "ratter": [
+        { "namn": "20. Filéstek", "beskrivning": "Oxfilé med persiljesmör", "pris": 269 },
+        { "namn": "21. Pepparstek", "beskrivning": "Oxfilé med svartpepparsås", "pris": 279, "populär": true },
+        { "namn": "23. Entrecôte med persiljesmör", "beskrivning": "Serveras med brunsås", "pris": 249 },
+        { "namn": "25. Kinesisk biffstek", "beskrivning": "Oxfilé med en sås på svamp, lök och röd paprika", "pris": 269 },
+        { "namn": "27. Black & White", "beskrivning": "Oxfilé med brunsås och fläskfilé med bearnaisesås", "pris": 269 },
+        { "namn": "28. Spaghetti med köttfärssås", "pris": 145 },
+        { "namn": "29. Fläskfilé med bearnaisesås", "pris": 239 }
+      ]
+    },
+    {
+      "id": "barnmatssedel",
+      "rubrik": "Barnmatssedel",
+      "ratter": [
+        { "namn": "30. Pommes frites", "pris": 45 },
+        { "namn": "31. Korv med pommes frites", "pris": 89 },
+        { "namn": "32. Friterad kycklingfilé med pommes frites", "pris": 89 },
+        { "namn": "33. Spaghetti med köttfärssås", "beskrivning": "Serveras med ost", "pris": 89 },
+        { "namn": "34. Köttbullar med pommes frites", "beskrivning": "Serveras med brunsås och sylt", "pris": 89 },
+        { "namn": "35. Barnpizza", "beskrivning": "Ost, skinka och tomatsås", "pris": 85 },
+        { "namn": "36. Friterad kyckling", "pris": 89 }
+      ]
+    },
+    {
+      "id": "pizza",
+      "rubrik": "Pizza",
+      "beskrivning": "Ost och tomatsås ingår i alla pizzor. Familjepizza inom parentes. Extra fyllning 10-20:- per sort, pizzasallad 20:- per person.",
+      "ratter": [
+        { "namn": "1. Margherita", "beskrivning": "Familj 255:-", "pris": 99, "markningar": ["Vegetariskt"] },
+        { "namn": "2. Vesuvio", "beskrivning": "Skinka. Familj 269:-", "pris": 109 },
+        { "namn": "3. Pescatora", "beskrivning": "Tonfisk. Familj 269:-", "pris": 109 },
+        { "namn": "4. Cacciatora", "beskrivning": "Salami. Familj 269:-", "pris": 109 },
+        { "namn": "5. Marinara", "beskrivning": "Musslor och räkor. Familj 279:-", "pris": 119 },
+        { "namn": "6. Capriccosa", "beskrivning": "Champinjoner och skinka. Familj 269:-", "pris": 109 },
+        { "namn": "7. Artisto", "beskrivning": "Skinka och räkor. Familj 279:-", "pris": 119 },
+        { "namn": "8. Vegetariska", "beskrivning": "Champinjoner, kronärtskocka, lök, oliver och paprika. Familj 279:-", "pris": 119, "markningar": ["Vegetariskt"] },
+        { "namn": "9. La Mafia", "beskrivning": "Oxfilé, paprika, pepperoni och tomater", "pris": 165 },
+        { "namn": "10. Texas", "beskrivning": "Bearnaisesås, broccoli och oxfilé", "pris": 165 },
+        { "namn": "11. Opera", "beskrivning": "Skinka och tonfisk. Familj 269:-", "pris": 109 },
+        { "namn": "13. Quattro Stagione", "beskrivning": "Champinjoner, kronärtskocka, musslor, oliver, paprika, räkor och skinka. Familj 289:-", "pris": 125 },
+        { "namn": "14. Calzona", "beskrivning": "Inbakad, skinka", "pris": 115 },
+        { "namn": "15. Romana", "beskrivning": "Ägg, bacon och lök. Familj 275:-", "pris": 115 },
+        { "namn": "16. Mama Mia", "beskrivning": "Champinjoner, lök, paprika, räkor och skinka. Familj 289:-", "pris": 125 },
+        { "namn": "17. Sicilianna", "beskrivning": "Ananas och skinka. Familj 269:-", "pris": 109 },
+        { "namn": "18. Special", "beskrivning": "Biff och lök i curry", "pris": 139 },
+        { "namn": "19. Seafood", "beskrivning": "Bläckfisk, surimi, musslor, räkor och tonfisk", "pris": 139 },
+        { "namn": "020. Kebab", "beskrivning": "Champinjoner, kebabkött, lök, orientdressing, paprika, pepperoni och tomater. Familj 299:-", "pris": 129 }
+      ]
+    },
+    {
+      "id": "dessert",
+      "rubrik": "Dessert",
+      "ratter": [
+        { "namn": "106. Vaniljglass med rån", "pris": 69 },
+        { "namn": "107. Vaniljglass med sås", "beskrivning": "Välj mellan choklad och kola", "pris": 69 },
+        { "namn": "109. Vaniljglass med cocktailfrukt", "pris": 79 },
+        { "namn": "110. Friterad banan med vaniljglass", "pris": 85, "populär": true },
+        { "namn": "111. Friterad ananas med vaniljglass", "pris": 85 }
+      ]
+    }
+  ]
+}
