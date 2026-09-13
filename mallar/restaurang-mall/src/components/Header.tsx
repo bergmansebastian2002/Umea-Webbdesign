@@ -55,6 +55,16 @@ export default function Header() {
     };
   }, [oppenMeny]);
 
+  // Escape stänger mobilmenyn - samma mönster som sajtens dialoger.
+  useEffect(() => {
+    if (!oppenMeny) return;
+    const vidTangent = (h: KeyboardEvent) => {
+      if (h.key === "Escape") setOppenMeny(false);
+    };
+    window.addEventListener("keydown", vidTangent);
+    return () => window.removeEventListener("keydown", vidTangent);
+  }, [oppenMeny]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${

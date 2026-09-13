@@ -63,6 +63,14 @@ html[data-art="livlig"] {
   --skugga-knapp: 0 3px 0 0 rgb(0 0 0 / 0.2);
 }
 
+/* Karaktärsrubriken "skript" (Lobster) är ritad för gemener - versaler
+   dödar skriptkänslan, så den skriver över art directionens val. */
+html[data-rubrik="skript"] {
+  --rubrik-vikt: 400;
+  --rubrik-mellanrum: 0.01em;
+  --rubrik-versaler: none;
+}
+
 /* Kopplar variablerna till Tailwind-klasser: bg-bakgrund, shadow-kort osv. */
 @theme inline {
   --color-bakgrund: var(--farg-bakgrund);
