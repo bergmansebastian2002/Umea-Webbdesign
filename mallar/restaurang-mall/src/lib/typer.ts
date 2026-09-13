@@ -119,6 +119,15 @@ export type Evenemang = {
   datumText?: string;
   /** Valfri länk, t.ex. till bokningen. */
   lank?: string;
+  /** Valfri bild överst på kortet, t.ex. "/kunder/mix/evenemang/lunchbuffe.webp". */
+  bild?: string;
+  /** Beskrivning av bilden för skärmläsare och Google. */
+  bildAlt?: string;
+  /**
+   * Lyfter fram posten som ett brett kort med bild bredvid texten, före de
+   * övriga. Använd för det restaurangen är mest känd för, t.ex. lunchbuffén.
+   */
+  utvald?: boolean;
 };
 
 /**
@@ -233,6 +242,12 @@ export type Restaurangkonfig = {
   betyg?: Betyg;
   /** Evenemang och erbjudanden. Tom lista eller utelämnad döljer sektionen. */
   evenemang?: Evenemang[];
+  /** Egen etikett, rubrik och ingress för evenemangssektionen. Utelämna för standard ("På gång"). */
+  evenemangSektion?: {
+    etikett?: string;
+    rubrik?: string;
+    ingress?: string;
+  };
 
   oppettider: Oppettider;
   specialdagar: Specialdag[];

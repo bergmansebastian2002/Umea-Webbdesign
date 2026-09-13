@@ -1,25 +1,35 @@
 # Fotolista - Restaurang Mix
 
 Önskelista till kunden (eller fotografen) inför lanseringen. Logotypen är
-kundens egen, men alla foton på sajten idag är platshållare från Unsplash -
-målet är att ersätta samtliga med riktiga foton från Mix på Björnvägen 11.
+kundens egen. Buffé-, kvälls-, avhämtnings-, catering- och pastabilderna är
+stockfoton från kundens gamla sajt (licens ej bekräftad, se
+BILDRATTIGHETER.md). Övriga galleribilder är platshållare från Unsplash.
+Målet är att ersätta allt med riktiga foton från Mix på Björnvägen 11.
 
 Prioritetsordning:
 
-1. **Matsalen** - om-oss-bilden visar idag en FRÄMMANDE lokal och måste
-   bytas före lansering. Interiör med dagsljus, gärna med gäster
-   (godkännande krävs) eller uppdukade bord. Ersätter `bilder/om-oss.jpg`.
-2. **Hero (startsidans toppbild)** - liggande, minst 1920 px bred.
-   Förslag: lunchbuffén nyfylld, eller ett uppdukat bord med pizza,
-   grillfat och tillbehör. Ersätter `bilder/hero.jpg`.
-3. **Lunchbuffén** - buffébordet är restaurangens stolthet och förtjänar
-   en egen bild i evenemangssektionen när den fotograferats.
-4. **Signaturrätter** - närbilder på riktiga portioner, en per rad i
-   galleriet: pizza (gärna Mix special eller Husets special), grillfat
-   från Mellanöstern-menyn, pasta, plankstek, hamburgare, sallad.
-5. **Logotypen i vektor** - PNG:n från gamla sajten funkar bra, men be om
+1. **Lunchbuffén** - det kunden vill synas med. Buffébordet nyfyllt, dels
+   i helbild (liggande, minst 1920 px bred - dagens hero är bara 1000 px),
+   dels närbilder på grytor och salladsbuffén. Ersätter
+   `bilder/hero-buffe.jpg` och `bilder/evenemang/lunchbuffe.jpg`.
+2. **Avhämtning** - nuvarande bild är troligen en olicensierad
+   stockförhandsvisning. Foto på en färdig hämtbeställning i Mix egna
+   förpackningar. Ersätter `bilder/evenemang/avhamtning.jpg`.
+3. **Matsalen och personalen** - interiör med dagsljus, gärna med gäster
+   (godkännande krävs) eller personal som serverar. Ersätter
+   `bilder/om-oss-servering.jpg`.
+4. **Kvällsmenyn och catering** - en grillrätt från Mellanöstern-menyn och
+   ett uppdukat cateringbord. Ersätter `bilder/evenemang/kvallsmeny.jpg` och
+   `bilder/evenemang/catering.jpg` (den senare är bara 512 px bred idag).
+5. **Signaturrätter** - närbilder på riktiga portioner, en per rad i
+   galleriet: pizza (gärna Mix special eller Husets special), grillfat,
+   pasta, plankstek, hamburgare, sallad.
+6. **Logotypen i vektor** - PNG:n från gamla sajten fungerar bra, men be om
    originalfilen (AI/SVG/PDF) för tryck och skyltar om den finns.
-6. **Personalen** - ett varmt foto på ägare/kockar lyfter Om oss-sidan.
+
+Byt motiv under ett NYTT filnamn (t.ex. `hero-buffe-2026.jpg`) och uppdatera
+sökvägen i config.ts. Bildoptimeraren och besökarnas webbläsare cachar per
+sökväg, så en ny bild under samma namn kan visa den gamla i flera timmar.
 
 Tips vid fotografering: fotografera i dagsljus eller nära fönster, håll
 bakgrunden ren, och ta bilderna i liggande format där det går. Mobilkamera
