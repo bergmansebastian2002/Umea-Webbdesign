@@ -1,0 +1,160 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Pizza, skrovmål, kebab och grill - hela vår meny med priser. Ring 090-19 54 40 och beställ för avhämtning, eller kom förbi oss i Ålidhems centrum och ät på plats.",
+  "fotnot": "Priser från september 2026 - med reservation för ändringar. Fråga oss gärna om innehåll och allergener när du beställer.",
+  "smakprov": ["hamburgare", "grillratter"],
+  "sektioner": [
+    {
+      "id": "pizzor",
+      "rubrik": "Pizzor",
+      "beskrivning": "Tomatsås och ost ingår i alla pizzor.",
+      "ratter": [
+        { "namn": "Margherita", "beskrivning": "Tomat och ost", "pris": 115, "markningar": ["Vegetariskt"] },
+        { "namn": "Vesuvio", "beskrivning": "Skinka", "pris": 124, "populär": true },
+        { "namn": "Capricciosa", "beskrivning": "Skinka, färska champinjoner", "pris": 124, "populär": true },
+        { "namn": "Hawaii", "beskrivning": "Skinka, ananas", "pris": 124, "populär": true },
+        { "namn": "Bussola", "beskrivning": "Skinka, räkor", "pris": 124 },
+        { "namn": "Sorena", "beskrivning": "Färska champinjoner, räkor", "pris": 124 },
+        { "namn": "Pescatore", "beskrivning": "Tonfisk, rödlök", "pris": 124 },
+        { "namn": "Milano", "beskrivning": "Skinka, pepperonikorv, lök", "pris": 135, "populär": true },
+        { "namn": "Lamore", "beskrivning": "Skinka, färska champinjoner, räkor", "pris": 135 },
+        { "namn": "Lambada", "beskrivning": "Salami, skinka, starksås, pepperoni, purjolök", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "Spenatpizza", "beskrivning": "Färsk vitlök, lök, champinjoner, oliver, spenat, fetaost", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "Ruccola", "beskrivning": "Champinjoner, fetaost, lök, vitlök, ruccola", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "Fetaostpizza", "beskrivning": "Färska champinjoner, färska tomater, rödlök, färsk vitlök, fetaost", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "Hawaii Special", "beskrivning": "Skinka, ananas, banan, curry", "pris": 135 },
+        { "namn": "Mexicana", "beskrivning": "Köttfärs, lök, hotsås", "pris": 130, "markningar": ["Stark"] },
+        { "namn": "Azteka", "beskrivning": "Skinka, jalapeño, hotsås, lök, vitlök", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "Cacciatore", "beskrivning": "Salami, oliver, färska tomater", "pris": 139 },
+        { "namn": "Quattro Stagioni", "beskrivning": "Skinka, färska champinjoner, kronärtskocka, räkor, oliver", "pris": 139 },
+        { "namn": "Maffia", "beskrivning": "Köttfärs, lök, paprika, ägg", "pris": 139 },
+        { "namn": "Vegetarisk", "beskrivning": "Färska champinjoner, paprika, lök, oliver, kronärtskocka, ananas, färska tomater", "pris": 139, "markningar": ["Vegetariskt"] },
+        { "namn": "Falafelpizza", "beskrivning": "Falafel, rödlök, färska tomater, pepperoni, dressing, starksås", "pris": 139, "markningar": ["Vegetariskt", "Stark"] },
+        { "namn": "Kycklingpizza", "beskrivning": "Kyckling, rödlök, färska tomater, pepperoni, dressing, starksås", "pris": 145 },
+        { "namn": "Salamipizza", "beskrivning": "Salami, färska champinjoner, oliver, färsk vitlök", "pris": 145 },
+        { "namn": "Kebabpizza", "beskrivning": "Kebabkött, rödlök, färska tomater, pepperoni, dressing, starksås", "pris": 150, "populär": true }
+      ]
+    },
+    {
+      "id": "inbakade-pizzor",
+      "rubrik": "Inbakade pizzor",
+      "ratter": [
+        { "namn": "Calzone", "beskrivning": "Skinka", "pris": 119 },
+        { "namn": "Calzoncino", "beskrivning": "Skinka, färska champinjoner", "pris": 125 },
+        { "namn": "Calzone Paradis", "beskrivning": "Skinka, ananas", "pris": 125 },
+        { "namn": "Calzone Special", "beskrivning": "Skinka, färska champinjoner, räkor", "pris": 135 },
+        { "namn": "Calzone Magnum", "beskrivning": "Skinka - dubbel deg, dubbel fyllning", "pris": 145, "populär": true },
+        { "namn": "Ufo", "beskrivning": "Skinka, färska champinjoner - dubbel deg, dubbel fyllning", "pris": 145 },
+        { "namn": "Disco", "beskrivning": "Köttfärs, rödlök - dubbel deg, dubbel fyllning", "pris": 145 },
+        { "namn": "Ubåt", "beskrivning": "Oxfilé, ananas, färska champinjoner, bearnaisesås - halvinbakad", "pris": 149 }
+      ]
+    },
+    {
+      "id": "specialpizzor",
+      "rubrik": "Specialpizzor",
+      "ratter": [
+        { "namn": "Baloos Special", "beskrivning": "Oxfilé, färska tomater, rödlök, bearnaisesås, färska champinjoner", "pris": 159, "populär": true },
+        { "namn": "Kebabpizza Special 1", "beskrivning": "Kebabkött, rödlök, färska tomater, pepperoni, dressing, starksås, isbergssallad, gurka", "pris": 155 },
+        { "namn": "Kebabpizza Special 2", "beskrivning": "Kebabkött, strips, rödlök, färska tomater, pepperoni, dressing, starksås, sallad", "pris": 175, "populär": true },
+        { "namn": "Acapulco", "beskrivning": "Oxfilé, färska champinjoner, rödlök, jalapeño, hotsås", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "Aja Special", "beskrivning": "Färska champinjoner, färska tomater, rödlök, färsk vitlök, fetaost, skinka", "pris": 145 },
+        { "namn": "Capri Special", "beskrivning": "Oxfilé, räkor, färska tomater, bearnaisesås", "pris": 155 },
+        { "namn": "Sorneneto", "beskrivning": "Skinka, köttfärs, rödlök, färsk paprika, starksås", "pris": 160, "markningar": ["Stark"] },
+        { "namn": "Palermo", "beskrivning": "Kyckling, banan, curry, ananas", "pris": 160 }
+      ]
+    },
+    {
+      "id": "amerikanska-pizzor",
+      "rubrik": "Amerikanska pizzor",
+      "ratter": [
+        { "namn": "Super Hawaii", "beskrivning": "Skinka, ananas, banan", "pris": 155 },
+        { "namn": "Super Lamore", "beskrivning": "Skinka, räkor, färska champinjoner", "pris": 155 },
+        { "namn": "Hot California", "beskrivning": "Skinka, salami, pepperoni, lök", "pris": 155, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "rullar",
+      "rubrik": "Rullar",
+      "beskrivning": "Rullas i hembakat bröd med isbergssallad, tomater, gurka, rödlök, pepperoni och dressing.",
+      "ratter": [
+        { "namn": "Kebabrulle", "beskrivning": "Med kebabkött", "pris": 139, "populär": true },
+        { "namn": "Kycklingrulle", "beskrivning": "Med kyckling", "pris": 139 },
+        { "namn": "Falafelrulle", "beskrivning": "Med falafel", "pris": 139, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "hamburgare",
+      "rubrik": "Hamburgare",
+      "ratter": [
+        { "namn": "Skrovmål", "beskrivning": "90 g hamburgare med bröd, ost, sallad, dressing och pommes frites", "pris": 135, "populär": true },
+        { "namn": "Miniskrov", "beskrivning": "45 g hamburgare med bröd, ost, sallad, dressing, rödlök, saltgurka och strips", "pris": 110 },
+        { "namn": "Superskrovmål", "beskrivning": "180 g hamburgare med bröd, ost, sallad och dressing", "pris": 155 },
+        { "namn": "Big Meal", "beskrivning": "90 g hamburgare med bröd, sallad, dressing, rödlök, saltgurka och pommes frites", "pris": 135 },
+        { "namn": "Kyckling Meal", "beskrivning": "Kycklingburgare med bröd, sallad, tomat, gurka, lök, pepperoni, dressing och pommes frites", "pris": 135 },
+        { "namn": "Super Meal", "beskrivning": "150 g hamburgare med bröd, sallad, dressing, rödlök, saltgurka och pommes frites", "pris": 145 },
+        { "namn": "Special Meal", "beskrivning": "180 g hamburgare med sallad, tomat, lök, ost, saltgurka, dressing och pommes frites", "pris": 155 },
+        { "namn": "Baloo Meal", "beskrivning": "150 g hamburgare med bröd, sallad, dressing, färska tomater, ägg och pommes frites", "pris": 159, "populär": true },
+        { "namn": "Mega Meal", "beskrivning": "300 g hamburgare med sallad, tomat, ost, dressing och pommes frites", "pris": 179, "populär": true }
+      ]
+    },
+    {
+      "id": "grillratter",
+      "rubrik": "Grillrätter",
+      "ratter": [
+        { "namn": "Kebabtallrik", "beskrivning": "Kebab, pommes frites, sallad, tomat, gurka, lök, pepperoni och dressing", "pris": 139, "populär": true },
+        { "namn": "Kycklingtallrik", "beskrivning": "Kyckling, pommes frites, sallad, tomat, gurka, lök, pepperoni och dressing", "pris": 139, "populär": true },
+        { "namn": "Kebabmix", "beskrivning": "Kebabkött och kyckling med pommes frites, sallad, tomat, gurka, lök, pepperoni och dressing", "pris": 160 },
+        { "namn": "Kebab med pitabröd", "beskrivning": "Kebab, pitabröd, sallad, tomat, gurka, lök, pepperoni och dressing", "pris": 135 },
+        { "namn": "Falafel med pitabröd", "beskrivning": "Falafel, pitabröd, sallad, tomat, gurka, lök, pepperoni och dressing", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "Grillbiff", "beskrivning": "Med sallad, pommes frites, persiljesmör, gurka, lök, tomat och dressing", "pris": 145 }
+      ]
+    },
+    {
+      "id": "sallader",
+      "rubrik": "Sallader",
+      "ratter": [
+        { "namn": "Kebabsallad", "beskrivning": "Kebab, sallad, tomat, gurka, lök, feferoni och dressing", "pris": 140 },
+        { "namn": "Kycklingsallad", "beskrivning": "Kyckling, sallad, tomat, gurka, lök, feferoni och dressing", "pris": 140 },
+        { "namn": "Falafelsallad", "beskrivning": "Falafel, sallad, tomat, gurka, lök, feferoni och dressing", "pris": 140, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "barnmeny",
+      "rubrik": "Barnmeny",
+      "beskrivning": "Pizzor i barnstorlek.",
+      "ratter": [
+        { "namn": "Margherita", "beskrivning": "Tomat och ost", "pris": 109, "markningar": ["Vegetariskt"] },
+        { "namn": "Vesuvio", "beskrivning": "Skinka", "pris": 109 },
+        { "namn": "Capricciosa", "beskrivning": "Skinka, färska champinjoner", "pris": 109 },
+        { "namn": "Hawaii", "beskrivning": "Skinka, ananas", "pris": 109 }
+      ]
+    },
+    {
+      "id": "tillbehor",
+      "rubrik": "Tillbehör och såser",
+      "ratter": [
+        { "namn": "Pommestallrik", "pris": 79 },
+        { "namn": "Mozzarella sticks", "pris": 49 },
+        { "namn": "Chili cheese", "pris": 49, "markningar": ["Stark"] },
+        { "namn": "Pizzasallad", "pris": 20 }
+      ]
+    },
+    {
+      "id": "drycker",
+      "rubrik": "Drycker",
+      "beskrivning": "Läsk 33 cl.",
+      "ratter": [
+        { "namn": "Coca-Cola", "pris": 25 },
+        { "namn": "Coca-Cola Zero", "pris": 25 },
+        { "namn": "Pepsi", "pris": 25 },
+        { "namn": "Pepsi Max", "pris": 25 },
+        { "namn": "Fanta Orange", "pris": 25 },
+        { "namn": "Fanta Exotic", "pris": 25 },
+        { "namn": "7 Up", "pris": 25 },
+        { "namn": "Trocadero", "pris": 25 },
+        { "namn": "Trocadero Zero", "pris": 25 },
+        { "namn": "Red Bull 25 cl", "pris": 35 }
+      ]
+    }
+  ]
+}
