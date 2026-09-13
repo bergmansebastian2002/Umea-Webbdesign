@@ -85,6 +85,7 @@ export default function RotLayout({ children }: { children: ReactNode }) {
     <html
       lang="sv-SE"
       data-art={restaurang.design.artDirection}
+      data-rubrik={restaurang.design.rubrikTypsnitt}
       className={typsnittsklasser}
       style={fargvariabler}
     >

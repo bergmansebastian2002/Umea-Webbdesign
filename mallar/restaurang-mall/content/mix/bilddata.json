@@ -1,0 +1,67 @@
+{
+  "/kunder/mix/evenemang/avhamtning.webp": {
+    "bredd": 612,
+    "hojd": 408,
+    "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwAgCdASoQAAsABABoJbACdG1/tv8Wp5L9hxgAAPz2fOC5RSL0yKpEF678m3BtMd4Lzh3+wTeEsHPNgmpuwky+2t45P2Z338MyL9jkZc3ceG+/trUPyZ8OFMX1rpRWA7PEMsuLIUdHPi0CzvQrF60B9xm4PEfV9Nttzz+XpgTGPAAA"
+  },
+  "/kunder/mix/evenemang/catering.webp": {
+    "bredd": 512,
+    "hojd": 419,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAA0ABABoJZACw7DpL0pur7aTAAD+uE8d4P+aDQMMKt8d+KJvw4qiX5GNUdJVJTIcaH0ixMVQrzyQE6GRjJ1RLTe+gUl7hlcdXdVcDghM+6vYvE9EAA=="
+  },
+  "/kunder/mix/evenemang/kvallsmeny.webp": {
+    "bredd": 1200,
+    "hojd": 800,
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwAgCdASoQAAsABABoJbACdAYrxsCKrJxiAAD7ogyIr0ZXKQbcXgVpvc+y5xmENu5L6BKevkxRV+LTJiRubkeQSmqUENjPrPQGqnvoKoGVjPAzcQG8gfhNkeHg+afyzOUZjivuzwxows6GTpxpSgAA"
+  },
+  "/kunder/mix/evenemang/lunchbuffe.webp": {
+    "bredd": 1000,
+    "hojd": 667,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsABABoJbACsAYv1QkyvdQAAP7QdFFTKWE+BxP/xsqUWNai0k/iXo4m2Ikoprd+/gCWCG39VkIu1Wse4XTAcCKCdTMVCRZ/2h6UBRA0QAAA"
+  },
+  "/kunder/mix/galleri/grillspett.webp": {
+    "bredd": 1600,
+    "hojd": 2400,
+    "blur": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACwBACdASoQABgAPxFysFAsJqSisAgBgCIJbACdMoAlrRStQdL9RTBXwXEBQJgAAP66AYt9bSvRiEGxuO8Y1T7TYqv+N5S0PZRe4R1pXSAYWfqAQ17D7TqAPSJS7mil0t2hapvbKMrAb7I4ixEQzeAHAfFEVJKt2mnbiY+C1UQVe37TTZoRdZI43QntEUkTfj8AzmQoEr/0MCfqxESsWgMfxCvlooTKPkkWxTLnmi9k9gtVBeEluSAA"
+  },
+  "/kunder/mix/galleri/hamburgare.webp": {
+    "bredd": 1600,
+    "hojd": 1329,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAA0ABABoJbACdEf/gWhZAgAA/u6MUEahlTRxxNzdtEQQTMA6iunlDihcS3wEx2LI858nupC106NntnyYSUmV7H1pSjFbWO6V9AQAksvbkwb4KAwAAA=="
+  },
+  "/kunder/mix/galleri/pizza.webp": {
+    "bredd": 1600,
+    "hojd": 1068,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoQAAsABABoJbACdAB8Uv6OrgAA/mY5/aNS17Nlaxd4srYnhn6cnp6zgQIK2uDhGgPOuAD9AMS1EN8ZqVxfz3gVJjzHKdTpM42M9A+wGhXZUymDJrhJ4kQwhJ2cAAAA"
+  },
+  "/kunder/mix/galleri/planka.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoQAAsABABoJbACdAYrnNRFvBSAAP7Ch46v2uvIQn70sBuU3B9Y4PmNGvvk02AHh/yvXP2wXhmuj+w2SENKHYCPNW6qk81NNum+8ArA8I+dhde15xVVqywnMRvDvA39m57cVgAA"
+  },
+  "/kunder/mix/galleri/sallad.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoQAAsABABoJagCdAEC/7OaMIKDQAD8z0lVJNZJgqN+R0hZ12eM5vI/K6QQ7lRu6VbpzwJDyO/LXPdj8J+Tg3bMrmu1Xs28ksnTZYAA"
+  },
+  "/kunder/mix/galleri/tagliatelle.webp": {
+    "bredd": 910,
+    "hojd": 567,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAoABABoJbACdAEPdrSRpZscgAD+hB5z8YYKWHx8hs4+oZoLv2E4P0kijRYAH5W5sTYMJLUHks0ECsBz3+5L9ti6oshJZMoGi0m9P4on2Vm49N94wvvUDZ1MAA=="
+  },
+  "/kunder/mix/hero-buffe.webp": {
+    "bredd": 1000,
+    "hojd": 667,
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwAgCdASoQAAsABABoJbACdAYtBwRROL4G0xEAAP7m90UtsI9ZVTlaV4LyycWNcmjWgr6EEiThckmIbNPX6NsFsog/ETDLmW8zDrQdyyew6sPz7LZcXUhj/xsKYb4u/qzo2TAMH0AAAA=="
+  },
+  "/kunder/mix/logotyp.webp": {
+    "bredd": 1650,
+    "hojd": 928,
+    "blur": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSGcAAAANcFtr25q8X4JLS0cqXNbwEei8ZSq2cK0cSg6Vu9XxLztExAQEJCm9EWBW7YMTFdulYBIcdnNf9D4KOWUyEaUzzVai04D17FDeIgwQo9B07yFVJVj//zYVUEnlCCyBOF7+CArnV6ECAFZQOCBCAAAA0AEAnQEqEAAJAAQAaCWwAnQwRgFdqQAA+wAw9duocU8uGMEGhkv04V/HMCu62c/1kzDiqO5Z+cn/MyPB/qez2yIA"
+  },
+  "/kunder/mix/om-oss-servering.webp": {
+    "bredd": 1400,
+    "hojd": 1050,
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAQCdASoQAAwABABoJaACdAD7EsxWE0AA/pulJF8ln7pxYwISWJBaF5+i9heT0t0DeNqZQNMfMVk5JQJhmRQ6/c5EH0PRslU/tp3nUXlPawwmc4/iCgjxRcvT8GhiiGC67PtEmV5JXkAA"
+  }
+}

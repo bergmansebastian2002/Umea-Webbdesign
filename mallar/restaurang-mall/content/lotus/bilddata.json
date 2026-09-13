@@ -1,0 +1,42 @@
+{
+  "/kunder/lotus/galleri/curry.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAgCdASoQAAsABABoJYgCdDiAN3/BSRpSnPpFnQAA/vDfFBHg77XeQYM/glLxq+edkAc47gNrGKKiKqWz8JksRNyi4lJUgogyV8AA"
+  },
+  "/kunder/lotus/galleri/friterad-kyckling.webp": {
+    "bredd": 1600,
+    "hojd": 1064,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAsABABoJbACdADOJPhrkAAA+5e/0RJXQ4ZY28GLnbAn/mgfaxc9wDxP6heXf/SbTORTg94AfhyyDs3ZWb0P2H8ZC77slSlgnwfqwAA="
+  },
+  "/kunder/lotus/galleri/nudlar.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAsABABoJbACdAEPevXpKhPgAP7feLWI1VN1LcbIn4kthLcsdPcfVvrLBuwMqiPb9WJH15WUPMrwXDkHBZ17zpaKXxFad+jgAA=="
+  },
+  "/kunder/lotus/galleri/riswok.webp": {
+    "bredd": 1600,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAQCdASoQAA0ABABoJbACdAYvW9sfkgAA/tzfL2yRbmRhQxhybWzL7j9lBERQAqfqUCMoNDClmE1VCdbXHLtc3XALTzu0hOWUz60sKpPOlCeq6RqbB7xHhW5p1aiHjgBNIaLRVlUvP1AA"
+  },
+  "/kunder/lotus/galleri/varrullar.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsABABoJYgCdAD7iGXCaBqAAP7RPGqiyLGuMwdGSZZsyQIiS+csgmWtBhbVrWYgLJUEi4ZCGRwuQWbWgpCIAAA="
+  },
+  "/kunder/lotus/galleri/wok.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAsABABoJbACdAEfcYZUcID0rAAA/pgMqFBtEiWlLzTgZ9OE/NF4U1bap4iDptUpG07XNppTISpCGKnSsjdUcpeefRCACo7QGuKh1HC8HF+yCPAAAA=="
+  },
+  "/kunder/lotus/hero.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAgCdASoQAAsABABoJaACdAYsPwTqUa633wQAAP6mCtwxxlG6lB504wCZ8YH5sCHrLv6meTjSgssG47YSrNcIYyILueL2gOf107Cpf0OsdKMtdHF2FsDaJvICL1Y39JdSrXjeqAA="
+  },
+  "/kunder/lotus/om-oss.webp": {
+    "bredd": 1600,
+    "hojd": 2000,
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJZgAAOQdHIu3hstwWAAD+npFsi5poYZB5Um2E957cLaFyh0zZO08jpu9qoyMSKj9LD6+ElIygdqL+lvZAvi03c7mf0/NEMUlgWj0S1VbJuZNy2Q/JMbng9t3fKERzdAAAAA=="
+  }
+}

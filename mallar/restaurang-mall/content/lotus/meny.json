@@ -1,0 +1,111 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Hela vår à la carte-meny. Ring 090-77 75 55 och beställ för avhämtning, eller få maten hemkörd via foodora. I restaurangen serverar vi även buffé.",
+  "fotnot": "Priser och utbud enligt vår meny på foodora, september 2026 - med reservation för ändringar. Fråga oss gärna om innehåll och allergener när du beställer.",
+  "smakprov": ["kycklingratter", "vegetariska-ratter"],
+  "sektioner": [
+    {
+      "id": "kombo",
+      "rubrik": "Kombo",
+      "beskrivning": "Kan inte välja? Ta lite av allt.",
+      "ratter": [
+        {
+          "namn": "Fyra små rätter",
+          "beskrivning": "Friterad kyckling, friterade räkor, nötköttswok och kycklingwok",
+          "pris": 149,
+          "allergener": ["Gluten"],
+          "populär": true
+        }
+      ]
+    },
+    {
+      "id": "kycklingratter",
+      "rubrik": "Kycklingrätter",
+      "ratter": [
+        { "namn": "Sichuan-kyckling", "beskrivning": "Stark, med grönsaker - säg till om du vill ha den extra het", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "Honungskyckling", "beskrivning": "Krispig och söt, med sesamfrön och grönsaker", "pris": 139, "allergener": ["Gluten"], "populär": true },
+        { "namn": "Kung Pao-kyckling", "beskrivning": "Jordnötter, stark, grönsaker", "pris": 139, "markningar": ["Stark"], "allergener": ["Jordnötter"] },
+        { "namn": "Röd curry-kyckling", "beskrivning": "Mild hetta i röd currysås med grönsaker", "pris": 139 },
+        { "namn": "Kycklingspett", "beskrivning": "Kycklingfilé med currysmak, serveras med jordnötssås", "pris": 139, "allergener": ["Jordnötter"] },
+        { "namn": "Friterad kyckling", "beskrivning": "Friterade kycklingbitar", "pris": 139, "allergener": ["Gluten"], "populär": true },
+        { "namn": "Friterad kycklingklubba", "pris": 139, "allergener": ["Gluten"] },
+        { "namn": "Kanton-kyckling", "beskrivning": "Ostronsås och grönsaker", "pris": 139 },
+        { "namn": "Japansk kyckling", "beskrivning": "Teriyakisås, sesamfrön och grönsaker", "pris": 139 },
+        { "namn": "LaZi-kyckling", "beskrivning": "Krispig med rostad torkad chili och sesamfrön - mild hetta", "pris": 139, "markningar": ["Stark"], "allergener": ["Gluten"] }
+      ]
+    },
+    {
+      "id": "notkottratter",
+      "rubrik": "Nötkötträtter",
+      "ratter": [
+        { "namn": "Biff med bambu och svamp", "beskrivning": "Nötkött i sås med bambuskott och svamp", "pris": 149 },
+        { "namn": "Japansk biff", "beskrivning": "Teriyakisås, sesamfrön och grönsaker", "pris": 149 },
+        { "namn": "Mapo tofu med biff", "beskrivning": "Sichuanpeppar och tofu, mild hetta - går även att få utan kött", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "LaZi-biff", "beskrivning": "Krispig med rostad torkad chili och sesamfrön - mild hetta", "pris": 149, "markningar": ["Stark"], "allergener": ["Gluten"] },
+        { "namn": "Svartpepparbiff", "beskrivning": "Nötkött, svartpeppar och grönsaker", "pris": 149, "populär": true },
+        { "namn": "TieBan NiuRou - stekt biff", "beskrivning": "Stekta biffar med grönsaker", "pris": 149 },
+        { "namn": "Kanton-biff", "beskrivning": "Ostronsås och grönsaker", "pris": 149 },
+        { "namn": "Röd curry-biff", "beskrivning": "Mild hetta i röd currysås med grönsaker", "pris": 149 }
+      ]
+    },
+    {
+      "id": "skaldjursratter",
+      "rubrik": "Skaldjursrätter",
+      "ratter": [
+        { "namn": "Friterade räkor", "beskrivning": "Välj sås: sötsur, sweet chili eller jordnötssås", "pris": 189 },
+        { "namn": "Tempuraräkor", "beskrivning": "Japanska tempuraräkor", "pris": 189, "allergener": ["Gluten"] },
+        { "namn": "TieBan - stekt bläckfisk", "beskrivning": "Stekt bläckfisk med grönsaker", "pris": 189 },
+        { "namn": "TieBan Xia - stekta räkor", "beskrivning": "Stekta räkor med grönsaker", "pris": 189 },
+        { "namn": "Vitlöksräkor", "beskrivning": "Hackad vitlök och grönsaker", "pris": 189 },
+        { "namn": "Friterad fisk", "beskrivning": "Friterad fiskfilé", "pris": 159, "allergener": ["Gluten"] }
+      ]
+    },
+    {
+      "id": "vegetariska-ratter",
+      "rubrik": "Vegetariska rätter",
+      "beskrivning": "Gröna favoriter - däribland woken som gett restaurangen sitt namn.",
+      "ratter": [
+        { "namn": "Lotus wok", "beskrivning": "Lotusfrukt, skogsöron och grönsaker - husets namnrätt", "pris": 119, "markningar": ["Vegetariskt"], "populär": true },
+        { "namn": "YiPin tofu", "beskrivning": "Stekt tofu och grönsaker i lätt sås", "pris": 119, "markningar": ["Vegetariskt"] },
+        { "namn": "Röd curry-grönsaker", "beskrivning": "Grönsaker wokade i röd currysås", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "Vitlöksokra", "beskrivning": "Okra med hackad vitlök och grönsaker", "pris": 139, "markningar": ["Vegetariskt"] },
+        { "namn": "Salt & peppar-enoki", "beskrivning": "Friterad enokisvamp med salt och peppar", "pris": 139, "markningar": ["Vegetariskt"] },
+        { "namn": "Vegetariska nudlar", "beskrivning": "Äggnudlar eller risnudlar med grönsaker", "pris": 119, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "nudlar-och-ris",
+      "rubrik": "Nudlar & ris",
+      "ratter": [
+        { "namn": "Nudelwok", "beskrivning": "Wokade nudlar med grönsaker - välj protein", "pris": 129, "populär": true },
+        { "namn": "Risnudelwok", "beskrivning": "Wokade risnudlar med grönsaker - välj protein", "pris": 129 },
+        { "namn": "Riswok", "beskrivning": "Stekt ris med grönsaker - välj protein", "pris": 119 }
+      ]
+    },
+    {
+      "id": "ankratter",
+      "rubrik": "Ankrätter",
+      "ratter": [
+        { "namn": "Krispanka", "beskrivning": "Krispig anka med rostad torkad chili och grönsaker - mild hetta", "pris": 189, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "soppor",
+      "rubrik": "Soppor",
+      "ratter": [
+        { "namn": "Kyckling- och majssoppa", "beskrivning": "Kycklingbitar och färska majskorn", "pris": 59 },
+        { "namn": "Tomat- och äggsoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "Pekingsoppa", "beskrivning": "Klassisk pekingsoppa med grönsaker", "pris": 69 }
+      ]
+    },
+    {
+      "id": "smatt-och-gott",
+      "rubrik": "Smått & gott",
+      "ratter": [
+        { "namn": "Dumplings", "beskrivning": "Välj fyllning när du beställer", "pris": 89 },
+        { "namn": "Vårrullar", "beskrivning": "6 stycken", "pris": 59 },
+        { "namn": "Räkchips", "pris": 29 }
+      ]
+    }
+  ]
+}

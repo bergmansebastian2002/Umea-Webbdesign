@@ -145,7 +145,7 @@ function BestallCta() {
       centrerad
       etikett="Swisha och hämta maten"
       rubrik="Beställ direkt i menyn"
-      ingress="Klicka ihop din beställning i menyn, skriv eventuella önskemål som allergier och betala med Swish eller kort med knappen längst ner. Sedan är det bara att hämta maten hos oss på Vasaplan."
+      ingress={`Klicka ihop din beställning i menyn, skriv eventuella önskemål som allergier och betala med Swish eller kort med knappen längst ner. Sedan är det bara att hämta maten hos oss på ${kontakt.gata}.`}
     >
       <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col gap-3 sm:flex-row">

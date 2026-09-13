@@ -1,0 +1,231 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Hela vår hämtmeny med rättnummer - ring 090-77 45 88 och beställ med numret, eller ät på plats hos oss på Storgatan. Till lunch och kväll dukar vi även upp buffé.",
+  "fotnot": "Med reservation för prisjusteringar. Fråga oss gärna om innehåll och allergener när du beställer.",
+  "smakprov": ["speciella-ratter", "tie-ban-shao"],
+  "sektioner": [
+    {
+      "id": "speciella-ratter",
+      "rubrik": "Speciella rätter",
+      "beskrivning": "Kockarnas egna favoriter - husets mest beställda rätter.",
+      "ratter": [
+        { "namn": "S1. Åtta skatter", "beskrivning": "Blandat kött och räkor i stark sås", "pris": 169, "markningar": ["Stark"], "populär": true },
+        { "namn": "S2. Blandat kött i sötsursås", "beskrivning": "Biff, kyckling och fläsk", "pris": 159 },
+        { "namn": "S3. Blandat kött med cashewnötter", "pris": 169, "allergener": ["Nötter"] },
+        { "namn": "S4. Dumpling med kyckling", "beskrivning": "15 stycken", "pris": 169, "populär": true },
+        { "namn": "S5. Oxfilé med lök", "pris": 199 },
+        { "namn": "S6. Oxfilé med paprika", "pris": 199 },
+        { "namn": "S7. Biff med broccoli i ostronsås", "pris": 159 },
+        { "namn": "S8. Kung-pao kyckling med jordnötter", "pris": 149, "markningar": ["Stark"], "allergener": ["Jordnötter"], "populär": true },
+        { "namn": "S9. Thai-kyckling med kokosmjölk", "pris": 159, "markningar": ["Stark"] },
+        { "namn": "S10. Crispy pork", "pris": 159 }
+      ]
+    },
+    {
+      "id": "tie-ban-shao",
+      "rubrik": "Tie Ban Shao",
+      "beskrivning": "Tie Ban Shao är en traditionell kinesisk tillagningsmetod där maten serveras fräsande på en het järnplatta - maximal smak, och rätten håller sig varm genom hela måltiden.",
+      "ratter": [
+        { "namn": "T1. Fläsk Tieban", "beskrivning": "Paprika, champinjoner, lök, vitlök och bambuskott", "pris": 159, "markningar": ["Stark"] },
+        { "namn": "T2. Biff Tieban", "beskrivning": "Paprika, champinjoner, lök, vitlök och bambuskott", "pris": 169, "markningar": ["Stark"], "populär": true },
+        { "namn": "T3. Kyckling Tieban", "beskrivning": "Paprika, champinjoner, lök, svarta bönor, vitlök och bambuskott", "pris": 159, "markningar": ["Stark"] },
+        { "namn": "T4. Anka Tieban", "beskrivning": "I sötsursås", "pris": 199 },
+        { "namn": "T5. Räkor Tieban", "beskrivning": "Paprika, champinjoner, bambuskott, lök och vitlök", "pris": 199, "markningar": ["Stark"] },
+        { "namn": "T6. Blandat kött Tieban", "beskrivning": "Fläsk, biff och kyckling", "pris": 179, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "sha-guo",
+      "rubrik": "Sha Guo-rätter",
+      "beskrivning": "Långsamt tillagade grytor i traditionell lergryta.",
+      "ratter": [
+        { "namn": "G1. Biff i ostronsås", "pris": 169 },
+        { "namn": "G2. Havsfrukter", "pris": 179 },
+        { "namn": "G3. Kyckling i sötsursås", "pris": 159 },
+        { "namn": "G4. Fläsk med svarta bönor", "pris": 159 },
+        { "namn": "G5. Räkor med stark vitlöksmak", "pris": 199, "markningar": ["Stark"] },
+        { "namn": "G6. Shi-Chuan tofu", "pris": 169, "markningar": ["Stark", "Vegetariskt"] },
+        { "namn": "G7. Tofu med grönsaker", "pris": 169, "markningar": ["Vegetariskt"] },
+        { "namn": "G8. Anka med grönsaker", "beskrivning": "Stark vitlök", "pris": 199, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "soppor",
+      "rubrik": "Soppor",
+      "ratter": [
+        { "namn": "1. Grönsakssoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "2. Pekingsoppa", "beskrivning": "Kyckling och grönsaker", "pris": 59 },
+        { "namn": "3. Soppa med tre ingredienser", "beskrivning": "Fläsk, kyckling och räkor", "pris": 59 },
+        { "namn": "4. Ägg- och tomatsoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "5. Wontonsoppa", "beskrivning": "Fläsk och grönsaker", "pris": 59 }
+      ]
+    },
+    {
+      "id": "forratter",
+      "rubrik": "Förrätter",
+      "ratter": [
+        { "namn": "11. Vårrulle", "pris": 65 },
+        { "namn": "12. Vegetariska vårrullar", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "13. Räkchips", "pris": 59 },
+        { "namn": "15. Grönsakssallad", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "16. Kycklingspett", "pris": 59 },
+        { "namn": "17. Räkcocktail", "pris": 75 }
+      ]
+    },
+    {
+      "id": "kyckling",
+      "rubrik": "Kycklingrätter",
+      "ratter": [
+        { "namn": "40. Si-Chuan kyckling", "pris": 135 },
+        { "namn": "41. Stekt kyckling med blandade grönsaker", "pris": 135 },
+        { "namn": "42. Stekt kyckling med champinjoner och bambuskott", "pris": 135 },
+        { "namn": "43. Stekt kyckling med paprika", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "44. Kyckling med curry", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "45. Chilikyckling", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "46. Stekt kyckling i sötsursås", "pris": 135 },
+        { "namn": "47. Stekt kyckling med stark vitlökssmak", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "48. Stekt kyckling med cashewnötter", "pris": 149, "allergener": ["Nötter"], "populär": true },
+        { "namn": "49a. Friterad kyckling med sötsursås", "pris": 135 },
+        { "namn": "49b. Friterad kyckling med stark vitlökssås", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "49c. Friterad kyckling med currysås", "pris": 135 },
+        { "namn": "49d. Kycklingspett", "beskrivning": "6 stycken", "pris": 145 }
+      ]
+    },
+    {
+      "id": "biff",
+      "rubrik": "Biffrätter",
+      "ratter": [
+        { "namn": "51. Biff med grönsaker", "pris": 149 },
+        { "namn": "52a. Biff med bambuskott", "pris": 149 },
+        { "namn": "52b. Biff med bambuskott och champinjoner", "pris": 149 },
+        { "namn": "53. Biff med paprika", "pris": 149 },
+        { "namn": "54. Biff med curry", "pris": 149 },
+        { "namn": "55. Chilibiff", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "56. Stekt biff i sötsursås", "pris": 149 },
+        { "namn": "57. Stekt biff med stark vitlökssmak", "pris": 149, "markningar": ["Stark"] },
+        { "namn": "58. Biff med lök", "pris": 149 },
+        { "namn": "59. Shi-Chuan biff", "pris": 149, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "flask",
+      "rubrik": "Fläskrätter",
+      "ratter": [
+        { "namn": "61. Fläsk med blandade grönsaker", "pris": 135 },
+        { "namn": "62. Fläsk med bambuskott och champinjoner", "pris": 135 },
+        { "namn": "63. Fläsk med paprika", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "64. Fläsk med curry", "pris": 135 },
+        { "namn": "65. Fläsk med paprika, lök, svarta bönor och vitlök", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "66. Friterat fläsk med sötsursås", "pris": 135 },
+        { "namn": "67. Fläsk med stark vitlökssmak", "pris": 135, "markningar": ["Stark"] },
+        { "namn": "68. Fläsk i stark sötsursås", "pris": 135, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "anka",
+      "rubrik": "Anka",
+      "ratter": [
+        { "namn": "71. Friterad anka i sötsursås", "pris": 179 },
+        { "namn": "72. Friterad anka med grönsakssås", "pris": 179 },
+        { "namn": "73. Friterad anka i stark vitlökssås", "pris": 179, "markningar": ["Stark"] },
+        { "namn": "74. Friterad anka i currysås", "pris": 179 },
+        { "namn": "75. Anka Åtta skatter", "beskrivning": "Med blandat kött och räkor", "pris": 189, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "rakor-fisk",
+      "rubrik": "Räkor och fisk",
+      "ratter": [
+        { "namn": "81. Stekta räkor med grönsaker", "pris": 189 },
+        { "namn": "82. Stekta räkor med stark vitlöksmak", "pris": 189, "markningar": ["Stark"] },
+        { "namn": "83. Friterade räkor med sötsursås", "pris": 189 },
+        { "namn": "84. Räkor med chili", "pris": 189, "markningar": ["Stark"] },
+        { "namn": "85. Friterad fisk med grönsakssås", "pris": 139 },
+        { "namn": "86. Friterad fisk med sötsursås", "pris": 139 },
+        { "namn": "87. Friterad fisk med vitlökssås", "pris": 139, "markningar": ["Stark"] },
+        { "namn": "88. Friterad bläckfisk med sötsursås", "pris": 159 },
+        { "namn": "89. Stekt bläckfisk", "beskrivning": "Paprika, lök, svarta bönor och vitlök", "pris": 159, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "ris",
+      "rubrik": "Stekt ris",
+      "ratter": [
+        { "namn": "21. Nasi goreng", "beskrivning": "Ris med räkor, fläsk, kyckling och curry", "pris": 139 },
+        { "namn": "22. Stekt ris med grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "23. Stekt ris med kyckling", "pris": 129 },
+        { "namn": "24. Stekt ris med fläsk", "pris": 129 },
+        { "namn": "25. Stekt ris med biff", "pris": 129 },
+        { "namn": "26. Stekt ris med räkor", "pris": 129 },
+        { "namn": "27. Stekt ris med blandat kött", "beskrivning": "Kyckling, biff och fläsk", "pris": 139 }
+      ]
+    },
+    {
+      "id": "nudlar",
+      "rubrik": "Stekta nudlar",
+      "ratter": [
+        { "namn": "31. Bami goreng", "beskrivning": "Nudlar med räkor, fläsk, kyckling och curry", "pris": 139 },
+        { "namn": "32. Stekta nudlar med grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "33. Stekta nudlar med kyckling", "pris": 129 },
+        { "namn": "34. Stekta nudlar med fläsk", "pris": 129 },
+        { "namn": "35. Stekta nudlar med biff", "pris": 129 },
+        { "namn": "36. Stekta nudlar med räkor", "pris": 159 },
+        { "namn": "37. Stekta nudlar med blandat kött", "pris": 139, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "vegetariskt",
+      "rubrik": "Vegetariskt",
+      "beskrivning": "Förrätter och varmrätter helt utan kött och fisk.",
+      "ratter": [
+        { "namn": "V1. Vårrulle", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "V2. Pekingsoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "V3. Grönsakssoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "V4. Ägg- och tomatsoppa", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "V5. Grönsakssallad", "pris": 59, "markningar": ["Vegetariskt"] },
+        { "namn": "V11. Wokade blandade grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "V12. Friterade grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "V13. Si-Chuan tofu", "pris": 149, "markningar": ["Vegetariskt", "Stark"] },
+        { "namn": "V14. Stekt tofu med grönsaker", "pris": 149, "markningar": ["Vegetariskt"] },
+        { "namn": "V15. Stekt ris med grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "V16. Stekta nudlar med grönsaker", "pris": 129, "markningar": ["Vegetariskt"] },
+        { "namn": "V17. Stekta risnudlar med grönsaker", "pris": 149, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "barn",
+      "rubrik": "Barnmeny",
+      "ratter": [
+        { "namn": "B1. Pommes frites", "pris": 40 },
+        { "namn": "B2. Korv med pommes frites", "pris": 75 },
+        { "namn": "B3. Friterad kyckling med sötsursås", "pris": 75 },
+        { "namn": "B4. Stekt ris med kyckling", "pris": 75 },
+        { "namn": "B5. Stekta nudlar med kyckling", "pris": 75 }
+      ]
+    },
+    {
+      "id": "fyra-sma-ratter",
+      "rubrik": "Fyra små rätter",
+      "beskrivning": "Fyra rätter på samma tallrik - för dig som vill smaka mer än en.",
+      "ratter": [
+        { "namn": "F1. Biff med bambuskott, kyckling med cashewnötter, friterade räkor och friterat fläsk med sötsursås", "pris": 169, "allergener": ["Nötter"] },
+        { "namn": "F2. Biff med bambuskott, fläsk med stark vitlöksmak, friterade räkor och friterad kyckling med sötsursås", "pris": 169, "markningar": ["Stark"] }
+      ]
+    },
+    {
+      "id": "happy-middag",
+      "rubrik": "Happy middag",
+      "beskrivning": "Hela middagar med förrätt, varmrätter och efterrätt. Förrätt: vårrulle eller Pekingsoppa. Efterrätt: friterade bananer med glass.",
+      "ratter": [
+        { "namn": "100. Middag för 1 person", "beskrivning": "Friterad kyckling med sötsursås och stekt fläsk med stark vitlökssmak", "pris": 219 },
+        { "namn": "101. Middag för 1 person", "beskrivning": "Biff med lök (stark) och friterad kyckling med sötsursås", "pris": 219 },
+        { "namn": "102. Middag för 2 personer", "beskrivning": "Friterade räkor med sötsursås, kung-pao kyckling med jordnötter (stark) och biff med paprika och svarta bönor", "pris": 428, "allergener": ["Jordnötter"] },
+        { "namn": "103. Middag för 2 personer", "beskrivning": "Friterade räkor i sötsursås, kyckling med cashewnötter och stekt fläsk med stark vitlökssmak", "pris": 428, "allergener": ["Nötter"] },
+        { "namn": "104. Middag för 3 personer", "beskrivning": "Friterade räkor med sötsursås, Åtta skatter (stark) och kyckling med cashewnötter", "pris": 618, "allergener": ["Nötter"] },
+        { "namn": "105. Middag för 4 personer", "beskrivning": "Friterad anka med grönsakssås, friterad kyckling med sötsursås, stekt fläsk med paprika och biff Tieban (stark)", "pris": 828 },
+        { "namn": "106. Middag för 5 personer", "beskrivning": "Friterade räkor, stekt kyckling med cashewnötter, Åtta skatter (stark), biff Tieban (stark) och friterad anka med sötsursås", "pris": 1028, "allergener": ["Nötter"] },
+        { "namn": "107. Middag för 6 personer", "beskrivning": "Friterad anka med grönsakssås, stekta räkor med grönsaker, stekt kyckling i sötsursås, stekt fläsk med stark vitlökssmak, biff Tieban (stark) och blandat kött med cashewnötter", "pris": 1238, "allergener": ["Nötter"] }
+      ]
+    }
+  ]
+}
