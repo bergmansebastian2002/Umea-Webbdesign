@@ -71,6 +71,14 @@ html[data-rubrik="skript"] {
   --rubrik-versaler: none;
 }
 
+/* Karaktärsrubriken "bubbel" (Baloo 2) är ett variabelt typsnitt - vikten
+   måste upp till 700 för att ge den knubbiga bubbelkänslan i rubrikerna.
+   Versal-/gemenval lämnas till art directionen (livlig ger versaler). */
+html[data-rubrik="bubbel"] {
+  --rubrik-vikt: 700;
+  --rubrik-mellanrum: 0.01em;
+}
+
 /* Kopplar variablerna till Tailwind-klasser: bg-bakgrund, shadow-kort osv. */
 @theme inline {
   --color-bakgrund: var(--farg-bakgrund);

@@ -103,11 +103,13 @@ export default function Footer() {
             </dl>
           </div>
 
-          {/* Bokning */}
+          {/* Bokning - eller avhämtning för ställen utan bordsbokning */}
           <div>
-            <p className="etikett">Boka bord</p>
+            <p className="etikett">{restaurang.bokning.aktiv ? "Boka bord" : "Beställ och hämta"}</p>
             <p className="mt-4 text-sm leading-relaxed">
-              Vi tar emot bokningar för både små och stora sällskap.
+              {restaurang.bokning.aktiv
+                ? "Vi tar emot bokningar för både små och stora sällskap."
+                : "Ring oss så står maten klar när du kommer."}
             </p>
             <div className="mt-5">
               <BokaBordKnapp variant="ljus" className="w-full sm:w-auto" />
