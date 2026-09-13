@@ -1,5 +1,6 @@
 import bjorken from "./bjorken/config";
 import lotus from "./lotus/config";
+import mix from "./mix/config";
 import norrsken from "./norrsken/config";
 import ronyas from "./ronyas/config";
 import shanghai from "./shanghai/config";
@@ -18,6 +19,7 @@ import vedugnen from "./vedugnen/config";
 export const KUNDER = {
   bjorken,
   lotus,
+  mix,
   norrsken,
   ronyas,
   shanghai,

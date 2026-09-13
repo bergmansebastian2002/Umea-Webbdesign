@@ -276,8 +276,10 @@ export type Restaurangkonfig = {
      *  "asiatisk"  ornamental display med österländsk känsla (Shojumaru)
      *  "pensel"    målade versaler (Permanent Marker) - matchar handmålade
      *              logotyper och håller ihop ner i menyns rättnamn
+     *  "skript"    fet retroskript (Lobster) - klassisk pizzeria/diner,
+     *              matchar logotyper med målad skrivstil
      */
-    rubrikTypsnitt?: "asiatisk" | "pensel";
+    rubrikTypsnitt?: "asiatisk" | "pensel" | "skript";
     /**
      * Sätt true om logotypen är ritad för mörk botten (t.ex. vit/guld text
      * med genomskinlig bakgrund) - sidhuvudet lägger den då på en platta i

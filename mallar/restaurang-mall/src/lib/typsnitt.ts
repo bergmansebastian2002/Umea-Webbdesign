@@ -2,6 +2,7 @@ import {
   Anton,
   Inter,
   Karla,
+  Lobster,
   Manrope,
   Permanent_Marker,
   Playfair_Display,
@@ -92,12 +93,23 @@ const PAR: Record<ArtDirection, { rubrik: string; brod: string }> = {
   livlig: { rubrik: rubrikLivlig.variable, brod: brodLivlig.variable },
 };
 
+// Fet retroskript med tydliga versaler och siffror - vald framför tunnare
+// skrivstilar (Pacifico, Yellowtail) som blir svårlästa i menyns rättnamn.
+const rubrikSkript = Lobster({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+  variable: "--typsnitt-rubrik",
+});
+
 const KARAKTARSRUBRIKER: Record<
   NonNullable<typeof restaurang.design.rubrikTypsnitt>,
   string
 > = {
   asiatisk: rubrikAsiatisk.variable,
   pensel: rubrikPensel.variable,
+  skript: rubrikSkript.variable,
 };
 
 const valt = PAR[restaurang.design.artDirection];
