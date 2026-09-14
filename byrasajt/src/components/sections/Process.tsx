@@ -12,7 +12,7 @@ export default function Process() {
         <SectionHeading
           kicker="Arbetssätt"
           title="Hur vi jobbar"
-          intro="Första mötet är kostnadsfritt. Efter det vet du priset, tidsplanen och vem du ringer när något ska ändras - det är samma person som ritar, bygger och svarar i telefon, från första skiss till publicerad sida och vidare."
+          intro="Första mötet är kostnadsfritt. Där går vi igenom vad du behöver, tidsplanen och vem du ringer när något ska ändras - det är samma person som ritar, bygger och svarar i telefon, från första skiss till publicerad sida och vidare."
           id="process"
         />
 

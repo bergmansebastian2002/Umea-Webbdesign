@@ -60,7 +60,6 @@ export function professionalServiceSchema() {
       "Google Ads",
       "Google Företagsprofil",
     ],
-    priceRange: "$$",
   };
 }
 
