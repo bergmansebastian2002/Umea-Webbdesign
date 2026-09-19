@@ -12,7 +12,7 @@ export default function Contact() {
         <SectionHeading
           kicker="Kontakt"
           title="Kontakta oss"
-          intro="Tveka inte på att kontakta oss. Berätta vad du behöver så återkommer vi med ett konkret förslag."
+          intro="Vad kostar en hemsida? Det beror på vad du behöver - därför tar vi fram priset tillsammans med dig. Mejla eller ring oss, så får du snabb återkoppling med ett konkret förslag."
           id="kontakt"
         />
 

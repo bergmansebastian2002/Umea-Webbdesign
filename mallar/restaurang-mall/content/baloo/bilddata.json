@@ -1,0 +1,42 @@
+{
+  "/kunder/baloo/galleri/falafel.webp": {
+    "bredd": 1600,
+    "hojd": 1677,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoQABEAPxFwsFAsJiSjMAgBgCIJZQC/OCHhoZsp8x3+XdAA/uzZLg5ITeMMkRX2Y0IxKDEUTHczpZBExrqXU0x8kq8ckFFY3vH5ESyUGRw8bGEgAAA="
+  },
+  "/kunder/baloo/galleri/grillen.webp": {
+    "bredd": 1600,
+    "hojd": 2400,
+    "blur": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACwBACdASoQABgAPxFysFAsJqSisAgBgCIJbACdMoAlrRStQdL9RTBXwXEBQJgAAP66AYt9bSvRiEGxuO8Y1T7TYqv+N5S0PZRe4R1pXSAYWfqAQ17D7TqAPSJS7mil0t2hapvbKMrAb7I4ixEQzeAHAfFEVJKt2mnbiY+C1UQVe37TTZoRdZI43QntEUkTfj8AzmQoEr/0MCfqxESsWgMfxCvlooTKPkkWxTLnmi9k9gtVBeEluSAA"
+  },
+  "/kunder/baloo/galleri/hamburgare.webp": {
+    "bredd": 1600,
+    "hojd": 1065,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsABABoJbACdAEXcdMNfGUAAP72k8Glguupnla7Qp3e9vuGX86pmAFrLRVmq5wvXz8Bs5TsxetrbWlFZCNaN8GFUAAA"
+  },
+  "/kunder/baloo/galleri/kebabrulle.webp": {
+    "bredd": 1600,
+    "hojd": 1060,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAsABABoJbACdAYuRqxseZi+AADOGriSNvIWeJE2kBYw38JUuEixJ9PvVbGddeI+iKekH/YWTSY/dFs7LqKW2tf8YxSpYDy5NDtHV0fednmCa23YbYAA"
+  },
+  "/kunder/baloo/galleri/pizza.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAsABABoJbACdAdwB9EGDJfuQhAA/s3/xLzYY6ssa6iPZq4p5x7eXOYe9JYnDAEfq+xTzJ6S50yo8Z/w5P8i1643NR29bcKbCCXSBgAAAA=="
+  },
+  "/kunder/baloo/galleri/pommes.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAsABABoJYgCdAECwhM1gQAA/vK9kNU2d7XIYCqBWEnJ/jZ/i/eWE3hYkvAqDfJa7IDQgQl1vqlM0Mtba6bQAAA="
+  },
+  "/kunder/baloo/hero-burgare.webp": {
+    "bredd": 1920,
+    "hojd": 1450,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAwABABoJbACdADp726Md3AAAP7zNPSL0SGqiwyeBX1LqTC9XvYpI8Ykx93QtYe22ZdaucGRGk0jjSEK71cizNgwAH3JCwZkWFihxkitiq7sAAA="
+  },
+  "/kunder/baloo/om-oss-alidhem.webp": {
+    "bredd": 960,
+    "hojd": 449,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAcABABoJagCdAEG9w9NJQAA/oboRjOWuCyLs2bDyY/hctGYpbHOIglHGHmApXrscICzflBm7KvthiVhAAAA"
+  }
+}

@@ -1,5 +1,6 @@
 import {
   Anton,
+  Baloo_2,
   Inter,
   Karla,
   Lobster,
@@ -103,6 +104,16 @@ const rubrikSkript = Lobster({
   variable: "--typsnitt-rubrik",
 });
 
+// Tjock rundad bubbeldisplay - variabelt typsnitt, vikten sätts till 700 via
+// --rubrik-vikt i globals.css så bokstäverna blir lika knubbiga som en
+// tecknad gatuköks-logotyp utan att menyns rättnamn flyter ihop.
+const rubrikBubbel = Baloo_2({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: false,
+  variable: "--typsnitt-rubrik",
+});
+
 const KARAKTARSRUBRIKER: Record<
   NonNullable<typeof restaurang.design.rubrikTypsnitt>,
   string
@@ -110,6 +121,7 @@ const KARAKTARSRUBRIKER: Record<
   asiatisk: rubrikAsiatisk.variable,
   pensel: rubrikPensel.variable,
   skript: rubrikSkript.variable,
+  bubbel: rubrikBubbel.variable,
 };
 
 const valt = PAR[restaurang.design.artDirection];

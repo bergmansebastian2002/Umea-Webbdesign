@@ -1,4 +1,6 @@
+import baloo from "./baloo/config";
 import bjorken from "./bjorken/config";
+import eurasia from "./eurasia/config";
 import lotus from "./lotus/config";
 import mix from "./mix/config";
 import norrsken from "./norrsken/config";
@@ -17,7 +19,9 @@ import vedugnen from "./vedugnen/config";
  *   3. Sätt NEXT_PUBLIC_KUND=<slug> i kundens Vercel-projekt.
  */
 export const KUNDER = {
+  baloo,
   bjorken,
+  eurasia,
   lotus,
   mix,
   norrsken,

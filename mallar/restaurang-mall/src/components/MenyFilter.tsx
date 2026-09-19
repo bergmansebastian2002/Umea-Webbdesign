@@ -36,6 +36,21 @@ function matchar(filter: FilterId, markningar: string[]): boolean {
 export default function MenyFilter({ meny }: { meny: Meny }) {
   const [aktivt, setAktivt] = useState<FilterId>("alla");
 
+  // Visa bara filter som ger träffar - en "Veganskt"-knapp som alltid leder
+  // till "inga rätter matchar" hjälper ingen. Har menyn inga märkningar alls
+  // försvinner hela filterraden.
+  const synligaFilter = useMemo(
+    () =>
+      FILTER.filter(
+        (filter) =>
+          filter.id === "alla" ||
+          meny.sektioner.some((sektion) =>
+            sektion.ratter.some((ratt) => matchar(filter.id, ratt.markningar ?? [])),
+          ),
+      ),
+    [meny],
+  );
+
   const filtrerad = useMemo<Meny>(() => {
     if (aktivt === "alla") return meny;
     return {
@@ -53,26 +68,28 @@ export default function MenyFilter({ meny }: { meny: Meny }) {
 
   return (
     <div>
-      <div role="group" aria-label="Filtrera menyn" className="mb-10 flex flex-wrap gap-2">
-        {FILTER.map((filter) => {
-          const vald = filter.id === aktivt;
-          return (
-            <button
-              key={filter.id}
-              type="button"
-              onClick={() => setAktivt(filter.id)}
-              aria-pressed={vald}
-              className={`min-h-11 rounded-mall border px-4 py-2 text-sm transition-colors ${
-                vald
-                  ? "border-accent bg-accent text-accent-text"
-                  : "border-ram hover:border-accent hover:text-accent"
-              }`}
-            >
-              {filter.text}
-            </button>
-          );
-        })}
-      </div>
+      {synligaFilter.length > 1 && (
+        <div role="group" aria-label="Filtrera menyn" className="mb-10 flex flex-wrap gap-2">
+          {synligaFilter.map((filter) => {
+            const vald = filter.id === aktivt;
+            return (
+              <button
+                key={filter.id}
+                type="button"
+                onClick={() => setAktivt(filter.id)}
+                aria-pressed={vald}
+                className={`min-h-11 rounded-mall border px-4 py-2 text-sm transition-colors ${
+                  vald
+                    ? "border-accent bg-accent text-accent-text"
+                    : "border-ram hover:border-accent hover:text-accent"
+                }`}
+              >
+                {filter.text}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {filtrerad.sektioner.length === 0 ? (
         <p className="rounded-mall border border-ram bg-yta p-8 text-dampad">

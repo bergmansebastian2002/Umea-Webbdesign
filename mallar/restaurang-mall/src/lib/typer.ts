@@ -293,8 +293,10 @@ export type Restaurangkonfig = {
      *              logotyper och håller ihop ner i menyns rättnamn
      *  "skript"    fet retroskript (Lobster) - klassisk pizzeria/diner,
      *              matchar logotyper med målad skrivstil
+     *  "bubbel"    tjock rundad bubbeldisplay (Baloo 2) - gatukök/grill med
+     *              tecknad logotyp i bubbliga bokstäver
      */
-    rubrikTypsnitt?: "asiatisk" | "pensel" | "skript";
+    rubrikTypsnitt?: "asiatisk" | "pensel" | "skript" | "bubbel";
     /**
      * Sätt true om logotypen är ritad för mörk botten (t.ex. vit/guld text
      * med genomskinlig bakgrund) - sidhuvudet lägger den då på en platta i

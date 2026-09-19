@@ -1,0 +1,67 @@
+{
+  "/kunder/eurasia/evenemang/kvallsbuffe.webp": {
+    "bredd": 1600,
+    "hojd": 1065,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAsABABoJZACdAYuk8y1eQrxgAD+t6kidZ9j7A7HTZW2xbhg/ZPFII6mIeKcr4D4P+j8xtwSU5yiwTENBGNFlaHKDz4Fj+/k8HTnQE37RB+/buJ2BqiJV5KgAA=="
+  },
+  "/kunder/eurasia/evenemang/kvallserbjudande.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAsABABoJbACdAYvMpvde7wA/Xg06rJSNH10ooH5wisuA5YIa9Vglwp07G8Z/olibqBbv+vcNgMlRJQ4ckPf3px8TVx1Xy4J5MrSWukVrBDlxeSmxWMerIAAAA=="
+  },
+  "/kunder/eurasia/evenemang/lunchbuffe.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAsABABoJbACdAYvDuV4/Xi7IQAA/ub3RT3BDLWjXrcwTLRxH0vTKzLVnKcJyDjvtUcLrfQp/+0mvvV3CAZmcW4fo46qHxw2xDpV3mmw3CCeguAn2bDLDJZph+jlIAA="
+  },
+  "/kunder/eurasia/evenemang/middag-for-tva.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQAgCdASoQAAsABABoJQAB8jWPlssO9OQAAPzdcnSCzTN+5Fcf2wW+fC7FR+CoO3rgc5PG5xB2tNXbk6Wt4p9oWB9eSv36vCe0Ny+I9CNn5A7oD0bqCNKFNwipZaVC4tVL0f/O0gxy5z5O9ym/NAAA"
+  },
+  "/kunder/eurasia/galleri/majssoppa.webp": {
+    "bredd": 1600,
+    "hojd": 2400,
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABgAPxFyslAsJqSisAgBgCIJYwABHuv0XbzRWcKjmRg0AP7727YZHK3T1f5WOm6aE2dTtTVe8YTovce5mzzpJYr+eHhTjVIJYvaoA9sPG2rgosMjxyudXT6BnFDigBGHK9cfvAAAAA=="
+  },
+  "/kunder/eurasia/galleri/pizza.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAsABABoJbACdAdwB9EGDJfuQhAA/s3/xLzYY6ssa6iPZq4p5x7eXOYe9JYnDAEfq+xTzJ6S50yo8Z/w5P8i1643NR29bcKbCCXSBgAAAA=="
+  },
+  "/kunder/eurasia/galleri/revbensspjall.webp": {
+    "bredd": 1600,
+    "hojd": 1068,
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAsABABoJbACdAYuRmowO5QQD14AAP7xhPDICMwayUqeKVWmsL1iZnNDGFtyDPOLA+2w4YF9hWhwqc3Td7LKF7DMIUMjptJfMqHhWN3thRGKmx3X23vsky/GwXq3ofHUDMoM79sAAA=="
+  },
+  "/kunder/eurasia/galleri/sotsur-kyckling.webp": {
+    "bredd": 1600,
+    "hojd": 1200,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAwABABoJbAC7AEDscaRFvFkAP6yCHi9J/N46eZeeOgLMPHRqJ1rWv65RnEK9vlwUddN3ysbrEho5QY105Abjy/5l4UONTg8ioqiVRzQW88VegWbAAAA"
+  },
+  "/kunder/eurasia/galleri/stek.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQAAsABABoJbACdAYsZjIRlUqqMAD9u210aQBobXhd9yjnzsIGyuAmdTOFbu/BINlW5OAzlzFS95/ExAX/iAXul2cezw+Fw2XQCH2yznFJw5dtnj8LNoQ7rMD7UfUk3AAAAA=="
+  },
+  "/kunder/eurasia/galleri/stekt-ris.webp": {
+    "bredd": 1600,
+    "hojd": 1280,
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAQCdASoQAA0ABABoJbACdADiJqqaAAD+3N8vfRi9aHJgQ/0WMQkb8EInyqiVXGtEY2hA44ht7gUO8XkFAvW4P2Dk9Pm45qRguPZSvX9KznvrjtgKqD3yfi8AiZfe7GsAA1lkBrxx8UIQAAA="
+  },
+  "/kunder/eurasia/hero.webp": {
+    "bredd": 1920,
+    "hojd": 1610,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQAA0ABABoJbACdGaAAqSXk1PT+IAA/vK0upi7y2hH6SiEirm9jMI9lSr6iPzuAw9dh8y0DpqroQ3rl464be5/2QFV57+k6O1KkiYbmmHL3ieSq4W8yMAA"
+  },
+  "/kunder/eurasia/logotyp.webp": {
+    "bredd": 343,
+    "hojd": 172,
+    "blur": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSFMAAAABYFvbtoyfii0FaEgsFKlCPlc1zzRgiUjl/3/vmmkhIiaA2ZETGEzVdKaYbmB5gvg+DfO4VM26k0h3CcK+79h3bKB437CDHgEg22n/nv4afjW/AABWUDggPgAAAPABAJ0BKhAACAAEAGglAE6AHsDi2OK0AAD+yjbX9B65rFGf6JSbJPganY+tkVVVWCc9oJ/EMezscW0w+qAA"
+  },
+  "/kunder/eurasia/om-oss.webp": {
+    "bredd": 1920,
+    "hojd": 1159,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAoABABoJQBOgB6JdIu9NiAA/vGErDU2x0ialFR/jUkwaN5w7IETzax53HC51ijidKi1PmDKr+ZWUVNcOx3VHWmYJn7IVqvFCEUBkooAAA=="
+  }
+}

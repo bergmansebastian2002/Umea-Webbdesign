@@ -29,7 +29,7 @@ export const company = {
   phone: "070-360 05 64",
   phoneHref: "+46703600564",
   siteUrl: "https://umea-webbdesign.vercel.app",
-  responseTime: "Inom 24 timmar",
+  responseTime: "Snabb återkoppling",
   /** PLACEHOLDER: replace with real registration details before invoicing. */
   orgDetails: "Organisationsuppgifter: [kompletteras]",
 } as const;
@@ -214,7 +214,7 @@ export const trustPoints: TrustPoint[] = [
   },
   {
     icon: Zap,
-    title: "Snabbt svar",
+    title: "Snabb återkoppling",
     detail: "Oftast inom 24 timmar, även på kvällar och helger",
   },
 ];
