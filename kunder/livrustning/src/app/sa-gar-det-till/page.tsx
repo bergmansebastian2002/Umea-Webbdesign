@@ -70,8 +70,14 @@ export default function SaGarDetTill() {
   return (
     <>
       <Sidrubrik
-        rubrik="Enkelt att boka. Svårt att glömma."
-        ingress="Från första mejlet till att hela personalen kan rädda liv. Så här går det till."
+        rubrik={
+          <>
+            Alla kan rädda liv.
+            <br />
+            Vi visar hur.
+          </>
+        }
+        ingress={"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
       >
         <div className="mt-9">
           <KontaktKnapp />
