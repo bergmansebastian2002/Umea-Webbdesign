@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Avslut, KontaktKnapp, PilLank, Sidrubrik } from "@/components/Block";
+import { Avslut, KurvaTillKnapp, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { metadataFor } from "@/lib/seo";
 import { amnen, foretag, mejl } from "@/lib/site";
@@ -8,6 +8,7 @@ import { amnen, foretag, mejl } from "@/lib/site";
 import bildGrupp from "@/bilder/grupp-dockor.webp";
 import bildOvning from "@/bilder/hlr-ovning.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
+import bildHero from "@/bilder/hlr-par.webp";
 
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
@@ -69,20 +70,37 @@ const fragor = [
 export default function SaGarDetTill() {
   return (
     <>
-      <Sidrubrik
-        rubrik={
-          <>
-            Alla kan rädda liv.
-            <br />
-            Vi visar hur.
-          </>
-        }
-        ingress={"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
-      >
-        <div className="mt-9">
-          <KontaktKnapp />
+      {/* Samma första vy som startsidan: kurvan slutar i knappen, kursfoto bredvid. */}
+      <section className="ekg-papper ekg-papper-tonad border-b border-black/10">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-24">
+          <div className="lg:col-span-8">
+            <h1 className="text-[clamp(2.9rem,5.6vw,4.75rem)] leading-[0.95] font-bold tracking-[-0.035em]">
+              Alla kan rädda liv.
+              <br />
+              Vi visar hur.
+            </h1>
+            <p className="mt-7 max-w-xl text-xl leading-relaxed text-grafit lg:text-2xl lg:leading-relaxed">
+              {"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
+            </p>
+            <div className="mt-10 lg:mt-12">
+              <KurvaTillKnapp direkt slag={[0.28, 0.72]} />
+            </div>
+          </div>
+          <div className="lg:col-span-4">
+            <div className="foto relative aspect-[4/5]">
+              <Image
+                src={bildHero}
+                alt="Två deltagare övar HLR med träningshjärtstartare på en docka"
+                fill
+                priority
+                placeholder="blur"
+                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
+                className="object-cover object-[40%_50%]"
+              />
+            </div>
+          </div>
         </div>
-      </Sidrubrik>
+      </section>
 
       <section className="bg-white">
         <ol className="mx-auto max-w-7xl px-5 py-10 lg:px-8 lg:py-16">
