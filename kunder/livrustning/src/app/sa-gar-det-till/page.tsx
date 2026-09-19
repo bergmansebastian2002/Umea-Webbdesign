@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Avslut, KurvaTillKnapp, PilLank } from "@/components/Block";
+import { Avslut, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { metadataFor } from "@/lib/seo";
 import { amnen, foretag, mejl } from "@/lib/site";
@@ -8,8 +8,6 @@ import { amnen, foretag, mejl } from "@/lib/site";
 import bildGrupp from "@/bilder/grupp-dockor.webp";
 import bildOvning from "@/bilder/hlr-ovning.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
-import bildHero from "@/bilder/hlr-par.webp";
-
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
   beskrivning:
@@ -70,35 +68,21 @@ const fragor = [
 export default function SaGarDetTill() {
   return (
     <>
-      {/* Samma första vy som startsidan: kurvan slutar i knappen, kursfoto bredvid. */}
+      {/* Rubriken bär sidan; kurvan löper över hela bredden och slutar i en puls. */}
       <section className="ekg-papper ekg-papper-tonad border-b border-black/10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-24">
-          <div className="lg:col-span-8">
-            <h1 className="text-[clamp(2.9rem,5.6vw,4.75rem)] leading-[0.95] font-bold tracking-[-0.035em]">
+        <div className="mx-auto max-w-7xl px-5 pt-14 pb-14 lg:px-8 lg:pt-24 lg:pb-20">
+          <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-end lg:gap-12">
+            <h1 className="text-[clamp(2.9rem,6.2vw,5.75rem)] leading-[0.95] font-bold tracking-[-0.035em] lg:col-span-7">
               Alla kan rädda liv.
               <br />
               Vi visar hur.
             </h1>
-            <p className="mt-7 max-w-xl text-xl leading-relaxed text-grafit lg:text-2xl lg:leading-relaxed">
+            <p className="max-w-md text-xl leading-relaxed text-grafit lg:col-span-5 lg:pb-2 lg:text-2xl lg:leading-relaxed">
               {"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
             </p>
-            <div className="mt-10 lg:mt-12">
-              <KurvaTillKnapp direkt slag={[0.28, 0.72]} />
-            </div>
           </div>
-          <div className="lg:col-span-4">
-            <div className="foto relative aspect-[4/5]">
-              <Image
-                src={bildHero}
-                alt="Två deltagare övar HLR med träningshjärtstartare på en docka"
-                fill
-                priority
-                placeholder="blur"
-                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
-                className="object-cover object-[40%_50%]"
-              />
-            </div>
-          </div>
+          <Ekg direkt puls slag={[0.3, 0.8]} hojd={56} className="mt-10 lg:hidden" />
+          <Ekg direkt puls slag={[0.18, 0.52, 0.86]} hojd={88} className="mt-16 hidden lg:block" />
         </div>
       </section>
 
