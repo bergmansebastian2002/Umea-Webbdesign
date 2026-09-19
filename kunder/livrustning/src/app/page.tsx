@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Avslut, KurvaTillKnapp, PilLank } from "@/components/Block";
+import { Avslut, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { Flamma, Grupp, Intyg, Klocka, Pil, Slag } from "@/components/Ikoner";
 import { metadataFor } from "@/lib/seo";
 import { foretag, kunder } from "@/lib/site";
 
 import bildBrand from "@/bilder/brand-slackare.webp";
-import bildHero from "@/bilder/hjartstartare-par.webp";
 import bildHjartstartare from "@/bilder/hlr-hjartstartare-kontor.webp";
 import bildKlass from "@/bilder/instruktor-klass.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
@@ -78,37 +77,24 @@ const skal = [
 export default function Startsida() {
   return (
     <>
-      {/* Första vyn: rubriken, kurvan som slutar i knappen och ett riktigt kursfoto. */}
+      {/* Första vyn: rubriken bär sidan och kurvan löper över hela bredden. */}
       <section className="ekg-papper ekg-papper-tonad">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-24">
-          <div className="lg:col-span-8">
-            <h1 className="text-[clamp(2.9rem,5.6vw,4.75rem)] leading-[0.95] font-bold tracking-[-0.035em]">
-              Gör hela personalen till livräddare.
+        <div className="mx-auto max-w-7xl px-5 pt-14 pb-14 lg:px-8 lg:pt-24 lg:pb-20">
+          <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-end lg:gap-12">
+            <h1 className="text-[clamp(2.9rem,6.2vw,5.75rem)] leading-[0.95] font-bold tracking-[-0.035em] lg:col-span-7">
+              Alla kan rädda liv.
+              <br />
+              Vi visar hur.
             </h1>
-            <p className="mt-7 max-w-xl text-xl leading-relaxed text-grafit lg:text-2xl lg:leading-relaxed">
-              Utbildning i HLR, första hjälpen och brand. Vi kommer till er och utbildar alla på två eller fyra
-              timmar.
+            <p className="max-w-md text-xl leading-relaxed text-grafit lg:col-span-5 lg:pb-2 lg:text-2xl lg:leading-relaxed">
+              {"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
             </p>
-            <div className="mt-10 lg:mt-12">
-              <KurvaTillKnapp direkt slag={[0.28, 0.72]} />
-              <p className="mt-5">
-                <PilLank href="/utbildningar">Se alla utbildningar</PilLank>
-              </p>
-            </div>
           </div>
-          <div className="lg:col-span-4">
-            <div className="foto relative aspect-[4/5]">
-              <Image
-                src={bildHero}
-                alt="Två kollegor övar HLR med träningshjärtstartare och docka"
-                fill
-                priority
-                placeholder="blur"
-                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
-                className="object-cover object-[50%_60%]"
-              />
-            </div>
-          </div>
+          <Ekg direkt puls slag={[0.3, 0.8]} hojd={56} className="mt-10 lg:hidden" />
+          <Ekg direkt puls slag={[0.18, 0.52, 0.86]} hojd={88} className="mt-16 hidden lg:block" />
+          <p className="mt-8 lg:mt-10">
+            <PilLank href="/utbildningar" className="text-lg">Se alla utbildningar</PilLank>
+          </p>
         </div>
       </section>
 
