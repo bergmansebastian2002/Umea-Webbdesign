@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/*
+ * EKG-remsan: ljusrosa EKG-papper, svart skrivarbläck och loggans magenta.
+ * Magenta betyder bara två saker: handling (knappar, länkar) och hjärtslag.
+ */
+@theme {
+  --color-papper: #fdf3f5;
+  --color-papper-djup: #fae6ec;
+  --color-rut-fin: #f7dbe3;
+  --color-rut-grov: #efbccb;
+  --color-black: #17151a;
+  --color-grafit: #4b4550;
+  --color-magenta: #e30646;
+  --color-magenta-mork: #c2043c;
+  /* Magenta för text på mörk monitorbotten (klarar 4,5:1). */
+  --color-magenta-ljus: #ff5c89;
+  --color-monitor: #141116;
+  --color-monitor-linje: #2c2630;
+  --color-monitor-text: #f7eef2;
+  --color-monitor-dampad: #bfb2ba;
+
+  --font-sans: var(--font-familjen), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-ut: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+    scrollbar-color: var(--color-rut-grov) var(--color-papper);
+  }
+
+  body {
+    background: var(--color-papper);
+    color: var(--color-black);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: "ss01" off;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-magenta);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-magenta);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  input,
+  textarea {
+    caret-color: var(--color-magenta);
+  }
+}
+
+@layer components {
+  /* Riktigt EKG-papper: 1 mm fint rutnät, 5 mm grovt. */
+  .ekg-papper {
+    background-color: var(--color-papper);
+    background-image:
+      linear-gradient(var(--color-rut-grov) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-rut-grov) 1px, transparent 1px),
+      linear-gradient(var(--color-rut-fin) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-rut-fin) 1px, transparent 1px);
+    background-size:
+      40px 40px,
+      40px 40px,
+      8px 8px,
+      8px 8px;
+    background-position: -1px -1px;
+  }
+
+  /* Rutnätet tonas ut mot kanterna så att texten får lugn yta. */
+  .ekg-papper-tonad {
+    position: relative;
+    isolation: isolate;
+  }
+  .ekg-papper-tonad::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(ellipse 70% 80% at 30% 40%, transparent 30%, var(--color-papper) 100%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .monitor-rutor {
+    background-color: var(--color-monitor);
+    background-image:
+      linear-gradient(var(--color-monitor-linje) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-monitor-linje) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
+
+  .siffror {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+
+  /* Kurvan ritas fram en gång när den syns. Standardläget är färdigritad. */
+  .ekg-kurva {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .js .ekg-kurva[data-rita="vantar"] {
+    stroke-dashoffset: 1;
+  }
+  .js .ekg-kurva[data-rita="ritar"] {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset var(--ekg-tid, 1.6s) var(--ease-ut);
+  }
+
+  /* Ringen där kurvan slutar pulserar lugnt, som en monitor i vila. */
+  .ekg-prick {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .ekg-kurva[data-rita="ritar"] ~ .ekg-prick {
+    animation: ekg-puls 2.4s var(--ekg-tid, 1.6s) ease-out infinite;
+  }
+  @keyframes ekg-puls {
+    0% {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: scale(3.2);
+    }
+  }
+
+  .knapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.3s var(--ease-ut),
+      transform 0.3s var(--ease-ut);
+  }
+  .knapp-primar {
+    background: var(--color-magenta);
+    color: #fff;
+    box-shadow: 0 6px 18px -8px rgb(227 6 70 / 0.55);
+  }
+  .knapp-primar:hover {
+    background: var(--color-magenta-mork);
+    box-shadow: 0 10px 24px -10px rgb(227 6 70 / 0.65);
+    transform: translateY(-1px);
+  }
+  .knapp-primar:active {
+    transform: translateY(0);
+  }
+  .knapp-sekundar {
+    background: transparent;
+    color: var(--color-black);
+    box-shadow: inset 0 0 0 1.5px var(--color-black);
+  }
+  .knapp-sekundar:hover {
+    background: var(--color-black);
+    color: var(--color-papper);
+  }
+  .knapp-ljus {
+    background: var(--color-monitor-text);
+    color: var(--color-black);
+  }
+  .knapp-ljus:hover {
+    background: #fff;
+  }
+
+  .textlank {
+    color: var(--color-magenta-mork);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-magenta) 35%, transparent);
+    transition: text-decoration-color 0.2s ease;
+  }
+  .textlank:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .pil {
+    transition: transform 0.3s var(--ease-ut);
+  }
+  a:hover .pil,
+  .grupp:hover .pil {
+    transform: translateX(4px);
+  }
+
+  .foto {
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--color-papper-djup);
+    box-shadow: 0 1px 2px rgb(23 21 26 / 0.06), 0 12px 32px -18px rgb(23 21 26 / 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .ekg-kurva[data-rita] {
+    stroke-dashoffset: 0;
+  }
+}
