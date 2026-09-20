@@ -138,7 +138,6 @@ export default function EhlrEvent() {
       <Avslut
         rubrik="Vill ni boka ett eHLR-Event?"
         text="Priset utgår från antalet deltagare. Berätta hur många ni är och när det passar, så skickar vi en offert."
-        amne={amnen.ehlrEvent}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(kursSchema("ehlr-event", BESKRIVNING))} />
     </>

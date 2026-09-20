@@ -146,7 +146,6 @@ export default function Sakerhetsdag() {
       <Avslut
         rubrik="Vill ni boka en säkerhetsdag?"
         text="Berätta hur många ni är, var ni finns och vilket datum ni önskar, så skickar vi en offert. Är ni många anpassar vi antalet instruktörer så att alla får öva."
-        amne={amnen.sakerhetsdag}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(kursSchema("sakerhetsdag", BESKRIVNING))} />
     </>

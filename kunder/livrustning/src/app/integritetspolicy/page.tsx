@@ -27,8 +27,9 @@ export default function Integritetspolicy() {
 
       <h2>Webbplatsen</h2>
       <p>
-        Webbplatsen använder inga kakor för spårning eller marknadsföring och har inga formulär. När du klickar på
-        Kontakta oss öppnas ditt eget mejlprogram, och det är först när du skickar mejlet som vi får dina uppgifter.
+        Webbplatsen använder inga kakor för spårning eller marknadsföring och har inga formulär. När du klickar på en
+        knapp eller en adress för att mejla oss öppnas ditt eget mejlprogram, och det är först när du skickar mejlet
+        som vi får dina uppgifter.
       </p>
 
       <h2>Vilka uppgifter vi behandlar</h2>

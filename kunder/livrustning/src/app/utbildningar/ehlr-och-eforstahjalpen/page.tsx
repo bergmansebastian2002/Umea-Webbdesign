@@ -75,7 +75,6 @@ export default function Digitalt() {
       <Avslut
         rubrik="Vill ni veta mer om eHLR?"
         text="Berätta hur många ni är och hur er verksamhet ser ut, så föreslår vi ett upplägg och skickar en offert."
-        amne={amnen.digitalt}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(kursSchema("ehlr-och-eforstahjalpen", BESKRIVNING))} />
     </>

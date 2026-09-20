@@ -92,11 +92,9 @@ export function Sidrubrik({
 export function Avslut({
   rubrik = "Hur många ska kunna rädda liv hos er?",
   text = "Berätta hur många ni är, var ni finns och när det passar. Då skickar vi en offert.",
-  amne,
 }: {
   rubrik?: string;
   text?: string;
-  amne?: string;
 }) {
   return (
     <section className="ekg-papper border-t border-black/10">
@@ -105,13 +103,15 @@ export function Avslut({
           <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">{rubrik}</h2>
           <p className="mt-5 max-w-xl text-xl text-grafit">{text}</p>
         </div>
-        <div className="mt-10 max-w-4xl">
-          <KurvaTillKnapp amne={amne} />
-        </div>
-        <p className="mt-6 text-grafit">
-          Hellre prata direkt? Ring{" "}
+        <Ekg puls slag={[0.3, 0.75]} hojd={72} className="mt-10 max-w-4xl" />
+        <p className="mt-8 text-xl text-grafit">
+          Mejla{" "}
+          <a href={`mailto:${foretag.epost}`} className="textlank">
+            {foretag.epost}
+          </a>{" "}
+          eller ring{" "}
           <a href={foretag.telefonHref} className="textlank siffror inline-flex items-center gap-1.5">
-            <Telefon className="size-4" />
+            <Telefon className="size-5" />
             {foretag.telefon}
           </a>
         </p>

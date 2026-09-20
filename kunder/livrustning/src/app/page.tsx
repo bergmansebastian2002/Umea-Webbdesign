@@ -197,7 +197,7 @@ export default function Startsida() {
           </div>
           <div className="md:col-span-7">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
-              Sveriges nöjdaste kursdeltagare. Fem år i rad.
+              Rekommenderade av kursdeltagarna. Fem år i rad.
             </h2>
             <p className="mt-6 max-w-xl text-xl leading-relaxed text-grafit">
               Våra kursdeltagare betygsätter oss på Reco.se, Sveriges största oberoende omdömessajt. Där har vi varit

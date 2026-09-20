@@ -81,7 +81,6 @@ export default function KurserPaPlats() {
       <Avslut
         rubrik="Vill ni boka en kurs?"
         text="Berätta vilken kurs ni vill ha, hur många ni är och när det passar, så skickar vi en offert."
-        amne={amnen.kurs}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(kursSchema("kurser-pa-plats", BESKRIVNING))} />
     </>

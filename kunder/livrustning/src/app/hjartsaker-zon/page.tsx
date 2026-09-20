@@ -104,7 +104,6 @@ export default function HjartsakerZon() {
       <Avslut
         rubrik="Vill ni bli en Hjärtsäker zon?"
         text="Berätta om er arbetsplats, så berättar vi hur ni kommer dit."
-        amne={amnen.hjartsakerZon}
       />
     </>
   );
