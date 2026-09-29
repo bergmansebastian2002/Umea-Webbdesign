@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/*
+ * Skyltfönstret: varmvitt med rosaton, skyltens neonrosa och fasadens
+ * grönsvarta plåt. Rosa betyder två saker: logotypens skript och handling
+ * (knappar, länkar, priser). Tavlan (grönsvart) används bara för
+ * prisskylten och sidfoten - resten av sidan är ljus och luftig.
+ */
+@theme {
+  --color-ljus: #fdf8f5;
+  --color-ljus-djup: #f7ebe6;
+  --color-papper: #ffffff;
+  --color-black: #231e20;
+  --color-grafit: #5b5457;
+  --color-rosa: #e0507e;
+  /* Rosa för text på ljus botten (klarar 4,5:1). */
+  --color-rosa-djup: #b4335e;
+  /* Rosa för text på tavlan (klarar 4,5:1 mot --color-tavla). */
+  --color-rosa-neon: #ff8fb5;
+  --color-tavla: #1c2422;
+  --color-tavla-linje: #313d39;
+  --color-tavla-text: #f7f2ef;
+  --color-tavla-dampad: #a6b2ac;
+
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-skylt: var(--font-skript), "Brush Script MT", cursive;
+
+  --ease-ut: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    scrollbar-color: var(--color-ljus-djup) var(--color-ljus);
+  }
+
+  body {
+    background: var(--color-ljus);
+    color: var(--color-black);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-rosa);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-rosa);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Skyltskript - Pacifico behöver extra radhöjd för sina svansar. */
+  .skript {
+    font-family: var(--font-skylt);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  /* Mjukt neonsken bakom rosa skript på tavlan. */
+  .neon {
+    text-shadow:
+      0 0 14px rgba(255, 122, 168, 0.55),
+      0 0 42px rgba(255, 122, 168, 0.3);
+  }
+
+  /* Prickad utfyllnad mellan tjänst och pris, som på en riktig prisskylt. */
+  .prislinje {
+    flex: 1;
+    margin: 0 0.75rem;
+    border-bottom: 2px dotted color-mix(in srgb, var(--color-tavla-dampad) 45%, transparent);
+    transform: translateY(-0.45em);
+  }
+
+  /* Intoning vid sidladdning: hjälteytan och prisskyltens rader. */
+  .tona-in {
+    animation: tona-in 0.7s var(--ease-ut) both;
+    animation-delay: var(--fordrojning, 0s);
+  }
+
+  @keyframes tona-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tona-in {
+      animation: none;
+    }
+  }
+}

@@ -18,6 +18,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "./kunder/livrustning", "run", "dev"],
       "port": 3002
+    },
+    {
+      "name": "din-frisor",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "./kunder/din-frisor", "run", "dev"],
+      "port": 3004
     }
   ]
 }
