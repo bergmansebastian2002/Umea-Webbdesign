@@ -1,0 +1,113 @@
+{
+  "rubrik": "Meny",
+  "ingress": "Napolitansk surdegspizza, pasta och sallader - hela vår meny med priser. Ring 090-13 77 11 och beställ för avhämtning, eller ät på plats hos oss på Haga.",
+  "fotnot": "Priser från vår onlinemeny oktober 2026 - med reservation för ändringar. Fråga oss gärna om innehåll och allergener när du beställer.",
+  "smakprov": ["favoriter", "pasta"],
+  "sektioner": [
+    {
+      "id": "favoriter",
+      "rubrik": "Våra favoriter",
+      "beskrivning": "Rätterna våra gäster beställer mest - märkta som populära i vår onlinemeny.",
+      "ratter": [
+        { "namn": "Nali", "beskrivning": "Saffranssås, fior di latte, aprikos, parmigiano, chèvre, rostade mandlar & honung", "pris": 165, "markningar": ["Vegetariskt"] },
+        { "namn": "Lalo", "beskrivning": "San marzano-tomatsås, fior di latte, chèvre, jalapeños, tomat, parmigiano, oxfilé, lök & gochujangsås", "pris": 185 },
+        { "namn": "Nduja Hot Honey", "beskrivning": "San marzano-tomatsås, fior di latte, nduja, getost, honung", "pris": 175 },
+        { "namn": "Rökt lax", "beskrivning": "Fior di latte, crème fraiche, dill, rökt lax, citron, timjan, oliver", "pris": 185 },
+        { "namn": "Chèvre", "beskrivning": "San marzano-tomatsås, fior di latte, chèvre, spenat, toppad med rödbetor, valnötter, fikonmarmelad, honung & citron", "pris": 149, "markningar": ["Vegetariskt"] },
+        { "namn": "Höstpizza", "beskrivning": "Fior di latte, parmigiano reggiano, toppad med parmaskinka, fikon, pistage, burrata & honung", "pris": 200, "markningar": ["Säsong"] }
+      ]
+    },
+    {
+      "id": "pizza",
+      "rubrik": "Pizza",
+      "beskrivning": "Surdegsbottnar bakade på napolitanskt vis - med san marzano-tomatsås och fior di latte.",
+      "ratter": [
+        { "namn": "Margherita", "beskrivning": "San marzano-tomatsås, fior di latte, basilika, parmigiano", "pris": 135, "markningar": ["Vegetariskt"] },
+        { "namn": "Vesuvio", "beskrivning": "San marzano-tomatsås, fior di latte, prosciutto cotto", "pris": 139 },
+        { "namn": "Ananas", "beskrivning": "San marzano-tomatsås, fior di latte, prosciutto cotto, färsk ananas, toppad med ruccola", "pris": 139 },
+        { "namn": "Capricciosa", "beskrivning": "San marzano-tomatsås, fior di latte, champinjoner, prosciutto cotto", "pris": 139 },
+        { "namn": "Bussola", "beskrivning": "San marzano-tomatsås, fior di latte, prosciutto cotto, toppad med handskalade räkor", "pris": 142 },
+        { "namn": "Kebab", "beskrivning": "San marzano-tomatsås, fior di latte, kebab, rödlök, fefferoni, toppad med tomatmix, kebabsås & vitlökssås", "pris": 149, "populär": true },
+        { "namn": "Kyckling", "beskrivning": "San marzano-tomatsås, fior di latte, kyckling, rödlök, fefferoni, toppad med tomatmix, ruccola, kebabsås & vitlökssås", "pris": 149 },
+        { "namn": "Pollo", "beskrivning": "San marzano-tomatsås, fior di latte, kyckling, bacon, rödlök, fefferoni, toppad med tomatmix, ruccola, vitlökssås & kebabsås", "pris": 149, "populär": true },
+        { "namn": "Salsiccia", "beskrivning": "San marzano-tomatsås, fior di latte, rödlök, salsiccia, zucchini & ricotta, toppad med ruccola", "pris": 149 },
+        { "namn": "Formaggio", "beskrivning": "San marzano-tomatsås, fior di latte, chèvre, parmigiano, fetaost, toppad med ruccola & västerbottensost", "pris": 149, "markningar": ["Vegetariskt"] },
+        { "namn": "Spenato", "beskrivning": "San marzano-tomatsås, fior di latte, vitlök, champinjoner, rödlök, fetaost, toppad med ruccola & spenat", "pris": 145, "markningar": ["Vegetariskt"] },
+        { "namn": "Gamberetto", "beskrivning": "San marzano-tomatsås, fior di latte, vitlök, toppad med handskalade räkor & dillcrème", "pris": 145 },
+        { "namn": "Gamberone", "beskrivning": "San marzano-tomatsås, fior di latte, tigerräkor, chèvre, chili, vitlök, toppad med ruccola", "pris": 149 },
+        { "namn": "Verde", "beskrivning": "Pesto, fior di latte, grönkål, toppad med balsamico, kronärtskocka, grana padano & vitlökschips", "pris": 149, "markningar": ["Vegetariskt"] },
+        { "namn": "Tuto Cavolo", "beskrivning": "Grönkål, fior di latte, toppad med parmaskinka, balsamico, vitlökschips & parmigiano", "pris": 149 },
+        { "namn": "Nduja", "beskrivning": "San marzano-tomatsås, fior di latte, spianata, nduja (stark salami), kalamataoliver, toppad med grana padano", "pris": 149 },
+        { "namn": "Calzone", "beskrivning": "Inbakad - san marzano-tomatsås, fior di latte, prosciutto cotto, champinjoner, pepperoni, toppad med ruccola & västerbottensost", "pris": 155 },
+        { "namn": "Frutti di Mare", "beskrivning": "Tomatsås, mozzarella, chili, vitlök, pilgrimsmusslor, toppad med handskalade räkor, ruccola & citron", "pris": 155 },
+        { "namn": "Prosciutto", "beskrivning": "Pesto, fior di latte, toppad med spenat, ruccola, parmaskinka, tomatmix, mozzarella & västerbottensost", "pris": 159 },
+        { "namn": "Mama Mia", "beskrivning": "San marzano-tomatsås, fior di latte, kalamataoliver, toppad med parmaskinka, soltorkade tomater, ruccola & västerbottensost", "pris": 159 },
+        { "namn": "Pizza alla Diavola", "beskrivning": "San marzano-tomatsås, fior di latte, oxfilé, champinjoner, vitlök, rödlök, fetaost, toppad med chili, ruccola & bearnaisesås", "pris": 159 },
+        { "namn": "Falafel", "beskrivning": "San marzano-tomatsås, fior di latte, oliver, rödlök, ruccola & vitlökssås", "pris": 149, "markningar": ["Vegetariskt"] },
+        { "namn": "Gorgonzola", "beskrivning": "Gorgonzola, mozzarella, kalamataoliver, prosciutto cotto, toppad med ruccola, parmaskinka & tomatmix", "pris": 200 },
+        { "namn": "Quattro Stagioni", "beskrivning": "San marzano-tomatsås, fior di latte, champinjoner, kalamataoliver, toppad med citron, handskalade räkor, kronärtskocka & parmaskinka", "pris": 200 },
+        { "namn": "Roma", "beskrivning": "San marzano-tomatsås, fior di latte, oxfilé, spianata & bacon, toppad med tomatmix", "pris": 200 },
+        { "namn": "Familjepizza Kebab", "beskrivning": "Kebab, mozzarella, pepperoni, toppad med tomatmix, ruccola, kebabsås & vitlökssås", "pris": 650 },
+        { "namn": "Familjepizza Kyckling", "beskrivning": "Kyckling, mozzarella, pepperoni, toppad med tomatmix, ruccola, kebabsås & vitlökssås", "pris": 650 },
+        { "namn": "Glutenfri botten", "beskrivning": "Byt till glutenfri botten på valfri pizza.", "prisText": "+60 kr", "markningar": ["Glutenfritt"] }
+      ]
+    },
+    {
+      "id": "veganskt",
+      "rubrik": "Veganpizza",
+      "beskrivning": "Samma surdegsbotten - med veganost.",
+      "ratter": [
+        { "namn": "Oumph", "beskrivning": "San marzano-tomatsås, veganost, oumph, rödlök, fefferoni, toppad med ruccola, tomatmix & spenat", "pris": 165, "markningar": ["Veganskt"] },
+        { "namn": "Soltorkad", "beskrivning": "San marzano-tomatsås, veganost, fefferoni, oliver, rödlök, toppad med ruccola, spenat & soltorkade tomater", "pris": 165, "markningar": ["Veganskt"] }
+      ]
+    },
+    {
+      "id": "rullar-och-tallrikar",
+      "rubrik": "Rullar & tallrikar",
+      "ratter": [
+        { "namn": "Kebabrulle", "beskrivning": "San marzano-tomatsås, fior di latte, kebab, rödlök, färsk tomat, fefferoni, ruccola, spenat, romansallad, rödkål, kebabsås & vitlökssås", "pris": 139 },
+        { "namn": "Kycklingrulle", "beskrivning": "San marzano-tomatsås, fior di latte, kyckling, rödlök, färsk tomat, fefferoni, ruccola, spenat, romansallad, rödkål, kebabsås & vitlökssås", "pris": 139 },
+        { "namn": "Kebabtallrik", "beskrivning": "Kebabstrips, ruccola, spenat, romansallad, tomatmix, ananas, fefferoni, kebabsås & vitlökssås", "pris": 139 },
+        { "namn": "Kycklingtallrik", "beskrivning": "Kycklingstrips, ruccola, spenat, romansallad, tomatmix, rödlök, ananas, fefferoni & vitlökssås", "pris": 139 }
+      ]
+    },
+    {
+      "id": "sallader",
+      "rubrik": "Sallader",
+      "ratter": [
+        { "namn": "Caesar med kyckling", "beskrivning": "Romansallad, rödlök, tomatmix, toppad med kycklingfilé, bacon, olivolja & parmigiano", "pris": 149 },
+        { "namn": "Caesar med räkor", "beskrivning": "Romansallad, rödlök, tomatmix, toppad med handskalade räkor, olivolja & kokt ägg", "pris": 149 },
+        { "namn": "Caesar med oxfilé", "beskrivning": "Romansallad, rödlök, tomatmix, olivolja, toppad med oxfilé, bacon & grana padano", "pris": 200 },
+        { "namn": "Chèvre", "beskrivning": "Romansallad, chèvre, honung, honungsrostade valnötter, rödbetor, kalamataoliver, grillade grönsaker, olivolja & mixsallad", "pris": 149, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "pasta",
+      "rubrik": "Pasta",
+      "ratter": [
+        { "namn": "Alfredo", "beskrivning": "Kycklingfilé, vitlök, toppad med parmigiano reggiano", "pris": 149 },
+        { "namn": "Carbonara", "beskrivning": "Prosciutto cotto, bacon, grädde, toppad med parmigiano reggiano", "pris": 149 },
+        { "namn": "Oxfilépasta", "beskrivning": "Oxfilé, champinjoner, chili, vitlök, toppad med mozzarella & valnötter", "pris": 159 },
+        { "namn": "Scampipasta", "beskrivning": "Scampi, vitlök, chili, toppad med spenat & västerbottensost", "pris": 159 },
+        { "namn": "Vegetarisk pasta", "beskrivning": "Champinjoner, vitlök, toppad med spenat & västerbottensost", "pris": 139, "markningar": ["Vegetariskt"] }
+      ]
+    },
+    {
+      "id": "dryck",
+      "rubrik": "Dryck",
+      "ratter": [
+        { "namn": "Coca-Cola 33 cl", "pris": 25 },
+        { "namn": "Coca-Cola Zero 33 cl", "pris": 25 },
+        { "namn": "Coca-Cola 2 l", "pris": 60 },
+        { "namn": "Coca-Cola Zero 2 l", "pris": 60 },
+        { "namn": "Pepsi Max 33 cl", "pris": 25 },
+        { "namn": "Fanta 33 cl", "pris": 25 },
+        { "namn": "Fanta Exotic 33 cl", "pris": 25 },
+        { "namn": "Fanta Zero 33 cl", "pris": 25 },
+        { "namn": "Trocadero Zero 33 cl", "pris": 25 },
+        { "namn": "Loka Citron 33 cl", "pris": 25 },
+        { "namn": "Festis 20 cl", "pris": 20 }
+      ]
+    }
+  ]
+}

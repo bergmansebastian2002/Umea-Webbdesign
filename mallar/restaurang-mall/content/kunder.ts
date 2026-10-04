@@ -5,6 +5,7 @@ import lotus from "./lotus/config";
 import mix from "./mix/config";
 import norrsken from "./norrsken/config";
 import ronyas from "./ronyas/config";
+import ruccola from "./ruccola/config";
 import shanghai from "./shanghai/config";
 import vedugnen from "./vedugnen/config";
 
@@ -26,6 +27,7 @@ export const KUNDER = {
   mix,
   norrsken,
   ronyas,
+  ruccola,
   shanghai,
   vedugnen,
 } as const;

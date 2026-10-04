@@ -1,0 +1,47 @@
+{
+  "/kunder/ruccola/galleri/pasta-carbonara.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAsABABoJbACdACGR0AF6AD+t/P7A858lSmeuk8KbIJpJ4z+l8HNLu9/cRyd1p1UN8vQaH3xsOr6kxsLuCf/P7W9h21YDPAK7qaXWiTcpFC2zEC95OHYmtuOIAAA"
+  },
+  "/kunder/ruccola/galleri/pasta-penne.webp": {
+    "bredd": 1600,
+    "hojd": 1600,
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwAgCdASoQABAABABoJbACdAYwxnJ50SyrAXmAAPa5vFIWpTO6cDhgAVxG6/o5pwTJLXbImMssCLgF/Z2s0Hd8WokoElDzeqbPXXqXjmanPE7nGfyCnV0CSkT3W+PA3PJa9KObbJqVHq3BjuGJY1PTA8MSVlo3EwAAAA=="
+  },
+  "/kunder/ruccola/galleri/pizza-cheesepull.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsABABoJZgCdACv7ZFqAcAA/t7783WaxjMYgoa6kmENgS9YlY3cW1m/dMwCA1kUv+yOTACoRNftQZAe3EvGvVSjFtJT9XMUAZQ6uI1tXYAA"
+  },
+  "/kunder/ruccola/galleri/pizza-ruccola-burrata.webp": {
+    "bredd": 1400,
+    "hojd": 1867,
+    "blur": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBACdASoQABUAPxFysFAsJqSisAgBgCIJZgAD48IuAOLTX2PY7FmExIML7AD+2WQn8iNMNgaeJ3kvbG8DBnw0GCoxDJQyG79Ut9GRjgxLEntxpbDkTr1N3wlvmf2h/+5oFW0qFtqFzq+ecB6b+/6AfT1+DNE4f9L07qFHnLN4NPU91dDSbYLFKX/pwJi8NmI59SkS3RU40QsgdpXSC3k2Ej0d9AAA"
+  },
+  "/kunder/ruccola/galleri/pizza-rustik.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAQCdASoQAAsABABoJbACdADcwLWDgAD+iT2czoexGfnQTjJT7+dH0OhfhCp2QNC5i2RrIP0nvKeVdCee8De3vnNwmBy6bK3nFGUJT38dpY/bjuC2QIa4TfYOXu2bP9AEtbjR9UJAAA=="
+  },
+  "/kunder/ruccola/galleri/sallad-caesar.webp": {
+    "bredd": 1600,
+    "hojd": 1067,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAgCdASoQAAsABABoJbACdAYu5jQwfs3sYn4AAP7X7Ap1mmypZKHdAZQqTgP22Ml8bbiNUQ/t7FSXUaXNtpfSH8CoVA0UXELGt8qJywf0SuM4PBoV8CbGmqwwEP+OAAA="
+  },
+  "/kunder/ruccola/hero-margherita.webp": {
+    "bredd": 1920,
+    "hojd": 1282,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAQCdASoQAAsABABoJbACdAB8ZVABcAD+ZjQq+4QfELaJNwMVKHzPo7MqZeKTvIEmVXvrJYdUGdi3u8Fk8Mn0MA12OOTHVH06gss+dnK2ttUpOkJPlmgdBZSGG0VAAAA="
+  },
+  "/kunder/ruccola/logotyp.webp": {
+    "bredd": 340,
+    "hojd": 156,
+    "blur": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4WAoAAAAQAAAADwAABgAAQUxQSHEAAAAAAgICAAQOEhocFREEAQACAAAAAQAZOycwMjUxGgABAQA2RDcWLT5FLUgpVC81AjIAYqWQLYp0I4EieDOeTSe+D2OWemCCdDaCM3pDlmlkmUgnKCdIGCpAKEUkSR5IMwsoAAEAAAAAAAAAAAABAAEDAABWUDggGAAAADABAJ0BKhAABwAEAGglpAADcAD+8oAAAA=="
+  },
+  "/kunder/ruccola/om-oss-surdeg.webp": {
+    "bredd": 1800,
+    "hojd": 1200,
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsABABoJagCdAYsPSZs2ABUQAD+6jFoQ2+AhxMW1U/n5d+t1WqvaiXF3mAXmVVPdX7xM5Y2ocmxyG7gqUi9pY2FBJ3dativM0FSNzKvlun0Cr98mdZfJh7OAAAA"
+  }
+}
