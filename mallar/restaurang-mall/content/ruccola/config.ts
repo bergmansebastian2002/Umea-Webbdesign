@@ -55,10 +55,10 @@ const ruccola: Restaurangkonfig = {
   namn: "Ristorante Ruccola",
   slogan: "Napolitansk surdegspizza på Haga",
   kortBeskrivning:
-    "Ristorante Ruccola på Haga i Umeå bakar napolitansk surdegspizza med san marzano-tomater och fior di latte - plus pasta och sallader. Ring 090-13 77 11 och beställ, eller ät på plats.",
+    "Ristorante Ruccola på Haga i Umeå bakar napolitansk surdegspizza med San Marzano-tomater och fior di latte - plus pasta och sallader. Ring 090-13 77 11 och beställ, eller ät på plats.",
   omOssStycken: [
     "Ristorante Ruccola är den italienska kvarterskrogen på Haga - ett par minuter från centrala Umeå. Hos oss står pizzan i centrum: surdegsbottnar som får jäsa länge och gräddas snabbt i hög värme, precis som i Neapel.",
-    "Vi bakar traditionsenlig pizza från Neapel med en touch av Sverige. San marzano-tomater, fior di latte och färsk ruccola möter västerbottensost och rökt lax - och menyn rymmer allt från klassikerna till våra egna favoriter som Nali och Lalo.",
+    "Vi bakar traditionsenlig pizza från Neapel med en touch av Sverige. San Marzano-tomater, fior di latte och färsk ruccola möter västerbottensost och rökt lax - och menyn rymmer allt från klassikerna till våra egna favoriter som Nali och Lalo.",
     "Förutom pizza lagar vi pasta, fräscha sallader och rullar - och det mesta finns även som vegetariskt eller veganskt. Ät på plats i matsalen eller ta med dig maten hem.",
     "Du hittar oss på Östra Kyrkogatan 43 på Haga. Ring 090-13 77 11 för att beställa eller boka bord - välkommen in!",
   ],
@@ -142,7 +142,7 @@ const ruccola: Restaurangkonfig = {
     galleri: [
       { kalla: "/kunder/ruccola/galleri/pizza-ruccola-burrata.webp", alt: "Pizza toppad med färsk ruccola och burrata på träbricka", staende: true },
       { kalla: "/kunder/ruccola/galleri/pizza-cheesepull.webp", alt: "Pizzaslice lyfts med smält ost i långa trådar" },
-      { kalla: "/kunder/ruccola/galleri/pasta-carbonara.webp", alt: "Carbonara med guanciale och riven parmigiano" },
+      { kalla: "/kunder/ruccola/galleri/pasta-carbonara.webp", alt: "Krämig carbonara toppad med riven parmigiano" },
       { kalla: "/kunder/ruccola/galleri/sallad-caesar.webp", alt: "Caesarsallad med krutonger och parmigiano" },
       { kalla: "/kunder/ruccola/galleri/pasta-penne.webp", alt: "Pennepasta i tomatsås med svartpeppar" },
       { kalla: "/kunder/ruccola/galleri/pizza-rustik.webp", alt: "Rustik pizza på mörkt träbord" },
