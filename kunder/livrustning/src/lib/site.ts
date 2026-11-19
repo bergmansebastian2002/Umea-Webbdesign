@@ -1,20 +1,23 @@
 /**
  * All fakta om Livrustning samlad på ett ställe. Källor: nuvarande
  * livrustning.se (2026-09-18), kundens PDF:er om Säkerhetsdag och
- * eHLR-Event samt besked från Sebbe. Ändra inga siffror utan kundens ok.
+ * eHLR-Event, kundens underlag "Hemsida åt Nice To Be Alive AB /
+ * Livrustning AB" (2026-11-19) samt besked från Sebbe.
+ * Ändra inga siffror utan kundens ok.
  */
 export const foretag = {
   namn: "Livrustning",
-  juridisktNamn: "Livrustning AB",
+  // Bolag, adress, org.nr och mejl enligt kundens underlag 2026-11-19.
+  juridisktNamn: "Nice To Be Alive AB",
   slogan: "Kunskap för säkerhets skull",
   url: "https://www.livrustning.se",
-  epost: "kontakt@livrustning.se",
+  epost: "info@nicetobealive.se",
   telefon: "070-733 32 54",
   telefonHref: "tel:+46707333254",
-  gata: "Hökaren 49",
-  postnummer: "907 88",
-  ort: "Täfteå",
-  orgnr: "556824-9022",
+  gata: "Katarina Bangata 26",
+  postnummer: "116 39",
+  ort: "Stockholm",
+  orgnr: "559408-6547",
   baser: ["Stockholm", "Umeå", "Nerja i Spanien"],
   facebook: "https://www.facebook.com/livrustning.se/",
   instagram: "https://www.instagram.com/livrustning/",
@@ -39,59 +42,141 @@ export function mejl(amne: string, medMall = true) {
 
 export const amnen = {
   allmant: "Förfrågan via livrustning.se",
-  sakerhetsdag: "Offert - Säkerhetsdag (4 timmar)",
+  sakerhetsdag: "Offert - Säkerhetsdag (halvdag)",
   ehlrEvent: "Offert - eHLR-Event (2 timmar)",
-  digitalt: "Mer info eller offert - eHLR eller eFörstaHjälpen",
-  kurs: "Offert - kurs på plats",
+  digitalt: "Offert - eHLR och eFörstaHjälpen",
+  kurs: "Offert - traditionell kurs på plats",
+  familj: "Köp - eHLR-Familj",
+  instruktor: "Instruktörsutbildning - datum och anmälan",
+  hjartstartare: "Hjärtstartarpaket - frågor eller offert",
   hjartsakerZon: "Hjärtsäker zon - vill veta mer",
 } as const;
 
+/** Offertformuläret. `galler` fyller i vad förfrågan handlar om. */
+export function offert(galler?: string) {
+  return galler ? `/offert?galler=${encodeURIComponent(galler)}` : "/offert";
+}
+
 export type Utbildning = {
   slug: string;
+  /** Namnet som rubrik på Utbildningar-sidan och i sidfoten. */
   namn: string;
-  kortnamn: string;
+  /** Namnet i menyn under Utbildningar. */
+  menynamn: string;
+  /** Underrubriken i menyn. */
   pitch: string;
   href: string;
   amne: string;
+  /** Länktexten på Utbildningar-sidan. */
+  lanktext: string;
+  /** Passar för / Upplägg / Fördel, med kundens egna formuleringar. */
+  korthet?: { passar: string; upplagg: string; fordel: string };
 };
 
+// Ordning, namn och texter enligt kundens underlag 2026-11-19.
 export const utbildningar: Utbildning[] = [
   {
     slug: "sakerhetsdag",
-    namn: "Säkerhetsdag",
-    kortnamn: "Säkerhetsdag",
-    pitch: "Brand, HLR och första hjälpen på en halvdag, i fyra stationer.",
+    namn: "Säkerhetsdag (Halvdag)",
+    menynamn: "Säkerhetsdag (Halvdag)",
+    pitch: "Utbilda hela personalen effektivt genom praktiska stationer inom brand, HLR och Första hjälpen.",
     href: "/utbildningar/sakerhetsdag",
     amne: amnen.sakerhetsdag,
+    lanktext: "Läs mer och beställ offert här",
+    korthet: {
+      passar: "Alla företag som vill samla hela personalen under en gemensam säkerhetsdag.",
+      upplagg:
+        "Vi anpassar antalet instruktörer efter er gruppstorlek och varvar praktiska stationer med fokus på brand, HLR och Första hjälpen.",
+      fordel: "Inget tak för antal deltagare. Perfekt för att skapa ett starkt, gemensamt säkerhetstänk på företaget.",
+    },
+  },
+  {
+    slug: "kurser-pa-plats",
+    namn: "Traditionella kurser på plats",
+    menynamn: "Kurser på plats",
+    pitch: "Traditionella och anpassade kurser i vuxen-HLR, Barn-HLR, Första hjälpen och brandskydd.",
+    href: "/utbildningar/kurser-pa-plats",
+    amne: amnen.kurs,
+    lanktext: "Läs mer och boka traditionell kurs här",
+    korthet: {
+      passar: "Företag med upp till 100 anställda.",
+      upplagg:
+        "Vi kommer till er arbetsplats, var som helst i Sverige. Max 12 deltagare per instruktör, och flera grupper kan utbildas parallellt eller efter varandra under samma dag.",
+      fordel:
+        "Ett tryggt och engagerande sätt att se till att upp till 100 % av personalen får aktuella kunskaper i HLR och Första hjälpen.",
+    },
   },
   {
     slug: "ehlr-event",
     namn: "eHLR-Event",
-    kortnamn: "eHLR-Event",
-    pitch: "Hela personalen utbildad i HLR med hjärtstartare på två timmar.",
+    menynamn: "eHLR-Event (2 timmar)",
+    pitch:
+      "Ge hela personalstyrkan kunskap i HLR och hantering av hjärtstartare på bara två timmar inklusive praktisk träning.",
     href: "/utbildningar/ehlr-event",
     amne: amnen.ehlrEvent,
+    lanktext: "Läs mer och beställ offert här",
+    korthet: {
+      passar: "Kick-off, teambuilding eller planeringsdagar när hela företaget är samlat.",
+      upplagg:
+        "Två intensiva och engagerande timmar. Våra instruktörer kommer till er och leder utbildningen på storskärm med hjälp av eHLR-metoden. Den praktiska träningen sker sedan i mindre grupper, med LED-dockor och träningshjärtstartare.",
+      fordel: "Obegränsat antal deltagare. Ett fartfyllt och livsviktigt inslag på företagets gemensamma dag.",
+    },
   },
   {
     slug: "ehlr-och-eforstahjalpen",
-    namn: "eHLR och eFörstaHjälpen",
-    kortnamn: "Digitalt",
-    pitch: "Digitalt lärande och praktisk träning, med ett års access för repetition.",
+    namn: "eHLR och eFörstaHjälpen (Digitalt + praktisk träning)",
+    menynamn: "eHLR & eFörstaHjälpen",
+    pitch:
+      "Flexibelt digitalt lärande kombinerat med praktisk träning. Utbilda obegränsat antal medarbetare under 12 månader.",
     href: "/utbildningar/ehlr-och-eforstahjalpen",
     amne: amnen.digitalt,
+    lanktext: "Läs mer och beställ offert här",
+    korthet: {
+      passar: "Större företag med 100 anställda och uppåt.",
+      upplagg:
+        "Era medarbetare får full tillgång till den digitala kursen i ett år, och träningsmaterialet skickar vi direkt till er arbetsplats. Var och en kan gå kursen i egen takt, eller så tränar ni tillsammans i grupp.",
+      fordel:
+        "Extremt kostnadseffektivt när många ska utbildas. Ni utbildar 100 % av personalen till en bråkdel av priset, samtidigt som tidsåtgången halveras och produktionsbortfallet minimeras. Metoden används idag av tusentals anställda på några av Sveriges största företag.",
+    },
   },
   {
-    slug: "kurser-pa-plats",
-    namn: "Kurser på plats",
-    kortnamn: "Kurser på plats",
-    pitch: "Klassiska kurser i HLR, första hjälpen och brand i små grupper.",
-    href: "/utbildningar/kurser-pa-plats",
-    amne: amnen.kurs,
+    slug: "ehlr-familj",
+    namn: "eHLR-Familj",
+    menynamn: "eHLR-Familj",
+    pitch:
+      "Skydda dina närmaste med en digital utbildning med enkel praktisk träning för hela familjen. Alla vet då exakt vad man ska göra om ett barn eller en vuxen sätter i halsen eller drabbas av ett hjärtstopp.",
+    href: "/utbildningar/ehlr-familj",
+    amne: amnen.familj,
+    lanktext: "Köp och ladda ner eHLR-Familj här",
+    korthet: {
+      passar: "Hela familjen och barnvakter som t.ex. mormor och morfar.",
+      upplagg:
+        "Digital utbildning med enkel praktisk träning i hemmet. Utbildningslicensen gäller för hela hushållet och är öppen i 3 månader. Köps direkt och betalas smidigt med Swish.",
+      fordel:
+        "Ger trygghet i vardagen så att ni vet exakt vad ni ska göra om ett barn eller en vuxen sätter i halsen eller drabbas av ett hjärtstopp.",
+    },
+  },
+  {
+    slug: "instruktorskurser",
+    namn: "Instruktörsutbildningar",
+    menynamn: "Instruktörsutbildningar",
+    pitch:
+      "Bli instruktör i HLR och Första hjälpen. Du får behörighet och kunskap som gör dig redo att lära ut HLR och öva dina kollegor, elever eller medlemmar.",
+    href: "/utbildningar/instruktorskurser",
+    amne: amnen.instruktor,
+    lanktext: "Läs mer om instruktörsutbildningarna",
   },
 ];
 
+export function utbildning(slug: string) {
+  const u = utbildningar.find((x) => x.slug === slug);
+  if (!u) throw new Error(`Okänd utbildning: ${slug}`);
+  return u;
+}
+
 export const meny = [
   { namn: "Utbildningar", href: "/utbildningar", barn: utbildningar },
+  { namn: "Köp hjärtstartare", href: "/kop-hjartstartare" },
   { namn: "Så går det till", href: "/sa-gar-det-till" },
   { namn: "Hjärtsäker zon", href: "/hjartsaker-zon" },
   { namn: "Om oss", href: "/om-oss" },
@@ -99,14 +184,19 @@ export const meny = [
 ] as const;
 
 /**
- * Kunder som Livrustning själva tackat i egna Facebookinlägg 2020-2022.
- * FÖRSLAG: måste godkännas av Livrustning innan sajten publiceras.
+ * Kunder enligt kundens underlag 2026-11-19. Loggorna ska in som filer
+ * (helst SVG) när kunden skickat dem; tills dess sätts namnen i text.
  */
 export const kunder = [
   "Handelsbanken",
-  "Svenska Filminstitutet",
-  "Spritmuseum",
-  "Armémuseum",
-  "Kraftringen",
-  "Tyska skolan",
+  "Atlas Copco",
+  "ATEA",
+  "Fastighetsbyrån",
+  "Svenska kyrkan",
+  "Hitachi",
+  "Stockholms stad",
+  "DB Schenker",
+  "Sturebadet",
+  "Folkbildningsrådet",
+  "Itrim",
 ];

@@ -28,6 +28,23 @@ const FOTON = {
   "instruktor-klass": "instruktor-klass",
   "instruktor-portratt": "instruktor-portratt",
   "instruktor-skap": "instruktor-skap",
+  "traning-pa-plats-1": "traning-pa-plats-1",
+  "traning-pa-plats-2": "traning-pa-plats-2",
+};
+
+// Bilder som kunden levererat färdiga (2026-11-19): produktbilder, miljöbilder
+// och porträtt. De graderas inte, eftersom hjärtstartarens och skyltarnas
+// färger ska vara korrekta. Bara skalning och webp.
+const RENA = {
+  "sakerhetsdag-kollage.jpg": "sakerhetsdag-kollage",
+  "ehlr-event-sal.jpg": "ehlr-event-sal",
+  "instruktorsutbildning.jpg": "instruktorsutbildning",
+  "hjartstartare-i-hand.jpg": "hjartstartare-i-hand",
+  "hjartstartare-hemma.jpg": "hjartstartare-hemma",
+  "hjartstartare-spanien.jpg": "hjartstartare-spanien",
+  "hjartstartarpaket-kontor.jpg": "hjartstartarpaket-kontor",
+  "johnny-sundin.png": "johnny-sundin",
+  "peter-jonsson.png": "peter-jonsson",
 };
 
 // Enstaka bilder som behöver mer ljus för att hänga med resten av serien.
@@ -69,6 +86,15 @@ async function tona(namn, utnamn) {
     .webp({ quality: 82 })
     .toFile(`${OUT}/${utnamn}.webp`);
   console.log(`foto  ${utnamn}.webp  ${width}x${height}  vitbalans ${faktor.map((f) => f.toFixed(2)).join("/")}`);
+}
+
+async function ren(fil, utnamn) {
+  const { width, height } = await sharp(`${IN}/${fil}`)
+    .rotate()
+    .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 86 })
+    .toFile(`${OUT}/${utnamn}.webp`);
+  console.log(`ren   ${utnamn}.webp  ${width}x${height}`);
 }
 
 // Loggan finns bara med vitt ordmärke (för mörk botten). Ljus variant:
@@ -125,5 +151,6 @@ async function reco() {
 
 await mkdir(OUT, { recursive: true });
 for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
+for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
 await loggor();
 await reco();

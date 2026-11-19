@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Avslut, KontaktKnapp, Sidrubrik } from "@/components/Block";
+import { Avslut, KontaktKnapp, PilLank, Sidrubrik } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { Slag } from "@/components/Ikoner";
 import { metadataFor } from "@/lib/seo";
@@ -23,7 +23,7 @@ const krav = [
   "Hjärtstartaren är registrerad i Sveriges Hjärtstartarregister.",
 ];
 
-// Endast det Livrustning själva gör. Ingen hårdvara och inga garantier (besked 2026-09-18).
+// Det Livrustning hjälper till med. Hjärtstartare säljs sedan 2026-11-19 som paket, se /kop-hjartstartare.
 const hjalp = [
   { rubrik: "Utbildning", text: "Personalen utbildas i HLR med hjärtstartare enligt de nationella riktlinjerna." },
   { rubrik: "Rutiner", text: "Vi hjälper er att ta fram rutiner för beredskap, larm och underhåll." },
@@ -89,14 +89,19 @@ export default function HjartsakerZon() {
                 <Image src={bildGrupp} alt="Kollegor övar med träningshjärtstartare och docka" fill placeholder="blur" sizes="(min-width: 1024px) 480px, 100vw" className="object-cover" />
               </div>
             </div>
-            <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:col-span-7">
-              {hjalp.map((h) => (
-                <div key={h.rubrik} className="border-t border-black/15 py-6">
-                  <dt className="text-xl font-bold">{h.rubrik}</dt>
-                  <dd className="mt-2 text-grafit">{h.text}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="lg:col-span-7">
+              <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+                {hjalp.map((h) => (
+                  <div key={h.rubrik} className="border-t border-black/15 py-6">
+                    <dt className="text-xl font-bold">{h.rubrik}</dt>
+                    <dd className="mt-2 text-grafit">{h.text}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="border-t border-black/15 pt-6 text-lg">
+                <PilLank href="/kop-hjartstartare">Saknar ni hjärtstartare? Se våra hjärtstartarpaket</PilLank>
+              </p>
+            </div>
           </div>
         </div>
       </section>

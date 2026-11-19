@@ -1,186 +1,309 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Avslut, PilLank } from "@/components/Block";
+import { Avslut, OffertKnapp, PilLank, RingEllerMejla } from "@/components/Block";
 import Ekg from "@/components/Ekg";
-import { Flamma, Grupp, Intyg, Klocka, Pil, Slag } from "@/components/Ikoner";
+import { Grupp, Intyg, Pil, Skarm } from "@/components/Ikoner";
+import Kundband from "@/components/Kundband";
 import { metadataFor } from "@/lib/seo";
-import { foretag, kunder } from "@/lib/site";
+import { foretag } from "@/lib/site";
 
-import bildBrand from "@/bilder/brand-slackare.webp";
-import bildHjartstartare from "@/bilder/hlr-hjartstartare-kontor.webp";
-import bildKlass from "@/bilder/instruktor-klass.webp";
+import bildEvent from "@/bilder/ehlr-event-sal.webp";
+import bildDigitalt from "@/bilder/hjartstartare-grupp.webp";
+import bildOvning from "@/bilder/hlr-ovning.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
 
 export const metadata = metadataFor({
   titel: "Livrustning - Utbildning i HLR, första hjälpen och brand",
   beskrivning:
-    "Gör hela personalen till livräddare. Vi utbildar i HLR, första hjälpen och brand hos er, på 2 eller 4 timmar. " +
-    "Sveriges nöjdaste kursdeltagare enligt Reco.se.",
+    "Vi gör alla till varandras livförsäkring. HLR, första hjälpen och brandskydd – på plats, digitalt eller via smidiga hybridlösningar.",
   sokvag: "/",
 });
 
-const eventen = [
+// Trygga arbetsplatsen: de tre digitala utbildningarna, med kundens egna beskrivningar.
+const digitala = [
   {
-    tid: "2",
-    namn: "eHLR-Event",
-    rubrik: "Hela personalen i HLR.",
-    text: "Gemensam start på storskärm, sedan övar alla i mindre grupper. En perfekt programpunkt på kick-off eller planeringsdag.",
-    fakta: [
-      { ikon: Grupp, text: "Obegränsat antal deltagare" },
-      { ikon: Slag, text: "Övningsdockor med LED-feedback" },
-      { ikon: Intyg, text: "Personligt intyg till alla" },
-    ],
-    bild: bildKlass,
-    alt: "Instruktör visar en grupp som övar HLR på dockor",
-    href: "/utbildningar/ehlr-event",
+    namn: "eHLR",
+    text: "Digital HLR-utbildning med praktisk träning.",
+    href: "/utbildningar/ehlr-och-eforstahjalpen#ehlr",
   },
   {
-    tid: "4",
-    namn: "Säkerhetsdag",
-    rubrik: "Brand, HLR och första hjälpen.",
-    text: "Fyra stationer, fyra grupper som roterar och en instruktör per station. Alla övar praktiskt, ingen sitter still.",
-    fakta: [
-      { ikon: Slag, text: "HLR med hjärtstartare" },
-      { ikon: Flamma, text: "Släckövning inomhus" },
-      { ikon: Klocka, text: "Fyra pass om 45 minuter" },
-    ],
-    bild: bildBrand,
-    alt: "Deltagare med brandsläckare under en brandövning",
-    href: "/utbildningar/sakerhetsdag",
+    namn: "eFörstaHjälpen",
+    text: "Digital utbildning i första hjälpen med praktisk träning. Utbildningen innehåller även HLR med hjärtstartare.",
+    href: "/utbildningar/ehlr-och-eforstahjalpen#eforstahjalpen",
   },
+  {
+    namn: "eHLR-Familj",
+    text: "En digital kurs som medarbetarna får ta med sig hem som en förmån. Hela familjen lär sig vad man gör när ett barn eller en vuxen sätter något i halsen eller drabbas av hjärtstopp, och de tränar hemma med en vanlig kudde.",
+    href: "/utbildningar/ehlr-familj",
+  },
+];
+
+const eventpunkter = [
+  {
+    ikon: Skarm,
+    rubrik: "Genomgång på storskärm",
+    text: "Våra instruktörer kommer till er, var ni än finns i Sverige, och leder utbildningen på storskärm enligt eHLR-metoden.",
+  },
+  {
+    ikon: Grupp,
+    rubrik: "Praktisk träning i små grupper",
+    text: "Deltagarna delas in i mindre grupper med en egen instruktör. De tränar på avancerade övningsdockor med LED-feedback, som visar direkt om kompressionerna blir rätt, och på träningshjärtstartare.",
+  },
+  {
+    ikon: Intyg,
+    rubrik: "Utbildningsintyg",
+    text: "Alla deltagare får ett personligt utbildningsintyg, och företaget får ett intyg som visar att man har utbildat sin personal.",
+  },
+];
+
+// Två timmar i proportion. Den praktiska träningen i mitten tar 50 minuter; resten är byten.
+const tidslinje = [
+  { namn: "Genomgång", minuter: 50, ton: "bg-black" },
+  { namn: "Praktisk träning", minuter: 50, ton: "bg-grafit" },
+  { namn: "Avslutning", minuter: 10, ton: "bg-rut-grov" },
 ];
 
 const steg = [
   { rubrik: "Ni hör av er", text: "Mejla eller ring och berätta ungefär hur många ni är." },
   { rubrik: "Ni får en offert", text: "Priset utgår från antal deltagare och var ni finns." },
-  { rubrik: "Vi kommer till er", text: "På er arbetsplats, den dag som passar er." },
+  { rubrik: "Vi kommer till er", text: "Eller ser till att utbildningslicensen skickas." },
   { rubrik: "Alla övar på riktigt", text: "Med övning i händerna, inte bara teori i huvudet." },
 ];
 
-// Det som gör upplägget effektivt för arbetsgivaren, utan att upprepa första vyn.
-const skal = [
+const fler = [
   {
-    rubrik: "Alla på en gång",
-    text: "Hela personalen får samma kunskap samma dag, i stället för några i taget under flera år.",
+    rubrik: "Säkerhetsdag (Halvdag)",
+    text: "Brand, HLR och första hjälpen i praktiska stationer.",
+    href: "/utbildningar/sakerhetsdag",
   },
   {
-    rubrik: "Teambuilding på köpet",
-    text: "En programpunkt på kick-offen eller planeringsdagen där alla gör något meningsfullt tillsammans.",
+    rubrik: "Traditionella kurser på plats",
+    text: "Vuxen-HLR, barn-HLR, första hjälpen och brandskydd.",
+    href: "/utbildningar/kurser-pa-plats",
   },
   {
-    rubrik: "Intyg till alla",
-    text: "Efter eHLR-Event får varje deltagare ett personligt intyg och företaget ett samlingsintyg.",
+    rubrik: "Instruktörsutbildningar",
+    text: "Bli instruktör i HLR och första hjälpen.",
+    href: "/utbildningar/instruktorskurser",
+  },
+  {
+    rubrik: "Köp hjärtstartare",
+    text: "Färdiga paket för kontor, utomhus, hemmet och Spanien.",
+    href: "/kop-hjartstartare",
   },
 ];
+
+const SLUTRAD = "Hör av dig, så tar vi fram en offert som passar er.";
 
 export default function Startsida() {
   return (
     <>
-      {/* Första vyn: rubriken bär sidan och kurvan löper över hela bredden. */}
+      {/* Första vyn: rubriken bär sidan och den levande kurvan löper över hela bredden. */}
       <section className="ekg-papper ekg-papper-tonad">
         <div className="mx-auto max-w-7xl px-5 pt-14 pb-14 lg:px-8 lg:pt-24 lg:pb-20">
           <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-end lg:gap-12">
-            <h1 className="text-[clamp(2.9rem,6.2vw,5.75rem)] leading-[0.95] font-bold tracking-[-0.035em] lg:col-span-7">
-              Alla kan rädda liv.
-              <br />
-              Vi visar hur.
+            <h1 className="intro text-[clamp(2.5rem,5.7vw,5.25rem)] leading-[0.97] font-bold tracking-[-0.035em] lg:col-span-8">
+              Vi gör alla till varandras livförsäkring
             </h1>
-            <p className="max-w-md text-xl leading-relaxed text-grafit lg:col-span-5 lg:pb-2 lg:text-2xl lg:leading-relaxed">
-              {"Vi ger hela personalen förutsättningarna att rädda liv när det gäller."}
+            <p
+              className="intro max-w-md text-xl leading-relaxed text-grafit lg:col-span-4 lg:pb-2 lg:text-[1.375rem] lg:leading-relaxed"
+              style={{ ["--i" as string]: 1 }}
+            >
+              HLR, första hjälpen och brandskydd – på plats, digitalt eller via smidiga hybridlösningar.
             </p>
           </div>
-          <Ekg direkt puls slag={[0.3, 0.8]} hojd={56} className="mt-10 lg:hidden" />
-          <Ekg direkt puls slag={[0.18, 0.52, 0.86]} hojd={88} className="mt-16 hidden lg:block" />
-          <p className="mt-8 lg:mt-10">
-            <PilLank href="/utbildningar" className="text-lg">Se alla utbildningar</PilLank>
+          <Ekg direkt live puls slag={[0.3, 0.8]} hojd={56} className="mt-10 lg:hidden" />
+          <Ekg direkt live puls slag={[0.18, 0.52, 0.86]} hojd={88} className="mt-16 hidden lg:block" />
+          <p className="intro mt-8 lg:mt-10" style={{ ["--i" as string]: 3 }}>
+            <PilLank href="/utbildningar" className="text-lg">
+              Se alla utbildningar
+            </PilLank>
           </p>
         </div>
       </section>
 
-      {/* De två eventen för hela arbetsplatser. */}
+      {/* De två huvudspåren för hela arbetsplatser. */}
       <section className="border-t border-black/10 bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">Två timmar eller en halvdag?</h2>
+          <div className="max-w-3xl" data-in="">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
+              Två vägar till en tryggare arbetsplats
+            </h2>
             <p className="mt-5 text-xl text-grafit">
-              Båda sker på er arbetsplats, på ett datum som ni väljer.
+              Utbilda digitalt när det passar er, eller samla alla på plats i två timmar.
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-16 lg:gap-8">
-            {eventen.map((e) => (
-              <article key={e.namn} className="grupp relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-papper">
-                <div className="relative aspect-[3/2]">
-                  <Image
-                    src={e.bild}
-                    alt={e.alt}
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-8">
+            {/* Trygga arbetsplatsen: eHLR, eFörstaHjälpen och eHLR-Familj. */}
+            <article
+              className="flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-papper"
+              data-in=""
+            >
+              <div className="relative aspect-[3/2] overflow-hidden" data-in="bild">
+                <Image
+                  src={bildDigitalt}
+                  alt="Kollegor övar med träningshjärtstartare och övningsdocka på arbetsplatsen"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6 lg:p-9">
+                <div className="flex items-end gap-4">
+                  <p className="siffror text-[5.5rem] leading-[0.8] font-bold tracking-[-0.04em]" aria-hidden="true">
+                    6<span className="ml-1.5 text-[2.5rem] tracking-normal">mån</span>
+                  </p>
+                  <p className="pb-1 text-lg font-semibold">eHLR och eFörstaHjälpen</p>
                 </div>
-                <div className="flex flex-1 flex-col p-6 lg:p-9">
-                  <div className="flex items-end gap-4">
-                    <p className="siffror text-[5.5rem] leading-[0.8] font-bold tracking-[-0.04em]" aria-hidden="true">
-                      {e.tid}
-                      <span className="ml-1 text-[2.5rem] tracking-normal">h</span>
-                    </p>
-                    <p className="pb-1 text-lg font-semibold">{e.namn}</p>
+                <h3 className="mt-6 text-[1.75rem] leading-tight font-bold">Trygga arbetsplatsen</h3>
+                <p className="mt-3 text-grafit">
+                  Utbilda så många ni vill, så ofta ni vill och när det passar er, under sex månader. Med eHLR och
+                  eFörstaHjälpen får era medarbetare digitala utbildningar med praktisk träning på unik utrustning.
+                  Utrustningen skickas till er arbetsplats och ingår i licensen.
+                </p>
+                <ul className="mt-6 divide-y divide-black/10 border-y border-black/10">
+                  {digitala.map((d) => (
+                    <li key={d.namn} className="py-4">
+                      <Link href={d.href} className="grupp inline-flex items-center gap-2 font-semibold text-magenta-mork">
+                        <span className="underline decoration-magenta/35 underline-offset-[0.2em] hover:decoration-current">
+                          {d.namn}
+                        </span>
+                        <Pil className="pil size-5" />
+                      </Link>
+                      <p className="mt-1 text-grafit">{d.text}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-8">
+                  <p className="text-lg font-semibold">{SLUTRAD}</p>
+                  <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
+                    <OffertKnapp galler="Trygga arbetsplatsen – eHLR och eFörstaHjälpen" className="self-start" />
+                    <RingEllerMejla />
                   </div>
-                  <h3 className="mt-6 text-[1.75rem] leading-tight font-bold">
-                    <Link href={e.href} className="after:absolute after:inset-0 focus-visible:outline-none">
-                      {e.rubrik}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 text-grafit">{e.text}</p>
-                  <ul className="mt-6 divide-y divide-black/10 border-y border-black/10">
-                    {e.fakta.map(({ ikon: Ikon, text }) => (
-                      <li key={text} className="flex items-center gap-3 py-3">
-                        <Ikon className="size-5 shrink-0 text-grafit" />
-                        {text}
+                </div>
+              </div>
+            </article>
+
+            {/* eHLR-Event: två timmar på plats. */}
+            <article
+              className="flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-papper"
+              data-in=""
+              style={{ ["--i" as string]: 1 }}
+            >
+              <div className="relative aspect-[3/2] overflow-hidden" data-in="bild" style={{ ["--i" as string]: 1 }}>
+                <Image
+                  src={bildEvent}
+                  alt="eHLR-Event i en fullsatt hörsal: två instruktörer leder utbildningen på storskärm"
+                  fill
+                  placeholder="blur"
+                  sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-[62%_50%]"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6 lg:p-9">
+                <div className="flex items-end gap-4">
+                  <p className="siffror text-[5.5rem] leading-[0.8] font-bold tracking-[-0.04em]" aria-hidden="true">
+                    2<span className="ml-1.5 text-[2.5rem] tracking-normal">h</span>
+                  </p>
+                  <p className="pb-1 text-lg font-semibold">eHLR-Event</p>
+                </div>
+                <h3 className="mt-6 text-[1.75rem] leading-tight font-bold">
+                  Två timmar som räddar liv – när ni ändå är samlade
+                </h3>
+                <p className="mt-3 text-grafit">
+                  Gör er planeringsdag eller kick-off ännu mer värdefull. Vi kommer till er och levererar en effektiv
+                  HLR-utbildning med eHLR-metoden inkl. praktisk träning för alla på endast 2 timmar. Passar perfekt in
+                  i ert schema.
+                </p>
+                <ul className="mt-6 divide-y divide-black/10 border-y border-black/10">
+                  {eventpunkter.map(({ ikon: Ikon, rubrik, text }) => (
+                    <li key={rubrik} className="flex gap-3.5 py-4">
+                      <Ikon className="mt-0.5 size-5 shrink-0 text-grafit" />
+                      <div>
+                        <p className="font-semibold">{rubrik}</p>
+                        <p className="mt-1 text-grafit">{text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Tidslinjen: varje del är lika bred som sin andel av de två timmarna. */}
+                <div className="mt-7">
+                  <div className="flex h-3 gap-1" aria-hidden="true">
+                    {tidslinje.map((t, i) => (
+                      <div
+                        key={t.namn}
+                        className={`rounded-full ${t.ton}`}
+                        style={{ flexGrow: t.minuter, ["--i" as string]: i * 2 }}
+                        data-in="vax"
+                      />
+                    ))}
+                  </div>
+                  {/* Smalt: förklaringen som lista. Brett: etiketterna står där respektive del börjar. */}
+                  <ol className="siffror mt-4 space-y-1.5 sm:hidden">
+                    {tidslinje.map((t) => (
+                      <li key={t.namn} className="flex items-center gap-2.5">
+                        <span className={`size-2.5 shrink-0 rounded-full ${t.ton}`} aria-hidden="true" />
+                        <span className="font-semibold">{t.minuter} min</span>
+                        <span className="text-grafit">{t.namn}</span>
                       </li>
                     ))}
-                  </ul>
-                  <p className="mt-auto flex items-center gap-2 pt-7 font-semibold text-magenta-mork">
-                    Läs mer om {e.namn}
-                    <Pil className="size-5" />
-                  </p>
+                  </ol>
+                  <ol className="siffror relative mt-3 hidden h-11 text-sm sm:block">
+                    {tidslinje.map((t, i) => {
+                      const fore = tidslinje.slice(0, i).reduce((sum, x) => sum + x.minuter, 0);
+                      const sist = i === tidslinje.length - 1;
+                      return (
+                        <li
+                          key={t.namn}
+                          className={`absolute top-0 leading-snug whitespace-nowrap ${sist ? "right-0 text-right" : ""}`}
+                          style={sist ? undefined : { left: `${(fore / 110) * 100}%` }}
+                        >
+                          <span className="block font-semibold">{t.minuter} min</span>
+                          <span className="block text-grafit">{t.namn}</span>
+                        </li>
+                      );
+                    })}
+                  </ol>
                 </div>
-              </article>
-            ))}
+
+                <div className="mt-auto pt-8">
+                  <p className="text-lg font-semibold">{SLUTRAD}</p>
+                  <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
+                    <OffertKnapp galler="eHLR-Event (2 timmar)" className="self-start" />
+                    <RingEllerMejla />
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
-            <Link
-              href="/utbildningar/ehlr-och-eforstahjalpen"
-              className="grupp flex items-center justify-between gap-6 rounded-2xl border border-black/10 px-6 py-5 transition-colors hover:border-black/25 hover:bg-papper lg:px-9"
-            >
-              <span>
-                <span className="block text-lg font-semibold">Hellre digitalt? eHLR och eFörstaHjälpen</span>
-                <span className="block text-grafit">Lär er när det passar, öva på riktigt. Ett års access.</span>
-              </span>
-              <Pil className="size-6 shrink-0 text-magenta" />
-            </Link>
-            <Link
-              href="/utbildningar/kurser-pa-plats"
-              className="grupp flex items-center justify-between gap-6 rounded-2xl border border-black/10 px-6 py-5 transition-colors hover:border-black/25 hover:bg-papper lg:px-9"
-            >
-              <span>
-                <span className="block text-lg font-semibold">Hellre en klassisk kurs? Kurser på plats</span>
-                <span className="block text-grafit">HLR, första hjälpen och brand i små grupper.</span>
-              </span>
-              <Pil className="size-6 shrink-0 text-magenta" />
-            </Link>
-          </div>
+          <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-8 lg:gap-x-8">
+            {fler.map((f, i) => (
+              <li key={f.href} data-in="" style={{ ["--i" as string]: i % 2 }}>
+                <Link
+                  href={f.href}
+                  className="grupp flex h-full items-center justify-between gap-6 rounded-2xl border border-black/10 px-6 py-5 transition-colors hover:border-black/25 hover:bg-papper lg:px-9"
+                >
+                  <span>
+                    <span className="block text-lg font-semibold">{f.rubrik}</span>
+                    <span className="block text-grafit">{f.text}</span>
+                  </span>
+                  <Pil className="pil size-6 shrink-0 text-magenta" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* Reco-märket: på ett enda ställe, stort nog att faktiskt läsas. */}
       <section className="border-t border-black/10 bg-papper-djup">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 md:grid-cols-12 lg:px-8 lg:py-28">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5" data-in="vanster">
             <a
               href={foretag.reco}
               target="_blank"
@@ -195,7 +318,7 @@ export default function Startsida() {
               />
             </a>
           </div>
-          <div className="md:col-span-7">
+          <div className="md:col-span-7" data-in="hoger">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
               Rekommenderade av kursdeltagarna. Fem år i rad.
             </h2>
@@ -204,22 +327,22 @@ export default function Startsida() {
               rekommenderade fem år i rad.
             </p>
             <p className="mt-4 max-w-xl text-xl leading-relaxed text-grafit">
-              Och skulle ni inte bli nöjda gäller vår <strong className="font-semibold text-black">100 % nöjdhetsgaranti</strong>.
+              Och skulle ni inte bli nöjda gäller vår <strong className="font-semibold text-black">100 % nöjdhetsgaranti</strong>.
             </p>
             <p className="mt-8">
               <a href={foretag.reco} target="_blank" rel="noopener" className="textlank inline-flex items-center gap-2 text-lg no-underline">
                 <span className="underline decoration-magenta/35 underline-offset-[0.2em]">Läs omdömena på Reco.se</span>
-                <Pil className="size-5" />
+                <Pil className="pil size-5" />
               </a>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Monitorn: fyra slag, fyra steg. */}
+      {/* Monitorn: fyra slag, fyra steg, och en puls som går hela tiden. */}
       <section className="monitor-rutor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end" data-in="">
             <h2 className="max-w-2xl text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
               Fyra steg. Sen kan alla rädda liv.
             </h2>
@@ -228,14 +351,14 @@ export default function Startsida() {
               className="inline-flex items-center gap-2 font-semibold text-white underline decoration-white/30 underline-offset-[0.2em] hover:decoration-white"
             >
               Så går det till
-              <Pil className="size-5" />
+              <Pil className="pil size-5" />
             </Link>
           </div>
 
-          <Ekg slag={[0.125, 0.375, 0.625, 0.875]} hojd={96} tjocklek={2.5} className="mt-14 hidden md:block" tid={2.2} />
+          <Ekg live slag={[0.125, 0.375, 0.625, 0.875]} hojd={96} tjocklek={2.5} className="mt-14 hidden md:block" tid={2.2} />
           <ol className="mt-10 grid grid-cols-1 gap-10 md:mt-6 md:grid-cols-4 md:gap-6">
             {steg.map((s, i) => (
-              <li key={s.rubrik} className="md:text-center">
+              <li key={s.rubrik} className="md:text-center" data-in="" style={{ ["--i" as string]: i }}>
                 <h3 className="flex items-baseline gap-3 text-2xl font-bold md:justify-center">
                   <span className="siffror text-magenta-ljus">{i + 1}</span>
                   {s.rubrik}
@@ -247,55 +370,50 @@ export default function Startsida() {
         </div>
       </section>
 
-      {/* Varför det lönar sig för arbetsgivaren. */}
+      {/* Kunder enligt kundens underlag. Sätts i text tills loggorna finns som filer. */}
       <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-5">
-            <div>
-              <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
-                Effektivare när alla lär sig samtidigt.
-              </h2>
-              <p className="mt-5 text-xl text-grafit">
-                När alla utbildas samtidigt och på plats blir det enklare för er och tryggare för alla.
-              </p>
-              <div className="foto relative mt-10 aspect-[4/3]">
-                <Image
-                  src={bildHjartstartare}
-                  alt="Två kollegor övar HLR med träningshjärtstartare på kontorsgolvet"
-                  fill
-                  placeholder="blur"
-                  sizes="(min-width: 1024px) 480px, 100vw"
-                  className="object-cover"
-                />
-              </div>
+        <div className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8" data-in="">
+            <h2 className="max-w-3xl text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] font-bold">
+              Vi utbildar tusentals medarbetare – år efter år
+            </h2>
+          </div>
+          <Kundband className="mt-10 lg:mt-14" />
+        </div>
+      </section>
+
+      <Avslut live />
+
+      {/* Sista ordet: varför allt bygger på praktisk träning. */}
+      <section className="border-t border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
+          <div className="lg:col-span-6" data-in="vanster">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">Praktisk träning ger trygghet</h2>
+            <p className="mt-6 max-w-xl text-xl leading-relaxed text-grafit">
+              Praktisk träning är kärnan i våra utbildningar. Du tränar med en egen övningsdocka och en
+              träningshjärtstartare tills handgreppen sitter i muskelminnet. Då kan du agera snabbt och tryggt när det
+              verkligen gäller.
+            </p>
+            <p className="mt-8">
+              <PilLank href="/utbildningar" className="text-lg">
+                Välj rätt utbildning
+              </PilLank>
+            </p>
+          </div>
+          <div className="lg:col-span-6">
+            <div className="foto relative aspect-[4/3]" data-in="bild">
+              <Image
+                src={bildOvning}
+                alt="Två deltagare övar HLR med träningshjärtstartare på en övningsdocka"
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 580px, 100vw"
+                className="object-cover"
+              />
             </div>
           </div>
-          <ul className="divide-y divide-black/10 border-y border-black/10 self-center lg:col-span-7">
-            {skal.map(({ rubrik, text }) => (
-              <li key={rubrik} className="py-8 lg:py-10">
-                <h3 className="text-2xl font-bold lg:text-[2rem]">{rubrik}</h3>
-                <p className="mt-2 max-w-xl text-lg text-grafit">{text}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
-
-      {/* Kundnamn ur Livrustnings egna Facebookinlägg - FÖRSLAG, kräver kundens godkännande. */}
-      <section className="border-t border-black/10 bg-papper">
-        <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <h2 className="text-2xl font-bold lg:text-3xl">De har redan övat med oss.</h2>
-          <ul className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-            {kunder.map((k) => (
-              <li key={k} className="border-t border-black/10 py-5 text-[clamp(1.35rem,2.4vw,1.9rem)] font-semibold tracking-tight">
-                {k}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <Avslut />
     </>
   );
 }

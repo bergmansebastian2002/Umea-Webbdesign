@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Rorelse from "@/components/Rorelse";
 import { fontKlasser } from "@/lib/fonts";
 import { jsonLd, organisationSchema } from "@/lib/seo";
 import { foretag, indexera } from "@/lib/site";
@@ -33,8 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-screen">
         <Header />
-        <main id="innehall">{children}</main>
+        <main id="innehall" className="overflow-x-clip">{children}</main>
         <Footer />
+        <Rorelse />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organisationSchema())} />
       </body>
     </html>

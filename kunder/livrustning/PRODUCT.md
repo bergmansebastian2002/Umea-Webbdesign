@@ -16,7 +16,7 @@ Den som ansvarar för arbetsmiljö och säkerhet på ett företag eller en organ
 
 ## Product Purpose
 
-Livrustning AB utbildar i hjärt-lungräddning (HLR) med hjärtstartare, första hjälpen och brand. Sajtens jobb: få företag att höra av sig för offert. Framgång = fler mejl till kontakt@livrustning.se via "Kontakta oss"-knapparna.
+Livrustning (Nice To Be Alive AB) utbildar i hjärt-lungräddning (HLR) med hjärtstartare, första hjälpen och brand, och säljer sedan 2026-11-19 färdiga hjärtstartarpaket. Sajtens jobb: få företag att höra av sig för offert. Framgång = fler förfrågningar till info@nicetobealive.se via "Begär offert" och "Kontakta oss".
 
 ## Positioning
 
@@ -26,8 +26,8 @@ Livrustning AB utbildar i hjärt-lungräddning (HLR) med hjärtstartare, första
 
 ## Operating Context
 
-- Kunden mejlar för offert. "Kontakta oss" öppnar mejlprogrammet (mailto) med förifylld ämnesrad, precis som på nuvarande sajt. Inget formulär med server.
-- Pris lämnas alltid via offert baserat på antal deltagare; inga priser på sajten.
+- Kunden mejlar för offert. "Kontakta oss" öppnar mejlprogrammet (mailto) med förifylld ämnesrad. "Begär offert" leder till /offert, ett formulär (företagsnamn, namn, antal anställda, telefon, mejl) som öppnar mejlprogrammet med uppgifterna ifyllda. Ingen server: byts mot riktigt utskick först när en mejltjänst är kopplad.
+- Pris lämnas via offert baserat på antal deltagare. Enda priserna på sajten är instruktörsutbildningarna (kundens underlag 2026-11-19).
 
 ## Capabilities and Constraints
 
@@ -36,9 +36,12 @@ Tjänster (källa: kundens två PDF:er 2026-09-18 och nuvarande livrustning.se):
 - **eHLR-Event, 2 timmar**: gemensam start 50 min på storskärm med två instruktörer (eHLR-metoden, kunskapsfrågor), praktisk träning i grupper 2 × 25 min (HLR/hjärtstartare på dockor med LED-feedback, samt luftvägsstopp och medvetande/andning), avslutning 10 min. Digitalt slutprov via e-post efteråt, personligt utbildningsintyg + samlingsintyg till företaget. Obegränsat antal deltagare.
 - **eHLR® och eFörstaHjälpen**: digitalt lärande + praktisk träning via LED-docka och träningshjärtstartare, ett års full arbetsplatsaccess för repetition. Låg kostnad, individuellt eller i grupp, flera språk, klimatsmart.
 - **Traditionella kurser på plats**: max 12 personer för HLR och första hjälpen, 20 för brand. Följer gällande lagstiftning och Svenska HLR-rådets riktlinjer.
-- **Hjärtsäker zon (SS 280000)**: Livrustning hjälper med utbildning, rutiner, placering/skyltning och registrering. Livrustning säljer INTE fysiska hjärtstartare och ger ingen garanti (bekräftat av Sebbe 2026-09-18) - ingen hårdvara, inga garantilöften på sajten.
+- **Hjärtsäker zon (SS 280000)**: Livrustning hjälper med utbildning, rutiner, placering/skyltning och registrering.
+- **Köp hjärtstartare** (nytt 2026-11-19, ersätter beskedet från 2026-09-18 om att ingen hårdvara säljs): Primedic Y och Primedic MyPAD i fyra paket (kontor, utomhus, hemma, Spanien) med skylt, rescue-kit och digital utbildning. "10 års garanti" är kundens egen uppgift om Primedic. Data i `src/lib/hjartstartare.ts`.
+- **eHLR-Familj**: digital utbildning för hushållet, licens i 3 månader, betalas med Swish. Köplänk saknas ännu (knappen öppnar mejl).
+- **Instruktörsutbildningar** i samarbete med Brandfast AB: Vuxen-HLR 3 900 kr, Barn-HLR 3 900 kr, Första hjälpen 4 900 kr, Huvudinstruktör pris vid förfrågan (exkl. moms).
 
-Kontakt: Livrustning AB, Hökaren 49, 907 88 Täfteå · 070-733 32 54 (tel:+46707333254) · kontakt@livrustning.se · org.nr 556824-9022. Verksamhet i Stockholm, Umeå och Nerja (Spanien), utbildar över hela landet.
+Kontakt (kundens underlag 2026-11-19): Nice To Be Alive AB, Katarina Bangata 26, 116 39 Stockholm · 070-733 32 54 (tel:+46707333254) · info@nicetobealive.se · org.nr 559408-6547. Tidigare uppgifter (Livrustning AB, Täfteå, kontakt@livrustning.se) är utbytta. Verksamhet i Stockholm, Umeå och Nerja (Spanien), utbildar över hela landet.
 
 ## Brand Commitments
 
@@ -51,7 +54,7 @@ Kontakt: Livrustning AB, Hökaren 49, 907 88 Täfteå · 070-733 32 54 (tel:+467
 - Kursfoton från Livrustnings egen Facebooksida (riktiga utbildningstillfällen 2019-2022).
 - Reco.se: Sveriges nöjdaste kursdeltagare, "Rekommenderat 5 år i rad". Över 30 års erfarenhet, cirka 2 000 utbildade per år (nuvarande sajt).
 - 100 % nöjdhetsgaranti (nuvarande sajt).
-- Kundnamn från egna FB-inlägg (Handelsbanken, Svenska Filminstitutet, Spritmuseum, Armémuseum, Kraftringen, Tyska skolan) - visas som FÖRSLAG, kräver Peters godkännande innan publicering.
+- Kundlista enligt kundens underlag 2026-11-19: Handelsbanken, Atlas Copco, ATEA, Fastighetsbyrån, Svenska kyrkan, Hitachi, Stockholms stad, DB Schenker, Sturebadet, Folkbildningsrådet, Itrim. Kunden vill ha loggor; namnen står i text tills loggfilerna finns.
 - Inga kundcitat/omdömen i text finns - hitta inte på några.
 
 ## Product Principles
