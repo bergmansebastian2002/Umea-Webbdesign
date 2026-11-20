@@ -336,7 +336,7 @@ export default function Startsida() {
       </section>
 
       {/* Reco-märket: på ett enda ställe, stort nog att faktiskt läsas. */}
-      <section className="border-t border-black/10 bg-papper-djup">
+      <section className="border-t border-black/10 bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 md:grid-cols-12 lg:px-8 lg:py-28">
           <div className="md:col-span-5" data-in="vanster">
             <a
@@ -374,6 +374,18 @@ export default function Startsida() {
         </div>
       </section>
 
+      {/* Kunder enligt kundens underlag. Sätts i text tills loggorna finns som filer. */}
+      <section className="border-t border-black/10 bg-white">
+        <div className="py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8" data-in="">
+            <h2 className="max-w-3xl text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] font-bold">
+              Vi utbildar tusentals medarbetare – år efter år
+            </h2>
+          </div>
+          <Kundband className="mt-10 lg:mt-14" />
+        </div>
+      </section>
+
       {/* Monitorn: fyra slag, fyra steg, och en puls som går hela tiden. */}
       <section className="monitor-rutor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
@@ -405,25 +417,13 @@ export default function Startsida() {
         </div>
       </section>
 
-      {/* Kunder enligt kundens underlag. Sätts i text tills loggorna finns som filer. */}
-      <section className="bg-white">
-        <div className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8" data-in="">
-            <h2 className="max-w-3xl text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] font-bold">
-              Vi utbildar tusentals medarbetare – år efter år
-            </h2>
-          </div>
-          <Kundband className="mt-10 lg:mt-14" />
-        </div>
-      </section>
-
-      <Avslut live />
+      <Avslut live mork />
 
       {/* Sista ordet: varför allt bygger på praktisk träning. */}
       {/* Mörk final mot sidfoten: fotot fyller högra delen och tonar ut i
           bakgrunden, texten ligger i det mörka fältet till vänster. På mobil
           ligger fotot överst och tonar ned i texten. */}
-      <section className="relative isolate overflow-hidden border-b border-white/10 bg-monitor text-monitor-text">
+      <section className="relative isolate overflow-hidden border-y border-white/8 bg-monitor text-monitor-text">
         <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[57%]">
           <Image
             src={bildTraning}
