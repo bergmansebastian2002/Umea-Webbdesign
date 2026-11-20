@@ -6,7 +6,6 @@ import { metadataFor } from "@/lib/seo";
 import { amnen, foretag, mejl } from "@/lib/site";
 
 import bildGrupp from "@/bilder/grupp-dockor.webp";
-import bildOvning from "@/bilder/hlr-ovning.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
 import bildHero from "@/bilder/instruktorsutbildning-stor.webp";
 export const metadata = metadataFor({
@@ -20,8 +19,8 @@ const steg = [
   {
     rubrik: "Ni hör av er",
     text: "Mejla eller ring. Berätta ungefär hur många ni är, var ni finns och när det skulle passa.",
-    bild: bildOvning,
-    alt: "Två deltagare övar HLR med hjärtstartare på en docka",
+    bild: null,
+    alt: "",
   },
   {
     rubrik: "Ni får en offert",
@@ -108,19 +107,29 @@ export default function SaGarDetTill() {
                   {s.rubrik}
                 </h2>
                 <p className="mt-4 max-w-lg text-xl leading-relaxed text-grafit">{s.text}</p>
-                {i === 0 && (
-                  <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-lg">
-                    <a href={foretag.telefonHref} className="textlank siffror">{foretag.telefon}</a>
-                    <a href={mejl(amnen.allmant)} className="textlank">
-                      {foretag.epost}
-                    </a>
-                  </p>
-                )}
               </div>
               <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-1" : ""}`}>
                 {s.bild ? (
                   <div className="foto relative aspect-[4/3]">
                     <Image src={s.bild} alt={s.alt} fill placeholder="blur" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+                  </div>
+                ) : i === 0 ? (
+                  // Steg 1 utan foto: kontaktvägarna stort, på samma EKG-papper som offertrutan.
+                  <div className="ekg-papper flex aspect-[4/3] flex-col justify-center rounded-md border border-black/10 px-8">
+                    <p className="text-lg font-semibold">Ring eller mejla</p>
+                    <ul className="mt-4 space-y-2 text-2xl font-bold">
+                      <li>
+                        <a href={foretag.telefonHref} className="siffror hover:text-magenta-mork">
+                          {foretag.telefon}
+                        </a>
+                      </li>
+                      <li>
+                        <a href={mejl(amnen.allmant)} className="break-all hover:text-magenta-mork">
+                          {foretag.epost}
+                        </a>
+                      </li>
+                    </ul>
+                    <Ekg slag={[0.7]} hojd={56} className="mt-8" />
                   </div>
                 ) : (
                   <div className="ekg-papper flex aspect-[4/3] flex-col justify-center rounded-md border border-black/10 px-8">
