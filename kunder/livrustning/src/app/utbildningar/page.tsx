@@ -11,7 +11,7 @@ import bildFamilj from "@/bilder/hjartstartare-hemma.webp";
 import bildDigitalt from "@/bilder/hjartstartare-grupp.webp";
 import bildInstruktor from "@/bilder/instruktorsutbildning.webp";
 import bildSakerhetsdag from "@/bilder/sakerhetsdag-kollage.webp";
-import bildKurs from "@/bilder/traning-pa-plats-2.webp";
+import bildKurs from "@/bilder/traning-pa-plats-2-skarp.webp";
 
 export const metadata = metadataFor({
   titel: "Utbildningar i HLR, första hjälpen och brand",

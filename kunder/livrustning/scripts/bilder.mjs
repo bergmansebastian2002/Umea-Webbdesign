@@ -28,8 +28,6 @@ const FOTON = {
   "instruktor-klass": "instruktor-klass",
   "instruktor-portratt": "instruktor-portratt",
   "instruktor-skap": "instruktor-skap",
-  "traning-pa-plats-1": "traning-pa-plats-1",
-  "traning-pa-plats-2": "traning-pa-plats-2",
 };
 
 // Bilder som kunden levererat färdiga (2026-11-19): produktbilder, miljöbilder
@@ -44,6 +42,11 @@ const RENA = {
   "hjartstartare-spanien.jpg": "hjartstartare-spanien",
   "hjartstartarpaket-kontor.jpg": "hjartstartarpaket-kontor",
   "johnny-sundin.png": "johnny-sundin",
+  // Kundens två kursfoton (640 px breda), uppskalade 4x med Real-ESRGAN och
+  // efterbehandlade (ljus, färg, kontrast) 2026-11-20. Originalen ligger kvar
+  // som traning-pa-plats-1/2.jpg.
+  "traning-pa-plats-1-skarp.jpg": "traning-pa-plats-1-skarp",
+  "traning-pa-plats-2-skarp.jpg": "traning-pa-plats-2-skarp",
   "peter-jonsson.png": "peter-jonsson",
 };
 
