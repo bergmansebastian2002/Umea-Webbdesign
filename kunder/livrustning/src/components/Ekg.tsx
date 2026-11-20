@@ -8,7 +8,8 @@ import { useEffect, useId, useRef, useState } from "react";
  * med pathLength=1); utan JS eller med reduced motion visas den färdig.
  *
  * `slag` anger var hjärtslagen sitter, som andel av bredden (0-1).
- * `live` låter en puls svepa över kurvan hela tiden, som på en monitor.
+ * `live` (standard) låter en puls svepa längs kurvan från vänster till höger
+ * var tredje sekund, som på en monitor. Takten styrs av --ekg-takt i CSS.
  */
 type Props = {
   slag?: number[];
@@ -19,14 +20,13 @@ type Props = {
   puls?: boolean;
   /** Ritas direkt när sidan laddas i stället för när den scrollas in. */
   direkt?: boolean;
-  /** Levande kurva: ett slag sveper över linjen om och om igen. */
+  /** Levande kurva: ett slag sveper längs linjen var tredje sekund. */
   live?: boolean;
   tid?: number;
   className?: string;
 };
 
 const SLAGBREDD = 1.35; // slagets bredd i förhållande till höjden
-const SVEPFART = 300; // pixlar per sekund för den levande pulsen
 
 function kurva(bredd: number, hojd: number, slag: number[]) {
   const bas = hojd * 0.66;
@@ -69,7 +69,7 @@ export default function Ekg({
   farg = "var(--color-magenta)",
   puls = false,
   direkt = false,
-  live = false,
+  live = true,
   tid = 1.6,
   className = "",
 }: Props) {
@@ -117,7 +117,6 @@ export default function Ekg({
   }, [live]);
 
   const { d, bas } = bredd > 0 ? kurva(bredd, hojd, slag) : { d: "", bas: hojd * 0.66 };
-  const svep = Math.min(5.2, Math.max(2.6, bredd / SVEPFART));
   const linje = {
     d,
     pathLength: 1,
@@ -133,7 +132,7 @@ export default function Ekg({
           height={hojd}
           viewBox={`0 0 ${bredd} ${hojd}`}
           className="absolute inset-0 overflow-visible"
-          style={{ ["--ekg-tid" as string]: `${tid}s`, ["--ekg-svep" as string]: `${svep.toFixed(2)}s` }}
+          style={{ ["--ekg-tid" as string]: `${tid}s` }}
         >
           <path
             key={id + bredd}

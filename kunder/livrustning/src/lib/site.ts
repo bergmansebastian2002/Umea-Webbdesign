@@ -63,8 +63,10 @@ export type Utbildning = {
   namn: string;
   /** Namnet i menyn under Utbildningar. */
   menynamn: string;
-  /** Underrubriken i menyn. */
+  /** Ingressen under rubriken på Utbildningar-sidan. */
   pitch: string;
+  /** Kort text under namnet i Utbildningar-menyn (max två rader). */
+  menytext: string;
   href: string;
   amne: string;
   /** Länktexten på Utbildningar-sidan. */
@@ -78,7 +80,8 @@ export const utbildningar: Utbildning[] = [
   {
     slug: "sakerhetsdag",
     namn: "Säkerhetsdag (Halvdag)",
-    menynamn: "Säkerhetsdag (Halvdag)",
+    menynamn: "Säkerhetsdag",
+    menytext: "En halvdag för hela personalen med praktiska stationer i brand, HLR och Första hjälpen.",
     pitch: "Utbilda hela personalen effektivt genom praktiska stationer inom brand, HLR och Första hjälpen.",
     href: "/utbildningar/sakerhetsdag",
     amne: amnen.sakerhetsdag,
@@ -94,6 +97,7 @@ export const utbildningar: Utbildning[] = [
     slug: "kurser-pa-plats",
     namn: "Traditionella kurser på plats",
     menynamn: "Kurser på plats",
+    menytext: "Vuxen-HLR, Barn-HLR, Första hjälpen och brandskydd, anpassat efter er.",
     pitch: "Traditionella och anpassade kurser i vuxen-HLR, Barn-HLR, Första hjälpen och brandskydd.",
     href: "/utbildningar/kurser-pa-plats",
     amne: amnen.kurs,
@@ -109,7 +113,8 @@ export const utbildningar: Utbildning[] = [
   {
     slug: "ehlr-event",
     namn: "eHLR-Event",
-    menynamn: "eHLR-Event (2 timmar)",
+    menynamn: "eHLR-Event",
+    menytext: "HLR och hjärtstartare för hela personalen på två timmar, med praktisk träning.",
     pitch:
       "Ge hela personalstyrkan kunskap i HLR och hantering av hjärtstartare på bara två timmar inklusive praktisk träning.",
     href: "/utbildningar/ehlr-event",
@@ -126,6 +131,7 @@ export const utbildningar: Utbildning[] = [
     slug: "ehlr-och-eforstahjalpen",
     namn: "eHLR och eFörstaHjälpen (Digitalt + praktisk träning)",
     menynamn: "eHLR & eFörstaHjälpen",
+    menytext: "Digitalt med praktisk träning. Obegränsat antal medarbetare i 12 månader.",
     pitch:
       "Flexibelt digitalt lärande kombinerat med praktisk träning. Utbilda obegränsat antal medarbetare under 12 månader.",
     href: "/utbildningar/ehlr-och-eforstahjalpen",
@@ -143,6 +149,7 @@ export const utbildningar: Utbildning[] = [
     slug: "ehlr-familj",
     namn: "eHLR-Familj",
     menynamn: "eHLR-Familj",
+    menytext: "Digital HLR för hela familjen, för barn och vuxna. Med praktisk träning.",
     pitch:
       "Skydda dina närmaste med en digital utbildning med enkel praktisk träning för hela familjen. Alla vet då exakt vad man ska göra om ett barn eller en vuxen sätter i halsen eller drabbas av ett hjärtstopp.",
     href: "/utbildningar/ehlr-familj",
@@ -159,7 +166,8 @@ export const utbildningar: Utbildning[] = [
   {
     slug: "instruktorskurser",
     namn: "Instruktörsutbildningar",
-    menynamn: "Instruktörsutbildningar",
+    menynamn: "Instruktörsutbildning",
+    menytext: "Bli instruktör i HLR och Första hjälpen och lär ut till kollegor, elever eller medlemmar.",
     pitch:
       "Bli instruktör i HLR och Första hjälpen. Du får behörighet och kunskap som gör dig redo att lära ut HLR och öva dina kollegor, elever eller medlemmar.",
     href: "/utbildningar/instruktorskurser",
