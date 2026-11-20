@@ -6,7 +6,7 @@
 // samma gradering: lägre mättnad, matt svärta i bläckfärg och loggans magenta i
 // högdagrarna. Kör: npm run bilder
 import sharp from "sharp";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 
 const IN = "bilder";
 const OUT = "src/bilder";
@@ -97,6 +97,69 @@ async function ren(fil, utnamn) {
   console.log(`ren   ${utnamn}.webp  ${width}x${height}`);
 }
 
+// Kundloggor (startsidans kundband). Källor: nicetobealive.se (raster) och
+// Svenska kyrkans och Folkbildningsrådets egna webbplatser (SVG), 2026-11-20.
+// Alla görs om till en serie: beskurna, och omfärgade till bläckfärg på
+// genomskinlig botten. Färgade ytor blir bläck, vitt blir genomskinligt, så
+// t.ex. DB Schenkers vita "DB" och Svenska kyrkans kors blir urklipp.
+const KUNDLOGGOR = [
+  "handelsbanken.png",
+  "atlas-copco.png",
+  "atea.png",
+  "fastighetsbyran.png",
+  "svenska-kyrkan.svg",
+  "hitachi.png",
+  "stockholms-stad.png",
+  "db-schenker.png",
+  "sturebadet.png",
+  "folkbildningsradet.svg",
+  "itrim.png",
+];
+
+// Färger som måste bytas i SVG-källan innan omfärgningen, för att få loggans
+// egen svartvita form: vitt ordmärke blir svart, Svenska kyrkans kors klipps ur.
+const SVG_FARGER = {
+  "folkbildningsradet.svg": [["fill:#fff", "fill:#000"]],
+  "svenska-kyrkan.svg": [["fill: #cd0014", "fill: #fff"]],
+};
+// Loggor där tonerna ska bevaras (Fastighetsbyråns träd i den orange cirkeln).
+const MED_TONER = new Set(["fastighetsbyran.png"]);
+
+async function kundlogga(fil) {
+  const kalla = `${IN}/kunder/${fil}`;
+  const utnamn = fil.replace(/\.(png|svg)$/, "");
+  let indata = kalla;
+  if (fil.endsWith(".svg")) {
+    let svg = await readFile(kalla, "utf8");
+    for (const [fran, till] of SVG_FARGER[fil] ?? []) svg = svg.split(fran).join(till);
+    indata = Buffer.from(svg);
+  }
+  const platt = await sharp(indata, fil.endsWith(".svg") ? { density: 900 } : {})
+    .flatten({ background: "#ffffff" })
+    .resize({ height: 220, width: 900, fit: "inside", withoutEnlargement: !fil.endsWith(".svg") })
+    .trim({ background: "#ffffff", threshold: 12 })
+    .toBuffer();
+  const { data, info } = await sharp(platt).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const ut = Buffer.alloc(info.width * info.height * 4);
+  for (let i = 0, j = 0; i < data.length; i += 3, j += 4) {
+    // Avstånd från vitt: mörkaste kanalen avgör hur mycket bläck pixeln får,
+    // så att även färgade och grå ytor blir fullt bläck. Med toner används
+    // luminansen i stället, så att mönster i en färgad yta syns.
+    const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+    const tackning = MED_TONER.has(fil)
+      ? (255 - (0.2126 * r + 0.7152 * g + 0.0722 * b)) * 1.15
+      : (255 - Math.min(r, g, b) - 14) * 1.75;
+    ut[j] = INK.r;
+    ut[j + 1] = INK.g;
+    ut[j + 2] = INK.b;
+    ut[j + 3] = Math.max(0, Math.min(255, Math.round(tackning)));
+  }
+  await sharp(ut, { raw: { width: info.width, height: info.height, channels: 4 } })
+    .png({ compressionLevel: 9 })
+    .toFile(`${OUT}/kunder/${utnamn}.png`);
+  console.log(`logga ${utnamn}.png  ${info.width}x${info.height}`);
+}
+
 // Loggan finns bara med vitt ordmärke (för mörk botten). Ljus variant:
 // vita/grå pixlar blir bläckfärg, magenta figur och EKG-linje behålls.
 async function loggor() {
@@ -152,5 +215,7 @@ async function reco() {
 await mkdir(OUT, { recursive: true });
 for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
 for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
+await mkdir(`${OUT}/kunder`, { recursive: true });
+for (const fil of KUNDLOGGOR) await kundlogga(fil);
 await loggor();
 await reco();

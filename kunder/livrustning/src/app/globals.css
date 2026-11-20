@@ -275,8 +275,19 @@
 
   /* Kundnamnen rullar långsamt förbi; stannar när man pekar eller tabbar in. */
   .rullband {
+    --logga-skala: 0.72;
     overflow: hidden;
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  @media (min-width: 768px) {
+    .rullband {
+      --logga-skala: 0.86;
+    }
+  }
+  @media (min-width: 1024px) {
+    .rullband {
+      --logga-skala: 1;
+    }
   }
   .rullband-spar {
     display: flex;
@@ -475,12 +486,24 @@
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
+  /* Stilla läge: loggorna i ett centrerat rutnät med jämn luft. */
   .rullband-spar > ul {
     flex-wrap: wrap;
-    gap: 0.6rem 2.5rem;
+    justify-content: center;
+    row-gap: 1.25rem;
   }
-  .rullband-spar > ul svg {
-    display: none;
+  .rullband-spar .kundlogga {
+    min-height: 3rem;
+    padding-inline: 1.1rem;
+  }
+  @media (min-width: 1024px) {
+    .rullband-spar > ul {
+      row-gap: 2.25rem;
+    }
+    .rullband-spar .kundlogga {
+      min-height: 3.75rem;
+      padding-inline: 2.75rem;
+    }
   }
   .rullband-spar > ul[aria-hidden="true"] {
     display: none;
