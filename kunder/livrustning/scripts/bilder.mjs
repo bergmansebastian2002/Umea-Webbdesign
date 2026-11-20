@@ -108,6 +108,25 @@ async function ren(fil, utnamn) {
   console.log(`ren   ${utnamn}.webp  ${width}x${height}`);
 }
 
+// Startsidans två bildkort visar fotona stort. Originalen är bara 1024-1408 px
+// breda, vilket blir mjukt på skärmar med hög upplösning. Här skalas de upp
+// med Lanczos och skärps lätt en gång, så att webbläsaren slipper förstora dem.
+// Egna filnamn, så att originalen på övriga sidor inte påverkas.
+const STORA = {
+  "ehlr-event-sal.jpg": "ehlr-event-sal-stor",
+  "instruktorsutbildning.jpg": "instruktorsutbildning-stor",
+};
+
+async function stor(fil, utnamn) {
+  const { width, height } = await sharp(`${IN}/${fil}`)
+    .rotate()
+    .resize({ width: 2200, kernel: "lanczos3" })
+    .sharpen({ sigma: 0.7, m1: 0.6, m2: 1.4 })
+    .webp({ quality: 88 })
+    .toFile(`${OUT}/${utnamn}.webp`);
+  console.log(`stor  ${utnamn}.webp  ${width}x${height}`);
+}
+
 // Kundloggor (startsidans kundband). Källor: nicetobealive.se (raster) och
 // Svenska kyrkans och Folkbildningsrådets egna webbplatser (SVG), 2026-11-20.
 // Loggorna behåller sina egna färger. Den vita bakgrunden görs genomskinlig
@@ -229,6 +248,7 @@ async function reco() {
 await mkdir(OUT, { recursive: true });
 for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
 for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
+for (const [fil, utnamn] of Object.entries(STORA)) await stor(fil, utnamn);
 await praktiskTraning();
 await mkdir(`${OUT}/kunder`, { recursive: true });
 for (const fil of KUNDLOGGOR) await kundlogga(fil);
