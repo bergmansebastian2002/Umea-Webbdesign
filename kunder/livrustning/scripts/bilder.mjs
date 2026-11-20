@@ -6,7 +6,7 @@
 // samma gradering: lägre mättnad, matt svärta i bläckfärg och loggans magenta i
 // högdagrarna. Kör: npm run bilder
 import sharp from "sharp";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 
 const IN = "bilder";
 const OUT = "src/bilder";
@@ -28,6 +28,26 @@ const FOTON = {
   "instruktor-klass": "instruktor-klass",
   "instruktor-portratt": "instruktor-portratt",
   "instruktor-skap": "instruktor-skap",
+};
+
+// Bilder som kunden levererat färdiga (2026-11-19): produktbilder, miljöbilder
+// och porträtt. De graderas inte, eftersom hjärtstartarens och skyltarnas
+// färger ska vara korrekta. Bara skalning och webp.
+const RENA = {
+  "sakerhetsdag-kollage.jpg": "sakerhetsdag-kollage",
+  "ehlr-event-sal.jpg": "ehlr-event-sal",
+  "instruktorsutbildning.jpg": "instruktorsutbildning",
+  "hjartstartare-i-hand.jpg": "hjartstartare-i-hand",
+  "hjartstartare-hemma.jpg": "hjartstartare-hemma",
+  "hjartstartare-spanien.jpg": "hjartstartare-spanien",
+  "hjartstartarpaket-kontor.jpg": "hjartstartarpaket-kontor",
+  "johnny-sundin.png": "johnny-sundin",
+  // Kundens två kursfoton (640 px breda), uppskalade 4x med Real-ESRGAN och
+  // efterbehandlade (ljus, färg, kontrast) 2026-11-20. Originalen ligger kvar
+  // som traning-pa-plats-1/2.jpg.
+  "traning-pa-plats-1-skarp.jpg": "traning-pa-plats-1-skarp",
+  "traning-pa-plats-2-skarp.jpg": "traning-pa-plats-2-skarp",
+  "peter-jonsson.png": "peter-jonsson",
 };
 
 // Enstaka bilder som behöver mer ljus för att hänga med resten av serien.
@@ -69,6 +89,111 @@ async function tona(namn, utnamn) {
     .webp({ quality: 82 })
     .toFile(`${OUT}/${utnamn}.webp`);
   console.log(`foto  ${utnamn}.webp  ${width}x${height}  vitbalans ${faktor.map((f) => f.toFixed(2)).join("/")}`);
+}
+
+// Startsidans avslutande bild (2026-11-20): AI-förbättrad version av kursbilden
+// hlr-ovning, levererad som skiss med rubrik och text inbrända till vänster.
+// Bara den textfria högra delen används (nästan exakt 4:3). Ograderad.
+async function praktiskTraning() {
+  const { width, height } = await sharp(`${IN}/praktisk-traning-med-text.webp`)
+    .extract({ left: 880, top: 0, width: 1078, height: 803 })
+    .webp({ quality: 88 })
+    .toFile(`${OUT}/praktisk-traning.webp`);
+  console.log(`ren   praktisk-traning.webp  ${width}x${height}`);
+}
+
+async function ren(fil, utnamn) {
+  const { width, height } = await sharp(`${IN}/${fil}`)
+    .rotate()
+    .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 86 })
+    .toFile(`${OUT}/${utnamn}.webp`);
+  console.log(`ren   ${utnamn}.webp  ${width}x${height}`);
+}
+
+// Startsidans två bildkort visar fotona stort. Originalen är bara 1024-1408 px
+// breda, vilket blir mjukt på skärmar med hög upplösning. Här skalas de upp
+// med Lanczos och skärps lätt en gång, så att webbläsaren slipper förstora dem.
+// Egna filnamn, så att originalen på övriga sidor inte påverkas.
+const STORA = {
+  "ehlr-event-sal.jpg": "ehlr-event-sal-stor",
+  "instruktorsutbildning.jpg": "instruktorsutbildning-stor",
+};
+
+async function stor(fil, utnamn) {
+  const { width, height } = await sharp(`${IN}/${fil}`)
+    .rotate()
+    .resize({ width: 2200, kernel: "lanczos3" })
+    .sharpen({ sigma: 0.7, m1: 0.6, m2: 1.4 })
+    .webp({ quality: 88 })
+    .toFile(`${OUT}/${utnamn}.webp`);
+  console.log(`stor  ${utnamn}.webp  ${width}x${height}`);
+}
+
+// Kundloggor (startsidans kundband). Källor: nicetobealive.se (raster) och
+// Svenska kyrkans och Folkbildningsrådets egna webbplatser (SVG), 2026-11-20.
+// Loggorna behåller sina egna färger. Den vita bakgrunden görs genomskinlig
+// med "färg till alfa": varje pixel delas upp i loggans färg och en täckning,
+// så att kantutjämningen blir ren även mot det rosa papperet.
+const KUNDLOGGOR = [
+  "handelsbanken.png",
+  "atlas-copco.png",
+  "atea.png",
+  "fastighetsbyran.png",
+  "svenska-kyrkan.svg",
+  "hitachi.png",
+  "stockholms-stad.png",
+  "db-schenker.png",
+  "sturebadet.png",
+  "folkbildningsradet.svg",
+  "itrim.png",
+];
+
+// Folkbildningsrådets SVG är den vita versionen för deras mörka sidhuvud.
+// På ljus botten är ordmärket vinrött (#980048, ur deras egen logotypfil).
+const SVG_FARGER = {
+  "folkbildningsradet.svg": [["fill:#fff", "fill:#980048"]],
+};
+
+async function kundlogga(fil) {
+  const kalla = `${IN}/kunder/${fil}`;
+  const utnamn = fil.replace(/\.(png|svg)$/, "");
+
+  if (fil.endsWith(".svg")) {
+    // SVG har redan genomskinlig botten: rita, byt färger vid behov och beskär.
+    let svg = await readFile(kalla, "utf8");
+    for (const [fran, till] of SVG_FARGER[fil] ?? []) svg = svg.split(fran).join(till);
+    const ritad = await sharp(Buffer.from(svg), { density: 900 })
+      .resize({ height: 220, width: 900, fit: "inside" })
+      .png()
+      .toBuffer();
+    const info = await sharp(ritad).trim().png({ compressionLevel: 9 }).toFile(`${OUT}/kunder/${utnamn}.png`);
+    console.log(`logga ${utnamn}.png  ${info.width}x${info.height}`);
+    return;
+  }
+
+  const platt = await sharp(kalla)
+    .flatten({ background: "#ffffff" })
+    .trim({ background: "#ffffff", threshold: 12 })
+    .toBuffer();
+  const { data, info } = await sharp(platt).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const ut = Buffer.alloc(info.width * info.height * 4);
+  for (let i = 0, j = 0; i < data.length; i += 3, j += 4) {
+    const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+    // Täckning = hur långt från vitt den mest mättade kanalen ligger.
+    // Nästan vitt (brus i komprimeringen) blir helt genomskinligt.
+    const avstand = 255 - Math.min(r, g, b);
+    const a = avstand < 10 ? 0 : avstand / 255;
+    const farg = (c) => (a === 0 ? 255 : Math.max(0, Math.min(255, Math.round(255 - (255 - c) / a))));
+    ut[j] = farg(r);
+    ut[j + 1] = farg(g);
+    ut[j + 2] = farg(b);
+    ut[j + 3] = Math.round(a * 255);
+  }
+  await sharp(ut, { raw: { width: info.width, height: info.height, channels: 4 } })
+    .png({ compressionLevel: 9 })
+    .toFile(`${OUT}/kunder/${utnamn}.png`);
+  console.log(`logga ${utnamn}.png  ${info.width}x${info.height}`);
 }
 
 // Loggan finns bara med vitt ordmärke (för mörk botten). Ljus variant:
@@ -125,5 +250,10 @@ async function reco() {
 
 await mkdir(OUT, { recursive: true });
 for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
+for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
+for (const [fil, utnamn] of Object.entries(STORA)) await stor(fil, utnamn);
+await praktiskTraning();
+await mkdir(`${OUT}/kunder`, { recursive: true });
+for (const fil of KUNDLOGGOR) await kundlogga(fil);
 await loggor();
 await reco();

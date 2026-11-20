@@ -8,7 +8,7 @@ export const metadata = metadataFor({
   sokvag: "/integritetspolicy",
 });
 
-// Skriven för den nya sajten (inga kakor, inga formulär). FÖRSLAG: ska granskas av Livrustning före publicering.
+// Skriven för den nya sajten (inga kakor; offertformuläret öppnar bara mejlprogrammet). FÖRSLAG: ska granskas av Livrustning före publicering.
 export default function Integritetspolicy() {
   return (
     <Policysida
@@ -27,9 +27,9 @@ export default function Integritetspolicy() {
 
       <h2>Webbplatsen</h2>
       <p>
-        Webbplatsen använder inga kakor för spårning eller marknadsföring och har inga formulär. När du klickar på en
-        knapp eller en adress för att mejla oss öppnas ditt eget mejlprogram, och det är först när du skickar mejlet
-        som vi får dina uppgifter.
+        Webbplatsen använder inga kakor för spårning eller marknadsföring och sparar inga uppgifter om dig. När du
+        klickar på en knapp eller en adress för att mejla oss, eller fyller i offertformuläret, öppnas ditt eget
+        mejlprogram med uppgifterna ifyllda. Det är först när du skickar mejlet som vi får dina uppgifter.
       </p>
 
       <h2>Vilka uppgifter vi behandlar</h2>
