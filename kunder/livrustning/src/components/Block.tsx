@@ -40,16 +40,20 @@ export function OffertKnapp({
 }
 
 /** "Eller ring oss direkt ... Mejla ..." under en offertknapp. */
-export function RingEllerMejla({ className = "" }: { className?: string }) {
+export function RingEllerMejla({ className = "", mork = false }: { className?: string; mork?: boolean }) {
+  // På mörk botten: vit länktext med magenta understrykning (mörk magenta klarar inte kontrasten där).
+  const lank = mork
+    ? "font-semibold text-white underline decoration-magenta underline-offset-[0.2em] hover:decoration-white"
+    : "textlank";
   return (
-    <p className={`text-grafit ${className}`}>
+    <p className={`${mork ? "text-monitor-dampad" : "text-grafit"} ${className}`}>
       Eller ring oss direkt:{" "}
-      <a href={foretag.telefonHref} className="textlank siffror whitespace-nowrap">
+      <a href={foretag.telefonHref} className={`${lank} siffror whitespace-nowrap`}>
         {foretag.telefon}
       </a>
       <br />
       Mejla:{" "}
-      <a href={`mailto:${foretag.epost}`} className="textlank">
+      <a href={`mailto:${foretag.epost}`} className={lank}>
         {foretag.epost}
       </a>
     </p>
