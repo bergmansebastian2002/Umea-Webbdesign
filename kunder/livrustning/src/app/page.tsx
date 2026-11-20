@@ -9,7 +9,7 @@ import { metadataFor } from "@/lib/seo";
 import { foretag } from "@/lib/site";
 
 import bildEvent from "@/bilder/ehlr-event-sal.webp";
-import bildDigitalt from "@/bilder/hjartstartare-grupp.webp";
+import bildInstruktor from "@/bilder/instruktorsutbildning.webp";
 import bildOvning from "@/bilder/hlr-ovning.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
 
@@ -143,8 +143,8 @@ export default function Startsida() {
             >
               <div className="relative aspect-[3/2] overflow-hidden" data-in="bild">
                 <Image
-                  src={bildDigitalt}
-                  alt="Kollegor övar med träningshjärtstartare och övningsdocka på arbetsplatsen"
+                  src={bildInstruktor}
+                  alt="Instruktör visar hjärtkompressioner på en övningsdocka medan kollegor tittar på"
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, 100vw"
