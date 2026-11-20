@@ -146,3 +146,54 @@ export function Instagram({ className = "" }: P) {
     </svg>
   );
 }
+
+export function Skarm({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <rect x="3" y="4.5" width="18" height="11.5" rx="1.5" />
+      <path d="M8.5 20h7M12 16v4" />
+    </svg>
+  );
+}
+
+export function Bock({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <path d="m5 12.5 4.5 4.5L19 7.5" />
+    </svg>
+  );
+}
+
+export function Hus({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <path d="M4 11.5 12 4l8 7.5V20H4Z" />
+      <path d="M9.5 20v-5.5h5V20" />
+    </svg>
+  );
+}
+
+export function Skold({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <path d="M12 3 5 5.8v5.6c0 4.3 2.9 8 7 9.6 4.1-1.600 7-5.300 7-9.600V5.8Z" />
+    </svg>
+  );
+}
+
+export function Sprak({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M3.5 12h17M12 3.500c2.400 2.300 3.600 5.100 3.600 8.500S14.400 18.200 12 20.500c-2.400-2.300-3.600-5.100-3.600-8.500S9.600 5.800 12 3.500Z" />
+    </svg>
+  );
+}
+
+export function Droppe({ className = "" }: P) {
+  return (
+    <svg {...bas} className={className}>
+      <path d="M12 3.500s6 6.200 6 10.500a6 6 0 0 1-12 0c0-4.300 6-10.500 6-10.500Z" />
+    </svg>
+  );
+}

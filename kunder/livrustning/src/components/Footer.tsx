@@ -42,7 +42,7 @@ export default function Footer() {
               {utbildningar.map((u) => (
                 <li key={u.href}>
                   <Link href={u.href} className="inline-flex min-h-10 items-center hover:text-white hover:underline">
-                    {u.namn}
+                    {u.menynamn}
                   </Link>
                 </li>
               ))}
@@ -53,10 +53,12 @@ export default function Footer() {
             <h2 className="text-sm font-semibold text-monitor-dampad">Livrustning</h2>
             <ul className="mt-4 space-y-1">
               {[
+                ["Köp hjärtstartare", "/kop-hjartstartare"],
                 ["Så går det till", "/sa-gar-det-till"],
                 ["Hjärtsäker zon", "/hjartsaker-zon"],
                 ["Om oss", "/om-oss"],
                 ["Kontakt", "/kontakt"],
+                ["Begär offert", "/offert"],
               ].map(([namn, href]) => (
                 <li key={href}>
                   <Link href={href} className="inline-flex min-h-10 items-center hover:text-white hover:underline">
@@ -86,7 +88,9 @@ export default function Footer() {
             <address className="mt-4 text-monitor-dampad not-italic">
               {foretag.juridisktNamn}
               <br />
-              {foretag.gata}, {foretag.postnummer} {foretag.ort}
+              {foretag.gata}
+              <br />
+              <span className="siffror">{foretag.postnummer}</span> {foretag.ort}
               <br />
               <span className="siffror">Org.nr {foretag.orgnr}</span>
             </address>

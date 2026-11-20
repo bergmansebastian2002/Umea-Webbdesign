@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import Ekg from "@/components/Ekg";
 import { Pil, Telefon } from "@/components/Ikoner";
-import { amnen, foretag, mejl } from "@/lib/site";
+import { amnen, foretag, mejl, offert } from "@/lib/site";
 
 /** Magenta Kontakta oss-knapp som öppnar mejlet med rätt ämnesrad. */
 export function KontaktKnapp({
@@ -19,6 +19,40 @@ export function KontaktKnapp({
     <a href={mejl(amne)} className={`knapp knapp-primar ${className}`}>
       {children}
     </a>
+  );
+}
+
+/** Begär offert: leder till offertformuläret, förifyllt med vad det gäller. */
+export function OffertKnapp({
+  galler,
+  children = "Begär offert",
+  className = "",
+}: {
+  galler?: string;
+  children?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link href={offert(galler)} className={`knapp knapp-primar ${className}`}>
+      {children}
+    </Link>
+  );
+}
+
+/** "Eller ring oss direkt ... Mejla ..." under en offertknapp. */
+export function RingEllerMejla({ className = "" }: { className?: string }) {
+  return (
+    <p className={`text-grafit ${className}`}>
+      Eller ring oss direkt:{" "}
+      <a href={foretag.telefonHref} className="textlank siffror whitespace-nowrap">
+        {foretag.telefon}
+      </a>
+      <br />
+      Mejla:{" "}
+      <a href={`mailto:${foretag.epost}`} className="textlank">
+        {foretag.epost}
+      </a>
+    </p>
   );
 }
 
@@ -80,41 +114,112 @@ export function Sidrubrik({
             </ol>
           </nav>
         )}
-        <h1 className="max-w-4xl text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] font-bold">{rubrik}</h1>
-        <div className="mt-6 max-w-2xl text-xl leading-relaxed text-grafit lg:text-[1.375rem]">{ingress}</div>
+        <h1 className="intro max-w-4xl text-[clamp(2.4rem,6vw,4.75rem)] leading-[0.98] font-bold">{rubrik}</h1>
+        <div
+          className="intro mt-6 max-w-2xl text-xl leading-relaxed text-grafit lg:text-[1.375rem]"
+          style={{ ["--i" as string]: 1 }}
+        >
+          {ingress}
+        </div>
         {children}
       </div>
     </section>
   );
 }
 
-/** Avslutande uppmaning, samma på alla sidor: kurvan slutar i knappen. */
+/**
+ * Passar för / Upplägg / Fördel: samma tre svar för varje utbildning,
+ * med kundens egna formuleringar.
+ */
+export function Korthet({
+  passar,
+  upplagg,
+  fordel,
+  staplad = false,
+  className = "",
+}: {
+  passar: string;
+  upplagg: string;
+  fordel: string;
+  /** Etiketten ovanför texten i stället för bredvid (smala spalter). */
+  staplad?: boolean;
+  className?: string;
+}) {
+  const rader = [
+    ["Passar för", passar],
+    ["Upplägg", upplagg],
+    ["Fördel", fordel],
+  ];
+  return (
+    <dl className={`divide-y divide-black/10 border-y border-black/10 ${className}`}>
+      {rader.map(([etikett, text]) => (
+        <div key={etikett} className={`grid grid-cols-1 gap-x-6 gap-y-1 py-4 ${staplad ? "" : "sm:grid-cols-[7.5rem_1fr]"}`}>
+          <dt className="font-semibold">{etikett}</dt>
+          <dd className="text-grafit">{text}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/** Passar för / Upplägg / Fördel som eget band överst på en utbildningssida. */
+export function KorthetBand({
+  rubrik,
+  korthet,
+}: {
+  rubrik: string;
+  korthet: { passar: string; upplagg: string; fordel: string };
+}) {
+  return (
+    <section className="border-b border-black/10 bg-white">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 py-14 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-20">
+        <h2 className="text-3xl leading-tight font-bold lg:col-span-4 lg:text-[2.25rem]" data-in="">
+          {rubrik}
+        </h2>
+        <div className="lg:col-span-8" data-in="" style={{ ["--i" as string]: 1 }}>
+          <Korthet {...korthet} className="text-lg" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Avslutande uppmaning, samma på alla sidor: kurvan slutar i kontaktuppgifterna. */
 export function Avslut({
-  rubrik = "Hur många ska kunna rädda liv hos er?",
-  text = "Berätta hur många ni är, var ni finns och när det passar. Då skickar vi en offert.",
+  rubrik = "Hur många hos er har aktuella kunskaper för att rädda liv?",
+  text = "Mejla eller ring och berätta vilken utbildning ni är intresserad av, var ni finns och ungefär hur många ni är.",
+  live = false,
+  galler,
 }: {
   rubrik?: string;
   text?: string;
+  /** Levande puls på kurvan (startsidan). */
+  live?: boolean;
+  /** Visar en Begär offert-knapp som leder till formuläret. */
+  galler?: string;
 }) {
   return (
     <section className="ekg-papper border-t border-black/10">
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl" data-in="">
           <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">{rubrik}</h2>
           <p className="mt-5 max-w-xl text-xl text-grafit">{text}</p>
         </div>
-        <Ekg puls slag={[0.3, 0.75]} hojd={72} className="mt-10 max-w-4xl" />
-        <p className="mt-8 text-xl text-grafit">
-          Mejla{" "}
-          <a href={`mailto:${foretag.epost}`} className="textlank">
-            {foretag.epost}
-          </a>{" "}
-          eller ring{" "}
-          <a href={foretag.telefonHref} className="textlank siffror inline-flex items-center gap-1.5">
-            <Telefon className="size-5" />
-            {foretag.telefon}
-          </a>
-        </p>
+        <Ekg puls live={live} slag={[0.3, 0.75]} hojd={72} className="mt-10 max-w-4xl" />
+        <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:gap-10" data-in="">
+          {galler && <OffertKnapp galler={galler} className="self-start" />}
+          <p className="text-xl text-grafit">
+            Mejla{" "}
+            <a href={`mailto:${foretag.epost}`} className="textlank">
+              {foretag.epost}
+            </a>{" "}
+            eller ring{" "}
+            <a href={foretag.telefonHref} className="textlank siffror inline-flex items-center gap-1.5 whitespace-nowrap">
+              <Telefon className="size-5" />
+              {foretag.telefon}
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -125,7 +230,7 @@ export function PilLank({ href, children, className = "" }: { href: string; chil
   return (
     <Link href={href} className={`textlank inline-flex items-center gap-2 no-underline ${className}`}>
       <span className="underline decoration-magenta/35 underline-offset-[0.2em] hover:decoration-current">{children}</span>
-      <Pil className="size-5" />
+      <Pil className="size-5 shrink-0" />
     </Link>
   );
 }

@@ -156,6 +156,202 @@
     }
   }
 
+  /*
+   * Levande kurva (startsidan): baslinjen ligger kvar som en svag efterglöd
+   * och ett slag sveper över den, om och om igen, som på en monitor.
+   * Tre lager med olika långa streck ger en svans som tonar ut bakåt.
+   */
+  .ekg-live path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: var(--l) calc(1 - var(--l));
+    stroke-dashoffset: var(--l);
+    animation: ekg-svep var(--ekg-svep, 4s) linear infinite;
+    animation-play-state: paused;
+  }
+  .ekg-live[data-aktiv="ja"] path,
+  .ekg-kurva[data-live] ~ .ekg-live[data-aktiv="ja"] ~ .ekg-prick {
+    animation-play-state: running;
+  }
+  .ekg-svans-lang {
+    --l: 0.42;
+    opacity: 0.3;
+  }
+  .ekg-svans-kort {
+    --l: 0.2;
+    opacity: 0.45;
+  }
+  .ekg-huvud {
+    --l: 0.045;
+    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--color-magenta) 75%, transparent));
+  }
+  .ekg-kurva[data-live] {
+    opacity: 0.4;
+  }
+  /* Ringen slår en gång per svep, precis när slaget når fram. */
+  .ekg-kurva[data-live] ~ .ekg-live ~ .ekg-prick {
+    animation: ekg-puls-live var(--ekg-svep, 4s) ease-out infinite;
+    animation-play-state: paused;
+  }
+  @keyframes ekg-puls-live {
+    0% {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+    32%,
+    100% {
+      opacity: 0;
+      transform: scale(3.4);
+    }
+  }
+  @keyframes ekg-svep {
+    from {
+      stroke-dashoffset: var(--l);
+    }
+    to {
+      stroke-dashoffset: calc(var(--l) - 1);
+    }
+  }
+
+  /*
+   * Scrollrörelse. Allt är synligt som standard; först när Rorelse-komponenten
+   * satt .rorelse på <html> göms det som ännu inte scrollats fram. Går något
+   * fel med skriptet syns alltså hela sidan, bara utan rörelse.
+   */
+  [data-in] {
+    transition:
+      opacity 0.7s var(--ease-ut),
+      transform 0.9s var(--ease-ut),
+      clip-path 1.1s var(--ease-ut);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .rorelse [data-in]:not(.inne) {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  .rorelse [data-in="vanster"]:not(.inne) {
+    transform: translateX(-2.25rem);
+  }
+  .rorelse [data-in="hoger"]:not(.inne) {
+    transform: translateX(2.25rem);
+  }
+  /* Foton dras fram nedifrån och upp, medan bilden sätter sig. */
+  [data-in="bild"] {
+    clip-path: inset(-2.5rem);
+  }
+  [data-in="bild"] img {
+    transition: transform 1.4s var(--ease-ut);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .rorelse [data-in="bild"]:not(.inne) {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(100% 0 0 0);
+  }
+  .rorelse [data-in="bild"]:not(.inne) img {
+    transform: scale(1.12);
+  }
+  /* Staplar som växer ut från vänster (tidslinjer). */
+  .rorelse [data-in="vax"]:not(.inne) {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  [data-in="vax"] {
+    transform-origin: left center;
+  }
+
+  /* Första vyn: rubriken och ingressen lyfter in när sidan laddas (ren CSS). */
+  .intro {
+    animation: intro 0.9s var(--ease-ut) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+  @keyframes intro {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+  }
+
+  /* Kundnamnen rullar långsamt förbi; stannar när man pekar eller tabbar in. */
+  .rullband {
+    --logga-skala: 0.72;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  @media (min-width: 768px) {
+    .rullband {
+      --logga-skala: 0.86;
+    }
+  }
+  @media (min-width: 1024px) {
+    .rullband {
+      --logga-skala: 1;
+    }
+  }
+  .rullband-spar {
+    display: flex;
+    width: max-content;
+    animation: rullband 46s linear infinite;
+  }
+  .rullband:hover .rullband-spar,
+  .rullband:focus-within .rullband-spar {
+    animation-play-state: paused;
+  }
+  @keyframes rullband {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Formulärfält: bläcklinje på papper, magenta när fältet är aktivt. */
+  .falt {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.7rem 0.95rem;
+    border-radius: 12px;
+    border: 1.5px solid color-mix(in srgb, var(--color-black) 22%, transparent);
+    background: #fff;
+    font: inherit;
+    color: var(--color-black);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .falt::placeholder {
+    color: #6f6873;
+  }
+  .falt:hover {
+    border-color: color-mix(in srgb, var(--color-black) 45%, transparent);
+  }
+  .falt:focus-visible {
+    outline: none;
+    border-color: var(--color-magenta);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-magenta) 18%, transparent);
+  }
+  .falt[aria-invalid="true"] {
+    border-color: var(--color-magenta-mork);
+  }
+
+  /* Kort som lyfter en aning när man pekar på dem. */
+  .lyft {
+    transition:
+      transform 0.5s var(--ease-ut),
+      box-shadow 0.5s var(--ease-ut),
+      border-color 0.3s ease;
+  }
+  .lyft:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px -28px rgb(23 21 26 / 0.45);
+  }
+  .lyft .zoom {
+    transition: transform 1.2s var(--ease-ut);
+  }
+  .lyft:hover .zoom {
+    transform: scale(1.04);
+  }
+
   .knapp {
     display: inline-flex;
     align-items: center;
@@ -242,5 +438,77 @@
   }
   .js .ekg-kurva[data-rita] {
     stroke-dashoffset: 0;
+  }
+  /*
+   * Minskad rörelse betyder mindre rörelse, inte ingen. Windows-inställningen
+   * "Animeringseffekter: av" räcker för att webbläsaren ska be om det, och den
+   * är vanlig även hos besökare som bara vill ha ett rappare skrivbord.
+   *
+   * - Den levande pulsen går kvar: en tunn linje som ljusnar, ingen yta som rör sig.
+   * - Scrollrörelsen blir en ren intoning, utan förflyttning, svep eller zoom.
+   * - Rullbandet med kundnamn står still (se nedan).
+   */
+  .ekg-live path,
+  .ekg-kurva[data-live] ~ .ekg-live ~ .ekg-prick {
+    animation-duration: var(--ekg-svep, 4s) !important;
+    animation-iteration-count: infinite !important;
+  }
+  [data-in],
+  [data-in="bild"] img {
+    transition-property: opacity !important;
+    transition-duration: 0.6s !important;
+  }
+  .rorelse [data-in]:not(.inne),
+  .rorelse [data-in="bild"]:not(.inne),
+  .rorelse [data-in="vax"]:not(.inne) {
+    opacity: 0;
+    transform: none;
+    clip-path: inset(-2.5rem);
+  }
+  .rorelse [data-in="bild"]:not(.inne) img {
+    transform: none;
+  }
+  .intro {
+    animation-name: intro-ton;
+    animation-duration: 0.6s !important;
+  }
+  @keyframes intro-ton {
+    from {
+      opacity: 0;
+    }
+  }
+  /* Rullbandet står still: namnen radbryts i stället och kopian göms. */
+  .rullband-spar {
+    animation: none;
+    display: block;
+    width: auto;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  /* Stilla läge: loggorna i ett centrerat rutnät med jämn luft. */
+  .rullband-spar > ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.25rem;
+  }
+  .rullband-spar .kundlogga {
+    min-height: 3rem;
+    padding-inline: 1.1rem;
+  }
+  @media (min-width: 1024px) {
+    .rullband-spar > ul {
+      row-gap: 2.25rem;
+    }
+    .rullband-spar .kundlogga {
+      min-height: 3.75rem;
+      padding-inline: 2.75rem;
+    }
+  }
+  .rullband-spar > ul[aria-hidden="true"] {
+    display: none;
+  }
+  .rullband {
+    mask-image: none;
   }
 }
