@@ -184,24 +184,25 @@ function Bildkort({
 export default function Startsida() {
   return (
     <>
-      {/* Första vyn: rubriken bär sidan och den levande kurvan löper över hela bredden. */}
-      <section className="ekg-papper ekg-papper-tonad">
+      {/* Första vyn, "Monitor natt": en hjärtmonitor i mörker. Rubriken bär sidan
+          och den levande kurvan lyser över hela bredden. */}
+      <section className="monitor-hero text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 pt-14 pb-14 lg:px-8 lg:pt-24 lg:pb-20">
           <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-end lg:gap-12">
-            <h1 className="intro text-[clamp(2.5rem,5.7vw,5.25rem)] leading-[0.97] font-bold tracking-[-0.035em] lg:col-span-8">
+            <h1 className="intro text-[clamp(2.5rem,5.7vw,5.25rem)] leading-[0.97] font-bold tracking-[-0.035em] text-white lg:col-span-8">
               Vi gör alla till varandras livförsäkring
             </h1>
             <p
-              className="intro max-w-md text-xl leading-relaxed text-grafit lg:col-span-4 lg:pb-2 lg:text-[1.375rem] lg:leading-relaxed"
+              className="intro max-w-md text-xl leading-relaxed text-monitor-dampad lg:col-span-4 lg:pb-2 lg:text-[1.375rem] lg:leading-relaxed"
               style={{ ["--i" as string]: 1 }}
             >
               HLR, första hjälpen och brandskydd – på plats, digitalt eller via smidiga hybridlösningar.
             </p>
           </div>
-          <Ekg direkt live puls slag={[0.3, 0.8]} hojd={56} className="mt-10 lg:hidden" />
-          <Ekg direkt live puls slag={[0.18, 0.52, 0.86]} hojd={88} className="mt-16 hidden lg:block" />
+          <Ekg direkt live puls slag={[0.3, 0.8]} hojd={56} className="ekg-monitor mt-10 lg:hidden" />
+          <Ekg direkt live puls slag={[0.18, 0.52, 0.86]} hojd={88} className="ekg-monitor mt-16 hidden lg:block" />
           <p className="intro mt-8 lg:mt-10" style={{ ["--i" as string]: 3 }}>
-            <PilLank href="/utbildningar" className="text-lg">
+            <PilLank href="/utbildningar" className="text-lg text-white [&>span]:decoration-magenta [&>svg]:text-magenta-ljus">
               Se alla utbildningar
             </PilLank>
           </p>

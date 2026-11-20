@@ -14,6 +14,8 @@ function aktiv(pathname: string, href: string) {
 
 export default function Header() {
   const pathname = usePathname();
+  // Startsidans första vy är mörk (Monitor natt), så sidhuvudet följer med där.
+  const mork = pathname === "/";
   const [oppen, setOppen] = useState(false);
   const knapp = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -38,7 +40,11 @@ export default function Header() {
   }, [oppen]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-papper">
+    <header
+      className={`sticky top-0 z-40 border-b ${
+        mork ? "sidhuvud-mork border-white/8 bg-monitor text-monitor-text" : "border-black/10 bg-papper"
+      }`}
+    >
       <a
         href="#innehall"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-black focus:px-4 focus:py-2 focus:text-papper"
@@ -46,7 +52,7 @@ export default function Header() {
         Hoppa till innehållet
       </a>
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 lg:h-20 lg:px-8 xl:gap-5">
-        <Logo className="w-40 lg:w-44 2xl:w-48" prioritet />
+        <Logo botten={mork ? "mork" : "ljus"} className="w-40 lg:w-44 2xl:w-48" prioritet />
 
         <nav aria-label="Huvudmeny" className="hidden xl:block">
           <ul className="flex items-center gap-1">
@@ -64,7 +70,7 @@ export default function Header() {
                     <Nedat className="size-4 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
                   </Link>
                   <div className="invisible absolute top-full left-0 pt-2 opacity-0 transition-[opacity,translate] duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 translate-y-1 group-hover:translate-y-0 group-focus-within:translate-y-0">
-                    <ul className="grid w-[46rem] grid-cols-2 gap-1 rounded-2xl border border-black/10 bg-white p-2.5 shadow-[0_24px_48px_-24px_rgb(23_21_26/0.4)]">
+                    <ul className="grid w-[46rem] grid-cols-2 gap-1 rounded-2xl border border-black/10 bg-white p-2.5 text-black shadow-[0_24px_48px_-24px_rgb(23_21_26/0.4)]">
                       {punkt.barn.map((u) => (
                         <li key={u.href}>
                           <Link
@@ -105,7 +111,7 @@ export default function Header() {
             className="siffror flex min-h-11 items-center justify-center gap-2 px-3 font-medium hover:text-magenta-mork 2xl:px-0"
           >
             <Telefon className="size-5" />
-            <span className="hidden 2xl:inline">{foretag.telefon}</span>
+            <span className="hidden whitespace-nowrap 2xl:inline">{foretag.telefon}</span>
             <span className="sr-only 2xl:hidden">Ring {foretag.telefon}</span>
           </a>
           <a href={mejl(amnen.allmant)} className="knapp knapp-primar min-h-11 px-5">
@@ -130,7 +136,7 @@ export default function Header() {
         <div
           id="mobilmeny"
           ref={panel}
-          className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/10 bg-papper lg:h-[calc(100dvh-5rem)] xl:hidden"
+          className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/10 bg-papper text-black lg:h-[calc(100dvh-5rem)] xl:hidden"
         >
           <nav
             aria-label="Mobilmeny"
