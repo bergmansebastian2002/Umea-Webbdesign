@@ -5,8 +5,8 @@ import { Avslut, KorthetBand, OffertKnapp, Sidrubrik } from "@/components/Block"
 import { jsonLd, kursSchema, metadataFor } from "@/lib/seo";
 import { utbildning } from "@/lib/site";
 
-import bildTraning1 from "@/bilder/traning-pa-plats-1.webp";
-import bildTraning2 from "@/bilder/traning-pa-plats-2.webp";
+import bildTraning1 from "@/bilder/traning-pa-plats-1-skarp.webp";
+import bildTraning2 from "@/bilder/traning-pa-plats-2-skarp.webp";
 
 const u = utbildning("kurser-pa-plats");
 

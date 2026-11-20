@@ -8,7 +8,7 @@ import { amnen, foretag, mejl } from "@/lib/site";
 import bildGrupp from "@/bilder/grupp-dockor.webp";
 import bildOvning from "@/bilder/hlr-ovning.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
-import bildHero from "@/bilder/hjartstartare-par.webp";
+import bildHero from "@/bilder/instruktorsutbildning-stor.webp";
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
   beskrivning:
@@ -86,12 +86,12 @@ export default function SaGarDetTill() {
             <div className="foto relative aspect-[4/5]">
               <Image
                 src={bildHero}
-                alt="Två kollegor övar HLR med träningshjärtstartare och docka"
+                alt="Instruktör visar hjärtkompressioner på en övningsdocka medan kollegor tittar på"
                 fill
                 priority
                 placeholder="blur"
                 sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
-                className="object-cover object-[50%_60%]"
+                className="object-cover object-[36%_50%]"
               />
             </div>
           </div>

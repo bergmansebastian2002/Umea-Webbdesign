@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Avslut, KorthetBand, OffertKnapp, Sidrubrik } from "@/components/Block";
@@ -6,8 +5,6 @@ import { Pil, Slag } from "@/components/Ikoner";
 import { jsonLd, kursSchema, metadataFor } from "@/lib/seo";
 import { utbildning } from "@/lib/site";
 
-import bildHjartstartare from "@/bilder/hjartstartare-par.webp";
-import bildKontor from "@/bilder/hlr-hjartstartare-kontor.webp";
 
 const u = utbildning("ehlr-och-eforstahjalpen");
 
@@ -92,34 +89,26 @@ export default function Digitalt() {
       </Sidrubrik>
 
       <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-6" data-in="vanster">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
+          <div className="lg:col-span-5">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="rubrik">
               Halvera kostnaden, maximera tiden
             </h2>
-            <p className="mt-5 text-xl leading-relaxed text-grafit">
+            <p className="mt-5 text-xl leading-relaxed text-grafit" data-in="" style={{ ["--i" as string]: 2 }}>
               Upp till 70 % billigare och 70 % kortare kurstid än traditionella utbildningar.
             </p>
-            <ul className="mt-10 divide-y divide-black/10 border-y border-black/10">
-              {fordelar.map((f) => (
-                <li key={f.rubrik} className="flex items-baseline gap-4 py-4">
-                  <Slag className="size-5 shrink-0 translate-y-1 text-magenta" />
-                  <p>
-                    <span className="text-lg font-semibold">{f.rubrik}.</span>{" "}
-                    <span className="text-grafit">{f.text}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
           </div>
-          <div className="grid grid-cols-5 gap-4 lg:col-span-6">
-            <div className="foto relative col-span-3 aspect-[3/4]" data-in="bild">
-              <Image src={bildHjartstartare} alt="Två deltagare övar HLR med träningshjärtstartare" fill placeholder="blur" sizes="(min-width: 1024px) 340px, 60vw" className="object-cover" />
-            </div>
-            <div className="foto relative col-span-2 mt-16 aspect-[3/4]" data-in="bild" style={{ ["--i" as string]: 2 }}>
-              <Image src={bildKontor} alt="Kollegor övar hjärt-lungräddning på kontorsgolvet" fill placeholder="blur" sizes="(min-width: 1024px) 230px, 40vw" className="object-cover" />
-            </div>
-          </div>
+          <ul className="divide-y divide-black/10 border-y border-black/10 self-start lg:col-span-7">
+            {fordelar.map((f, i) => (
+              <li key={f.rubrik} className="flex items-baseline gap-4 py-6" data-in="" style={{ ["--i" as string]: i }}>
+                <Slag className="size-5 shrink-0 translate-y-1 text-magenta" />
+                <div>
+                  <h3 className="text-2xl font-bold">{f.rubrik}</h3>
+                  <p className="mt-1 text-lg text-grafit">{f.text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
