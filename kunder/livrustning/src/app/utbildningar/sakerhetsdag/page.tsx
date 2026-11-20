@@ -1,20 +1,21 @@
 import Image from "next/image";
 
-import { Avslut, KontaktKnapp, Sidrubrik } from "@/components/Block";
+import { Avslut, KorthetBand, OffertKnapp, Sidrubrik } from "@/components/Block";
 import { Grupp, Kalender, Klocka, Plats } from "@/components/Ikoner";
 import Snabbfakta from "@/components/Snabbfakta";
 import { jsonLd, kursSchema, metadataFor } from "@/lib/seo";
-import { amnen } from "@/lib/site";
+import { utbildning } from "@/lib/site";
 
-import bildBrand from "@/bilder/brand-slackare.webp";
-import bildHlr from "@/bilder/hlr-ovning.webp";
 import bildKontor from "@/bilder/kurs-kontor.webp";
+import bildSakerhetsdag from "@/bilder/sakerhetsdag-kollage.webp";
+
+const u = utbildning("sakerhetsdag");
 
 const BESKRIVNING =
   "Säkerhetsdag för företag: brand, HLR med hjärtstartare och första hjälpen på fyra timmar, i ett stationsupplägg hos er.";
 
 export const metadata = metadataFor({
-  titel: "Säkerhetsdag - säker arbetsplats på 4 timmar",
+  titel: "Säkerhetsdag (halvdag) - säker arbetsplats på 4 timmar",
   beskrivning: BESKRIVNING,
   sokvag: "/utbildningar/sakerhetsdag",
 });
@@ -30,11 +31,11 @@ const stationer = [
   },
   {
     namn: "HLR med hjärtstartare",
-    text: "Kontrollera medvetande och andning, gör hjärt-lungräddning och larma rätt. Ni övar på dockor och lär er exakt hur er egen hjärtstartare fungerar.",
+    text: "Kontroll av medvetande, larmning och andningskontroll, utföra HLR och använda en hjärtstartare. Praktisk träning på övningsdockor och träningshjärtstartare.",
   },
   {
     namn: "Första hjälpen",
-    text: "Agera som första person på en olycksplats: säkerhet, medvetandekontroll, stabilt sidoläge, luftvägsstopp, sår och brännskador, cirkulationssvikt och akuta sjukdomstillstånd.",
+    text: "Agera som första person på en olycksplats: säkerhet, skapa fri luftväg, stabilt sidoläge, luftvägsstopp, sår och brännskador, cirkulationssvikt och akuta sjukdomstillstånd.",
   },
 ];
 
@@ -45,7 +46,7 @@ const schema = [
   { tid: "01:50–02:10", namn: "Kaffepaus och fika", text: "20 minuter." },
   { tid: "02:10–02:55", namn: "Pass 3", text: "Station 1–4, 45 minuter." },
   { tid: "03:00–03:45", namn: "Pass 4", text: "Station 1–4, 45 minuter." },
-  { tid: "03:45–04:00", namn: "Avslutning", text: "Sammanfattning på storbildsskärm och tips på bra appar för första hjälpen." },
+  { tid: "03:45–04:00", namn: "Avslutning", text: "Sammanfattning på storbildsskärm och tips på livsviktiga appar att ha på sin telefon." },
 ];
 
 export default function Sakerhetsdag() {
@@ -54,13 +55,13 @@ export default function Sakerhetsdag() {
       <Sidrubrik
         sokvag={[
           { namn: "Utbildningar", href: "/utbildningar" },
-          { namn: "Säkerhetsdag", href: "/utbildningar/sakerhetsdag" },
+          { namn: "Säkerhetsdag (Halvdag)", href: "/utbildningar/sakerhetsdag" },
         ]}
-        rubrik="Säker arbetsplats på 4 timmar."
+        rubrik="Säker arbetsplats på 4 timmar"
         ingress="Under en effektiv halvdag får hela personalen de kunskaper som krävs om olyckan eller branden skulle vara framme. Teori blandas med praktiska övningar i fyra stationer."
       >
         <div className="mt-9">
-          <KontaktKnapp amne={amnen.sakerhetsdag}>Be om offert</KontaktKnapp>
+          <OffertKnapp galler="Säkerhetsdag (Halvdag)" />
         </div>
         <Snabbfakta
           className="mt-14"
@@ -68,32 +69,47 @@ export default function Sakerhetsdag() {
             { ikon: Klocka, etikett: "Tid", varde: "4 timmar" },
             { ikon: Plats, etikett: "Plats", varde: "Hos er" },
             { ikon: Kalender, etikett: "Datum", varde: "Enligt era önskemål" },
-            { ikon: Grupp, etikett: "Instruktörer", varde: "En per station" },
+            { ikon: Grupp, etikett: "Instruktörer", varde: "Minst en per station" },
           ]}
         />
       </Sidrubrik>
+
+      {u.korthet && <KorthetBand rubrik="Säkerhetsdagen i korthet" korthet={u.korthet} />}
 
       {/* Stationerna. Numren behövs: schemat nedan hänvisar till dem. */}
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
           <div className="lg:col-span-5">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Fyra stationer. Alla övar.</h2>
-            <p className="mt-5 text-xl text-grafit">
-              Deltagarna delas in i fyra mindre grupper som roterar mellan stationerna. Då hålls energin uppe och alla
-              får gott om tid att träna praktiskt.
-            </p>
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              <div className="foto relative aspect-[3/4]">
-                <Image src={bildBrand} alt="Deltagare med brandsläckare under en brandövning" fill placeholder="blur" sizes="(min-width: 1024px) 230px, 50vw" className="object-cover" />
-              </div>
-              <div className="foto relative mt-10 aspect-[3/4]">
-                <Image src={bildHlr} alt="Två deltagare övar HLR med hjärtstartare på en docka" fill placeholder="blur" sizes="(min-width: 1024px) 230px, 50vw" className="object-cover" />
-              </div>
+            <div data-in="">
+              <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">
+                Ett fartfyllt upplägg med maximerad träning
+              </h2>
+              <p className="mt-5 text-xl leading-relaxed text-grafit">
+                Vi inleder med en gemensam introduktion innan deltagarna delas upp i mindre grupper för att rotera mellan
+                olika övningsstationer. Det stationsbaserade upplägget håller energin på topp och garanterar att alla får
+                gott om tid att öva praktiskt. Vi avslutar tillsammans med en gemensam summering där vi bland annat
+                tipsar om livsviktiga appar.
+              </p>
+            </div>
+            <div className="foto relative mt-10 aspect-[16/9] lg:sticky lg:top-28" data-in="bild">
+              <Image
+                src={bildSakerhetsdag}
+                alt="Säkerhetsdag i fyra bilder: släckövning, brandföreläsning och HLR-träning på övningsdockor i stationer"
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 480px, 100vw"
+                className="object-cover"
+              />
             </div>
           </div>
           <ol className="lg:col-span-7">
             {stationer.map((s, i) => (
-              <li key={s.namn} className="grid grid-cols-[3.5rem_1fr] gap-x-4 border-t border-black/10 py-8 first:border-t-0 first:pt-0 lg:grid-cols-[5rem_1fr] lg:py-10">
+              <li
+                key={s.namn}
+                className="grid grid-cols-[3.5rem_1fr] gap-x-4 border-t border-black/10 py-8 first:border-t-0 first:pt-0 lg:grid-cols-[5rem_1fr] lg:py-10"
+                data-in=""
+                style={{ ["--i" as string]: i }}
+              >
                 <span className="siffror text-5xl leading-none font-bold lg:text-6xl" aria-hidden="true">
                   {i + 1}
                 </span>
@@ -113,8 +129,8 @@ export default function Sakerhetsdag() {
       {/* Schemat som tidtabell på mörk botten. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-5">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Dagen, minut för minut.</h2>
+          <div className="lg:col-span-5" data-in="">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Dagen, minut för minut</h2>
             <p className="mt-5 text-xl text-monitor-dampad">
               Fyra pass om 45 minuter, med fika i mitten. Fem minuters förflyttning mellan passen är inräknad.
             </p>

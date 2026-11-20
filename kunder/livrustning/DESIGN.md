@@ -183,7 +183,15 @@ Foton har små hörn (6 px) som en utskrift. Eventkort och monitorpaneler har 16
 - **Mobil:** menyknapp på 44 px som öppnar en helskärmspanel med stora länkar och underutbildningar indragna med en 1 px linje. Escape stänger och fokus återgår.
 
 ### EKG-kurvan (signatur)
-Ritas i verklig pixelbredd med P-, QRS- och T-våg, och slagen behåller sin form i alla bredder. På smala skärmar gallras slag bort så att de inte trängs, och det sista slaget behålls. Kurvan ritas fram en gång med stroke-dashoffset (cirka 1,6 s, exponentiell ut-kurva) när den syns. Vid reduced motion visas den färdig. Vid knappen pulserar en ring var 2,4 s.
+Ritas i verklig pixelbredd med P-, QRS- och T-våg, och slagen behåller sin form i alla bredder. På smala skärmar gallras slag bort så att de inte trängs, och det sista slaget behålls. Kurvan ritas fram en gång med stroke-dashoffset (cirka 1,6 s, exponentiell ut-kurva) när den syns. Vid knappen pulserar en ring var 2,4 s.
+
+**Levande kurva (startsidan, `live`).** Baslinjen ligger kvar som efterglöd (40 %) och ett slag sveper över den om och om igen, cirka 300 px/s, med en svans i tre lager som tonar ut bakåt. Ringen i slutet slår en gång per svep. Pulsen pausas när kurvan inte syns i fönstret. Används bara på startsidan (första vyn, monitorbandet, avslutet).
+
+### Rörelse
+- **Scroll:** element med `data-in` glider in när de scrollas fram: text 28 px uppåt, text/bild-par från sidan (`vanster`/`hoger`), foton dras fram nedifrån med clip-path medan bilden sätter sig (`bild`), tidslinjer växer ut (`vax`). Förskjutning mellan syskon med `--i` (90 ms per steg). Allt är synligt som standard; `Rorelse.tsx` armerar rörelsen.
+- **Första vyn:** rubrik och ingress lyfter in med ren CSS (`.intro`).
+- **Rullband:** kundnamnen rullar långsamt och stannar vid hovring eller fokus.
+- **Minskad rörelse:** pulsen och rullbandet går kvar, scrollrörelserna går halva sträckan och parallaxen stängs av. Windows-inställningen "Animeringseffekter: av" räcker för att utlösa detta.
 
 ## Do's and Don'ts
 

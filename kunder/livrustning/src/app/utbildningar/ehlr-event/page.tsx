@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-import { Avslut, KontaktKnapp, Sidrubrik } from "@/components/Block";
+import { Avslut, Korthet, OffertKnapp, Sidrubrik } from "@/components/Block";
 import { Grupp, Intyg, Klocka, Plats } from "@/components/Ikoner";
 import Snabbfakta from "@/components/Snabbfakta";
 import { jsonLd, kursSchema, metadataFor } from "@/lib/seo";
-import { amnen } from "@/lib/site";
+import { utbildning } from "@/lib/site";
 
-import bildGenomgang from "@/bilder/grupp-genomgang.webp";
-import bildGrupp from "@/bilder/hjartstartare-grupp.webp";
-import bildKlass from "@/bilder/instruktor-klass.webp";
+import bildEvent from "@/bilder/ehlr-event-sal.webp";
+
+const u = utbildning("ehlr-event");
 
 const BESKRIVNING =
   "eHLR-Event: utbilda hela personalen i HLR med hjärtstartare på två timmar, hos er. Obegränsat antal deltagare och intyg till alla.";
@@ -55,11 +55,11 @@ export default function EhlrEvent() {
           { namn: "Utbildningar", href: "/utbildningar" },
           { namn: "eHLR-Event", href: "/utbildningar/ehlr-event" },
         ]}
-        rubrik="Utbilda alla i HLR på 2 timmar."
+        rubrik="Utbilda alla i HLR på 2 timmar"
         ingress="Ge företaget en gemensam livförsäkring. Med eHLR-Event utbildar ni hela personalen i HLR med hjärtstartare, perfekt på nästa kick-off eller planeringsdag. Efteråt kan alla rädda liv."
       >
         <div className="mt-9">
-          <KontaktKnapp amne={amnen.ehlrEvent}>Be om offert</KontaktKnapp>
+          <OffertKnapp galler="eHLR-Event (2 timmar)" />
         </div>
         <Snabbfakta
           className="mt-14"
@@ -72,9 +72,31 @@ export default function EhlrEvent() {
         />
       </Sidrubrik>
 
+      {/* En stor bild av hur det ser ut, med de tre svaren bredvid. */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-16 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:py-24">
+          <figure className="lg:col-span-8">
+            <div className="foto relative aspect-[1024/559]" data-in="bild">
+              <Image
+                src={bildEvent}
+                alt="eHLR-Event i en fullsatt hörsal: två instruktörer leder utbildningen i HLR med hjärtstartare på storskärm"
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1280px) 800px, (min-width: 1024px) 66vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </figure>
+          <div className="lg:col-span-4" data-in="hoger">
+            <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]">Hela företaget, samma dag</h2>
+            {u.korthet && <Korthet {...u.korthet} staplad className="mt-6" />}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl" data-in="">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Två timmar. Så används de.</h2>
             <p className="mt-5 text-xl text-grafit">
               Utbildningen är effektiv, interaktiv och byggd för stora grupper. Antalet instruktörer anpassas efter hur
@@ -84,9 +106,14 @@ export default function EhlrEvent() {
 
           {/* Tidslinjen i proportion: varje del är lika bred som sin andel av tiden. */}
           <div className="mt-14" aria-hidden="true">
-            <div className="flex h-4 gap-1 overflow-hidden rounded-full">
-              {moment.map((m) => (
-                <div key={m.namn} className={m.ton} style={{ flexGrow: m.minuter }} />
+            <div className="flex h-4 gap-1">
+              {moment.map((m, i) => (
+                <div
+                  key={m.namn}
+                  className={`rounded-full ${m.ton}`}
+                  style={{ flexGrow: m.minuter, ["--i" as string]: i * 2 }}
+                  data-in="vax"
+                />
               ))}
             </div>
             <div className="siffror mt-3 flex justify-between text-sm text-grafit">
@@ -96,8 +123,8 @@ export default function EhlrEvent() {
           </div>
 
           <ol className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-            {moment.map((m) => (
-              <li key={m.namn} className="border-t-2 border-black/10 pt-5">
+            {moment.map((m, i) => (
+              <li key={m.namn} className="border-t-2 border-black/10 pt-5" data-in="" style={{ ["--i" as string]: i }}>
                 <p className="flex items-center gap-2.5">
                   <span className={`size-3 rounded-full ${m.ton}`} aria-hidden="true" />
                   <span className="siffror text-3xl font-bold">{m.minuter} min</span>
@@ -107,30 +134,24 @@ export default function EhlrEvent() {
               </li>
             ))}
           </ol>
-
-          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="foto relative aspect-[4/3]">
-              <Image src={bildKlass} alt="Instruktör visar en grupp som övar HLR på dockor" fill placeholder="blur" sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
-            </div>
-            <div className="foto relative aspect-[4/3]">
-              <Image src={bildGrupp} alt="Kollegor övar med träningshjärtstartare och docka" fill placeholder="blur" sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
-            </div>
-            <div className="foto relative aspect-[4/3]">
-              <Image src={bildGenomgang} alt="Grupp som övar HLR på dockor framför en whiteboard" fill placeholder="blur" sizes="(min-width: 640px) 33vw, 100vw" className="object-cover object-[50%_60%]" />
-            </div>
-          </div>
         </div>
       </section>
 
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5">Efteråt: intyg till alla.</h2>
-          <div className="space-y-5 text-xl leading-relaxed text-monitor-dampad lg:col-span-7">
+          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5" data-in="">
+            Efteråt: intyg till alla
+          </h2>
+          <div
+            className="space-y-5 text-xl leading-relaxed text-monitor-dampad lg:col-span-7"
+            data-in=""
+            style={{ ["--i" as string]: 1 }}
+          >
             <p>
               Efter utbildningen får deltagarna en länk till ett digitalt slutprov via e-post. När provet är godkänt
               laddar var och en ner sitt personliga utbildningsintyg.
             </p>
-            <p>Företaget får ett samlingsintyg över alla som gått utbildningen.</p>
+            <p>Företaget får ett intyg som visar att man har utbildat sin personal.</p>
           </div>
         </div>
       </section>
