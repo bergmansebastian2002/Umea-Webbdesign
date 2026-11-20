@@ -600,7 +600,7 @@
    * - Pulsen går kvar var tredje sekund: en tunn linje som ljusnar, ingen yta som rör sig.
    * - Scrollrörelserna finns kvar men går halva vägen (--rorelse: 0.5).
    * - Parallaxen stängs av helt: det är den som kan ge åksjuka.
-   * - Rullbandet med kundloggor står still (se nedan).
+   * - Rullbandet med kundloggor rullar kvar i sin långsamma fart (se nedan).
    */
   :root {
     --rorelse: 0.5;
@@ -626,38 +626,13 @@
       opacity: 0;
     }
   }
-  /* Rullbandet står still: namnen radbryts i stället och kopian göms. */
+  /*
+   * Rullbandet med kundloggor fortsätter rulla (Sebbes önskan 2026-11-20): det
+   * går långsamt, i en jämn fart, och stannar när man pekar på det eller
+   * tabbar in i det.
+   */
   .rullband-spar {
-    animation: none;
-    display: block;
-    width: auto;
-    max-width: 80rem;
-    margin-inline: auto;
-    padding-inline: 1.25rem;
-  }
-  /* Stilla läge: loggorna i ett centrerat rutnät med jämn luft. */
-  .rullband-spar > ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 1.25rem;
-  }
-  .rullband-spar .kundlogga {
-    min-height: 3rem;
-    padding-inline: 1.1rem;
-  }
-  @media (min-width: 1024px) {
-    .rullband-spar > ul {
-      row-gap: 2.25rem;
-    }
-    .rullband-spar .kundlogga {
-      min-height: 3.75rem;
-      padding-inline: 2.75rem;
-    }
-  }
-  .rullband-spar > ul[aria-hidden="true"] {
-    display: none;
-  }
-  .rullband {
-    mask-image: none;
+    animation-duration: 46s !important;
+    animation-iteration-count: infinite !important;
   }
 }

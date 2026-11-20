@@ -44,8 +44,9 @@ function hojd({ bild, vikt = 1 }: (typeof loggor)[number]) {
 /**
  * Kunderna som ett långsamt rullande band. Första uppsättningen är den riktiga
  * listan; den andra är en kopia som bara finns för att bandet ska gå runt utan
- * skarv, och är dold för skärmläsare. Med minskad rörelse står loggorna i ett
- * stilla, centrerat rutnät i stället (se globals.css).
+ * skarv, och är dold för skärmläsare. Bandet rullar även vid minskad rörelse
+ * och stannar när man pekar på det eller tabbar in i det (se globals.css).
+ * Loggorna laddas direkt, så att ingen dyker upp tom när den rullar in.
  */
 export default function Kundband({ className = "" }: { className?: string }) {
   const rad = (dold: boolean) => (
@@ -57,6 +58,7 @@ export default function Kundband({ className = "" }: { className?: string }) {
             <Image
               src={l.bild}
               alt={dold ? "" : l.namn}
+              loading="eager"
               sizes={`${Math.round((h * l.bild.width) / l.bild.height)}px`}
               className="w-auto"
               style={{ height: `calc(${h}px * var(--logga-skala, 1))` }}
