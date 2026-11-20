@@ -10,7 +10,7 @@ import { foretag } from "@/lib/site";
 
 import bildEvent from "@/bilder/ehlr-event-sal.webp";
 import bildInstruktor from "@/bilder/instruktorsutbildning.webp";
-import bildOvning from "@/bilder/hlr-ovning.webp";
+import bildTraning from "@/bilder/praktisk-traning.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
 
 export const metadata = metadataFor({
@@ -385,32 +385,39 @@ export default function Startsida() {
       <Avslut live />
 
       {/* Sista ordet: varför allt bygger på praktisk träning. */}
-      <section className="border-t border-black/10 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-6" data-in="vanster">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">Praktisk träning ger trygghet</h2>
-            <p className="mt-6 max-w-xl text-xl leading-relaxed text-grafit">
+      {/* Mörk final mot sidfoten: fotot fyller högra delen och tonar ut i
+          bakgrunden, texten ligger i det mörka fältet till vänster. På mobil
+          ligger fotot överst och tonar ned i texten. */}
+      <section className="relative isolate overflow-hidden border-b border-white/10 bg-monitor text-monitor-text">
+        <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[57%]">
+          <Image
+            src={bildTraning}
+            alt="En deltagare gör hjärt-lungräddning på en övningsdocka medan en annan förbereder träningshjärtstartaren och instruktören tittar på"
+            fill
+            placeholder="blur"
+            sizes="(min-width: 1024px) 57vw, 100vw"
+            className="object-cover object-[50%_45%]"
+          />
+          <div
+            aria-hidden
+            className="absolute -inset-0.5 bg-linear-to-t from-monitor via-monitor/0 via-25% to-transparent lg:bg-linear-to-r lg:from-monitor lg:via-monitor/55 lg:via-25% lg:to-transparent lg:to-65%"
+          />
+        </div>
+        <div className="relative mx-auto flex max-w-7xl items-center px-5 pb-20 lg:min-h-[min(44vw,52rem)] lg:px-8 lg:py-28">
+          <div className="pt-6 max-w-xl sm:pt-10 lg:pt-0 lg:max-w-[min(33rem,38vw)]" data-in="vanster">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold text-white">
+              Praktisk träning ger trygghet
+            </h2>
+            <p className="mt-6 text-xl leading-relaxed text-monitor-dampad">
               Praktisk träning är kärnan i våra utbildningar. Du tränar med en egen övningsdocka och en
               träningshjärtstartare tills handgreppen sitter i muskelminnet. Då kan du agera snabbt och tryggt när det
               verkligen gäller.
             </p>
-            <p className="mt-8">
-              <PilLank href="/utbildningar" className="text-lg">
+            <p className="mt-9">
+              <PilLank href="/utbildningar" className="text-lg text-white [&>span]:decoration-magenta">
                 Välj rätt utbildning
               </PilLank>
             </p>
-          </div>
-          <div className="lg:col-span-6">
-            <div className="foto relative aspect-[4/3]" data-in="bild">
-              <Image
-                src={bildOvning}
-                alt="Två deltagare övar HLR med träningshjärtstartare på en övningsdocka"
-                fill
-                placeholder="blur"
-                sizes="(min-width: 1024px) 580px, 100vw"
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>

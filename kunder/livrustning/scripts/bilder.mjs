@@ -88,6 +88,17 @@ async function tona(namn, utnamn) {
   console.log(`foto  ${utnamn}.webp  ${width}x${height}  vitbalans ${faktor.map((f) => f.toFixed(2)).join("/")}`);
 }
 
+// Startsidans avslutande bild (2026-11-20): AI-förbättrad version av kursbilden
+// hlr-ovning, levererad som skiss med rubrik och text inbrända till vänster.
+// Bara den textfria högra delen används (nästan exakt 4:3). Ograderad.
+async function praktiskTraning() {
+  const { width, height } = await sharp(`${IN}/praktisk-traning-med-text.webp`)
+    .extract({ left: 880, top: 0, width: 1078, height: 803 })
+    .webp({ quality: 88 })
+    .toFile(`${OUT}/praktisk-traning.webp`);
+  console.log(`ren   praktisk-traning.webp  ${width}x${height}`);
+}
+
 async function ren(fil, utnamn) {
   const { width, height } = await sharp(`${IN}/${fil}`)
     .rotate()
@@ -99,9 +110,9 @@ async function ren(fil, utnamn) {
 
 // Kundloggor (startsidans kundband). Källor: nicetobealive.se (raster) och
 // Svenska kyrkans och Folkbildningsrådets egna webbplatser (SVG), 2026-11-20.
-// Alla görs om till en serie: beskurna, och omfärgade till bläckfärg på
-// genomskinlig botten. Färgade ytor blir bläck, vitt blir genomskinligt, så
-// t.ex. DB Schenkers vita "DB" och Svenska kyrkans kors blir urklipp.
+// Loggorna behåller sina egna färger. Den vita bakgrunden görs genomskinlig
+// med "färg till alfa": varje pixel delas upp i loggans färg och en täckning,
+// så att kantutjämningen blir ren även mot det rosa papperet.
 const KUNDLOGGOR = [
   "handelsbanken.png",
   "atlas-copco.png",
@@ -116,43 +127,46 @@ const KUNDLOGGOR = [
   "itrim.png",
 ];
 
-// Färger som måste bytas i SVG-källan innan omfärgningen, för att få loggans
-// egen svartvita form: vitt ordmärke blir svart, Svenska kyrkans kors klipps ur.
+// Folkbildningsrådets SVG är den vita versionen för deras mörka sidhuvud.
+// På ljus botten är ordmärket vinrött (#980048, ur deras egen logotypfil).
 const SVG_FARGER = {
-  "folkbildningsradet.svg": [["fill:#fff", "fill:#000"]],
-  "svenska-kyrkan.svg": [["fill: #cd0014", "fill: #fff"]],
+  "folkbildningsradet.svg": [["fill:#fff", "fill:#980048"]],
 };
-// Loggor där tonerna ska bevaras (Fastighetsbyråns träd i den orange cirkeln).
-const MED_TONER = new Set(["fastighetsbyran.png"]);
 
 async function kundlogga(fil) {
   const kalla = `${IN}/kunder/${fil}`;
   const utnamn = fil.replace(/\.(png|svg)$/, "");
-  let indata = kalla;
+
   if (fil.endsWith(".svg")) {
+    // SVG har redan genomskinlig botten: rita, byt färger vid behov och beskär.
     let svg = await readFile(kalla, "utf8");
     for (const [fran, till] of SVG_FARGER[fil] ?? []) svg = svg.split(fran).join(till);
-    indata = Buffer.from(svg);
+    const ritad = await sharp(Buffer.from(svg), { density: 900 })
+      .resize({ height: 220, width: 900, fit: "inside" })
+      .png()
+      .toBuffer();
+    const info = await sharp(ritad).trim().png({ compressionLevel: 9 }).toFile(`${OUT}/kunder/${utnamn}.png`);
+    console.log(`logga ${utnamn}.png  ${info.width}x${info.height}`);
+    return;
   }
-  const platt = await sharp(indata, fil.endsWith(".svg") ? { density: 900 } : {})
+
+  const platt = await sharp(kalla)
     .flatten({ background: "#ffffff" })
-    .resize({ height: 220, width: 900, fit: "inside", withoutEnlargement: !fil.endsWith(".svg") })
     .trim({ background: "#ffffff", threshold: 12 })
     .toBuffer();
   const { data, info } = await sharp(platt).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const ut = Buffer.alloc(info.width * info.height * 4);
   for (let i = 0, j = 0; i < data.length; i += 3, j += 4) {
-    // Avstånd från vitt: mörkaste kanalen avgör hur mycket bläck pixeln får,
-    // så att även färgade och grå ytor blir fullt bläck. Med toner används
-    // luminansen i stället, så att mönster i en färgad yta syns.
     const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
-    const tackning = MED_TONER.has(fil)
-      ? (255 - (0.2126 * r + 0.7152 * g + 0.0722 * b)) * 1.15
-      : (255 - Math.min(r, g, b) - 14) * 1.75;
-    ut[j] = INK.r;
-    ut[j + 1] = INK.g;
-    ut[j + 2] = INK.b;
-    ut[j + 3] = Math.max(0, Math.min(255, Math.round(tackning)));
+    // Täckning = hur långt från vitt den mest mättade kanalen ligger.
+    // Nästan vitt (brus i komprimeringen) blir helt genomskinligt.
+    const avstand = 255 - Math.min(r, g, b);
+    const a = avstand < 10 ? 0 : avstand / 255;
+    const farg = (c) => (a === 0 ? 255 : Math.max(0, Math.min(255, Math.round(255 - (255 - c) / a))));
+    ut[j] = farg(r);
+    ut[j + 1] = farg(g);
+    ut[j + 2] = farg(b);
+    ut[j + 3] = Math.round(a * 255);
   }
   await sharp(ut, { raw: { width: info.width, height: info.height, channels: 4 } })
     .png({ compressionLevel: 9 })
@@ -215,6 +229,7 @@ async function reco() {
 await mkdir(OUT, { recursive: true });
 for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
 for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
+await praktiskTraning();
 await mkdir(`${OUT}/kunder`, { recursive: true });
 for (const fil of KUNDLOGGOR) await kundlogga(fil);
 await loggor();

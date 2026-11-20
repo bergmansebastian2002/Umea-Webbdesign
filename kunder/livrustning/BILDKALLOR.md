@@ -9,7 +9,7 @@ Kursfotona kommer från Livrustning AB:s egna kanaler och hämtades 2026-09-18 p
 | traning-pa-plats-1, traning-pa-plats-2 | Kundens egna kursfoton, levererade 2026-11-19 ("Träning på plats 1/2", 640 px breda: visas därför små). Graderade som övriga kursfoton |
 | sakerhetsdag-kollage, ehlr-event-sal, instruktorsutbildning, hjartstartare-i-hand, hjartstartare-hemma, hjartstartare-spanien, hjartstartarpaket-kontor | Levererade av kunden 2026-11-19. Graderas inte (skyltar och hjärtstartare ska ha rätt färg), bara skalning och webp |
 | johnny-sundin, peter-jonsson | Porträtten ur kundens underlag (PDF 2026-11-19), 291 px breda: visas små |
-| kunder/* (elva kundloggor) | Nio från nicetobealive.se (kundens egen sajt), Svenska kyrkan och Folkbildningsrådet som SVG från deras egna webbplatser, 2026-11-20. Omfärgade till bläckfärg på genomskinlig botten i `scripts/bilder.mjs` |
+| kunder/* (elva kundloggor) | Nio från nicetobealive.se (kundens egen sajt), Svenska kyrkan och Folkbildningsrådet som SVG från deras egna webbplatser, 2026-11-20. Egna färger; den vita bakgrunden görs genomskinlig i `scripts/bilder.mjs`. Folkbildningsrådets vita SVG får deras vinröda #980048 |
 | reco-5-ar-i-rad | Reco-märket "Rekommenderat 5 år i rad" från gamla livrustning.se, frilagt längs cirkeln |
 
 Graderingen (samma på alla foton, se `scripts/bilder.mjs`): färgsticket neutraliseras per bild (gråvärld, högst ±12 %), sedan mättnad 0,72, lyfta skuggor, matt svärta i bläckfärg och 14 % magenta i mjukt ljus. Byt alltid filnamn när ett motiv byts, skriv aldrig över samma sökväg på en publicerad sajt (bilder cachas per URL).

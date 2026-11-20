@@ -14,16 +14,17 @@ import svenskaKyrkan from "@/bilder/kunder/svenska-kyrkan.png";
 
 /**
  * Kundloggorna, i den ordning kunden listade dem (underlaget 2026-11-19).
- * `vikt` finjusterar storleken för loggor som ser tyngre eller lättare ut än
- * sin form, t.ex. HITACHIs feta versaler eller Sturebadets tunna linje.
+ * Loggorna visas i sina egna färger. `vikt` finjusterar storleken för loggor
+ * som ser tyngre eller lättare ut än sin form, t.ex. HITACHIs feta röda
+ * versaler eller Sturebadets tunna linje.
  */
 const loggor: { namn: string; bild: StaticImageData; vikt?: number }[] = [
   { namn: "Handelsbanken", bild: handelsbanken },
-  { namn: "Atlas Copco", bild: atlasCopco, vikt: 0.92 },
+  { namn: "Atlas Copco", bild: atlasCopco, vikt: 0.86 },
   { namn: "ATEA", bild: atea, vikt: 0.9 },
   { namn: "Fastighetsbyrån", bild: fastighetsbyran, vikt: 1.18 },
   { namn: "Svenska kyrkan", bild: svenskaKyrkan, vikt: 1.05 },
-  { namn: "Hitachi", bild: hitachi, vikt: 0.8 },
+  { namn: "Hitachi", bild: hitachi, vikt: 0.76 },
   { namn: "Stockholms stad", bild: stockholmsStad, vikt: 1.12 },
   { namn: "DB Schenker", bild: dbSchenker, vikt: 0.92 },
   { namn: "Sturebadet", bild: sturebadet, vikt: 1.04 },
@@ -57,7 +58,7 @@ export default function Kundband({ className = "" }: { className?: string }) {
               src={l.bild}
               alt={dold ? "" : l.namn}
               sizes={`${Math.round((h * l.bild.width) / l.bild.height)}px`}
-              className="w-auto opacity-80"
+              className="w-auto"
               style={{ height: `calc(${h}px * var(--logga-skala, 1))` }}
             />
           </li>
