@@ -133,11 +133,10 @@ function Bildkort({
   return (
     <article
       className="overflow-hidden rounded-2xl bg-monitor text-monitor-text"
-      data-in=""
-      style={{ ["--i" as string]: ordning }}
+      data-in={ordning % 2 === 0 ? "fran-vanster" : "fran-hoger"}
     >
       <div className="relative isolate lg:flex lg:min-h-[30rem] lg:items-center">
-        <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[66%]">
+        <div className="parallax relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[66%]">
           <Image
             src={bild}
             alt={alt}
@@ -154,22 +153,30 @@ function Bildkort({
           <div aria-hidden className="absolute inset-x-0 -bottom-0.5 hidden h-28 bg-linear-to-t from-monitor to-transparent lg:block" />
         </div>
         <div className="relative px-6 sm:px-10 lg:max-w-[min(40rem,50%)] lg:px-14 lg:py-14">
-          <div className="-mt-2 flex items-end gap-4 lg:mt-0">
+          <div className="-mt-2 flex items-end gap-4 lg:mt-0" data-in="" style={{ ["--i" as string]: 3 }}>
             <p className="siffror text-[5.5rem] leading-[0.8] font-bold tracking-[-0.04em] text-white" aria-hidden="true">
               {siffra}
               <span className="ml-1.5 text-[2.5rem] tracking-normal">{enhet}</span>
             </p>
             <p className="pb-1 text-lg font-semibold text-white">{namn}</p>
           </div>
-          <h3 className="mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] font-bold text-white">{rubrik}</h3>
-          <p className="mt-4 text-lg leading-relaxed text-monitor-dampad">{text}</p>
+          <h3
+            className="mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] font-bold text-white"
+            data-in="rubrik"
+            style={{ ["--i" as string]: 4 }}
+          >
+            {rubrik}
+          </h3>
+          <p className="mt-4 text-lg leading-relaxed text-monitor-dampad" data-in="" style={{ ["--i" as string]: 5 }}>
+            {text}
+          </p>
         </div>
       </div>
 
       {/* relative: ligger ovanpå fotots nedre toning, så att linjerna syns hela vägen. */}
       <div className="relative px-6 pb-8 sm:px-10 sm:pb-10 lg:px-14 lg:pb-12">
         {children}
-        <div className="mt-8 flex flex-col gap-5 border-t border-white/12 pt-7 lg:flex-row lg:items-center lg:gap-10">
+        <div className="mt-8 flex flex-col gap-5 border-t border-white/12 pt-7 lg:flex-row lg:items-center lg:gap-10" data-in="" style={{ ["--i" as string]: 1 }}>
           <p className="text-lg font-semibold text-white lg:max-w-xs">{SLUTRAD}</p>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
             <OffertKnapp galler={galler} className="self-start" />
@@ -212,11 +219,11 @@ export default function Startsida() {
       {/* De två huvudspåren för hela arbetsplatser. */}
       <section className="border-t border-black/10 bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl" data-in="">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
+          <div className="max-w-3xl">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold" data-in="rubrik">
               Två vägar till en tryggare arbetsplats
             </h2>
-            <p className="mt-5 text-xl text-grafit">
+            <p className="mt-5 text-xl text-grafit" data-in="" style={{ ["--i" as string]: 2 }}>
               Utbilda digitalt när det passar er, eller samla alla på plats i två timmar.
             </p>
           </div>
@@ -235,8 +242,8 @@ export default function Startsida() {
               galler="Trygga arbetsplatsen – eHLR och eFörstaHjälpen"
             >
               <ul className="grid grid-cols-1 gap-x-10 lg:grid-cols-3">
-                {digitala.map((d) => (
-                  <li key={d.namn} className="border-t border-white/12 py-5">
+                {digitala.map((d, i) => (
+                  <li key={d.namn} className="border-t border-white/12 py-5" data-in="" style={{ ["--i" as string]: i }}>
                     <Link href={d.href} className="grupp inline-flex items-center gap-2 text-lg font-semibold text-white">
                       <span className="underline decoration-magenta underline-offset-[0.2em] hover:decoration-white">
                         {d.namn}
@@ -263,8 +270,8 @@ export default function Startsida() {
               ordning={1}
             >
               <ul className="grid grid-cols-1 gap-x-10 lg:grid-cols-3">
-                {eventpunkter.map(({ ikon: Ikon, rubrik, text }) => (
-                  <li key={rubrik} className="flex gap-3.5 border-t border-white/12 py-5 lg:flex-col lg:gap-3">
+                {eventpunkter.map(({ ikon: Ikon, rubrik, text }, i) => (
+                  <li key={rubrik} className="flex gap-3.5 border-t border-white/12 py-5 lg:flex-col lg:gap-3" data-in="" style={{ ["--i" as string]: i }}>
                     <Ikon className="mt-0.5 size-5 shrink-0 text-monitor-dampad lg:mt-0 lg:size-6" />
                     <div>
                       <p className="text-lg font-semibold text-white">{rubrik}</p>
@@ -377,8 +384,8 @@ export default function Startsida() {
       {/* Kunder enligt kundens underlag. Sätts i text tills loggorna finns som filer. */}
       <section className="border-t border-black/10 bg-white">
         <div className="py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8" data-in="">
-            <h2 className="max-w-3xl text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] font-bold">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <h2 className="max-w-3xl text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] font-bold" data-in="rubrik">
               Vi utbildar tusentals medarbetare – år efter år
             </h2>
           </div>
@@ -389,8 +396,8 @@ export default function Startsida() {
       {/* Monitorn: fyra slag, fyra steg, och en puls som går hela tiden. */}
       <section className="monitor-rutor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end" data-in="">
-            <h2 className="max-w-2xl text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <h2 className="max-w-2xl text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold" data-in="rubrik">
               Fyra steg. Sen kan alla rädda liv.
             </h2>
             <Link
@@ -424,7 +431,7 @@ export default function Startsida() {
           bakgrunden, texten ligger i det mörka fältet till vänster. På mobil
           ligger fotot överst och tonar ned i texten. */}
       <section className="relative isolate overflow-hidden border-y border-white/8 bg-monitor text-monitor-text">
-        <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[57%]">
+        <div className="parallax relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[57%]">
           <Image
             src={bildTraning}
             alt="En deltagare gör hjärt-lungräddning på en övningsdocka medan en annan förbereder träningshjärtstartaren och instruktören tittar på"
@@ -439,11 +446,11 @@ export default function Startsida() {
           />
         </div>
         <div className="relative mx-auto flex max-w-7xl items-center px-5 pb-20 lg:min-h-[min(44vw,52rem)] lg:px-8 lg:py-28">
-          <div className="pt-6 max-w-xl sm:pt-10 lg:pt-0 lg:max-w-[min(33rem,38vw)]" data-in="vanster">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold text-white">
+          <div className="pt-6 max-w-xl sm:pt-10 lg:pt-0 lg:max-w-[min(33rem,38vw)]">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold text-white" data-in="rubrik">
               Praktisk träning ger trygghet
             </h2>
-            <p className="mt-6 text-xl leading-relaxed text-monitor-dampad">
+            <p className="mt-6 text-xl leading-relaxed text-monitor-dampad" data-in="" style={{ ["--i" as string]: 2 }}>
               Praktisk träning är kärnan i våra utbildningar. Du tränar med en egen övningsdocka och en
               träningshjärtstartare tills handgreppen sitter i muskelminnet. Då kan du agera snabbt och tryggt när det
               verkligen gäller.

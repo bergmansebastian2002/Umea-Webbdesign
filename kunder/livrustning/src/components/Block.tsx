@@ -195,7 +195,7 @@ export function KorthetBand({
 export function Avslut({
   rubrik = "Hur många hos er har aktuella kunskaper för att rädda liv?",
   text = "Mejla eller ring och berätta vilken utbildning ni är intresserad av, var ni finns och ungefär hur många ni är.",
-  live = false,
+  live = true,
   mork = false,
   galler,
 }: {
@@ -215,11 +215,20 @@ export function Avslut({
       }
     >
       <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="max-w-3xl" data-in="">
-          <h2 className={`text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold ${mork ? "text-white" : ""}`}>
+        <div className="max-w-3xl">
+          <h2
+            className={`text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold ${mork ? "text-white" : ""}`}
+            data-in="rubrik"
+          >
             {rubrik}
           </h2>
-          <p className={`mt-5 max-w-xl text-xl ${mork ? "text-monitor-dampad" : "text-grafit"}`}>{text}</p>
+          <p
+            className={`mt-5 max-w-xl text-xl ${mork ? "text-monitor-dampad" : "text-grafit"}`}
+            data-in=""
+            style={{ ["--i" as string]: 2 }}
+          >
+            {text}
+          </p>
         </div>
         <Ekg puls live={live} slag={[0.3, 0.75]} hojd={72} className={`mt-10 max-w-4xl ${mork ? "ekg-monitor" : ""}`} />
         <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:gap-10" data-in="">
