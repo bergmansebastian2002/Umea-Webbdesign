@@ -191,7 +191,7 @@ Ritas i verklig pixelbredd med P-, QRS- och T-våg, och slagen behåller sin for
 - **Scroll:** element med `data-in` glider in när de scrollas fram: text 28 px uppåt, text/bild-par från sidan (`vanster`/`hoger`), foton dras fram nedifrån med clip-path medan bilden sätter sig (`bild`), tidslinjer växer ut (`vax`). Förskjutning mellan syskon med `--i` (90 ms per steg). Allt är synligt som standard; `Rorelse.tsx` armerar rörelsen.
 - **Första vyn:** rubrik och ingress lyfter in med ren CSS (`.intro`).
 - **Rullband:** kundnamnen rullar långsamt och stannar vid hovring eller fokus.
-- **Minskad rörelse:** pulsen går kvar, scrollrörelsen blir en ren intoning och rullbandet står still. Windows-inställningen "Animeringseffekter: av" räcker för att utlösa detta.
+- **Minskad rörelse:** pulsen och rullbandet går kvar, scrollrörelserna går halva sträckan och parallaxen stängs av. Windows-inställningen "Animeringseffekter: av" räcker för att utlösa detta.
 
 ## Do's and Don'ts
 
