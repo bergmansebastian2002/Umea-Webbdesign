@@ -81,7 +81,7 @@ export default function Header() {
                             }`}
                           >
                             <span className="block font-semibold">{u.menynamn}</span>
-                            <span className="mt-0.5 block text-sm leading-snug text-grafit">{u.pitch}</span>
+                            <span className="mt-0.5 block text-sm leading-snug text-grafit">{u.menytext}</span>
                           </Link>
                         </li>
                       ))}
