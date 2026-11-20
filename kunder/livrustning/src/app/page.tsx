@@ -136,7 +136,8 @@ function Bildkort({
       data-in={ordning % 2 === 0 ? "fran-vanster" : "fran-hoger"}
     >
       <div className="relative isolate lg:flex lg:min-h-[30rem] lg:items-center">
-        <div className="parallax relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[66%]">
+        {/* Ingen parallax här: en scrollstyrd bild inuti en ruta som tonar in ger en synlig skarv. */}
+        <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[66%]">
           <Image
             src={bild}
             alt={alt}
