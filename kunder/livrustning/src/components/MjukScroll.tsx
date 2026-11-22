@@ -17,7 +17,16 @@ export default function MjukScroll() {
     import("lenis")
       .then(({ default: Lenis }) => {
         if (avbruten) return;
-        const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, anchors: true, autoRaf: true });
+        // Samma takt som snajp.se (lerp 0,075 och hjul 0,6). respectReducedMotion
+        // måste vara av: annars stänger Lenis av sig själv när Windows har
+        // animeringar avstängda, och då hackar scrollen som vanligt.
+        const lenis = new Lenis({
+          lerp: 0.075,
+          wheelMultiplier: 0.6,
+          anchors: true,
+          autoRaf: true,
+          respectReducedMotion: false,
+        });
         avsluta = () => lenis.destroy();
       })
       .catch(() => {});
