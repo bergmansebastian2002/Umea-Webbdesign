@@ -111,7 +111,7 @@ export default function OmOss() {
 
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <h2 className="sr-only">Livrustning i korthet</h2>
+          <h2 className="sr-only">Nice To Be Alive i korthet</h2>
           <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
             {fakta.map((f) => (
               <div key={f.etikett} className="border-t border-white/15 py-6">

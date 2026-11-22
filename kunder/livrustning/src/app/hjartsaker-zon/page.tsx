@@ -9,7 +9,7 @@ import { amnen } from "@/lib/site";
 export const metadata = metadataFor({
   titel: "Bli en Hjärtsäker zon enligt SS 280000",
   beskrivning:
-    "Vad krävs för att bli en Hjärtsäker zon enligt svensk standard SS 280000? Livrustning hjälper er med utbildning, rutiner, placering och registrering.",
+    "Vad krävs för att bli en Hjärtsäker zon enligt svensk standard SS 280000? Nice To Be Alive hjälper er med utbildning, rutiner, placering och registrering.",
   sokvag: "/hjartsaker-zon",
 });
 
