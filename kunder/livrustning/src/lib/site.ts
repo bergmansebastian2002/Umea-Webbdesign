@@ -6,7 +6,8 @@
  * Ändra inga siffror utan kundens ok.
  */
 export const foretag = {
-  namn: "Livrustning",
+  // Varumärket på sajten är Nice To Be Alive sedan 2026-11-22 (logga och namn).
+  namn: "Nice To Be Alive",
   // Bolag, adress, org.nr och mejl enligt kundens underlag 2026-11-19.
   juridisktNamn: "Nice To Be Alive AB",
   slogan: "Kunskap för säkerhets skull",

@@ -6,16 +6,33 @@ import { useEffect, useRef, useState } from "react";
 
 import { Kryss, Meny, Nedat, Pil, Telefon } from "@/components/Ikoner";
 import Logo from "@/components/Logo";
-import { amnen, foretag, mejl, meny } from "@/lib/site";
+import { foretag, utbildningar } from "@/lib/site";
 
 function aktiv(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 }
 
+// Till vänster, intill loggan. De två sista visas först på bredare skärmar;
+// de finns alltid i rullgardinens nederkant och i sidfoten.
+const vanster = [
+  { namn: "Köp hjärtstartare", href: "/kop-hjartstartare", alltid: true },
+  { namn: "Så går det till", href: "/sa-gar-det-till", alltid: false },
+  { namn: "Hjärtsäker zon", href: "/hjartsaker-zon", alltid: false },
+];
+
+const mobil = [
+  { namn: "Köp hjärtstartare", href: "/kop-hjartstartare" },
+  { namn: "Så går det till", href: "/sa-gar-det-till" },
+  { namn: "Hjärtsäker zon", href: "/hjartsaker-zon" },
+  { namn: "Om oss", href: "/om-oss" },
+  { namn: "Kontakt", href: "/kontakt" },
+];
+
+const LANK =
+  "whitespace-nowrap rounded-full px-3 py-2 text-base font-medium transition-colors hover:text-magenta-ljus 2xl:px-3.5 2xl:text-[1.0625rem]";
+
 export default function Header() {
   const pathname = usePathname();
-  // Startsidans första vy är mörk (Monitor natt), så sidhuvudet följer med där.
-  const mork = pathname === "/";
   const [oppen, setOppen] = useState(false);
   const knapp = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -40,89 +57,103 @@ export default function Header() {
   }, [oppen]);
 
   return (
-    <header
-      className={`sticky top-0 z-40 border-b ${
-        mork ? "sidhuvud-mork border-white/8 bg-monitor text-monitor-text" : "border-black/10 bg-papper"
-      }`}
-    >
+    <header className="sticky top-0 z-40 border-b border-white/8 bg-monitor text-monitor-text">
       <a
         href="#innehall"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-black focus:px-4 focus:py-2 focus:text-papper"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-black"
       >
         Hoppa till innehållet
       </a>
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 lg:h-20 lg:px-8 xl:gap-5">
-        <Logo botten={mork ? "mork" : "ljus"} className="w-40 lg:w-44 2xl:w-48" prioritet />
+      <div className="mx-auto flex h-18 max-w-7xl items-center gap-4 px-5 lg:h-20 lg:gap-6 lg:px-8 xl:gap-8">
+        <Logo botten="mork" className="w-32 lg:w-36" prioritet />
 
-        <nav aria-label="Huvudmeny" className="hidden xl:block">
+        {/* Till vänster: Utbildningar (rullgardin vid hovring) och Köp hjärtstartare. */}
+        <nav aria-label="Huvudmeny" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {meny.map((punkt) =>
-              "barn" in punkt ? (
-                <li key={punkt.href} className="group relative">
-                  <Link
-                    href={punkt.href}
-                    aria-current={pathname === punkt.href ? "page" : undefined}
-                    className={`flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-base font-medium transition-colors hover:text-magenta-mork 2xl:px-3.5 2xl:text-[1.0625rem] ${
-                      aktiv(pathname, punkt.href) ? "text-magenta-mork" : ""
-                    }`}
+            <li className="group relative">
+              <Link
+                href="/utbildningar"
+                aria-current={pathname === "/utbildningar" ? "page" : undefined}
+                className={`flex items-center gap-1 ${LANK} ${aktiv(pathname, "/utbildningar") ? "text-magenta-ljus" : ""}`}
+              >
+                Utbildningar
+                <Nedat className="size-4 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
+              </Link>
+              {/* pt-3 håller hovringen vid liv mellan länken och panelen. */}
+              <div className="rullgardin absolute top-full left-0 pt-3">
+                <div className="w-[46rem] rounded-2xl border border-black/10 bg-white p-2.5 text-black shadow-[0_28px_56px_-24px_rgb(0_0_0/0.55)]">
+                  <ul className="grid grid-cols-2 gap-1">
+                    {utbildningar.map((u, i) => (
+                      <li key={u.href} className="rullgardin-rad" style={{ ["--i" as string]: i }}>
+                        <Link
+                          href={u.href}
+                          aria-current={pathname === u.href ? "page" : undefined}
+                          className={`block h-full rounded-xl px-3.5 py-3 transition-colors hover:bg-papper ${
+                            pathname === u.href ? "bg-papper" : ""
+                          }`}
+                        >
+                          <span className="block font-semibold">{u.menynamn}</span>
+                          <span className="mt-0.5 block text-sm leading-snug text-grafit">{u.menytext}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <div
+                    className="rullgardin-rad mt-2 flex items-center justify-between gap-4 border-t border-black/10 px-3.5 pt-3 pb-1.5"
+                    style={{ ["--i" as string]: utbildningar.length }}
                   >
-                    {punkt.namn}
-                    <Nedat className="size-4 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
-                  </Link>
-                  <div className="invisible absolute top-full left-0 pt-2 opacity-0 transition-[opacity,translate] duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 translate-y-1 group-hover:translate-y-0 group-focus-within:translate-y-0">
-                    <ul className="grid w-[46rem] grid-cols-2 gap-1 rounded-2xl border border-black/10 bg-white p-2.5 text-black shadow-[0_24px_48px_-24px_rgb(23_21_26/0.4)]">
-                      {punkt.barn.map((u) => (
-                        <li key={u.href}>
-                          <Link
-                            href={u.href}
-                            aria-current={pathname === u.href ? "page" : undefined}
-                            className={`block h-full rounded-xl px-3.5 py-3 transition-colors hover:bg-papper ${
-                              pathname === u.href ? "bg-papper" : ""
-                            }`}
-                          >
-                            <span className="block font-semibold">{u.menynamn}</span>
-                            <span className="mt-0.5 block text-sm leading-snug text-grafit">{u.menytext}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <Link href="/utbildningar" className="textlank inline-flex items-center gap-2 no-underline">
+                      <span className="underline decoration-magenta/35 underline-offset-[0.2em]">Alla utbildningar</span>
+                      <Pil className="size-4" />
+                    </Link>
+                    <span className="flex gap-5 text-sm font-medium text-grafit">
+                      <Link href="/sa-gar-det-till" className="hover:text-magenta-mork">
+                        Så går det till
+                      </Link>
+                      <Link href="/hjartsaker-zon" className="hover:text-magenta-mork">
+                        Hjärtsäker zon
+                      </Link>
+                    </span>
                   </div>
-                </li>
-              ) : (
-                <li key={punkt.href}>
-                  <Link
-                    href={punkt.href}
-                    aria-current={aktiv(pathname, punkt.href) ? "page" : undefined}
-                    className={`whitespace-nowrap rounded-full px-2.5 py-2 text-base font-medium transition-colors hover:text-magenta-mork 2xl:px-3.5 2xl:text-[1.0625rem] ${
-                      aktiv(pathname, punkt.href) ? "text-magenta-mork" : ""
-                    }`}
-                  >
-                    {punkt.namn}
-                  </Link>
-                </li>
-              ),
-            )}
+                </div>
+              </div>
+            </li>
+            {vanster.map((p) => (
+              <li key={p.href} className={p.alltid ? "" : "hidden xl:block"}>
+                <Link
+                  href={p.href}
+                  aria-current={aktiv(pathname, p.href) ? "page" : undefined}
+                  className={`${LANK} ${aktiv(pathname, p.href) ? "text-magenta-ljus" : ""}`}
+                >
+                  {p.namn}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-2 xl:flex 2xl:gap-5">
-          <a
-            href={foretag.telefonHref}
-            className="siffror flex min-h-11 items-center justify-center gap-2 px-3 font-medium hover:text-magenta-mork 2xl:px-0"
+        {/* Till höger: Om oss och Kontakt som knappar. */}
+        <div className="ml-auto hidden items-center gap-2.5 lg:flex">
+          <Link
+            href="/om-oss"
+            aria-current={aktiv(pathname, "/om-oss") ? "page" : undefined}
+            className="knapp knapp-kontur min-h-11 px-5"
           >
-            <Telefon className="size-5" />
-            <span className="hidden whitespace-nowrap 2xl:inline">{foretag.telefon}</span>
-            <span className="sr-only 2xl:hidden">Ring {foretag.telefon}</span>
-          </a>
-          <a href={mejl(amnen.allmant)} className="knapp knapp-primar min-h-11 px-5">
-            Kontakta oss
-          </a>
+            Om oss
+          </Link>
+          <Link
+            href="/kontakt"
+            aria-current={aktiv(pathname, "/kontakt") ? "page" : undefined}
+            className="knapp knapp-primar min-h-11 px-5"
+          >
+            Kontakt
+          </Link>
         </div>
 
         <button
           ref={knapp}
           type="button"
-          className="-mr-2 flex size-11 items-center justify-center rounded-full xl:hidden"
+          className="-mr-2 ml-auto flex size-11 items-center justify-center rounded-full lg:hidden"
           aria-expanded={oppen}
           aria-controls="mobilmeny"
           onClick={() => setOppen((v) => !v)}
@@ -136,49 +167,58 @@ export default function Header() {
         <div
           id="mobilmeny"
           ref={panel}
-          className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/10 bg-papper text-black lg:h-[calc(100dvh-5rem)] xl:hidden"
+          data-lenis-prevent
+          className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/10 bg-papper text-black lg:hidden"
         >
           <nav
             aria-label="Mobilmeny"
-            className="mx-auto max-w-3xl px-5 pt-4 pb-10 lg:px-8"
+            className="mx-auto max-w-3xl px-5 pt-4 pb-10"
             onClick={(e) => {
-              // Stäng menyn när en länk väljs (sidbyte eller mejl/telefon).
+              // Stäng menyn när en länk väljs (sidbyte eller telefon).
               if ((e.target as HTMLElement).closest("a")) setOppen(false);
             }}
           >
             <ul className="divide-y divide-black/10">
-              {meny.map((punkt) => (
-                <li key={punkt.href} className="py-1">
+              <li className="py-1">
+                <Link
+                  href="/utbildningar"
+                  aria-current={pathname === "/utbildningar" ? "page" : undefined}
+                  className="flex min-h-12 items-center justify-between text-2xl font-semibold tracking-tight"
+                >
+                  Utbildningar
+                  <Pil className="size-5 text-magenta" />
+                </Link>
+                <ul className="mb-3 ml-1 space-y-0.5 border-l border-black/15 pl-4">
+                  {utbildningar.map((u) => (
+                    <li key={u.href}>
+                      <Link
+                        href={u.href}
+                        aria-current={pathname === u.href ? "page" : undefined}
+                        className="flex min-h-11 items-center text-lg"
+                      >
+                        {u.menynamn}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              {mobil.map((p) => (
+                <li key={p.href} className="py-1">
                   <Link
-                    href={punkt.href}
-                    aria-current={pathname === punkt.href ? "page" : undefined}
+                    href={p.href}
+                    aria-current={aktiv(pathname, p.href) ? "page" : undefined}
                     className="flex min-h-12 items-center justify-between text-2xl font-semibold tracking-tight"
                   >
-                    {punkt.namn}
+                    {p.namn}
                     <Pil className="size-5 text-magenta" />
                   </Link>
-                  {"barn" in punkt && (
-                    <ul className="mb-3 ml-1 space-y-0.5 border-l border-black/15 pl-4">
-                      {punkt.barn.map((u) => (
-                        <li key={u.href}>
-                          <Link
-                            href={u.href}
-                            aria-current={pathname === u.href ? "page" : undefined}
-                            className="flex min-h-11 items-center text-lg"
-                          >
-                            {u.menynamn}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </li>
               ))}
             </ul>
             <div className="mt-8 grid gap-3">
-              <a href={mejl(amnen.allmant)} className="knapp knapp-primar w-full">
-                Kontakta oss
-              </a>
+              <Link href="/kontakt" className="knapp knapp-primar w-full">
+                Kontakt
+              </Link>
               <a href={foretag.telefonHref} className="knapp knapp-sekundar siffror w-full">
                 <Telefon className="size-5" />
                 {foretag.telefon}

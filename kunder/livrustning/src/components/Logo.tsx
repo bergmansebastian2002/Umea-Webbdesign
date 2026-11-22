@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import loggaLjus from "@/bilder/logga-ljus-botten.webp";
-import loggaMork from "@/bilder/logga-mork-botten.webp";
+import loggaLjus from "@/bilder/logga-ntba-ljus-botten.webp";
+import loggaMork from "@/bilder/logga-ntba-mork-botten.webp";
 
-/** Livrustnings logga. `botten` styr om ordmärket ska vara mörkt eller vitt. */
+/** Nice To Be Alives logga. `botten` styr om ordmärket ska vara svart eller vitt. */
 export default function Logo({
   botten = "ljus",
   className = "",
@@ -15,11 +15,11 @@ export default function Logo({
   prioritet?: boolean;
 }) {
   return (
-    <Link href="/" className={`inline-block shrink-0 ${className}`} aria-label="Livrustning, till startsidan">
+    <Link href="/" className={`inline-block shrink-0 ${className}`} aria-label="Nice To Be Alive, till startsidan">
       <Image
         src={botten === "ljus" ? loggaLjus : loggaMork}
-        alt="Livrustning - Kunskap för säkerhets skull"
-        sizes="(min-width: 1024px) 200px, 160px"
+        alt="Nice To Be Alive"
+        sizes="(min-width: 1024px) 160px, 136px"
         priority={prioritet}
         className="h-auto w-full"
       />

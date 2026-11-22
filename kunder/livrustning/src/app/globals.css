@@ -162,13 +162,6 @@
       radial-gradient(55% 60% at 80% 78%, rgb(227 6 70 / 0.22), transparent 70%),
       radial-gradient(85% 95% at 22% 30%, transparent 40%, var(--color-monitor) 100%);
   }
-  /* Mörkt sidhuvud (startsidan): mörk magenta klarar inte kontrasten mot monitorsvart. */
-  .sidhuvud-mork nav[aria-label="Huvudmeny"] > ul > li > a:hover,
-  .sidhuvud-mork nav[aria-label="Huvudmeny"] > ul > li > a.text-magenta-mork,
-  .sidhuvud-mork > div > div > a[href^="tel:"]:hover {
-    color: var(--color-magenta-ljus);
-  }
-
   /* Kurvan på mörk botten: ljusare baslinje och ett starkare sken kring pulsen. */
   .ekg-monitor .ekg-kurva[data-live] {
     opacity: 0.45;
@@ -580,6 +573,106 @@
   }
 }
 
+/*
+ * Mörka ytor (.monitor-hero): sidornas ingångar och avslutningen.
+ * Reglerna ligger utanför lagren så att de vinner över Tailwinds
+ * hjälpklasser, och gör om ljusa färger till sina mörka motsvarigheter.
+ * .pa-ljus undantar en ljus ruta inuti en mörk yta (t.ex. offertformuläret).
+ */
+.monitor-hero {
+  color: var(--color-monitor-text);
+}
+.monitor-hero :is(h1, h2):not(.pa-ljus *) {
+  color: #fff;
+}
+.monitor-hero .text-grafit:not(.pa-ljus *) {
+  color: var(--color-monitor-dampad);
+}
+.monitor-hero [class*="border-black"]:not(.pa-ljus, .pa-ljus *) {
+  border-color: rgb(255 255 255 / 0.14);
+}
+.monitor-hero .textlank:not(.pa-ljus *) {
+  color: #fff;
+  text-decoration-color: var(--color-magenta);
+}
+.monitor-hero .textlank:not(.pa-ljus *) span {
+  text-decoration-color: var(--color-magenta);
+}
+.monitor-hero a[class*="hover:text-magenta-mork"]:not(.pa-ljus *):hover {
+  color: var(--color-magenta-ljus);
+}
+.monitor-hero .knapp-sekundar:not(.pa-ljus *) {
+  color: #fff;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
+}
+.monitor-hero .knapp-sekundar:not(.pa-ljus *):hover {
+  background: #fff;
+  color: var(--color-black);
+}
+/* Kurvan på mörk botten: ljusare baslinje och starkare sken, som i första vyn. */
+.monitor-hero .ekg-kurva[data-live] {
+  opacity: 0.45;
+}
+.monitor-hero .ekg-live .ekg-huvud {
+  stroke: var(--color-magenta-ljus);
+  filter: drop-shadow(0 0 6px rgb(227 6 70 / 0.9)) drop-shadow(0 0 18px rgb(227 6 70 / 0.5));
+}
+.monitor-hero .ekg-prick {
+  fill: var(--color-magenta-ljus);
+}
+
+/* Konturknapp på mörk botten (Om oss i sidhuvudet). */
+.knapp-kontur {
+  background: transparent;
+  color: #fff;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
+}
+.knapp-kontur:hover,
+.knapp-kontur[aria-current="page"] {
+  background: #fff;
+  color: var(--color-black);
+}
+
+/*
+ * Rullgardinen under Utbildningar: rullas fram uppifrån och ned när man
+ * håller muspekaren över länken (eller tabbar in), och raderna följer efter
+ * i tur och ordning.
+ */
+.rullgardin {
+  visibility: hidden;
+  opacity: 0;
+  clip-path: inset(0 -3rem 100% -3rem);
+  transition:
+    clip-path 0.5s var(--ease-ut),
+    opacity 0.25s ease,
+    visibility 0s linear 0.5s;
+}
+.group:hover > .rullgardin,
+.group:focus-within > .rullgardin {
+  visibility: visible;
+  opacity: 1;
+  clip-path: inset(0 -3rem -4rem -3rem);
+  transition:
+    clip-path 0.5s var(--ease-ut),
+    opacity 0.2s ease,
+    visibility 0s;
+}
+.rullgardin-rad {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.group:hover > .rullgardin .rullgardin-rad,
+.group:focus-within > .rullgardin .rullgardin-rad {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.4s ease calc(60ms + var(--i, 0) * 45ms),
+    transform 0.5s var(--ease-ut) calc(60ms + var(--i, 0) * 45ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -616,6 +709,13 @@
   }
   .parallax img {
     animation: none !important;
+  }
+  /* Rullgardinen rullar fram mjukt även här: en liten yta, på användarens egen begäran. */
+  .rullgardin {
+    transition-duration: 0.5s, 0.25s, 0s !important;
+  }
+  .rullgardin-rad {
+    transition-duration: 0.4s, 0.5s !important;
   }
   .intro {
     animation-name: intro-ton;
