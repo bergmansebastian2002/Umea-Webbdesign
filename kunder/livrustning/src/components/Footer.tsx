@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 lg:px-8 lg:pt-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo botten="mork" className="w-52" />
+            <Logo botten="mork" className="w-44" />
             <p className="mt-6 max-w-xs text-monitor-dampad">
               Utbildning i HLR, första hjälpen och brand. Vi kommer till er, var i Sverige ni än finns.
             </p>
@@ -20,7 +20,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener"
                 className="flex size-11 items-center justify-center rounded-full bg-white/8 transition-colors hover:bg-magenta"
-                aria-label="Livrustning på Facebook (öppnas i ny flik)"
+                aria-label="Nice To Be Alive på Facebook (öppnas i ny flik)"
               >
                 <Facebook className="size-5" />
               </a>
@@ -29,7 +29,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener"
                 className="flex size-11 items-center justify-center rounded-full bg-white/8 transition-colors hover:bg-magenta"
-                aria-label="Livrustning på Instagram (öppnas i ny flik)"
+                aria-label="Nice To Be Alive på Instagram (öppnas i ny flik)"
               >
                 <Instagram className="size-5" />
               </a>
@@ -49,8 +49,8 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Livrustning" className="lg:col-span-2">
-            <h2 className="text-sm font-semibold text-monitor-dampad">Livrustning</h2>
+          <nav aria-label="Nice To Be Alive" className="lg:col-span-2">
+            <h2 className="text-sm font-semibold text-monitor-dampad">Nice To Be Alive</h2>
             <ul className="mt-4 space-y-1">
               {[
                 ["Köp hjärtstartare", "/kop-hjartstartare"],

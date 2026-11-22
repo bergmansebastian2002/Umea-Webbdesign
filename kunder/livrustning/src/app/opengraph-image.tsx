@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-export const alt = "Livrustning - Gör hela personalen till livräddare";
+export const alt = "Nice To Be Alive - Vi gör alla till varandras livförsäkring";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,7 +33,7 @@ export default async function OgBild() {
           fontFamily: "Familjen",
         }}
       >
-        <div style={{ fontSize: 34, fontWeight: 700, color: "#e30646" }}>Livrustning</div>
+        <div style={{ fontSize: 34, fontWeight: 700, color: "#e30646" }}>Nice To Be Alive</div>
         <div style={{ marginTop: 28, fontSize: 84, fontWeight: 800, lineHeight: 1, letterSpacing: -3, maxWidth: 900 }}>
           Gör hela personalen till livräddare.
         </div>

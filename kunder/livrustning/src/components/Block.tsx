@@ -101,7 +101,7 @@ export function Sidrubrik({
   children?: ReactNode;
 }) {
   return (
-    <section className="ekg-papper ekg-papper-tonad border-b border-black/10">
+    <section className="monitor-hero border-b border-white/8">
       <div className="mx-auto max-w-7xl px-5 pt-12 pb-14 lg:px-8 lg:pt-20 lg:pb-20">
         {sokvag && (
           <nav aria-label="Du är här" className="mb-8 text-sm text-grafit">
@@ -196,14 +196,14 @@ export function Avslut({
   rubrik = "Hur många hos er har aktuella kunskaper för att rädda liv?",
   text = "Mejla eller ring och berätta vilken utbildning ni är intresserad av, var ni finns och ungefär hur många ni är.",
   live = true,
-  mork = false,
+  mork = true,
   galler,
 }: {
   rubrik?: string;
   text?: string;
   /** Levande puls på kurvan (startsidan). */
   live?: boolean;
-  /** Mörk monitorbotten med lysande puls (startsidans mörka slut). */
+  /** Mörk monitorbotten med lysande puls (standard). `mork={false}` ger rosa EKG-papper. */
   mork?: boolean;
   /** Visar en Begär offert-knapp som leder till formuläret. */
   galler?: string;

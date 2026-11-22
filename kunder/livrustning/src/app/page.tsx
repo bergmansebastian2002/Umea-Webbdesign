@@ -10,12 +10,12 @@ import { metadataFor } from "@/lib/seo";
 import { foretag } from "@/lib/site";
 
 import bildEventStor from "@/bilder/ehlr-event-sal-stor.webp";
-import bildInstruktorStor from "@/bilder/instruktorsutbildning-stor.webp";
+import bildInstruktorStor from "@/bilder/instruktorsutbildning-skarp.webp";
 import bildTraning from "@/bilder/praktisk-traning.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
 
 export const metadata = metadataFor({
-  titel: "Livrustning - Utbildning i HLR, första hjälpen och brand",
+  titel: "Nice To Be Alive - Utbildning i HLR, första hjälpen och brand",
   beskrivning:
     "Vi gör alla till varandras livförsäkring. HLR, första hjälpen och brandskydd – på plats, digitalt eller via smidiga hybridlösningar.",
   sokvag: "/",

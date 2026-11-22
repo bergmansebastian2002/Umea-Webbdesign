@@ -42,7 +42,7 @@ const arenden = [
 export default function Kontakt() {
   return (
     <>
-      <section className="ekg-papper ekg-papper-tonad border-b border-black/10">
+      <section className="monitor-hero border-b border-white/8">
         <div className="mx-auto max-w-7xl px-5 pt-12 pb-16 lg:px-8 lg:pt-20 lg:pb-24">
           <h1 className="intro max-w-4xl text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] font-bold">Berätta vad ni behöver</h1>
           <p className="intro mt-6 max-w-2xl text-xl leading-relaxed text-grafit lg:text-[1.375rem]" style={{ ["--i" as string]: 1 }}>
