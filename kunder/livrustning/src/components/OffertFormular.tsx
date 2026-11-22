@@ -73,7 +73,7 @@ export default function OffertFormular() {
 
   if (skickat) {
     return (
-      <div className="rounded-2xl border border-black/10 bg-white p-6 lg:p-10" role="status">
+      <div className="pa-ljus rounded-2xl border border-black/10 bg-white p-6 text-black lg:p-10" role="status">
         <span className="flex size-12 items-center justify-center rounded-full bg-black text-papper">
           <Bock className="size-6" />
         </span>
@@ -113,7 +113,7 @@ export default function OffertFormular() {
       action={`mailto:${foretag.epost}?subject=${encodeURIComponent(amne)}`}
       method="post"
       encType="text/plain"
-      className="rounded-2xl border border-black/10 bg-white p-6 lg:p-10"
+      className="pa-ljus rounded-2xl border border-black/10 bg-white p-6 text-black lg:p-10"
       aria-labelledby={`${uid}-rubrik`}
     >
       <h2 id={`${uid}-rubrik`} className="text-3xl leading-tight font-bold">

@@ -117,7 +117,8 @@ async function ren(fil, utnamn) {
 // Egna filnamn, så att originalen på övriga sidor inte påverkas.
 const STORA = {
   "ehlr-event-sal.jpg": "ehlr-event-sal-stor",
-  "instruktorsutbildning.jpg": "instruktorsutbildning-stor",
+  // AI-uppskalad 4x med Real-ESRGAN från instruktorsutbildning.jpg (2026-11-22).
+  "instruktorsutbildning-ai.jpg": "instruktorsutbildning-skarp",
 };
 
 async function stor(fil, utnamn) {
@@ -196,37 +197,39 @@ async function kundlogga(fil) {
   console.log(`logga ${utnamn}.png  ${info.width}x${info.height}`);
 }
 
-// Loggan finns bara med vitt ordmärke (för mörk botten). Ljus variant:
-// vita/grå pixlar blir bläckfärg, magenta figur och EKG-linje behålls.
+// Nice To Be Alives logga (hjärtat + "Nice To Be ALIVE"), från nicetobealive.se
+// 2026-11-22. Originalet har svart ordmärke. Mörk variant: svarta/grå pixlar
+// blir vita, hjärtats röda toner behålls.
 async function loggor() {
-  const { data, info } = await sharp(`${IN}/logga.png`).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  const ljus = Buffer.from(data);
-  for (let i = 0; i < ljus.length; i += 4) {
-    const r = ljus[i], g = ljus[i + 1], b = ljus[i + 2];
-    const mattnad = Math.max(r, g, b) - Math.min(r, g, b);
-    if (mattnad < 60) {
-      ljus[i] = INK.r;
-      ljus[i + 1] = INK.g;
-      ljus[i + 2] = INK.b;
+  const kalla = await sharp(`${IN}/logga-nicetobealive.png`).ensureAlpha().trim().png().toBuffer();
+  const { data, info } = await sharp(kalla).raw().toBuffer({ resolveWithObject: true });
+  const vit = Buffer.from(data);
+  for (let i = 0; i < vit.length; i += 4) {
+    const r = vit[i], g = vit[i + 1], b = vit[i + 2];
+    if (Math.max(r, g, b) - Math.min(r, g, b) < 40) {
+      vit[i] = 255;
+      vit[i + 1] = 255;
+      vit[i + 2] = 255;
     }
   }
   const raw = { raw: { width: info.width, height: info.height, channels: 4 } };
-  await sharp(ljus, raw).resize({ width: 1200 }).webp({ quality: 90, alphaQuality: 100 }).toFile(`${OUT}/logga-ljus-botten.webp`);
-  await sharp(`${IN}/logga.png`).resize({ width: 1200 }).webp({ quality: 90, alphaQuality: 100 }).toFile(`${OUT}/logga-mork-botten.webp`);
+  await sharp(kalla).resize({ width: 900 }).webp({ quality: 92, alphaQuality: 100 }).toFile(`${OUT}/logga-ntba-ljus-botten.webp`);
+  await sharp(vit, raw).resize({ width: 900 }).webp({ quality: 92, alphaQuality: 100 }).toFile(`${OUT}/logga-ntba-mork-botten.webp`);
 
-  // Ikon: bara den springande figuren (vänstra delen av loggan), kvadratisk.
-  const figur = await sharp(`${IN}/logga.png`).extract({ left: 0, top: 0, width: 560, height: 602 }).toBuffer();
-  // extend måste bli en egen buffer: sharp kör annars resize före extend.
-  const kvadrat = await sharp(figur)
-    .extend({ left: 21, right: 21, top: 0, bottom: 0, background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  // Ikon: bara hjärtat, kvadratiskt med luft runt om.
+  const hjarta = await sharp(`${IN}/ikon-nicetobealive.png`).ensureAlpha().trim().png().toBuffer();
+  const genomskinlig = { r: 0, g: 0, b: 0, alpha: 0 };
+  const ikon = (storlek, inre) =>
+    sharp(hjarta).resize(inre, inre, { fit: "contain", background: genomskinlig }).png().toBuffer();
+  await sharp({ create: { width: 512, height: 512, channels: 4, background: genomskinlig } })
+    .composite([{ input: await ikon(512, 448), left: 32, top: 32 }])
     .png()
-    .toBuffer();
-  await sharp(kvadrat).resize(512, 512).png().toFile("src/app/icon.png");
-  await sharp({ create: { width: 180, height: 180, channels: 4, background: { r: 253, g: 243, b: 245, alpha: 1 } } })
-    .composite([{ input: await sharp(kvadrat).resize(144, 144).png().toBuffer(), left: 18, top: 18 }])
+    .toFile("src/app/icon.png");
+  await sharp({ create: { width: 180, height: 180, channels: 4, background: { r: 20, g: 17, b: 22, alpha: 1 } } })
+    .composite([{ input: await ikon(180, 128), left: 26, top: 26 }])
     .png()
     .toFile("src/app/apple-icon.png");
-  console.log("logga + ikoner klara");
+  console.log(`logga + ikoner klara (${info.width}x${info.height})`);
 }
 
 // Reco-märket: bara själva cirkeln, frilagd längs sin egen (exakt runda) kant.

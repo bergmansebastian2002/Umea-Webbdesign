@@ -7,11 +7,11 @@ import { amnen, foretag, mejl } from "@/lib/site";
 
 import bildGrupp from "@/bilder/grupp-dockor.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
-import bildHero from "@/bilder/instruktorsutbildning-stor.webp";
+import bildHero from "@/bilder/instruktorsutbildning-skarp.webp";
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
   beskrivning:
-    "Så går en utbildning hos Livrustning till: ni hör av er, får en offert, vi kommer till er och alla övar praktiskt på dockor och träningshjärtstartare.",
+    "Så går en utbildning hos Nice To Be Alive till: ni hör av er, får en offert, vi kommer till er och alla övar praktiskt på dockor och träningshjärtstartare.",
   sokvag: "/sa-gar-det-till",
 });
 
@@ -69,7 +69,7 @@ export default function SaGarDetTill() {
   return (
     <>
       {/* Första vyn: rubriken, kurvan och ett riktigt kursfoto. */}
-      <section className="ekg-papper ekg-papper-tonad border-b border-black/10">
+      <section className="monitor-hero border-b border-white/8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-8">
             <h1 className="text-[clamp(2.9rem,5.6vw,4.75rem)] leading-[0.95] font-bold tracking-[-0.035em]">
@@ -89,7 +89,7 @@ export default function SaGarDetTill() {
                 fill
                 priority
                 placeholder="blur"
-                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
+                sizes="(min-width: 1024px) 480px, 100vw"
                 className="object-cover object-[36%_50%]"
               />
             </div>

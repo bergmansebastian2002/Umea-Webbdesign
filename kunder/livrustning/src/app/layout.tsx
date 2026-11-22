@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MjukScroll from "@/components/MjukScroll";
 import Rorelse from "@/components/Rorelse";
 import { fontKlasser } from "@/lib/fonts";
 import { jsonLd, organisationSchema } from "@/lib/seo";
@@ -12,8 +13,8 @@ import { foretag, indexera } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(foretag.url),
   title: {
-    default: "Livrustning - Utbildning i HLR, första hjälpen och brand",
-    template: "%s | Livrustning",
+    default: "Nice To Be Alive - Utbildning i HLR, första hjälpen och brand",
+    template: "%s | Nice To Be Alive",
   },
   description:
     "Vi utbildar hela personalen i HLR, första hjälpen och brand, hos er och på 2 eller 4 timmar. " +
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fdf3f5",
+  themeColor: "#141116",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main id="innehall" className="overflow-x-clip">{children}</main>
         <Footer />
         <Rorelse />
+        <MjukScroll />
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organisationSchema())} />
       </body>
     </html>
