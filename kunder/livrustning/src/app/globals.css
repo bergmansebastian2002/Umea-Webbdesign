@@ -342,11 +342,18 @@
       transform 1.25s var(--ease-fjader);
     transition-delay: calc(var(--i, 0) * 90ms);
   }
-  .rorelse [data-in="fran-vanster"]:not(.inne) {
+  .rorelse [data-in="fran-vanster"]:not(.inne),
+  .js [data-in-alltid][data-in="fran-vanster"]:not(.inne) {
     transform: translateX(calc(min(11rem, 14vw) * -1 * var(--rorelse)));
   }
-  .rorelse [data-in="fran-hoger"]:not(.inne) {
+  .rorelse [data-in="fran-hoger"]:not(.inne),
+  .js [data-in-alltid][data-in="fran-hoger"]:not(.inne) {
     transform: translateX(calc(min(11rem, 14vw) * var(--rorelse)));
+  }
+  /* data-in-alltid: gömt redan innan Rorelse hunnit sätta .rorelse, så att en ruta
+     som syns direkt vid laddning inte blinkar till innan den glider in. */
+  .js [data-in-alltid]:not(.inne) {
+    opacity: 0;
   }
   /* Rubriker stiger upp ur en osynlig kant. */
   [data-in="rubrik"] {

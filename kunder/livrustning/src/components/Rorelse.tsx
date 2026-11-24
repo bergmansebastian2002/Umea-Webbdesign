@@ -39,8 +39,14 @@ export default function Rorelse() {
     const registrera = (el: Element) => {
       if (el.classList.contains("inne")) return;
       // Det som redan syns eller ligger ovanför fönstret visas direkt, utan rörelse.
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.94) visa(el);
-      else io.observe(el);
+      // Undantag: data-in-alltid är gömt redan från första målningen (se globals.css)
+      // och glider in strax efter laddning även om det syns direkt.
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight * 0.94) {
+        if (el.hasAttribute("data-in-alltid") && top > 0) {
+          requestAnimationFrame(() => requestAnimationFrame(() => visa(el)));
+        } else visa(el);
+      } else io.observe(el);
     };
     const sok = (nod: ParentNode) => nod.querySelectorAll("[data-in]").forEach(registrera);
 
