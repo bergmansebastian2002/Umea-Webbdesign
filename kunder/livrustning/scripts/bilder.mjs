@@ -41,6 +41,8 @@ const RENA = {
   "hjartstartare-hemma.jpg": "hjartstartare-hemma",
   "hjartstartare-spanien.jpg": "hjartstartare-spanien",
   "hjartstartarpaket-kontor.jpg": "hjartstartarpaket-kontor",
+  // Levererad av Sebbe 2026-11-24 (AI-bild, grönt utomhusskåp på husfasad).
+  "hjartstartarpaket-utomhus.webp": "hjartstartarpaket-utomhus",
   "johnny-sundin.png": "johnny-sundin",
   // Kundens två kursfoton (640 px breda), uppskalade 4x med Real-ESRGAN och
   // efterbehandlade (ljus, färg, kontrast) 2026-11-20. Originalen ligger kvar

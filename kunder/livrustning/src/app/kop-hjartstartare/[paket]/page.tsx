@@ -72,45 +72,24 @@ export default async function Paketsida({ params }: { params: Promise<{ paket: s
 
           <div className="lg:col-span-5">
             <div className="grid gap-4 lg:sticky lg:top-28">
-              {p.bilder.length > 0 ? (
-                p.bilder.map((b, i) => (
-                  <div
-                    key={b.alt}
-                    className={`foto relative ${i === 0 ? "aspect-square" : "aspect-[3/2]"}`}
-                    data-in="bild"
-                    style={{ ["--i" as string]: i * 2 }}
-                  >
-                    <Image
-                      src={b.src}
-                      alt={b.alt}
-                      fill
-                      placeholder="blur"
-                      sizes="(min-width: 1024px) 480px, 100vw"
-                      className={`object-cover ${i > 0 ? "object-[50%_42%]" : ""}`}
-                    />
-                  </div>
-                ))
-              ) : (
-                // Kunden har inte skickat någon bild på utomhuspaketet: skåpets uppgifter på monitorn.
-                <div className="monitor-rutor rounded-2xl p-7 text-monitor-text lg:p-9" data-in="">
-                  <p className="text-monitor-dampad">Utomhusskåp</p>
-                  <p className="mt-1 text-[1.75rem] leading-tight font-bold">Rotaid Solid Plus Heat</p>
-                  <dl className="mt-8">
-                    <div className="flex items-baseline justify-between gap-6 border-t border-white/12 py-4">
-                      <dt className="text-monitor-dampad">Elanslutning</dt>
-                      <dd className="siffror text-2xl font-bold">230 V</dd>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-6 border-t border-white/12 py-4">
-                      <dt className="text-monitor-dampad">IP-klass, hjärtstartare</dt>
-                      <dd className="siffror text-2xl font-bold">IP55 / IP66</dd>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-6 border-t border-white/12 py-4">
-                      <dt className="text-monitor-dampad">Hjälpröst</dt>
-                      <dd className="siffror text-2xl font-bold">4 språk</dd>
-                    </div>
-                  </dl>
+              {p.bilder.map((b, i) => (
+                <div
+                  key={b.alt}
+                  className={`foto relative ${i === 0 ? "aspect-square" : "aspect-[3/2]"}`}
+                  data-in="bild"
+                  style={{ ["--i" as string]: i * 2 }}
+                >
+                  <Image
+                    src={b.src}
+                    alt={b.alt}
+                    fill
+                    placeholder="blur"
+                    sizes="(min-width: 1024px) 480px, 100vw"
+                    className={`object-cover ${i > 0 ? "object-[50%_42%]" : ""}`}
+                    style={b.fokus ? { objectPosition: b.fokus } : undefined}
+                  />
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

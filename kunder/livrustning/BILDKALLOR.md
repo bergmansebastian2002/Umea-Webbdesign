@@ -8,6 +8,7 @@ Kursfotona kommer från Livrustning AB:s egna kanaler och hämtades 2026-09-18 p
 | logga-ljus-botten, logga-mork-botten, src/app/icon.png, src/app/apple-icon.png | Loggan på gamla livrustning.se (ljus variant omfärgad till bläckfärg) |
 | traning-pa-plats-1-skarp, traning-pa-plats-2-skarp | AI-uppskalade (Real-ESRGAN 4x) och efterbehandlade 2026-11-20, ograderade. Ursprung: kundens egna kursfoton, levererade 2026-11-19 ("Träning på plats 1/2", 640 px breda: visas därför små). Graderade som övriga kursfoton |
 | sakerhetsdag-kollage, ehlr-event-sal, instruktorsutbildning, hjartstartare-i-hand, hjartstartare-hemma, hjartstartare-spanien, hjartstartarpaket-kontor | Levererade av kunden 2026-11-19. Graderas inte (skyltar och hjärtstartare ska ha rätt färg), bara skalning och webp |
+| hjartstartarpaket-utomhus | AI-bild levererad av Sebbe 2026-11-24 (grönt utomhusskåp på husfasad). Ograderad, bara skalning och webp |
 | johnny-sundin, peter-jonsson | Porträtten ur kundens underlag (PDF 2026-11-19), 291 px breda: visas små |
 | kunder/* (elva kundloggor) | Nio från nicetobealive.se (kundens egen sajt), Svenska kyrkan och Folkbildningsrådet som SVG från deras egna webbplatser, 2026-11-20. Egna färger; den vita bakgrunden görs genomskinlig i `scripts/bilder.mjs`. Folkbildningsrådets vita SVG får deras vinröda #980048 |
 | reco-5-ar-i-rad | Reco-märket "Rekommenderat 5 år i rad" från gamla livrustning.se, frilagt längs cirkeln |
@@ -16,4 +17,4 @@ Graderingen (samma på alla foton, se `scripts/bilder.mjs`): färgsticket neutra
 
 **Att stämma av med Livrustning:** att personerna på kursfotona är okej med att synas på hemsidan (bilderna är redan publicerade på Livrustnings Facebook).
 
-**Saknas från kunden (2026-11-19):** bild på hjärtstartarpaket utomhus, nya bilder till sidan eHLR och eFörstaHjälpen (meningen i underlaget är avklippt), en andra hemmabild till Hjärtstartarpaket hemma samt kundloggorna till startsidan (namnen står i text tills filerna finns).
+**Saknas från kunden (2026-11-19):** nya bilder till sidan eHLR och eFörstaHjälpen (meningen i underlaget är avklippt), en andra hemmabild till Hjärtstartarpaket hemma samt kundloggorna till startsidan (namnen står i text tills filerna finns).
