@@ -4,6 +4,7 @@ import bildHand from "@/bilder/hjartstartare-i-hand.webp";
 import bildHemma from "@/bilder/hjartstartare-hemma.webp";
 import bildKontor from "@/bilder/hjartstartarpaket-kontor.webp";
 import bildSpanien from "@/bilder/hjartstartare-spanien.webp";
+import bildUtomhus from "@/bilder/hjartstartarpaket-utomhus.webp";
 
 /**
  * Hjärtstartarpaketen. Allt innehåll kommer ordagrant ur kundens underlag
@@ -18,7 +19,8 @@ export type Paket = {
   ingress: string;
   ingar: { rubrik: string; text?: string }[];
   utbildning: { namn: string; licens: string; text: string };
-  bilder: { src: StaticImageData; alt: string }[];
+  /** fokus: object-position på paketsidan, när motivet inte sitter i mitten. */
+  bilder: { src: StaticImageData; alt: string; fokus?: string }[];
 };
 
 const HJARTSTARTARE = { rubrik: "Hjärtstartare", text: "Primedic Y eller Primedic MyPAD." };
@@ -74,8 +76,13 @@ export const paket: Paket[] = [
       licens: "1-månadslicens för alla i närheten av hjärtstartaren",
       text: "En digital utbildning som ger de som vistas i närheten av hjärtstartaren kunskap om hur hjärtstartare används tillsammans med HLR.",
     },
-    // Kunden har inte skickat någon bild på utomhuspaketet ännu.
-    bilder: [],
+    bilder: [
+      {
+        src: bildUtomhus,
+        alt: "Hjärtstartare i grönt utomhusskåp på en husfasad bredvid en entré",
+        fokus: "50% 22%",
+      },
+    ],
   },
   {
     slug: "hemma",

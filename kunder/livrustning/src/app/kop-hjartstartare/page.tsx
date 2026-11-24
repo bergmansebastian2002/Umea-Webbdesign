@@ -24,6 +24,13 @@ const jamforelse = [
   { etikett: "IP-klass", nyckel: "ip" },
 ] as const;
 
+// Var i fotot paketkortets 4:3-utsnitt hamnar, så att hjärtstartaren syns.
+const UTSNITT: Record<string, string> = {
+  spanien: "object-[80%_60%]",
+  hemma: "object-[55%_62%]",
+  utomhus: "object-[50%_35%]",
+};
+
 export default function KopHjartstartare() {
   return (
     <>
@@ -128,22 +135,14 @@ export default function KopHjartstartare() {
                     className="lyft grupp flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-papper hover:border-black/20"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden">
-                      {bild ? (
-                        <Image
-                          src={bild.src}
-                          alt=""
-                          fill
-                          placeholder="blur"
-                          sizes="(min-width: 1024px) 290px, (min-width: 640px) 50vw, 100vw"
-                          className={`zoom object-cover ${p.slug === "spanien" ? "object-[80%_60%]" : p.slug === "hemma" ? "object-[55%_62%]" : "object-[62%_40%]"}`}
-                        />
-                      ) : (
-                        // Utomhuspaketet saknar bild: skåpets nyckeluppgifter på monitorn i stället.
-                        <div className="monitor-rutor flex h-full flex-col justify-end p-5 text-monitor-text">
-                          <p className="siffror text-4xl leading-none font-bold">230 V</p>
-                          <p className="mt-2 text-sm leading-snug text-monitor-dampad">Uppvärmt skåp: Rotaid Solid Plus Heat</p>
-                        </div>
-                      )}
+                      <Image
+                        src={bild.src}
+                        alt=""
+                        fill
+                        placeholder="blur"
+                        sizes="(min-width: 1024px) 290px, (min-width: 640px) 50vw, 100vw"
+                        className={`zoom object-cover ${UTSNITT[p.slug] ?? "object-[62%_40%]"}`}
+                      />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
                       <h3 className="text-2xl leading-tight font-bold">{p.namn}</h3>
