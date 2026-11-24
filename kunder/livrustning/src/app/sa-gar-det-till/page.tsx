@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Avslut, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { metadataFor } from "@/lib/seo";
-import { amnen, foretag, mejl } from "@/lib/site";
 
 import bildGrupp from "@/bilder/grupp-dockor.webp";
 import bildGenomgang from "@/bilder/grupp-genomgang.webp";
@@ -100,49 +99,27 @@ export default function SaGarDetTill() {
       <section className="bg-white">
         <ol className="mx-auto max-w-7xl px-5 py-10 lg:px-8 lg:py-16">
           {steg.map((s, i) => (
-            <li key={s.rubrik} className="grid grid-cols-1 gap-8 border-b border-black/10 py-12 last:border-b-0 md:grid-cols-12 md:items-center md:gap-12 lg:py-16">
-              <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-2" : ""}`}>
+            <li
+              key={s.rubrik}
+              // Varje steg glider in från sidan, växelvis vänster och höger, som rutorna på startsidan.
+              data-in={i % 2 === 0 ? "fran-vanster" : "fran-hoger"}
+              data-in-alltid=""
+              className="grid grid-cols-1 gap-8 border-b border-black/10 py-12 last:border-b-0 md:grid-cols-12 md:items-center md:gap-12 lg:py-16"
+            >
+              <div className={s.bild ? `md:col-span-6 ${i % 2 === 1 ? "md:order-2" : ""}` : "md:col-span-8"}>
                 <h2 className="flex items-baseline gap-4 text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold">
                   <span className="siffror text-grafit">{i + 1}</span>
                   {s.rubrik}
                 </h2>
                 <p className="mt-4 max-w-lg text-xl leading-relaxed text-grafit">{s.text}</p>
               </div>
-              <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                {s.bild ? (
+              {s.bild && (
+                <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-1" : ""}`}>
                   <div className="foto relative aspect-[4/3]">
                     <Image src={s.bild} alt={s.alt} fill placeholder="blur" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
                   </div>
-                ) : i === 0 ? (
-                  // Steg 1 utan foto: kontaktvägarna stort, på samma EKG-papper som offertrutan.
-                  <div className="ekg-papper flex aspect-[4/3] flex-col justify-center rounded-md border border-black/10 px-8">
-                    <p className="text-lg font-semibold">Ring eller mejla</p>
-                    <ul className="mt-4 space-y-2 text-2xl font-bold">
-                      <li>
-                        <a href={foretag.telefonHref} className="siffror hover:text-magenta-mork">
-                          {foretag.telefon}
-                        </a>
-                      </li>
-                      <li>
-                        <a href={mejl(amnen.allmant)} className="break-all hover:text-magenta-mork">
-                          {foretag.epost}
-                        </a>
-                      </li>
-                    </ul>
-                    <Ekg slag={[0.7]} hojd={56} className="mt-8" />
-                  </div>
-                ) : (
-                  <div className="ekg-papper flex aspect-[4/3] flex-col justify-center rounded-md border border-black/10 px-8">
-                    <p className="text-lg font-semibold">Offerten utgår från</p>
-                    <ul className="mt-4 space-y-2 text-2xl font-bold">
-                      <li>Antal deltagare</li>
-                      <li>Vilken utbildning</li>
-                      <li>Var ni finns</li>
-                    </ul>
-                    <Ekg slag={[0.7]} hojd={56} className="mt-8" />
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </li>
           ))}
         </ol>
