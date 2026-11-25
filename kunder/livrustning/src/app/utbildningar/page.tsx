@@ -8,7 +8,7 @@ import { utbildningar } from "@/lib/site";
 
 import bildEvent from "@/bilder/ehlr-event-sal.webp";
 import bildFamilj from "@/bilder/hjartstartare-hemma.webp";
-import bildDigitalt from "@/bilder/hjartstartare-grupp.webp";
+import bildDigitalt from "@/bilder/ehlr-traning-kontor.webp";
 import bildInstruktor from "@/bilder/instruktorsutbildning.webp";
 import bildSakerhetsdag from "@/bilder/sakerhetsdag-kollage.webp";
 import bildKurs from "@/bilder/traning-pa-plats-2-skarp.webp";
@@ -37,7 +37,7 @@ const bilder: Record<string, { bild: StaticImageData; alt: string; lage?: string
   },
   "ehlr-och-eforstahjalpen": {
     bild: bildDigitalt,
-    alt: "Kollegor övar med träningshjärtstartare och övningsdocka",
+    alt: "Tre kollegor övar HLR med träningshjärtstartare på en övningsdocka medan instruktören tittar på",
   },
   "ehlr-familj": {
     bild: bildFamilj,
