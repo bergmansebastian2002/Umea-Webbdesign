@@ -185,12 +185,13 @@ Foton har små hörn (6 px) som en utskrift. Eventkort och monitorpaneler har 16
 ### EKG-kurvan (signatur)
 Ritas i verklig pixelbredd med P-, QRS- och T-våg, och slagen behåller sin form i alla bredder. På smala skärmar gallras slag bort så att de inte trängs, och det sista slaget behålls. Kurvan ritas fram en gång med stroke-dashoffset (cirka 1,6 s, exponentiell ut-kurva) när den syns. Vid knappen pulserar en ring var 2,4 s.
 
-**Levande kurva (startsidan, `live`).** Baslinjen ligger kvar som efterglöd (40 %) och ett slag sveper över den om och om igen, cirka 300 px/s, med en svans i tre lager som tonar ut bakåt. Ringen i slutet slår en gång per svep. Pulsen pausas när kurvan inte syns i fönstret. Används bara på startsidan (första vyn, monitorbandet, avslutet).
+**Levande kurva (`live`).** Baslinjen ligger kvar som efterglöd (40 %) och en puls sveper över den var 3,6:e sekund (`--ekg-takt`; 3 s kändes stressigt). Pulsen är ett fönster med uttonande mask som glider över en ljus kopia av kurvan (`.ekg-svep`): bara `transform` animeras, så grafikkortet sköter rörelsen. Ringen i slutet slår en gång per svep. Pulsen pausas när kurvan inte syns i fönstret.
 
 ### Rörelse
-- **Scroll:** element med `data-in` glider in när de scrollas fram: text 28 px uppåt, text/bild-par från sidan (`vanster`/`hoger`), foton dras fram nedifrån med clip-path medan bilden sätter sig (`bild`), tidslinjer växer ut (`vax`). Förskjutning mellan syskon med `--i` (90 ms per steg). Allt är synligt som standard; `Rorelse.tsx` armerar rörelsen.
+- **Scroll:** element med `data-in` glider in när de scrollas fram: rubriker och texten under dem 80 px från vänster (`sida`, `rubrik`; `sida-hoger` från höger), listor och kort 28 px uppåt, stora rutor från sidan med lätt fjädring (`fran-vanster`/`fran-hoger`), foton lyfter medan bilden sätter sig (`bild`), tidslinjer växer ut (`vax`). Förskjutning mellan syskon med `--i` (90 ms per steg). Bara `opacity` och `transform` animeras, aldrig clip-path. Allt är synligt som standard; `Rorelse.tsx` armerar rörelsen.
+- **Mjuk scroll:** Lenis (`MjukScroll.tsx`). Loopen går bara medan sidan rör sig; står sidan still gör huvudtråden ingenting.
 - **Första vyn:** rubrik och ingress lyfter in med ren CSS (`.intro`).
-- **Rullband:** kundnamnen rullar långsamt och stannar vid hovring eller fokus.
+- **Rullband:** kundnamnen rullar långsamt och stannar vid hovring eller fokus, och vilar när bandet inte syns.
 - **Minskad rörelse:** pulsen och rullbandet går kvar, scrollrörelserna går halva sträckan och parallaxen stängs av. Windows-inställningen "Animeringseffekter: av" räcker för att utlösa detta.
 
 ## Do's and Don'ts

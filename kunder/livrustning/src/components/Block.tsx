@@ -180,10 +180,10 @@ export function KorthetBand({
   return (
     <section className="border-b border-black/10 bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 py-14 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-20">
-        <h2 className="text-3xl leading-tight font-bold lg:col-span-4 lg:text-[2.25rem]" data-in="">
+        <h2 className="text-3xl leading-tight font-bold lg:col-span-4 lg:text-[2.25rem]" data-in="sida">
           {rubrik}
         </h2>
-        <div className="lg:col-span-8" data-in="" style={{ ["--i" as string]: 1 }}>
+        <div className="lg:col-span-8" data-in="sida" style={{ ["--i" as string]: 1 }}>
           <Korthet {...korthet} className="text-lg" />
         </div>
       </div>
@@ -227,8 +227,8 @@ export function Avslut({
           </h2>
           <p
             className={`mt-5 max-w-xl text-xl ${mork ? "text-monitor-dampad" : "text-grafit"}`}
-            data-in=""
-            style={{ ["--i" as string]: 2 }}
+            data-in="sida"
+            style={{ ["--i" as string]: 1 }}
           >
             {text}
           </p>

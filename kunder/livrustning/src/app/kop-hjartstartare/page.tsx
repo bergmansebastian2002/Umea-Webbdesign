@@ -63,7 +63,7 @@ export default function KopHjartstartare() {
             </div>
           </div>
           <div className="lg:col-span-7">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="sida">
               Varför välja Primedic?
             </h2>
             <ul className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
@@ -85,7 +85,7 @@ export default function KopHjartstartare() {
       {/* De två modellerna sida vid sida, som en avläsning på monitorn. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl" data-in="">
+          <div className="max-w-3xl" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Två modeller. Det här skiljer dem åt.</h2>
             <p className="mt-5 text-xl text-monitor-dampad">
               Det som framförallt skiljer de två hjärtstartarmodellerna åt är storlek, vikt och tålighet.
@@ -117,9 +117,9 @@ export default function KopHjartstartare() {
       </section>
 
       {/* Paketen: fyra ingångar till var sin sida. */}
-      <section id="paket" className="scroll-mt-20 bg-white">
+      <section id="paket" className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl" data-in="">
+          <div className="max-w-3xl" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Välj ditt hjärtstartarpaket</h2>
             <p className="mt-5 text-xl text-grafit">
               För mer information – klicka på det hjärtstartarpaket som du är intresserad av.

@@ -67,18 +67,21 @@ export default function Utbildningar() {
                 key={u.slug}
                 id={u.slug}
                 className="grupp relative grid grid-cols-1 gap-7 py-12 md:grid-cols-12 md:items-start md:gap-12 lg:py-16"
+                // Rörelsen ligger på raden (som är relative), så att länkens klickyta
+                // inte byter storlek medan texten glider in.
+                data-in="sida"
               >
-                <div className="foto relative aspect-[3/2] md:sticky md:top-28 md:col-span-5" data-in="bild">
+                <div className="foto relative aspect-[3/2] md:sticky md:top-28 md:col-span-5">
                   <Image
                     src={b.bild}
                     alt={b.alt}
                     fill
                     placeholder="blur"
-                    sizes="(min-width: 1280px) 480px, (min-width: 768px) 40vw, 100vw"
+                    sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 125vw"
                     className={`object-cover ${b.lage ?? ""}`}
                   />
                 </div>
-                <div className="md:col-span-7" data-in="">
+                <div className="md:col-span-7">
                   <h2 className="text-3xl leading-tight font-bold lg:text-[2.5rem] lg:leading-[1.08]">
                     <Link href={u.href} className="after:absolute after:inset-0 focus-visible:outline-none">
                       {u.namn}

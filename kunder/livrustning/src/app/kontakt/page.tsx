@@ -23,7 +23,7 @@ const vi = [
   },
   {
     namn: "Peter Jonsson",
-    text: "Huvudinstruktör som i över 25 år har utbildat ca 30 000 personer i HLR och Första Hjälpen. Peter har under många år haft Sveriges nöjdaste kursdeltagare enligt Reco.se.",
+    text: "Huvudinstruktör som i över 25 år har utbildat ca 30 000 personer i HLR och första hjälpen. Peter har under många år haft Sveriges nöjdaste kursdeltagare enligt Reco.se.",
     bild: bildPeter,
   },
 ];
@@ -92,7 +92,7 @@ export default function Kontakt() {
       {/* Vilka är vi? Två personer, två porträtt. */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="">
+          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="sida">
             Vilka är vi?
           </h2>
           <ul className="mt-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-2">
@@ -118,7 +118,7 @@ export default function Kontakt() {
 
       <section className="border-t border-black/10 bg-papper-djup">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <div className="lg:col-span-5" data-in="">
+          <div className="lg:col-span-5" data-in="sida">
             <h2 className="text-[clamp(2rem,4vw,3rem)] leading-[1.05] font-bold">Välj ärende, så blir det rätt från början</h2>
             <p className="mt-5 text-xl text-grafit">
               Knapparna öppnar ett mejl med rätt ämnesrad och en kort mall att fylla i. Vill ni hellre fylla i ett

@@ -8,8 +8,12 @@ import { useEffect, useId, useRef, useState } from "react";
  * med pathLength=1); utan JS eller med reduced motion visas den färdig.
  *
  * `slag` anger var hjärtslagen sitter, som andel av bredden (0-1).
- * `live` (standard) låter en puls svepa längs kurvan från vänster till höger
- * var tredje sekund, som på en monitor. Takten styrs av --ekg-takt i CSS.
+ * `live` (standard) låter en puls svepa längs kurvan från vänster till höger,
+ * som på en monitor. Takten styrs av --ekg-takt i CSS.
+ *
+ * Pulsen är ett fönster som glider över en ljus kopia av kurvan (se
+ * .ekg-svep i globals.css). Bara `transform` animeras, så grafikkortet sköter
+ * rörelsen och sidan slipper räkna om stil och måla om varje bildruta.
  */
 type Props = {
   slag?: number[];
@@ -20,13 +24,14 @@ type Props = {
   puls?: boolean;
   /** Ritas direkt när sidan laddas i stället för när den scrollas in. */
   direkt?: boolean;
-  /** Levande kurva: ett slag sveper längs linjen var tredje sekund. */
+  /** Levande kurva: en puls sveper längs linjen. */
   live?: boolean;
   tid?: number;
   className?: string;
 };
 
 const SLAGBREDD = 1.35; // slagets bredd i förhållande till höjden
+const GLOD = 28; // luft över och under kurvan i svepfönstret, så att skenet får plats
 
 function kurva(bredd: number, hojd: number, slag: number[]) {
   const bas = hojd * 0.66;
@@ -117,45 +122,49 @@ export default function Ekg({
   }, [live]);
 
   const { d, bas } = bredd > 0 ? kurva(bredd, hojd, slag) : { d: "", bas: hojd * 0.66 };
-  const linje = {
-    d,
-    pathLength: 1,
-    stroke: farg,
-    strokeWidth: tjocklek,
-  };
 
   return (
-    <div ref={ram} className={`relative w-full ${className}`} style={{ height: hojd }} aria-hidden="true">
+    <div
+      ref={ram}
+      className={`ekg relative w-full ${className}`}
+      style={{ height: hojd, ["--ekg-tid" as string]: `${tid}s` }}
+      data-rita={lage}
+      data-live={live ? "" : undefined}
+      data-aktiv={synlig && lage === "ritar" ? "ja" : "nej"}
+      aria-hidden="true"
+    >
       {bredd > 0 && (
-        <svg
-          width={bredd}
-          height={hojd}
-          viewBox={`0 0 ${bredd} ${hojd}`}
-          className="absolute inset-0 overflow-visible"
-          style={{ ["--ekg-tid" as string]: `${tid}s` }}
-        >
-          <path
-            key={id + bredd}
-            className="ekg-kurva"
-            data-rita={lage}
-            data-live={live ? "" : undefined}
-            d={d}
-            pathLength={1}
-            fill="none"
-            stroke={farg}
-            strokeWidth={tjocklek}
-            strokeLinejoin="round"
-            strokeLinecap="round"
-          />
+        <>
+          <svg width={bredd} height={hojd} viewBox={`0 0 ${bredd} ${hojd}`} className="absolute inset-0 overflow-visible">
+            <path
+              key={id + bredd}
+              className="ekg-kurva"
+              data-rita={lage}
+              data-live={live ? "" : undefined}
+              d={d}
+              pathLength={1}
+              fill="none"
+              stroke={farg}
+              strokeWidth={tjocklek}
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+          </svg>
           {live && (
-            <g key={`live${bredd}`} className="ekg-live" data-aktiv={synlig && lage === "ritar" ? "ja" : "nej"}>
-              <path className="ekg-svans-lang" {...linje} />
-              <path className="ekg-svans-kort" {...linje} />
-              <path className="ekg-huvud" {...linje} strokeWidth={tjocklek + 0.75} />
-            </g>
+            <div key={`svep${bredd}`} className="ekg-svep" style={{ top: -GLOD, bottom: -GLOD }}>
+              <svg
+                className="ekg-svep-kurva"
+                width={bredd}
+                height={hojd + GLOD * 2}
+                viewBox={`0 ${-GLOD} ${bredd} ${hojd + GLOD * 2}`}
+                style={{ width: bredd }}
+              >
+                <path d={d} fill="none" stroke={farg} strokeWidth={tjocklek + 0.75} strokeLinejoin="round" strokeLinecap="round" />
+              </svg>
+            </div>
           )}
-          {puls && <circle className="ekg-prick" cx={bredd - 2} cy={bas} r={4} fill={farg} />}
-        </svg>
+          {puls && <span className="ekg-prick" style={{ left: bredd - 6, top: bas - 4, background: farg }} />}
+        </>
       )}
     </div>
   );

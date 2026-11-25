@@ -7,7 +7,7 @@ import { amnen } from "@/lib/site";
 import bildInstruktor from "@/bilder/instruktorsutbildning.webp";
 
 const BESKRIVNING =
-  "Bli instruktör i HLR och första hjälpen. Instruktörsutbildningar i Vuxen-HLR, Barn-HLR och Första hjälpen enligt HLR-rådets riktlinjer, som öppna utbildningar i Stockholmsområdet eller hos er.";
+  "Bli instruktör i HLR och första hjälpen. Instruktörsutbildningar i vuxen-HLR, barn-HLR och första hjälpen enligt HLR-rådets riktlinjer, som öppna utbildningar i Stockholmsområdet eller hos er.";
 
 export const metadata = metadataFor({
   titel: "Instruktörsutbildning - bli instruktör i HLR och första hjälpen",
@@ -34,7 +34,7 @@ const kurser = [
   },
   {
     namn: "Huvudinstruktör",
-    text: "Vidareutbildning till huvudinstruktör i både Vuxen- och Barn-HLR.",
+    text: "Vidareutbildning till huvudinstruktör i både vuxen- och barn-HLR.",
     pris: "Pris vid förfrågan",
   },
 ];
@@ -57,13 +57,13 @@ export default function Instruktorskurser() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-5" data-in="vanster">
+          <div className="lg:col-span-5" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">
               Redo att lära ut HLR
             </h2>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-grafit lg:text-xl lg:leading-relaxed">
               <p>
-                Vi samarbetar med Brandfast AB vid instruktörskurser i HLR och Första Hjälpen. Du får behörighet och
+                Vi samarbetar med Brandfast AB vid instruktörskurser i HLR och första hjälpen. Du får behörighet och
                 kunskap som gör dig redo att lära ut HLR och öva dina kollegor, elever eller medlemmar.
               </p>
               <p>
@@ -91,7 +91,7 @@ export default function Instruktorskurser() {
       {/* Kurstyperna som prislista på mörk botten. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end" data-in="">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Fyra instruktörsutbildningar</h2>
             <p className="text-monitor-dampad">Priser exkl. moms.</p>
           </div>

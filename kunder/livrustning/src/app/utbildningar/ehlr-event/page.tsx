@@ -6,7 +6,7 @@ import Snabbfakta from "@/components/Snabbfakta";
 import { jsonLd, kursSchema, metadataFor } from "@/lib/seo";
 import { utbildning } from "@/lib/site";
 
-import bildEvent from "@/bilder/ehlr-event-sal.webp";
+import bildEvent from "@/bilder/ehlr-event-sal-stor.webp";
 
 const u = utbildning("ehlr-event");
 
@@ -87,7 +87,7 @@ export default function EhlrEvent() {
               />
             </div>
           </figure>
-          <div className="lg:col-span-4" data-in="hoger">
+          <div className="lg:col-span-4" data-in="sida-hoger">
             <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]">Hela företaget, samma dag</h2>
             {u.korthet && <Korthet {...u.korthet} staplad className="mt-6" />}
           </div>
@@ -96,7 +96,7 @@ export default function EhlrEvent() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <div className="max-w-3xl" data-in="">
+          <div className="max-w-3xl" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Två timmar. Så används de.</h2>
             <p className="mt-5 text-xl text-grafit">
               Utbildningen är effektiv, interaktiv och byggd för stora grupper. Antalet instruktörer anpassas efter hur
@@ -139,12 +139,12 @@ export default function EhlrEvent() {
 
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5" data-in="">
+          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5" data-in="sida">
             Efteråt: intyg till alla
           </h2>
           <div
             className="space-y-5 text-xl leading-relaxed text-monitor-dampad lg:col-span-7"
-            data-in=""
+            data-in="sida"
             style={{ ["--i" as string]: 1 }}
           >
             <p>

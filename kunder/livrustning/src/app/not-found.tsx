@@ -12,7 +12,7 @@ export default function HittadesInte() {
   return (
     <section className="monitor-hero">
       <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
-        <h1 className="max-w-3xl text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] font-bold">Ingen puls här.</h1>
+        <h1 className="max-w-3xl text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] font-bold">Ingen puls här</h1>
         <p className="mt-6 max-w-xl text-xl text-grafit">
           Sidan du letar efter finns inte, eller har flyttat när vi gjorde om hemsidan.
         </p>

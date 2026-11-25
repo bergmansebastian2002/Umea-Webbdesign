@@ -33,7 +33,9 @@ export default function Rorelse() {
         }
       },
       // threshold 0: höga block når aldrig en andel över noll annars.
-      { threshold: 0, rootMargin: "0px 0px -9% 0px" },
+      // Fönstret räknas som oändligt högt uppåt: det man hoppat förbi (End-tangenten,
+      // rullningslisten, ett ankare) visas då också, i stället för att förbli dolt.
+      { threshold: 0, rootMargin: "100000px 0px -9% 0px" },
     );
 
     const registrera = (el: Element) => {
@@ -48,7 +50,19 @@ export default function Rorelse() {
         } else visa(el);
       } else io.observe(el);
     };
-    const sok = (nod: ParentNode) => nod.querySelectorAll("[data-in]").forEach(registrera);
+    // Rullbandet med kundloggor vilar när det inte syns, så att webbläsaren
+    // slipper hålla det i rörelse medan man läser resten av sidan.
+    const vila = new IntersectionObserver(
+      (poster) => {
+        for (const p of poster) p.target.toggleAttribute("data-vilar", !p.isIntersecting);
+      },
+      { rootMargin: "120px 0px" },
+    );
+
+    const sok = (nod: ParentNode) => {
+      nod.querySelectorAll("[data-in]").forEach(registrera);
+      nod.querySelectorAll(".rullband").forEach((el) => vila.observe(el));
+    };
 
     sok(document);
     rot.classList.add("rorelse");
@@ -67,6 +81,7 @@ export default function Rorelse() {
 
     return () => {
       io.disconnect();
+      vila.disconnect();
       mo.disconnect();
       rot.classList.remove("rorelse");
     };

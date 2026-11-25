@@ -14,7 +14,7 @@ export default function Kvalitetspolicy() {
     <Policysida rubrik="Kvalitetspolicy" ingress="Ingår i Livrustning AB:s systematiska arbetsmiljöarbete.">
       <h2>Livrustning AB ska</h2>
       <ul>
-        <li>Leverera kundanpassade utbildningar inom HLR och Första Hjälpen.</li>
+        <li>Leverera kundanpassade utbildningar inom HLR och första hjälpen.</li>
         <li>Arbeta målinriktat och systematiskt med ständiga förbättringar för att öka kundtillfredsställelse och kundsäkerhet.</li>
         <li>Följa aktuella lagar, krav och utveckling som rör vår verksamhet.</li>
         <li>Arbeta mot tydliga mätbara kvalitetsmål som löpande följs upp.</li>
@@ -24,7 +24,7 @@ export default function Kvalitetspolicy() {
         </li>
         <li>Arbeta för att ständigt förbättra effektiviteten i ledningssystemet.</li>
         <li>
-          Bibehålla att ha Sveriges nöjdaste kursdeltagare i HLR och Första Hjälpen enligt den största oberoende
+          Bibehålla att ha Sveriges nöjdaste kursdeltagare i HLR och första hjälpen enligt den största oberoende
           rekommendationssajten Reco.se (i jämförelse med de företag som utbildar mest).
         </li>
         <li>Visa respekt, engagemang, omtanke och intresse i mötet med kund.</li>

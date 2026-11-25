@@ -11,7 +11,7 @@ import { foretag } from "@/lib/site";
 
 import bildEventStor from "@/bilder/ehlr-event-sal-stor.webp";
 import bildInstruktorStor from "@/bilder/instruktorsutbildning-skarp.webp";
-import bildTraning from "@/bilder/praktisk-traning.webp";
+import bildTraning from "@/bilder/praktisk-traning-stor.webp";
 import reco from "@/bilder/reco-5-ar-i-rad.webp";
 
 export const metadata = metadataFor({
@@ -143,7 +143,8 @@ function Bildkort({
             alt={alt}
             fill
             placeholder="blur"
-            sizes="(min-width: 1280px) 810px, (min-width: 1024px) 66vw, 100vw"
+            // Fotot beskärs (object-cover), så det behöver vara bredare än rutan.
+            sizes="(min-width: 1280px) 960px, (min-width: 1024px) 75vw, (min-width: 640px) 105vw, 140vw"
             className={`object-cover ${lage}`}
           />
           <div
@@ -154,7 +155,7 @@ function Bildkort({
           <div aria-hidden className="absolute inset-x-0 -bottom-0.5 hidden h-28 bg-linear-to-t from-monitor to-transparent lg:block" />
         </div>
         <div className="relative px-6 sm:px-10 lg:max-w-[min(40rem,50%)] lg:px-14 lg:py-14">
-          <div className="-mt-2 flex items-end gap-4 lg:mt-0" data-in="" style={{ ["--i" as string]: 3 }}>
+          <div className="-mt-2 flex items-end gap-4 lg:mt-0">
             <p className="siffror text-[5.5rem] leading-[0.8] font-bold tracking-[-0.04em] text-white" aria-hidden="true">
               {siffra}
               <span className="ml-1.5 text-[2.5rem] tracking-normal">{enhet}</span>
@@ -163,12 +164,10 @@ function Bildkort({
           </div>
           <h3
             className="mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] font-bold text-white"
-            data-in="rubrik"
-            style={{ ["--i" as string]: 4 }}
           >
             {rubrik}
           </h3>
-          <p className="mt-4 text-lg leading-relaxed text-monitor-dampad" data-in="" style={{ ["--i" as string]: 5 }}>
+          <p className="mt-4 text-lg leading-relaxed text-monitor-dampad">
             {text}
           </p>
         </div>
@@ -224,7 +223,7 @@ export default function Startsida() {
             <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold" data-in="rubrik">
               Två vägar till en tryggare arbetsplats
             </h2>
-            <p className="mt-5 text-xl text-grafit" data-in="" style={{ ["--i" as string]: 2 }}>
+            <p className="mt-5 text-xl text-grafit" data-in="sida" style={{ ["--i" as string]: 1 }}>
               Utbilda digitalt när det passar er, eller samla alla på plats i två timmar.
             </p>
           </div>
@@ -346,7 +345,7 @@ export default function Startsida() {
       {/* Reco-märket: på ett enda ställe, stort nog att faktiskt läsas. */}
       <section className="border-t border-black/10 bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 md:grid-cols-12 lg:px-8 lg:py-28">
-          <div className="md:col-span-5" data-in="vanster">
+          <div className="md:col-span-5" data-in="sida">
             <a
               href={foretag.reco}
               target="_blank"
@@ -361,7 +360,7 @@ export default function Startsida() {
               />
             </a>
           </div>
-          <div className="md:col-span-7" data-in="hoger">
+          <div className="md:col-span-7" data-in="sida-hoger">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold">
               Rekommenderade av kursdeltagarna. Fem år i rad.
             </h2>
@@ -438,7 +437,7 @@ export default function Startsida() {
             alt="En deltagare gör hjärt-lungräddning på en övningsdocka medan en annan förbereder träningshjärtstartaren och instruktören tittar på"
             fill
             placeholder="blur"
-            sizes="(min-width: 1024px) 57vw, 100vw"
+            sizes="(min-width: 1024px) 68vw, 115vw"
             className="object-cover object-[50%_45%]"
           />
           <div
@@ -451,7 +450,7 @@ export default function Startsida() {
             <h2 className="text-[clamp(2.1rem,4.6vw,3.75rem)] leading-[1.02] font-bold text-white" data-in="rubrik">
               Praktisk träning ger trygghet
             </h2>
-            <p className="mt-6 text-xl leading-relaxed text-monitor-dampad" data-in="" style={{ ["--i" as string]: 2 }}>
+            <p className="mt-6 text-xl leading-relaxed text-monitor-dampad" data-in="sida" style={{ ["--i" as string]: 1 }}>
               Praktisk träning är kärnan i våra utbildningar. Du tränar med en egen övningsdocka och en
               träningshjärtstartare tills handgreppen sitter i muskelminnet. Då kan du agera snabbt och tryggt när det
               verkligen gäller.
