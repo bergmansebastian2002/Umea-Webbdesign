@@ -43,6 +43,8 @@ const RENA = {
   "hjartstartarpaket-kontor.jpg": "hjartstartarpaket-kontor",
   // Levererad av Sebbe 2026-11-24 (AI-bild, grönt utomhusskåp på husfasad).
   "hjartstartarpaket-utomhus.webp": "hjartstartarpaket-utomhus",
+  // Levererad av Sebbe 2026-11-25 (AI-bild: tre deltagare och instruktör övar HLR med hjärtstartare).
+  "ehlr-traning-kontor.webp": "ehlr-traning-kontor",
   "johnny-sundin.png": "johnny-sundin",
   // Kundens två kursfoton (640 px breda), uppskalade 4x med Real-ESRGAN och
   // efterbehandlade (ljus, färg, kontrast) 2026-11-20. Originalen ligger kvar
