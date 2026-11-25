@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   // Helt statisk sajt. Alla bilder ligger lokalt i src/bilder.
   images: {
     formats: ["image/avif", "image/webp"],
-    qualities: [75],
+    // 85 i stället för 75: fotona visas stort och ska vara skarpa.
+    qualities: [85],
   },
   async redirects() {
     // Adresser från gamla Wix-sajten, så att gamla länkar och sökträffar fungerar.

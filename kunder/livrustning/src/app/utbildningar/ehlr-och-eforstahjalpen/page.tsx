@@ -65,7 +65,7 @@ export default function Digitalt() {
         ]}
         rubrik={
           <span className="block text-[clamp(2.1rem,4.7vw,3.75rem)] leading-[1.02]">
-            Digitala utbildningar med praktisk träning i HLR med hjärtstartare och Första Hjälpen
+            Digitala utbildningar med praktisk träning i HLR med hjärtstartare och första hjälpen
           </span>
         }
         ingress={
@@ -94,7 +94,7 @@ export default function Digitalt() {
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="rubrik">
               Halvera kostnaden, maximera tiden
             </h2>
-            <p className="mt-5 text-xl leading-relaxed text-grafit" data-in="" style={{ ["--i" as string]: 2 }}>
+            <p className="mt-5 text-xl leading-relaxed text-grafit" data-in="sida" style={{ ["--i" as string]: 1 }}>
               Upp till 70 % billigare och 70 % kortare kurstid än traditionella utbildningar.
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function Digitalt() {
       {/* De två utbildningarna var för sig. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
-          <h2 className="max-w-2xl text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="">
+          <h2 className="max-w-2xl text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="sida">
             Två utbildningar att välja mellan
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-x-16 md:grid-cols-2">
@@ -139,7 +139,7 @@ export default function Digitalt() {
 
       <section className="bg-papper">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]" data-in="">
+          <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]" data-in="sida">
             Passar något annat bättre?
           </h2>
           <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">
@@ -162,7 +162,7 @@ export default function Digitalt() {
       </section>
 
       <Avslut
-        rubrik="Vill ni veta mer om konceptet Trygga Arbetsplatsen – eHLR och eFörstaHjälpen?"
+        rubrik="Vill ni veta mer om konceptet Trygga arbetsplatsen – eHLR och eFörstaHjälpen?"
         text="Kontakta oss så skickar vi direkt en fördelaktig offert."
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(kursSchema("ehlr-och-eforstahjalpen", BESKRIVNING))} />

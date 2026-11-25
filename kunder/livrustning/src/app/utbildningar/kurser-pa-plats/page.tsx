@@ -21,7 +21,7 @@ export const metadata = metadataFor({
 
 const kurser = [
   { namn: "HLR med hjärtstartare", tid: "2 tim", max: 12 },
-  { namn: "HLR med hjärtstartare och Första hjälpen", tid: "3 tim", max: 12 },
+  { namn: "HLR med hjärtstartare och första hjälpen", tid: "3 tim", max: 12 },
   { namn: "Brand", tid: "4 tim", max: 20 },
 ];
 
@@ -34,7 +34,7 @@ export default function KurserPaPlats() {
           { namn: "Kurser på plats", href: "/utbildningar/kurser-pa-plats" },
         ]}
         rubrik="Traditionell kurs – hos er"
-        ingress="Vill ni ha traditionella kurser? Våra instruktörer kommer gärna till er när det passar er verksamhet, var som helst i Sverige. Vi utbildar i Vuxen-HLR, Barn-HLR, Första Hjälpen och brand."
+        ingress="Vill ni ha traditionella kurser? Våra instruktörer kommer gärna till er när det passar er verksamhet, var som helst i Sverige. Vi utbildar i vuxen-HLR, barn-HLR, första hjälpen och brand."
       >
         <div className="mt-9">
           <OffertKnapp galler="Traditionell kurs på plats" />
@@ -43,7 +43,7 @@ export default function KurserPaPlats() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-7" data-in="">
+          <div className="lg:col-span-7" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Små grupper</h2>
             <div className="mt-6 max-w-2xl space-y-5 text-lg leading-relaxed text-grafit lg:text-xl lg:leading-relaxed">
               <p>
@@ -85,7 +85,7 @@ export default function KurserPaPlats() {
                 alt="Instruktör leder en grupp som tränar HLR på halvkroppsdockor"
                 fill
                 placeholder="blur"
-                sizes="(min-width: 1024px) 235px, 50vw"
+                sizes="(min-width: 1024px) 310px, 67vw"
                 className="object-cover object-[58%_50%]"
               />
             </div>
@@ -96,13 +96,13 @@ export default function KurserPaPlats() {
       {/* Kurserna som tidtabell på mörk botten. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <div className="lg:col-span-4" data-in="">
+          <div className="lg:col-span-4" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Kurs, tid och gruppstorlek</h2>
             <p className="mt-5 text-xl text-monitor-dampad">
               Allt kursinnehåll följer gällande lagstiftning och Svenska HLR-rådets riktlinjer.
             </p>
           </div>
-          <div className="lg:col-span-8" data-in="" style={{ ["--i" as string]: 1 }}>
+          <div className="lg:col-span-8" data-in="sida" style={{ ["--i" as string]: 1 }}>
             <table className="w-full text-left">
               <caption className="sr-only">Kurser, kurstid och högsta antal deltagare per kurstillfälle</caption>
               <thead>

@@ -80,7 +80,7 @@ export default function Sakerhetsdag() {
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
           <div className="lg:col-span-5">
-            <div data-in="">
+            <div data-in="sida">
               <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">
                 Ett fartfyllt upplägg med maximerad träning
               </h2>
@@ -129,7 +129,7 @@ export default function Sakerhetsdag() {
       {/* Schemat som tidtabell på mörk botten. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-5" data-in="">
+          <div className="lg:col-span-5" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Dagen, minut för minut</h2>
             <p className="mt-5 text-xl text-monitor-dampad">
               Fyra pass om 45 minuter, med fika i mitten. Fem minuters förflyttning mellan passen är inräknad.

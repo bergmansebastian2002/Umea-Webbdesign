@@ -4,7 +4,7 @@ import { foretag, mejl } from "@/lib/site";
 
 export const metadata = metadataFor({
   titel: "Integritetspolicy",
-  beskrivning: "Så behandlar Livrustning AB dina personuppgifter när du besöker webbplatsen, kontaktar oss eller går en utbildning.",
+  beskrivning: "Så behandlar Nice To Be Alive AB dina personuppgifter när du besöker webbplatsen, kontaktar oss eller går en utbildning.",
   sokvag: "/integritetspolicy",
 });
 

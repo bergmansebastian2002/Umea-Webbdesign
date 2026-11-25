@@ -82,15 +82,15 @@ export const utbildningar: Utbildning[] = [
     slug: "sakerhetsdag",
     namn: "Säkerhetsdag (Halvdag)",
     menynamn: "Säkerhetsdag",
-    menytext: "En halvdag för hela personalen med praktiska stationer i brand, HLR och Första hjälpen.",
-    pitch: "Utbilda hela personalen effektivt genom praktiska stationer inom brand, HLR och Första hjälpen.",
+    menytext: "En halvdag för hela personalen med praktiska stationer i brand, HLR och första hjälpen.",
+    pitch: "Utbilda hela personalen effektivt genom praktiska stationer inom brand, HLR och första hjälpen.",
     href: "/utbildningar/sakerhetsdag",
     amne: amnen.sakerhetsdag,
     lanktext: "Läs mer och beställ offert här",
     korthet: {
       passar: "Alla företag som vill samla hela personalen under en gemensam säkerhetsdag.",
       upplagg:
-        "Vi anpassar antalet instruktörer efter er gruppstorlek och varvar praktiska stationer med fokus på brand, HLR och Första hjälpen.",
+        "Vi anpassar antalet instruktörer efter er gruppstorlek och varvar praktiska stationer med fokus på brand, HLR och första hjälpen.",
       fordel: "Inget tak för antal deltagare. Perfekt för att skapa ett starkt, gemensamt säkerhetstänk på företaget.",
     },
   },
@@ -98,8 +98,8 @@ export const utbildningar: Utbildning[] = [
     slug: "kurser-pa-plats",
     namn: "Traditionella kurser på plats",
     menynamn: "Kurser på plats",
-    menytext: "Vuxen-HLR, Barn-HLR, Första hjälpen och brandskydd, anpassat efter er.",
-    pitch: "Traditionella och anpassade kurser i vuxen-HLR, Barn-HLR, Första hjälpen och brandskydd.",
+    menytext: "Vuxen-HLR, barn-HLR, första hjälpen och brandskydd, anpassat efter er.",
+    pitch: "Traditionella och anpassade kurser i vuxen-HLR, barn-HLR, första hjälpen och brandskydd.",
     href: "/utbildningar/kurser-pa-plats",
     amne: amnen.kurs,
     lanktext: "Läs mer och boka traditionell kurs här",
@@ -108,7 +108,7 @@ export const utbildningar: Utbildning[] = [
       upplagg:
         "Vi kommer till er arbetsplats, var som helst i Sverige. Max 12 deltagare per instruktör, och flera grupper kan utbildas parallellt eller efter varandra under samma dag.",
       fordel:
-        "Ett tryggt och engagerande sätt att se till att upp till 100 % av personalen får aktuella kunskaper i HLR och Första hjälpen.",
+        "Ett tryggt och engagerande sätt att se till att upp till 100 % av personalen får aktuella kunskaper i HLR och första hjälpen.",
     },
   },
   {
@@ -168,9 +168,9 @@ export const utbildningar: Utbildning[] = [
     slug: "instruktorskurser",
     namn: "Instruktörsutbildningar",
     menynamn: "Instruktörsutbildning",
-    menytext: "Bli instruktör i HLR och Första hjälpen och lär ut till kollegor, elever eller medlemmar.",
+    menytext: "Bli instruktör i HLR och första hjälpen och lär ut till kollegor, elever eller medlemmar.",
     pitch:
-      "Bli instruktör i HLR och Första hjälpen. Du får behörighet och kunskap som gör dig redo att lära ut HLR och öva dina kollegor, elever eller medlemmar.",
+      "Bli instruktör i HLR och första hjälpen. Du får behörighet och kunskap som gör dig redo att lära ut HLR och öva dina kollegor, elever eller medlemmar.",
     href: "/utbildningar/instruktorskurser",
     amne: amnen.instruktor,
     lanktext: "Läs mer om instruktörsutbildningarna",

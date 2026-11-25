@@ -19,7 +19,7 @@ export default function Logo({
       <Image
         src={botten === "ljus" ? loggaLjus : loggaMork}
         alt="Nice To Be Alive"
-        sizes="(min-width: 1024px) 160px, 136px"
+        sizes="176px"
         priority={prioritet}
         className="h-auto w-full"
       />

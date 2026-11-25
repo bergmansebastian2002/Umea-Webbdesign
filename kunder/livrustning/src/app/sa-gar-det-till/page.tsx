@@ -4,7 +4,7 @@ import { Avslut, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { metadataFor } from "@/lib/seo";
 
-import bildHero from "@/bilder/instruktorsutbildning-skarp.webp";
+import bildHero from "@/bilder/instruktorsutbildning-staende.webp";
 
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
@@ -63,7 +63,7 @@ export default function SaGarDetTill() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pt-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-8">
             <h1 className="text-[clamp(2.9rem,5.6vw,4.75rem)] leading-[0.95] font-bold tracking-[-0.035em]">
-              Gör hela personalen till livräddare.
+              Gör hela personalen till livräddare
             </h1>
             <p className="mt-7 max-w-xl text-xl leading-relaxed text-grafit lg:text-2xl lg:leading-relaxed">
               Utbildning i HLR, första hjälpen och brand. Vi kommer till er och utbildar alla på två eller fyra
@@ -79,8 +79,8 @@ export default function SaGarDetTill() {
                 fill
                 priority
                 placeholder="blur"
-                sizes="(min-width: 1024px) 480px, 100vw"
-                className="object-cover object-[36%_50%]"
+                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 31vw, 100vw"
+                className="object-cover"
               />
             </div>
           </div>
@@ -109,16 +109,16 @@ export default function SaGarDetTill() {
 
       <section className="bg-papper-djup">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-4">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Bra att veta.</h2>
+          <div className="lg:col-span-4" data-in="sida">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Bra att veta</h2>
             <p className="mt-5 text-xl text-grafit">Svar på det vi oftast får frågor om.</p>
             <p className="mt-8">
               <PilLank href="/utbildningar">Jämför utbildningarna</PilLank>
             </p>
           </div>
           <dl className="divide-y divide-black/10 border-y border-black/10 lg:col-span-8">
-            {fragor.map((f) => (
-              <div key={f.fraga} className="grid grid-cols-1 gap-2 py-7 md:grid-cols-[16rem_1fr] md:gap-8">
+            {fragor.map((f, i) => (
+              <div key={f.fraga} className="grid grid-cols-1 gap-2 py-7 md:grid-cols-[16rem_1fr] md:gap-8" data-in="" style={{ ["--i" as string]: Math.min(i, 3) }}>
                 <dt className="text-xl font-bold">{f.fraga}</dt>
                 <dd className="text-lg text-grafit">{f.svar}</dd>
               </div>

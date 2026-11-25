@@ -34,7 +34,7 @@ export default function HjartsakerZon() {
   return (
     <>
       <Sidrubrik
-        rubrik="Bli en Hjärtsäker zon."
+        rubrik="Bli en Hjärtsäker zon"
         ingress="Svensk standard SS 280000 beskriver vad som krävs för att en arbetsplats ska vara så hjärtsäker som möjligt. Vi hjälper er hela vägen dit."
       >
         <div className="mt-9">
@@ -44,15 +44,15 @@ export default function HjartsakerZon() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Tre minuter gör skillnaden.</h2>
+          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-in="sida">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Tre minuter gör skillnaden</h2>
             <p className="mt-5 text-xl leading-relaxed text-grafit">
               En Hjärtsäker zon skapar trygghet för medarbetare, kunder och besökare, och visar att ni tar ansvar för er
               arbetsmiljö.
             </p>
           </div>
           <div className="lg:col-span-7">
-            <div className="monitor-rutor overflow-hidden rounded-2xl p-8 text-monitor-text lg:p-12">
+            <div className="monitor-rutor overflow-hidden rounded-2xl p-8 text-monitor-text lg:p-12" data-in="" style={{ ["--i" as string]: 1 }}>
               <p className="siffror text-[clamp(4.5rem,10vw,6rem)] leading-[0.85] font-bold tracking-[-0.04em] text-white">
                 3 min
               </p>
@@ -61,10 +61,10 @@ export default function HjartsakerZon() {
                 Så snabbt ska en person med hjärtstopp kunna få behandling med hjärtstartare i en Hjärtsäker zon.
               </p>
             </div>
-            <h3 className="mt-12 text-2xl font-bold">Det här kräver standarden också</h3>
+            <h3 className="mt-12 text-2xl font-bold" data-in="sida">Det här kräver standarden också</h3>
             <ul className="mt-4 divide-y divide-black/10 border-y border-black/10">
-              {krav.map((k) => (
-                <li key={k} className="flex items-baseline gap-4 py-4 text-lg">
+              {krav.map((k, i) => (
+                <li key={k} className="flex items-baseline gap-4 py-4 text-lg" data-in="" style={{ ["--i" as string]: i }}>
                   <Slag className="size-5 shrink-0 translate-y-1 text-magenta" />
                   {k}
                 </li>
@@ -77,14 +77,14 @@ export default function HjartsakerZon() {
       <section className="bg-papper-djup">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-              <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Så hjälper vi er.</h2>
+            <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start" data-in="sida">
+              <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Så hjälper vi er</h2>
               <p className="mt-5 text-xl leading-relaxed text-grafit">Från utbildning till diplom, hela vägen.</p>
             </div>
             <div className="lg:col-span-7">
               <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-                {hjalp.map((h) => (
-                  <div key={h.rubrik} className="border-t border-black/15 py-6">
+                {hjalp.map((h, i) => (
+                  <div key={h.rubrik} className="border-t border-black/15 py-6" data-in="" style={{ ["--i" as string]: i % 2 }}>
                     <dt className="text-xl font-bold">{h.rubrik}</dt>
                     <dd className="mt-2 text-grafit">{h.text}</dd>
                   </div>

@@ -58,7 +58,7 @@ export default function OmOss() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="space-y-5 text-xl leading-relaxed text-grafit lg:col-span-5" data-in="vanster">
+          <div className="space-y-5 text-xl leading-relaxed text-grafit lg:col-span-5" data-in="sida">
             <h2 className="pb-2 text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold text-black">
               Över 25 år av livräddande utbildning
             </h2>
@@ -92,7 +92,7 @@ export default function OmOss() {
       {/* Varför välja oss: fyra skäl, med kundens egna ord. */}
       <section className="border-t border-black/10 bg-papper-djup">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-4" data-in="">
+          <div className="lg:col-span-4" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Varför välja oss?</h2>
             <p className="mt-5 text-xl leading-relaxed text-grafit">
               Under flera år har vi haft äran att ha Sveriges nöjdaste kursdeltagare enligt Reco.se.
@@ -113,8 +113,8 @@ export default function OmOss() {
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
           <h2 className="sr-only">Nice To Be Alive i korthet</h2>
           <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-            {fakta.map((f) => (
-              <div key={f.etikett} className="border-t border-white/15 py-6">
+            {fakta.map((f, i) => (
+              <div key={f.etikett} className="border-t border-white/15 py-6" data-in="" style={{ ["--i" as string]: i % 3 }}>
                 <dt className="text-sm text-monitor-dampad">{f.etikett}</dt>
                 <dd className="mt-1 text-2xl font-bold lg:text-3xl">{f.varde}</dd>
               </div>
@@ -126,7 +126,7 @@ export default function OmOss() {
       <section className="bg-papper">
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl" data-in="sida">
               <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Från våra kurser</h2>
               <p className="mt-5 text-xl text-grafit">
                 Kontor, skolor och museer. Följ oss för fler bilder från vardagen som instruktörer.
@@ -144,15 +144,15 @@ export default function OmOss() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2" data-in="">
             <div className="foto relative col-span-2 row-span-2 aspect-square md:aspect-auto">
-              <Image src={bildGrupp} alt="Kursdeltagare med övningsdockor efter en HLR-utbildning" fill placeholder="blur" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+              <Image src={bildGrupp} alt="Kursdeltagare med övningsdockor efter en HLR-utbildning" fill placeholder="blur" sizes="(min-width: 1280px) 820px, (min-width: 768px) 67vw, 134vw" className="object-cover" />
             </div>
             <div className="foto relative aspect-square">
               <Image src={bildSkola} alt="Lärare övar HLR med hjärtstartare i ett klassrum" fill placeholder="blur" sizes="(min-width: 768px) 25vw, 50vw" className="object-cover" />
             </div>
             <div className="foto relative aspect-square">
-              <Image src={bildPar} alt="Två deltagare övar HLR på dockor" fill placeholder="blur" sizes="(min-width: 768px) 25vw, 50vw" className="object-cover" />
+              <Image src={bildPar} alt="Två deltagare övar HLR på dockor" fill placeholder="blur" sizes="(min-width: 768px) 34vw, 67vw" className="object-cover" />
             </div>
             <div className="foto relative aspect-square">
               <Image src={bildGenomgang} alt="Grupp som övar HLR framför en whiteboard" fill placeholder="blur" sizes="(min-width: 768px) 25vw, 50vw" className="object-cover object-[50%_65%]" />

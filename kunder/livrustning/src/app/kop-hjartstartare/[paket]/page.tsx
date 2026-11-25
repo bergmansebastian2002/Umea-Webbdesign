@@ -49,7 +49,7 @@ export default async function Paketsida({ params }: { params: Promise<{ paket: s
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
           <div className="lg:col-span-7">
-            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="">
+            <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold" data-in="sida">
               Det här ingår
             </h2>
             <ul className="mt-8 border-b border-black/10">
@@ -98,10 +98,10 @@ export default async function Paketsida({ params }: { params: Promise<{ paket: s
       {/* Utbildningen som följer med paketet. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <div className="lg:col-span-5" data-in="">
+          <div className="lg:col-span-5" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Utbildning ingår: {p.utbildning.namn}</h2>
           </div>
-          <div className="lg:col-span-7" data-in="" style={{ ["--i" as string]: 1 }}>
+          <div className="lg:col-span-7" data-in="sida" style={{ ["--i" as string]: 1 }}>
             <p className="siffror text-2xl font-bold text-magenta-ljus">{p.utbildning.licens}</p>
             <p className="mt-4 text-xl leading-relaxed text-monitor-dampad">{p.utbildning.text}</p>
           </div>
@@ -110,7 +110,7 @@ export default async function Paketsida({ params }: { params: Promise<{ paket: s
 
       <section className="border-b border-black/10 bg-papper">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]" data-in="">
+          <h2 className="text-3xl leading-tight font-bold lg:text-[2.25rem]" data-in="sida">
             Fler hjärtstartarpaket
           </h2>
           <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">

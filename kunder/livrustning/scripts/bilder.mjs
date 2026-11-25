@@ -96,12 +96,34 @@ async function tona(namn, utnamn) {
 // Startsidans avslutande bild (2026-11-20): AI-förbättrad version av kursbilden
 // hlr-ovning, levererad som skiss med rubrik och text inbrända till vänster.
 // Bara den textfria högra delen används (nästan exakt 4:3). Ograderad.
+// Utsnittet är bara 1078 px brett men visas över halva skärmen: det skalas upp
+// med Lanczos och skärps lätt (som STORA nedan), så att webbläsaren slipper
+// förstora det själv. Nytt filnamn 2026-11-25 (cache per URL).
 async function praktiskTraning() {
-  const { width, height } = await sharp(`${IN}/praktisk-traning-med-text.webp`)
+  const utsnitt = await sharp(`${IN}/praktisk-traning-med-text.webp`)
     .extract({ left: 880, top: 0, width: 1078, height: 803 })
-    .webp({ quality: 88 })
-    .toFile(`${OUT}/praktisk-traning.webp`);
-  console.log(`ren   praktisk-traning.webp  ${width}x${height}`);
+    .toBuffer();
+  const { width, height } = await sharp(utsnitt)
+    .resize({ width: 2200, kernel: "lanczos3" })
+    .sharpen({ sigma: 0.7, m1: 0.6, m2: 1.4 })
+    .webp({ quality: 90 })
+    .toFile(`${OUT}/praktisk-traning-stor.webp`);
+  console.log(`stor  praktisk-traning-stor.webp  ${width}x${height}`);
+}
+
+// Toppbilden på Så går det till visas stående (4:5). Utsnittet görs här ur den
+// AI-uppskalade originalbilden, så att webbläsaren får en fil i rätt form och
+// rätt storlek i stället för att förstora en liggande bild.
+async function instruktorPortratt() {
+  const meta = await sharp(`${IN}/instruktorsutbildning-ai.jpg`).metadata();
+  const bredd = Math.round(meta.height * 0.8);
+  const { width, height } = await sharp(`${IN}/instruktorsutbildning-ai.jpg`)
+    .extract({ left: Math.round((meta.width - bredd) * 0.36), top: 0, width: bredd, height: meta.height })
+    .resize({ width: 1200, kernel: "lanczos3" })
+    .sharpen({ sigma: 0.6, m1: 0.5, m2: 1.2 })
+    .webp({ quality: 90 })
+    .toFile(`${OUT}/instruktorsutbildning-staende.webp`);
+  console.log(`ren   instruktorsutbildning-staende.webp  ${width}x${height}`);
 }
 
 async function ren(fil, utnamn) {
@@ -258,6 +280,7 @@ for (const [namn, utnamn] of Object.entries(FOTON)) await tona(namn, utnamn);
 for (const [fil, utnamn] of Object.entries(RENA)) await ren(fil, utnamn);
 for (const [fil, utnamn] of Object.entries(STORA)) await stor(fil, utnamn);
 await praktiskTraning();
+await instruktorPortratt();
 await mkdir(`${OUT}/kunder`, { recursive: true });
 for (const fil of KUNDLOGGOR) await kundlogga(fil);
 await loggor();

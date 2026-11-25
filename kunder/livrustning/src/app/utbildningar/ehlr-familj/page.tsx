@@ -49,7 +49,7 @@ export default function EhlrFamilj() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-28">
-          <div className="lg:col-span-6" data-in="vanster">
+          <div className="lg:col-span-6" data-in="sida">
             <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold">Trygghet i vardagen</h2>
             {u.korthet && <Korthet {...u.korthet} className="mt-8 text-lg" />}
           </div>
@@ -60,7 +60,7 @@ export default function EhlrFamilj() {
                 alt="Hjärtstartare på en bänk i hallen i ett svenskt hem"
                 fill
                 placeholder="blur"
-                sizes="(min-width: 1024px) 340px, 60vw"
+                sizes="(min-width: 1024px) 430px, 75vw"
                 className="object-cover object-[58%_50%]"
               />
             </div>
@@ -70,7 +70,7 @@ export default function EhlrFamilj() {
                 alt="Hjärtstartare på en bänk i hallen i ett hus i Spanien"
                 fill
                 placeholder="blur"
-                sizes="(min-width: 1024px) 230px, 40vw"
+                sizes="(min-width: 1024px) 300px, 54vw"
                 className="object-cover object-[78%_50%]"
               />
             </div>
@@ -81,10 +81,10 @@ export default function EhlrFamilj() {
       {/* eHLR-Familj som personalförmån, med kundens egen beskrivning från startsidan. */}
       <section className="bg-monitor text-monitor-text">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 py-20 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
-          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5" data-in="">
+          <h2 className="text-[clamp(2.1rem,4.6vw,3.5rem)] leading-[1.02] font-bold lg:col-span-5" data-in="sida">
             Också en förmån till medarbetarna
           </h2>
-          <div className="lg:col-span-7" data-in="" style={{ ["--i" as string]: 1 }}>
+          <div className="lg:col-span-7" data-in="sida" style={{ ["--i" as string]: 1 }}>
             <p className="text-xl leading-relaxed text-monitor-dampad">
               eHLR-Familj är en digital kurs som medarbetarna får ta med sig hem som en förmån. Hela familjen lär sig
               vad man gör när ett barn eller en vuxen sätter något i halsen eller drabbas av hjärtstopp, och de tränar
