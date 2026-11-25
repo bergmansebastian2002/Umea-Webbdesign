@@ -197,6 +197,7 @@ export function Avslut({
   text = "Mejla eller ring och berätta vilken utbildning ni är intresserad av, var ni finns och ungefär hur många ni är.",
   live = true,
   mork = true,
+  ekg = true,
   galler,
 }: {
   rubrik?: string;
@@ -205,6 +206,8 @@ export function Avslut({
   live?: boolean;
   /** Mörk monitorbotten med lysande puls (standard). `mork={false}` ger rosa EKG-papper. */
   mork?: boolean;
+  /** EKG-kurvan mellan texten och kontaktraden. */
+  ekg?: boolean;
   /** Visar en Begär offert-knapp som leder till formuläret. */
   galler?: string;
 }) {
@@ -230,7 +233,9 @@ export function Avslut({
             {text}
           </p>
         </div>
-        <Ekg puls live={live} slag={[0.3, 0.75]} hojd={72} className={`mt-10 max-w-4xl ${mork ? "ekg-monitor" : ""}`} />
+        {ekg && (
+          <Ekg puls live={live} slag={[0.3, 0.75]} hojd={72} className={`mt-10 max-w-4xl ${mork ? "ekg-monitor" : ""}`} />
+        )}
         <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:gap-10" data-in="">
           {galler && <OffertKnapp galler={galler} className="self-start" />}
           <p className={`text-xl ${mork ? "text-monitor-dampad" : "text-grafit"}`}>

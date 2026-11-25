@@ -4,9 +4,8 @@ import { Avslut, PilLank } from "@/components/Block";
 import Ekg from "@/components/Ekg";
 import { metadataFor } from "@/lib/seo";
 
-import bildGrupp from "@/bilder/grupp-dockor.webp";
-import bildGenomgang from "@/bilder/grupp-genomgang.webp";
 import bildHero from "@/bilder/instruktorsutbildning-skarp.webp";
+
 export const metadata = metadataFor({
   titel: "Så går det till - från första mejlet till färdig utbildning",
   beskrivning:
@@ -18,26 +17,18 @@ const steg = [
   {
     rubrik: "Ni hör av er",
     text: "Mejla eller ring. Berätta ungefär hur många ni är, var ni finns och när det skulle passa.",
-    bild: null,
-    alt: "",
   },
   {
     rubrik: "Ni får en offert",
     text: "Utbildningarna anpassas efter hur många som ska utbildas och var i Sverige ni finns. Därför får ni alltid en offert med ett tydligt förslag på upplägg.",
-    bild: null,
-    alt: "",
   },
   {
     rubrik: "Vi kommer till er",
     text: "Instruktörerna kommer till er arbetsplats på det datum ni valt. Ni ordnar en lokal, och en storskärm om ni valt Säkerhetsdag eller eHLR-Event.",
-    bild: bildGenomgang,
-    alt: "Grupp som övar HLR på dockor framför en whiteboard",
   },
   {
     rubrik: "Alla övar på riktigt",
     text: "Kort teori, mycket praktik på dockor och träningshjärtstartare. Efter eHLR-Event gör deltagarna ett digitalt slutprov och får ett personligt intyg.",
-    bild: bildGrupp,
-    alt: "Glada kursdeltagare med övningsdockor efter avslutad utbildning",
   },
 ];
 
@@ -104,22 +95,13 @@ export default function SaGarDetTill() {
               // Varje steg glider in från sidan, växelvis vänster och höger, som rutorna på startsidan.
               data-in={i % 2 === 0 ? "fran-vanster" : "fran-hoger"}
               data-in-alltid=""
-              className="grid grid-cols-1 gap-8 border-b border-black/10 py-12 last:border-b-0 md:grid-cols-12 md:items-center md:gap-12 lg:py-16"
+              className="border-b border-black/10 py-12 last:border-b-0 lg:py-16"
             >
-              <div className={s.bild ? `md:col-span-6 ${i % 2 === 1 ? "md:order-2" : ""}` : "md:col-span-8"}>
-                <h2 className="flex items-baseline gap-4 text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold">
-                  <span className="siffror text-grafit">{i + 1}</span>
-                  {s.rubrik}
-                </h2>
-                <p className="mt-4 max-w-lg text-xl leading-relaxed text-grafit">{s.text}</p>
-              </div>
-              {s.bild && (
-                <div className={`md:col-span-6 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="foto relative aspect-[4/3]">
-                    <Image src={s.bild} alt={s.alt} fill placeholder="blur" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-                  </div>
-                </div>
-              )}
+              <h2 className="flex items-baseline gap-4 text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold">
+                <span className="siffror text-grafit">{i + 1}</span>
+                {s.rubrik}
+              </h2>
+              <p className="mt-4 max-w-lg text-xl leading-relaxed text-grafit">{s.text}</p>
             </li>
           ))}
         </ol>
@@ -145,7 +127,7 @@ export default function SaGarDetTill() {
         </div>
       </section>
 
-      <Avslut />
+      <Avslut ekg={false} />
     </>
   );
 }
